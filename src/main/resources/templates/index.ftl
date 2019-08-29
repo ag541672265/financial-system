@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
@@ -24,10 +25,40 @@
         <a href="kefu.html" class="dh">在线客服</a>
         <a href="help.html" class="dh">帮助中心</a>
         <a href="xinshou.html" class="dh">新手指引</a>
+=======
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>汇添金</title>
+<meta name="keywords" content="汇添金" />
+<meta name="description" content="汇添金" />
+<link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"/>
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="stylesheet" href="css/index.css"/>
+<link href="css/iconfont/RjdaoIcon.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+</head>
+
+<body>
+
+<!----header s---->
+<div class="topnav">
+	<div class="mainw w">
+    <div class="l-txt">欢迎致电：400-8800-379 &nbsp;&nbsp; 服务时间：08:30-18:30（工作日）</div>
+    <#--<div class="wapbut">
+   	  <span>手机端</span><i class="icon-0198"></i>
+    	<div class="qrc"><img src="images/qrc.png"></div>
+    </div>-->
+    <a href="kefu.html" class="dh">在线客服</a>
+    <a href="help.html" class="dh">帮助中心</a>
+    <#--<a href="xinshou.html" class="dh">新手指引</a>-->
+>>>>>>> origin/master
     </div>
 </div>
 
 <header class="w">
+<<<<<<< HEAD
     <a href="index.html" class="logo"><img src="images/logo.png"></a>
     <a href="register.html" class="topbut">注册</a>
     <a href="/toLogin" class="topbut-cur">登录</a>
@@ -37,6 +68,18 @@
         <a href="touzi_list.html">投资理财</a>
         <a href="service.html">项目支持</a>
         <a href="news_list.html">信息披露</a>
+=======
+    <#--logo图片-->
+	<a href="index.html" class="logo"><img src="/images/logo.png" alt="汇添金logo图片"></a>
+    <a href="register.html" class="topbut">注册</a>
+    <a href="login.html" class="topbut-cur">登录</a>
+    <nav>
+    	<a href="index.html" class="cur">首页</a>
+        <a href="about.html">基金投资</a>
+        <a href="touzi_list.html">理财产品</a>
+        <a href="service.html">保单保险</a>
+        <a href="news_list.html">汇金红</a>
+>>>>>>> origin/master
     </nav>
 </header>
 <!----header e---->
@@ -45,6 +88,7 @@
 
 
 <!--focus start-->
+<<<<<<< HEAD
 <div class="focus" id="focus">
 
     <div class="login_box w">
@@ -66,29 +110,69 @@
     </div>
     <a href="javascript:;" class="focus_l" id="focus_l" hidefocus="true" title="上一张"><b></b><span></span></a>
     <a href="javascript:;" class="focus_r" id="focus_r" hidefocus="true" title="下一张"><b></b><span></span></a>
+=======
+<#--变动使用jquery修改-->
+<div class="focus" id="focus">
+	
+    <div class="login_box w">
+		<div class="login">
+        	<div class="title">汇金红</div>
+            <div class="nllv">3.351%</div>
+            <div class="txt">月盈利率</div>
+            <a onclick="shoenlistDiv(this)" pronum="7" class="jiabut">立即申请</a>
+            <div class="txt" style="margin-top:20px;color:#333;">汇添金为您推荐产品</div>
+		</div>
+	</div>
+
+    <#--滚动图片-->
+	<div id="focus_m" class="focus_m">
+		<ul>
+			<li class="li_1" style="background:url(images/picc3.jpg) center 0 no-repeat #288cc0;"><a href="#" hidefocus="true"></a></li>
+			<li class="li_2" style="background:url(images/2.jpg) center 0 no-repeat #76b7d8;"><a href="#" hidefocus="true"></a></li>
+			<li class="li_3" style="background:url(images/3.jpg) center 0 no-repeat #bb3838;"><a href="#" hidefocus="true"></a></li>
+			<li class="li_3" style="background:url(images/1.jpg) center 0 no-repeat #bb3838;"><a href="#" hidefocus="true"></a></li>
+		</ul>
+	</div>
+	<a href="javascript:;" class="focus_l" id="focus_l" hidefocus="true" title="上一张"><b></b><span></span></a>
+	<a href="javascript:;" class="focus_r" id="focus_r" hidefocus="true" title="下一张"><b></b><span></span></a>
+>>>>>>> origin/master
 </div>
 <!--focus end-->
 
 
 
 <div class="in-motice">
+<<<<<<< HEAD
     <div class="conmain w">
         <i class="icon-0724"></i>
         <a href="" class="title">最新公告：关于存管支付系统搬迁期间暂停体现的通知</a>
+=======
+	<div class="conmain w">
+    	<i class="icon-0724"></i>
+        <a href="" class="title">最新公告：安港最近发财了，要请大家吃饭！欢迎欢迎</a>
+>>>>>>> origin/master
         <a href="" class="more"><span>查看更多</span><i class="icon-0244"></i></a>
     </div>
 </div>
 
 
 <div class="datanav w">
+<<<<<<< HEAD
     <div class="txt"><span>项目路演</span><em>101</em><span>场</span></div>
     <div class="txt"><span>交易金额</span><em>1.02</em><span>亿</span></div>
     <div class="txt"><span>投资收益</span><em>3316</em><span>万</span></div>
     <div class="txt"><span>服务用户</span><em>2203</em><span>位</span></div>
+=======
+	<#--<div class="txt"><span>项目路演</span><em>101</em><span>场</span></div>-->
+    <div class="txt"><span>交易金额</span><em>2.02</em><span>亿</span></div>
+    <div class="txt"><span>投资收益</span><em>5316</em><span>万</span></div>
+    <div class="txt"><span>服务用户</span><em>5703</em><span>位</span></div>
+>>>>>>> origin/master
 </div>
 
 <div style="background-color:#EAEAEA;width:100%; height:auto; overflow:hidden; padding:30px 0;">
 
+<<<<<<< HEAD
     <div class="way-title">为什么选择汇创点投？</div>
 
     <div class="way-main w">
@@ -125,15 +209,57 @@
             </div>
         </div>
 
+=======
+<div class="way-title">为什么选择汇添金？</div>
+
+<div class="way-main w">
+
+	<div class="item">
+    	<i class="ico1"></i>
+        <div class="tit">
+        	<span>项目好</span>
+            <dl>佣金高</dl>
+        </div>
+    </div>
+    
+    <div class="item">
+    	<i class="ico2"></i>
+        <div class="tit">
+        	<span>收益好</span>
+            <dl>专业风控优选优</dl>
+        </div>
+    </div>
+    
+    <div class="item">
+    	<i class="ico3"></i>
+        <div class="tit">
+        	<span>融资快</span>
+            <dl>项目成立1个工作日结佣</dl>
+        </div>
+    </div>
+    
+    <div class="item">
+    	<i class="ico4"></i>
+        <div class="tit">
+        	<span>服务好</span>
+            <dl>专业服务经理1对1贴心服务</dl>
+        </div>
+>>>>>>> origin/master
     </div>
 
 </div>
 
+<<<<<<< HEAD
+=======
+</div>
+
+>>>>>>> origin/master
 
 <!---invest-title s--->
 <div class="invest-title"><dl></dl><span class="tx">投资项目</span><dl></dl></div>
 <div class="invest-list w">
 
+<<<<<<< HEAD
     <div class="item">
         <div class="mask"></div>
         <div class="nhl">年化盈利率：<span>2.78%</span></div>
@@ -205,6 +331,43 @@
             <dl>已完成</dl><span class="r">状态：</span>
         </div>
     </div>
+=======
+  <div class="item">
+  		<div class="mask"></div>
+        <div class="nhl">年化盈利率：<span>2.78%</span></div>
+    	<div class="pic"><img src="images/pro-1.jpg"></div> 
+        <a onclick="shoenlistDiv(this)" pronum="1" class="joinbut">立即申请</a>
+        <div class="title">最新投资理财项目</div>
+        <div class="con">
+        	<span class="l">筹资金额：</span><em>1788 </em> <span class="l"> 元</span>
+            <dl>已完成</dl><span class="r">状态：</span>
+        </div>
+  </div>
+  
+  <div class="item">
+  		<div class="mask"></div>
+        <div class="nhl">年化盈利率：<span>2.78%</span></div>
+    	<div class="pic"><img src="images/pro-1.jpg"></div> 
+        <a  onclick="shoenlistDiv(this)" pronum="2" class="joinbut">立即申请</a>
+        <div class="title">最新投资理财项目</div>
+        <div class="con">
+        	<span class="l">筹资金额：</span><em>1788 </em> <span class="l"> 元</span>
+            <dl>已完成</dl><span class="r">状态：</span>
+        </div>
+  </div>
+  
+  <div class="item">
+  		<div class="mask"></div>
+        <div class="nhl">年化盈利率：<span>2.78%</span></div>
+    	<div class="pic"><img src="images/pro-1.jpg"></div> 
+        <a  onclick="shoenlistDiv(this)" pronum="3" class="joinbut">立即申请</a>
+        <div class="title">最新投资理财项目</div>
+        <div class="con">
+        	<span class="l">筹资金额：</span><em>1788 </em> <span class="l"> 元</span>
+            <dl>已完成</dl><span class="r">状态：</span>
+        </div>
+  </div>
+>>>>>>> origin/master
 
 </div>
 <!---invest-title e--->
@@ -215,6 +378,7 @@
 
 <!---footer s--->
 <footer>
+<<<<<<< HEAD
     <div class="fmain w">
         <div class="fm-top">
             <div class="left">
@@ -228,10 +392,26 @@
 
                 <div class="ilist">
                     <h1>关于我们</h1>
+=======
+	<div class="fmain w" ">
+    	<div class="fm-top" >
+        	<div class="left">
+            
+            	<div class="ilist">
+                	<h1>联系我们</h1>
+                    <div class="t">客服电话</div>
+                    <div class="tel">400-8800-379</div>
+                    <div class="t">邮箱：1059193212@qq.com</div>
+                </div>
+                
+                <div class="ilist">
+                	<h1>关于我们</h1>
+>>>>>>> origin/master
                     <a href="">公司简介</a>
                     <a href="">大事记</a>
                     <a href="">加入我们</a>
                 </div>
+<<<<<<< HEAD
 
                 <div class="ilist">
                     <h1>帮助中心</h1>
@@ -246,6 +426,23 @@
         </div>
         <div class="fm-bot">
             <span>&copy; 2018 &nbsp;北京汇创点投科技有限公司 &nbsp;京ICP备：00000000号 </span>
+=======
+                
+                <div class="ilist">
+                	<h1>帮助中心</h1>
+                    <a href="">客户指引</a>
+                </div>
+
+                
+            </div>
+            <#--<div class="right">
+            	<div class="ewm"><img src="images/qrc.png"><span>添加我们的微信</span></div>
+            	<div class="ewm" style="margin-left:20px;"><img src="images/qrc.png"><span>关注公众号</span></div>
+            </div>-->
+        </div>
+        <div class="fm-bot">
+        	<span>&copy; 2018 &nbsp;北京汇添金科技有限公司 &nbsp;京ICP备：12054803号 </span>
+>>>>>>> origin/master
             <dl>市场有风险 投资需谨慎</dl>
         </div>
     </div>
@@ -257,7 +454,11 @@
 <div class="fullscreenMask" id="fullscreenMask" style="display:none;">
 </div>
 <div class="applyMain" id="applyMain" style="display:none;">
+<<<<<<< HEAD
     <div class="title"><span>请填写申请信息</span><i class="icon-0310" onclick="hideenlistDiv()"></i></div>
+=======
+	<div class="title"><span>请填写申请信息</span><i class="icon-0310" onclick="hideenlistDiv()"></i></div>
+>>>>>>> origin/master
     <input id="pronum" type="hidden" name="pronum" value="">
     <div class="txt" style="margin-top:30px;">您的姓名：</div>
     <input type="text" name="name" required placeholder="请输入您的姓名" autocomplete="off" class="input">
@@ -269,6 +470,7 @@
 </div>
 <script type="text/javascript">
 
+<<<<<<< HEAD
     function shoenlistDiv(form){
         //点击报名按钮将值传入文本框中
         var kcid=$(form).attr("pronum");
@@ -292,11 +494,37 @@
         var  otherDiv=document.getElementById('fullscreenMask');
         otherDiv.style.display="none";
     }
+=======
+function shoenlistDiv(form){
+    //点击报名按钮将值传入文本框中
+	var kcid=$(form).attr("pronum");
+	var oText=document.getElementById('pronum');
+    oText.value=kcid;
+	//alert(kcid);
+	//获取要显示的div对象
+    var  otherDiv=document.getElementById('applyMain');
+    //显示
+    otherDiv.style.display="block";
+	var  otherDiv=document.getElementById('fullscreenMask');
+	otherDiv.style.display="block";
+	
+	
+}
+function hideenlistDiv(){
+    //获取要显示的div对象
+    var  otherDiv=document.getElementById('applyMain');
+    //显示
+    otherDiv.style.display="none";
+	var  otherDiv=document.getElementById('fullscreenMask');
+	otherDiv.style.display="none";
+}
+>>>>>>> origin/master
 </script>
 <!---申请窗口 E---->
 
 <!---客服代码 S--->
 <div class="suspension">
+<<<<<<< HEAD
     <div class="suspension-box">
         <a href="#" class="a a-service "><i class="i"></i></a>
         <a href="javascript:;" class="a a-service-phone "><i class="i"></i></a>
@@ -334,10 +562,50 @@
         </div>
 
     </div>
+=======
+	<div class="suspension-box">
+		<a href="#" class="a a-service "><i class="i"></i></a>
+		<a href="javascript:;" class="a a-service-phone "><i class="i"></i></a>
+		<#--<a href="javascript:;" class="a a-qrcode"><i class="i"></i></a>-->
+		<a href="javascript:;" class="a a-top"><i class="i"></i></a>
+		<div class="d d-service">
+			<i class="arrow"></i>
+			<div class="inner-box">
+				<div class="d-service-item clearfix">
+					<a href="http://wpa.qq.com/msgrd?v=3&uin={$WEB.qq}&site=qq&menu=yes" class="clearfix"><span class="circle"><i class="i-qq"></i></span><h3>咨询在线客服</h3></a>
+				</div>
+			</div>
+		</div>
+		<div class="d d-service-phone">
+			<i class="arrow"></i>
+			<div class="inner-box">
+				<div class="d-service-item clearfix">
+					<span class="circle"><i class="i-tel"></i></span>
+					<div class="text">
+						<p>服务热线</p>
+						<p class="red number">400-8800-379</p>
+					</div>
+				</div>
+				<div class="d-service-intro clearfix">
+					
+				</div>
+			</div>
+		</div>
+		<div class="d d-qrcode">
+			<i class="arrow"></i>
+			<div class="inner-box">
+				<div class="qrcode-img"><img src="images/side_ewm.jpg" alt="" width="110"></div>
+				<p>微信服务号</p>
+			</div>
+		</div>
+
+	</div>
+>>>>>>> origin/master
 </div>
 
 <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript">
+<<<<<<< HEAD
     $(document).ready(function(){
 
         /* ----- 侧边悬浮 ---- */
@@ -373,8 +641,49 @@
         });
 
     });
+=======
+$(document).ready(function(){
+
+	/* ----- 侧边悬浮 ---- */
+	$(document).on("mouseenter", ".suspension .a", function(){
+		var _this = $(this);
+		var s = $(".suspension");
+		var isService = _this.hasClass("a-service");
+		var isServicePhone = _this.hasClass("a-service-phone");
+		var isQrcode = _this.hasClass("a-qrcode");
+		if(isService){ s.find(".d-service").show().siblings(".d").hide();}
+		if(isServicePhone){ s.find(".d-service-phone").show().siblings(".d").hide();}
+		if(isQrcode){ s.find(".d-qrcode").show().siblings(".d").hide();}
+	});
+	$(document).on("mouseleave", ".suspension, .suspension .a-top", function(){
+		$(".suspension").find(".d").hide();
+	});
+	$(document).on("mouseenter", ".suspension .a-top", function(){
+		$(".suspension").find(".d").hide(); 
+	});
+	$(document).on("click", ".suspension .a-top", function(){
+		$("html,body").animate({scrollTop: 0});
+	});
+	$(window).scroll(function(){
+		var st = $(document).scrollTop();
+		var $top = $(".suspension .a-top");
+		if(st > 400){
+			$top.css({display: 'block'});
+		}else{
+			if ($top.is(":visible")) {
+				$top.hide();
+			}
+		}
+	});
+	
+});	
+>>>>>>> origin/master
 </script>
 <!---客服代码 E--->
 <script type="text/javascript" src="js/script.js"></script>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> origin/master

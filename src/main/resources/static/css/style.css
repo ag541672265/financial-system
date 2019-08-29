@@ -267,17 +267,18 @@ footer .fmain .fm-top{
 	height:210px;
 }
 footer .fmain .fm-top .left{
-	float:left;
 	height:auto;
 	overflow:hidden;
+    width: 100%;
 }
 footer .fmain .fm-top .left .ilist{
-	width:210px;
+	width:30%;
 	height:auto;
 	overflow:hidden;
-	margin-right:40px;
 	float:left;
 	margin-top:10px;
+    padding-left: 30px;
+    /*margin-right: 160px;*/
 }
 footer .fmain .fm-top .left .ilist h1{
 	display:block;
@@ -290,7 +291,7 @@ footer .fmain .fm-top .left .ilist h1{
 }
 footer .fmain .fm-top .left .ilist a{
 	display:block;
-	width:200;
+	width:200px;
 	height:32px;
 	font:14px/32px 'microsoft yahei';
 	color:#DBDBDB;
