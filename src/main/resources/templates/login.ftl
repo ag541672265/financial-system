@@ -29,14 +29,15 @@
 
 <header>
 	<div class="hmain w">
-      <a href="index.html" class="logo"><img src="/images/logo.png"></a>
-      <a href="login.html" class="ubut">退出</a>
-      <a href="user_index.html" class="ubut" style="padding:0 15px;">个人中心<span><dl>我的资产：2830.00</dl></span></a>
+      <a href="index" class="logo"><img src="images/logo.png"></a>
+      <a href="/index" class="ubut">退出</a>
+      <#--<a href="user_index" class="ubut" style="padding:0 15px;">个人中心<span><dl>我的资产：2830.00</dl></span></a>-->
       <nav>
-          <a href="index.html">首页</a>
-          <a href="about.ftl">基金</a>
-          <a href="touzi_list.html" class="cur">理财</a>
-          <a href="service.html">保险</a>
+          <a href="index">首页</a>
+          <a href="about.ftl">基金投资</a>
+          <a href="touzi_list.html">理财产品</a>
+          <a href="service.html">保单保险</a>
+          <a href="news_list.html">汇金红</a>
       </nav>
     </div>
 </header>
@@ -53,7 +54,7 @@
             <input type="text" name="name" required placeholder="请输入用户名或手机号码" autocomplete="off" class="input">
             <input type="password" name="pass" required placeholder="请输入正确的密码" autocomplete="off" class="input">
    		  	<input type="submit" class="button2" value="登   录">
-            <div class="text2"><a href="/zhuce">我还没有账号，点此注册</a></div>
+            <div class="text2"><a href="/register">我还没有账号，点此注册</a></div>
         </div>
     </div>
 
