@@ -21,6 +21,11 @@ public class ViewController {
         return "register";
     }
 
+    @RequestMapping(value = "insurance",method = RequestMethod.GET)
+    public String insurance(){
+        return "insurance";
+    }
+
 
 
 

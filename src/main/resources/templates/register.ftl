@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/user.css"/>
     <link href="css/iconfont/RjdaoIcon.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery-1.9.0.js"></script>
     <script>
         // 修改对号颜色
         function ty() {
@@ -51,9 +51,9 @@
         <#--<a href="user_index" class="ubut" style="padding:0 15px;">个人中心<span><dl>我的资产：2830.00</dl></span></a>-->
         <nav>
             <a href="index">首页</a>
-            <a href="about.ftl">基金投资</a>
-            <a href="touzi_list.html">理财产品</a>
-            <a href="service.html">保单保险</a>
+            <a href="about.ftl">基金</a>
+            <a href="touzi_list.html">理财</a>
+            <a href="insurance">保险</a>
             <a href="news_list.html">汇金红</a>
 
         </nav>
