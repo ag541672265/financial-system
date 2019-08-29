@@ -29,6 +29,8 @@ public class Trades {
         this.orderNumber = orderNumber;
     }
 
+
+
     public Integer getTicket() {
         return ticket;
     }
