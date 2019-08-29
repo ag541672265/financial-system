@@ -9,7 +9,8 @@
 <link rel="stylesheet" href="css/style.css"/>
 <link rel="stylesheet" href="css/index.css"/>
 <link href="css/iconfont/RjdaoIcon.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script type="text/javascript" src="js/jquery-1.9.0.js"></script>
+<#--<script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>-->
 </head>
 
 <body>
@@ -41,9 +42,9 @@
     <nav>
     	<a href="/index" class="cur">首页</a>
         <#--链接未完成部分'''-->
-        <a href="about.html">基金投资</a>
-        <a href="touzi_list.html">理财产品</a>
-        <a href="service.html">保单保险</a>
+        <a href="about.html">基金</a>
+        <a href="touzi_list.html">理财</a>
+        <a href="insurance">保险</a>
         <a href="news_list.html">汇金红</a>
         <#--链接未完成部分...-->
     </nav>
