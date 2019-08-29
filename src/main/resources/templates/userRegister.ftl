@@ -113,6 +113,7 @@
                 <input type="password" name="password" required placeholder="请输入正确的密码" autocomplete="off" class="input ph">
                 <input type="password" name="pass2" required placeholder="再次确认密码" autocomplete="off" class="input ph">
                 <input type="text" name="tuijianren" required placeholder="请输入推荐人手机号" autocomplete="off" class="input ph">
+              <#--  <input type="text" name="code" required placeholder="获取短信验证" autocomplete="off" class="input ph">-->
                 <div class="tongyi"><i class="icon-0332"></i><a>我已阅读并同意<em>《使用协议》</em>及<em>《隐私条款》</em></a></div>
                 <input type="submit" class="button" onclick="return check()" value="注   册">
                 <div class="text2"><a href="/toLogin">使用账号密码登录</a></div>
