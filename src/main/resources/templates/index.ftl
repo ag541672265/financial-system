@@ -60,7 +60,7 @@
 <header class="w">
 <<<<<<< HEAD
     <a href="index.html" class="logo"><img src="images/logo.png"></a>
-    <a href="register.html" class="topbut">注册</a>
+    <a href="/toRegister" class="topbut">注册</a>
     <a href="/toLogin" class="topbut-cur">登录</a>
     <nav>
         <a href="index.html" class="cur">首页</a>

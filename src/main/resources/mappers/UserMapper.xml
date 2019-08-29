@@ -6,26 +6,23 @@
     <select id="getUserByPhone" resultType="Users">
         select * from users where phone=#{phone}
     </select>
-    <!--<select id="" resultType="">
-
+    <!--根据昵称查询用户-->
+    <select id="getUserByNickName" resultType="Users">
+        select * from users where nickName=#{nickName}
     </select>
-
-    <select id="" resultMap="">
-
-    </select>
-
-    <insert id="" parameterType="">
-
+    <!--添加用户-->
+    <insert id="addUser" parameterType="Users">
+        insert into users(password,phone,nickName) values(#{password},#{phone},#{nickName})
     </insert>
-    <update id="">
-
+    <!--给推荐人奖金-->
+    <update id="updateCapital" parameterType="String">
+        update users set capital=capital+100 where phone=#{tuijianren}
     </update>
-    <delete id="" parameterType="">
-
-    </delete>
 
 
-    <resultMap id="" type="">
+
+
+    <!--<resultMap id="" type="">
         <id property="" column=""/>
         <result property="" column=""/>
     </resultMap>

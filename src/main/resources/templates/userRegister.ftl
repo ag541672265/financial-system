@@ -11,24 +11,58 @@
 <link href="css/iconfont/RjdaoIcon.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
     <script type="text/javascript">
+        $(function(){
 
-        function check(){
+            $("[name='nickName']").blur(function(){
+                var nickName=$("[name='nickName']").val();
+                $.post("/checkNickName",{"nickName":nickName},
+                    function(n){
+                        var m=parseInt(n);
+                        if (m==1) {
+                            $("[name='nickName']").val("用户名已存在！");
+                            $("[name='nickName']").focus().select();
+                        } else{
+
+                        }
+                    },"json"
+                );
+            });
+            $("[name='phone']").blur(function(){
+                var phoneNum=$("[name='phone']").val();
+                $.post("/checkPhone",{"phone":phoneNum},
+                    function(n){
+                        var m=parseInt(n);
+                        if (m==1) {
+                            $("[name='phone']").val("手机号已存在！");
+                            $("[name='phone']").focus().select();
+                        } else{
+
+                        }
+                    },"json"
+                );
+            });
+        })
+
+        function check() {
             var phoneNum=$("[name='phone']").val();
             var password=$("[name='password']").val();
+            var repasswd=$("[name='pass2']").val();
+            var tuijianren=$("[name='tuijianren']").val();
             var reg = /^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\d{8}$/;
-            if(phoneNum=="" || phoneNum==null){
-                alert("手机号不能为空");
-                $("[name='phone']").focus().select();
-                return false;
-            }else if(!reg.test(phoneNum)){
+            if(!reg.test(phoneNum)){
                 alert("输入格式必须为手机号");
                 $("[name='phone']").val().clear();
                 $("[name='phone']").focus().select();
                 return false;
-            }else if(password=="" || password==null){
-                alert("密码不能为空");
+            }else if(!(password==repasswd)){
+                alert("两次输入密码须保持一致");
+                $("[name='pass2']").focus().select();
                 return false;
-            } else{
+            }else if(!reg.test(tuijianren)){
+                alert("推荐人格式须为手机号");
+                $("[name='tuijianren']").focus().select();
+                return false;
+            }else{
                 return true;
             }
         }
@@ -52,7 +86,7 @@
 
 <header>
 	<div class="hmain w">
-      <a href="index.html" class="logo"><img src="/images/logo.png"></a>
+      <a href="index.html" class="logo"><img src="images/logo.png"></a>
       <a href="login.html" class="ubut">退出</a>
       <a href="user_index.html" class="ubut" style="padding:0 15px;">个人中心<span><dl>我的资产：2830.00</dl></span></a>
       <nav>
@@ -60,6 +94,7 @@
           <a href="about.ftl">基金</a>
           <a href="touzi_list.html" class="cur">理财</a>
           <a href="service.html">保险</a>
+
       </nav>
     </div>
 </header>
@@ -71,15 +106,17 @@
 
 	<div class="lomain w">
     	<div class="wframe">
-            <form action="/doLogin" method="post">
-                <div class="title">爱亲，欢迎您</div>
-                <div class="text">请输入正确的账号密码登录用户中心</div>
-                <input type="text" name="phone" required placeholder="请输入手机号码" autocomplete="off" class="input">
-                <input type="password" name="password" required placeholder="请输入您的密码" autocomplete="off" class="input">
-                <input type="submit" class="button2" onclick="check()" value="登   录">
-                <div class="text2"><a href="/toRegister">我还没有账号，点此注册</a></div>
+            <form action="/register" method="post">
+                <div class="title" style="margin-top:10px;">30秒快速注册</div>
+                <input type="text" name="nickName" required placeholder="请输入用户名" autocomplete="off" class="input ph">
+                <input type="text" name="phone" required placeholder="请输入正确的手机号码" autocomplete="off" class="input ph">
+                <input type="password" name="password" required placeholder="请输入正确的密码" autocomplete="off" class="input ph">
+                <input type="password" name="pass2" required placeholder="再次确认密码" autocomplete="off" class="input ph">
+                <input type="text" name="tuijianren" required placeholder="请输入推荐人手机号" autocomplete="off" class="input ph">
+                <div class="tongyi"><i class="icon-0332"></i><a>我已阅读并同意<em>《使用协议》</em>及<em>《隐私条款》</em></a></div>
+                <input type="submit" class="button" onclick="return check()" value="注   册">
+                <div class="text2"><a href="/toLogin">使用账号密码登录</a></div>
                 <form>
-        </div>
     </div>
 
 </div>
