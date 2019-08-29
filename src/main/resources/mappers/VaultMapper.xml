@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace=""><!-- dao层地址 -->
-    <select id="" parameterType="" resultType="">
+<mapper namespace="com.financial.financialsystem.dao.VaultDao"><!-- dao层地址 -->
+    <!--<select id="" parameterType="" resultType="">
 
     </select>
     <select id="" resultType="">
@@ -45,6 +45,6 @@
             <id property="" column=""/>
             <result property="" column=""/>
         </collection>
-    </resultMap>
+    </resultMap>-->
 
 </mapper>

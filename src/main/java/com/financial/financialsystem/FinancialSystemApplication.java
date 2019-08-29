@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.financial.financialsystem.dao")
+@MapperScan(basePackages = "com.financial.financialsystem.dao")
 public class FinancialSystemApplication {
 
     public static void main(String[] args) {
