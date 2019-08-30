@@ -25,18 +25,6 @@ public class UserController {
     @Resource
     private UserService userService;
 
-    //访问首页
-    @RequestMapping("/")
-    public String toIndex(HttpServletRequest request){
-        return "index";
-    }
-
-    //去注册页面
-    @RequestMapping("/toRegister")
-    public String toRegister(){
-        return "userRegister";
-    }
-
 
     //异步查重用户名
    /* @PostMapping(value="checkNickName",produces= {"application/json;charset=UTF-8"})
@@ -93,11 +81,7 @@ public class UserController {
 
     }
 
-    //去登录页面
-    @RequestMapping("/toLogin")
-    public String toLogin(){
-        return "userLogin";
-    }
+
 
     //用户登录
     @PostMapping("/doLogin")
