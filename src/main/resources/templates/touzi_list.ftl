@@ -7,181 +7,89 @@
 <meta name="description" content="汇添金" />
 <link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"/>
 <link rel="stylesheet" href="css/style.css"/>
-<link rel="stylesheet" href="css/index.css"/>
+<link rel="stylesheet" href="css/index2.css"/>
 <link href="css/iconfont/RjdaoIcon.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="js/jquery-1.9.0.js"></script>
-<#--<script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>-->
+<script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 </head>
 
-<body>
+<body style="background-color:#f0f0f0;">
 
 <!----header s---->
 <div class="topnav">
 	<div class="mainw w">
-    <div class="l-txt">欢迎致电：400-8800-379 &nbsp;&nbsp; 服务时间：08:30-18:30（工作日）</div>
-    <#--<div class="wapbut">
-   	  <span>手机端</span><i class="icon-0198"></i>
-    	<div class="qrc"><img src="images/qrc.png"></div>
-    </div>-->
+    <div class="l-txt">欢迎致电：400-0000-000 &nbsp;&nbsp; 服务时间：08:30-18:30（工作日）</div>
+    <#--<div class="wapbut">-->
+   	  <#--<span>手机端</span><i class="icon-0198"></i>-->
+    	<#--<div class="qrc"><img src="images/qrc.png"></div>-->
+    <#--</div>-->
     <a href="kefu.html" class="dh">在线客服</a>
     <a href="help.html" class="dh">帮助中心</a>
     <#--<a href="xinshou.html" class="dh">新手指引</a>-->
     </div>
 </div>
 
-<header class="w">
-    <#--logo图片-->
-	<a href="/index" class="logo"><img src="images/logo.png" <#--alt="汇添金logo图片"-->></a>
-    <#if user ??>
-        <a href="/index" class="ubut">退出</a>
-        <a href="user_index" class="ubut" style="padding:0 15px;">个人中心<span><dl>我的资产：2830.00</dl></span></a>
-    <#else>
-            <a href="/register" class="topbut">注册</a>
-            <a href="/login" class="topbut-cur">登录</a>
-    </#if>
-    <nav>
-    	<a href="/index" class="cur">首页</a>
-        <#--链接未完成部分'''-->
-        <a href="about.html">基金</a>
-        <a href="touzi_list.html">理财</a>
-        <a href="insurance">保险</a>
-        <a href="news_list.html">汇金红</a>
-        <#--链接未完成部分...-->
-    </nav>
+<header>
+	<div class="hmain w">
+      <a href="index.ftl" class="logo"><img src="images/logo.png"></a>
+      <a href="login.ftl" class="ubut">退出</a>
+      <a href="user_index.html" class="ubut" style="padding:0 15px;">个人中心<span><dl>我的资产：2830.00</dl></span></a>
+      <nav>
+          <a href="/index">首页</a>
+          <a href="/touzi_list" class="cur">基金投资</a>
+          <a href="about.html">理财产品</a>
+          <a href="service.html">保单保险</a>
+          <a href="news_list.html">汇金红</a>
+      </nav>
+    </div>
 </header>
 <!----header e---->
 
 
-
-
-<!--focus start-->
-<#--变动使用jquery修改-->
-<div class="focus" id="focus">
-	
-    <div class="login_box w">
-		<div class="login">
-        	<div class="title">汇金红</div>
-            <div class="nllv">3.351%</div>
-            <div class="txt">月盈利率</div>
-            <a onclick="shoenlistDiv(this)" pronum="7" class="jiabut">立即申请</a>
-            <div class="txt" style="margin-top:20px;color:#333;">汇添金为您推荐产品</div>
-		</div>
-	</div>
-
-    <#--滚动图片-->
-	<div id="focus_m" class="focus_m">
-		<ul>
-			<li class="li_1" style="background:url(images/picc3.jpg) center 0 no-repeat #288cc0;"><a href="#" hidefocus="true"></a></li>
-			<li class="li_2" style="background:url(images/2.jpg) center 0 no-repeat #76b7d8;"><a href="#" hidefocus="true"></a></li>
-			<li class="li_3" style="background:url(images/3.jpg) center 0 no-repeat #bb3838;"><a href="#" hidefocus="true"></a></li>
-			<li class="li_3" style="background:url(images/1.jpg) center 0 no-repeat #bb3838;"><a href="#" hidefocus="true"></a></li>
-		</ul>
-	</div>
-	<a href="javascript:;" class="focus_l" id="focus_l" hidefocus="true" title="上一张"><b></b><span></span></a>
-	<a href="javascript:;" class="focus_r" id="focus_r" hidefocus="true" title="下一张"><b></b><span></span></a>
-</div>
-<!--focus end-->
-
-
-
-<div class="in-motice">
-	<div class="conmain w">
-    	<i class="icon-0724"></i>
-        <a href="" class="title">最新公告：安港最近发财了，要请大家吃饭！欢迎欢迎</a>
-        <a href="" class="more"><span>查看更多</span><i class="icon-0244"></i></a>
-    </div>
+<div class="invest-banner txtcenter">
+	<img  src="images/invest-banner.jpg">
 </div>
 
-
-<div class="datanav w">
-	<#--<div class="txt"><span>项目路演</span><em>101</em><span>场</span></div>-->
-    <div class="txt"><span>交易金额</span><em>2.02</em><span>亿</span></div>
-    <div class="txt"><span>投资收益</span><em>5316</em><span>万</span></div>
-    <div class="txt"><span>服务用户</span><em>5703</em><span>位</span></div>
-</div>
-
-<div style="background-color:#EAEAEA;width:100%; height:auto; overflow:hidden; padding:30px 0;">
-
-<div class="way-title">为什么选择汇添金？</div>
-
-<div class="way-main w">
-
-	<div class="item">
-    	<i class="ico1"></i>
-        <div class="tit">
-        	<span>项目好</span>
-            <dl>佣金高</dl>
-        </div>
-    </div>
-    
-    <div class="item">
-    	<i class="ico2"></i>
-        <div class="tit">
-        	<span>收益好</span>
-            <dl>专业风控优选优</dl>
-        </div>
-    </div>
-    
-    <div class="item">
-    	<i class="ico3"></i>
-        <div class="tit">
-        	<span>融资快</span>
-            <dl>项目成立1个工作日结佣</dl>
-        </div>
-    </div>
-    
-    <div class="item">
-    	<i class="ico4"></i>
-        <div class="tit">
-        	<span>服务好</span>
-            <dl>专业服务经理1对1贴心服务</dl>
-        </div>
-    </div>
-
-</div>
-
-</div>
 
 
 <!---invest-title s--->
 <div class="invest-title"><dl></dl><span class="tx">投资项目</span><dl></dl></div>
 <div class="invest-list w">
 
-  <div class="item">
-  		<div class="mask"></div>
-        <div class="nhl">年化盈利率：<span>2.78%</span></div>
-    	<div class="pic"><img src="images/pro-1.jpg"></div> 
+    <div class="item">
+        <div class="mask"></div>
+        <div class="nhl">资金占比：<span>18 %</span></div>
+        <div class="pic"><img src="images/pro-1.jpg"></div>
         <a onclick="shoenlistDiv(this)" pronum="1" class="joinbut">立即申请</a>
-        <div class="title">最新投资理财项目</div>
+        <div class="title">浙江省金华市某IT互联网公司</div>
         <div class="con">
-        	<span class="l">筹资金额：</span><em>1788 </em> <span class="l"> 元</span>
-            <dl>已完成</dl><span class="r">状态：</span>
+            <span class="l">筹资金额：</span><em>60 </em> <span class="l"> 万元</span>
+            <dl>未完成</dl><span class="r">状态：</span>
         </div>
-  </div>
-  
-  <div class="item">
-  		<div class="mask"></div>
-        <div class="nhl">年化盈利率：<span>2.78%</span></div>
-    	<div class="pic"><img src="images/pro-1.jpg"></div> 
+    </div>
+
+    <div class="item">
+        <div class="mask"></div>
+        <div class="nhl">资金方占股比例：<span>30%</span></div>
+        <div class="pic"><img src="images/pro-1.jpg"></div>
         <a  onclick="shoenlistDiv(this)" pronum="2" class="joinbut">立即申请</a>
-        <div class="title">最新投资理财项目</div>
+        <div class="title">河北某精微内画文化产业项目股权融资</div>
         <div class="con">
-        	<span class="l">筹资金额：</span><em>1788 </em> <span class="l"> 元</span>
+            <span class="l">筹资金额：</span><em>2000</em> <span class="l"> 万元</span>
             <dl>已完成</dl><span class="r">状态：</span>
         </div>
-  </div>
-  
-  <div class="item">
-  		<div class="mask"></div>
-        <div class="nhl">年化盈利率：<span>2.78%</span></div>
-    	<div class="pic"><img src="images/pro-1.jpg"></div> 
+    </div>
+
+    <div class="item">
+        <div class="mask"></div>
+        <div class="nhl">资金方占股比例：<span>15-25%</span></div>
+        <div class="pic"><img src="images/pro-1.jpg"></div>
         <a  onclick="shoenlistDiv(this)" pronum="3" class="joinbut">立即申请</a>
-        <div class="title">最新投资理财项目</div>
+        <div class="title">广东某人力资源项目股权融资</div>
         <div class="con">
-        	<span class="l">筹资金额：</span><em>1788 </em> <span class="l"> 元</span>
-            <dl>已完成</dl><span class="r">状态：</span>
+            <span class="l">筹资金额：</span><em>200 </em> <span class="l"> 万元</span>
+            <dl>未完成</dl><span class="r">状态：</span>
         </div>
-  </div>
+    </div>
 
 </div>
 <!---invest-title e--->
@@ -192,15 +100,15 @@
 
 <!---footer s--->
 <footer>
-	<div class="fmain w" ">
-    	<div class="fm-top" >
+	<div class="fmain w">
+    	<div class="fm-top">
         	<div class="left">
             
             	<div class="ilist">
                 	<h1>联系我们</h1>
                     <div class="t">客服电话</div>
-                    <div class="tel">400-8800-379</div>
-                    <div class="t">邮箱：1059193212@qq.com</div>
+                    <div class="tel">400-0000-000</div>
+                    <div class="t">邮箱：xiezhengy6@126.com</div>
                 </div>
                 
                 <div class="ilist">
@@ -214,16 +122,15 @@
                 	<h1>帮助中心</h1>
                     <a href="">客户指引</a>
                 </div>
-
                 
             </div>
-            <#--<div class="right">
-            	<div class="ewm"><img src="images/qrc.png"><span>添加我们的微信</span></div>
-            	<div class="ewm" style="margin-left:20px;"><img src="images/qrc.png"><span>关注公众号</span></div>
-            </div>-->
+            <div class="right">
+            	<#--<div class="ewm"><img src="images/qrc.png"><span>添加我们的微信</span></div>-->
+            	<#--<div class="ewm" style="margin-left:20px;"><img src="images/qrc.png"><span>关注公众号</span></div>-->
+            </div>
         </div>
         <div class="fm-bot">
-        	<span>&copy; 2018 &nbsp;北京汇添金科技有限公司 &nbsp;京ICP备：12054803号 </span>
+        	<span>&copy; 2018 &nbsp;北京汇创点投科技有限公司 &nbsp;京ICP备：00000000号 </span>
             <dl>市场有风险 投资需谨慎</dl>
         </div>
     </div>
@@ -278,7 +185,7 @@ function hideenlistDiv(){
 	<div class="suspension-box">
 		<a href="#" class="a a-service "><i class="i"></i></a>
 		<a href="javascript:;" class="a a-service-phone "><i class="i"></i></a>
-		<#--<a href="javascript:;" class="a a-qrcode"><i class="i"></i></a>-->
+		<a href="javascript:;" class="a a-qrcode"><i class="i"></i></a>
 		<a href="javascript:;" class="a a-top"><i class="i"></i></a>
 		<div class="d d-service">
 			<i class="arrow"></i>
@@ -295,7 +202,7 @@ function hideenlistDiv(){
 					<span class="circle"><i class="i-tel"></i></span>
 					<div class="text">
 						<p>服务热线</p>
-						<p class="red number">400-8800-379</p>
+						<p class="red number">400-0000-000</p>
 					</div>
 				</div>
 				<div class="d-service-intro clearfix">
@@ -306,7 +213,7 @@ function hideenlistDiv(){
 		<div class="d d-qrcode">
 			<i class="arrow"></i>
 			<div class="inner-box">
-				<div class="qrcode-img"><img src="images/side_ewm.jpg" alt="" width="110"></div>
+				<div class="qrcode-img"><img src="images/side_ewm.jpg" alt=""></div>
 				<p>微信服务号</p>
 			</div>
 		</div>
@@ -353,6 +260,5 @@ $(document).ready(function(){
 });	
 </script>
 <!---客服代码 E--->
-<script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>

@@ -178,9 +178,9 @@ i {
 .icon-0929:before {
   content: "\ecbf";
 }
-.icon-(Oval_)_SFont.CN(1):before {
-  content: "\ecc0";
-}
+/*.icon-(Oval_)_SFont.CN(1):before {*/
+  /*content: "\ecc0";*/
+/*}*/
 .icon-0928:before {
   content: "\ecc1";
 }

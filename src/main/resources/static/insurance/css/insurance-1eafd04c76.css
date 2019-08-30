@@ -1,0 +1,1555 @@
+body, html {
+    font-family: Microsoft Yahei, sans-serif !important;
+    margin: 0
+}
+
+blockquote, body, button, code, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, pre, sub, sup, td, textarea, th, ul {
+    margin: 0;
+    padding: 0
+}
+
+li, ol, ul {
+    list-style: none
+}
+
+img {
+    vertical-align: middle;
+    border: none
+}
+
+button, input, select, textarea {
+    font-size: 100%
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+a {
+    cursor: pointer
+}
+
+a, a:hover {
+    text-decoration: none
+}
+
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+    outline-width: 0
+}
+
+input, select {
+    font-family: Microsoft Yahei, sans-serif !important
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+    font-size: 100%
+}
+
+blockquote, body, button, dd, div, dl, dt, h1, h2, h3, h4, h5, h6, input, li, ol, p, td, textarea, th, ul {
+    box-sizing: border-box
+}
+
+.c:after {
+    content: ".";
+    font-size: 0;
+    height: 0;
+    visibility: hidden;
+    zoom: 1
+}
+
+.adv {
+    width: 100%;
+    height: 84px;
+    margin: 0 auto;
+    max-width: 1920px;
+    text-align: center;
+    overflow: hidden;
+    position: relative
+}
+
+.adv a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-position: 50%
+}
+
+.adv a, .topAdv-close {
+    background-repeat: no-repeat
+}
+
+.topAdv-close {
+    width: 10px;
+    height: 10px;
+    background-image: url("#");
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    cursor: pointer
+}
+
+.insurace-recommend {
+    width: 100%;
+    position: absolute;
+    bottom: -190px;
+    left: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px 0 hsla(0, 0%, 60%, .5);
+    display: none;
+    height: 190px;
+    z-index: 6
+}
+
+.insurace-recommend ul {
+    width: 1150px;
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 20px 0
+}
+
+.insurace-recommend li {
+    float: left;
+    width: 280px;
+    height: 150px;
+    overflow: hidden
+}
+
+.insurace-recommend a {
+    display: block
+}
+
+.insurace-recommend li + li {
+    margin: 0 0 0 10px
+}
+
+.qrcode_weixin {
+    display: none
+}
+
+.i_weixin:hover .qrcode_weixin {
+    display: block;
+    background: url(/official/common/component/top/img/qrcode_weixin-df364ab2d8.png);
+    width: 133px;
+    height: 160px;
+    position: relative;
+    margin-left: -21px;
+    margin-top: 19px
+}
+
+.icon-appxiazai, .icon-drag, .icon-kefu, .icon-search, .icon-weibo, .icon-weixin {
+    background-image: url(/official/common/component/top/img/topbar-9b29573f80.png);
+    width: 14px;
+    height: 14px;
+    margin: 0 6px
+}
+
+.icon-drag {
+    background-position: -32px 0;
+    width: 8px;
+    height: 5px
+}
+
+.icon-kefu {
+    background-position: -18px 0
+}
+
+.icon-search {
+    background-position: 0 0;
+    width: 18px;
+    height: 18px
+}
+
+.icon-weibo {
+    background-position: 0 -18px
+}
+
+.icon-appxiazai {
+    background-position: -40px 0
+}
+
+.icon-weixin {
+    background-position: -14px -18px
+}
+
+.m_login_bar {
+    height: 30px;
+    width: 100%;
+    min-width: 1180px;
+    position: relative;
+    z-index: 5;
+    color: #666;
+    background: #f9f9f9;
+    font: 12px/30px Microsoft Yahei, sans-serif
+}
+
+.m_login_bar a {
+    color: #333
+}
+
+.m_login_bar a:hover {
+    color: #f60;
+    text-decoration: none
+}
+
+.m_login_bar .content {
+    width: 1180px;
+    height: 30px;
+    margin: 0 auto;
+    position: relative
+}
+
+.m_login_bar .mod_left {
+    width: 279px;
+    overflow: hidden;
+    border-left: 1px solid #f2f2f2;
+    border-right: 1px solid #f2f2f2;
+    padding-left: 10px
+}
+
+.m_login_bar .mod_left li {
+    float: left
+}
+
+.m_login_bar .mod_left .fgx {
+    margin: 0 14px;
+    color: #666;
+    font-style: normal
+}
+
+.m_login_bar .mod_right {
+    height: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-left: 1px solid #f2f2f2
+}
+
+.m_login_bar .mod_right .popupbox {
+    width: 1180px;
+    height: 270px;
+    max-height: 0;
+    background: #fff;
+    box-shadow: 0 0 4px 0 hsla(0, 0%, 60%, .5);
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 29px;
+    z-index: 4;
+    max-height: 1000px;
+    display: none;
+    transition: max-height .5s
+}
+
+.m_login_bar .mod_right .bar_popup {
+    background: #fff;
+    font-size: 0;
+    display: none
+}
+
+.m_login_bar .mod_right em, .m_login_bar .mod_right i {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: -1px
+}
+
+.m_login_bar .mod_right em {
+    background-position: 0 -88px;
+    height: 17px;
+    width: 22px
+}
+
+.m_login_bar .mod_right li {
+    float: left;
+    width: 106px;
+    text-align: center;
+    border-right: 1px solid #f2f2f2
+}
+
+.m_login_bar .mod_right li > a {
+    padding: 0 5px
+}
+
+.m_login_bar .mod_right li:hover em {
+    background-position: 0 -27px;
+    height: 17px;
+    width: 22px
+}
+
+.m_login_bar .mod_right li:hover .popupbox {
+    max-height: 500px;
+    display: block
+}
+
+.m_login_bar .mod_right li:hover .bar_popup {
+    display: block
+}
+
+.m_login_bar .mod_right .i_app {
+    padding: 0 5px
+}
+
+.m_login_bar .mod_right .i_app:hover > a, .m_login_bar .mod_right .i_fuwu:hover > a {
+    background: transparent;
+    border-color: transparent;
+    color: #f60
+}
+
+.m_login_bar .i_fuwu .bar_popup {
+    width: 360px;
+    padding: 10px 0;
+    line-height: 30px;
+    color: #666
+}
+
+.m_login_bar .i_fuwu .bar_popup p {
+    padding-left: 38px;
+    font-size: 12px
+}
+
+.m_login_bar .i_fuwu .bar_ewm {
+    display: inline-block;
+    width: 110px;
+    margin: 0 40px 0 30px;
+    text-align: center;
+    font-size: 12px
+}
+
+.m_login_bar .i_ditu .bar_popup {
+    width: 100%;
+    padding-top: 27px
+}
+
+.m_login_bar .i_ditu .bar_popup dl {
+    float: left;
+    width: 121px;
+    font-size: 12px;
+    line-height: 26px;
+    text-align: left;
+    padding-left: 25px
+}
+
+.m_login_bar .i_ditu .bar_popup dl.r-dl {
+    width: 110px;
+    height: 200px;
+    padding-left: 0
+}
+
+.m_login_bar .i_ditu dl.group-brand.r-dl {
+    border-right: 1px solid #ddd;
+    width: 96px;
+    margin-right: 20px
+}
+
+.m_login_bar .i_ditu .bar_popup dt {
+    font: 700 14px/30px Microsoft Yahei, sans-serif;
+    color: #333;
+    margin-bottom: 18px;
+    font-weight: 700
+}
+
+.m_login_bar .i_ditu .bar_popup dt .ico-line {
+    width: 30px;
+    height: 2px;
+    background: #333
+}
+
+.m_login_bar .mod_right .i_lang > a {
+    display: inline;
+    color: #999
+}
+
+.m_login_bar .mod_right .i_lang:hover > a, .m_login_bar .mod_right .i_lang > a:hover {
+    background: transparent;
+    border-color: transparent
+}
+
+.m_login_bar .mod_right .i_lang > a:hover {
+    color: #f60
+}
+
+.m_login_bar .mod_left a {
+    color: #f60;
+    width: 32px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid #f15a0e;
+    border-radius: 2px;
+    margin: 0 6px
+}
+
+.m_login_bar .welcome {
+    margin-right: 30px
+}
+
+.m_head_menu {
+    position: relative;
+    height: 80px;
+    z-index: 2;
+    background: #fff
+}
+
+.m_head_menu .content {
+    width: 1180px;
+    height: 80px;
+    margin: 0 auto;
+    background: #fff
+}
+
+.m_head_menu .content:before {
+    content: "";
+    display: table
+}
+
+.m_head_menu .search-nav:after {
+    content: "";
+    display: block;
+    clear: both
+}
+
+.m_head_menu .logo {
+    display: block;
+    width: 209px;
+    height: 55px;
+    margin-top: 11px;
+    float: left
+}
+
+.m_head_menu .logo img {
+    width: 100%;
+    height: 100%
+}
+
+.m_head_menu .search-nav {
+    margin-top: 27px;
+    margin-left: 43px;
+    float: left
+}
+
+.m_head_menu .search-nav a {
+    font-size: 18px;
+    color: #171717
+}
+
+.m_head_menu .search-nav a.curr, .m_head_menu .search-nav a:hover {
+    color: #f60
+}
+
+.m_head_menu .search-nav li:hover .insurace-recommend, .m_head_menu .search-nav li:hover i.drop-narrow, .m_head_menu .search-nav li:hover i.mtdrop-narrow {
+    display: block
+}
+
+.m_head_menu .search-nav i.drop-narrow, .m_head_menu .search-nav i.mtdrop-narrow {
+    position: relative;
+    left: 35px;
+    width: 15px;
+    height: 10px;
+    z-index: 7;
+    background: url(/official/common/component/header/img/drop-narrow-641168b72f.png) 0 0;
+    display: none
+}
+
+.m_head_menu .search-nav i.drop-narrow {
+    top: 20px
+}
+
+.m_head_menu .search-nav i.mtdrop-narrow {
+    top: 2px
+}
+
+.m_head_menu .search-nav > li {
+    float: left;
+    width: 86px;
+    height: 53px;
+    text-align: center
+}
+
+.m_head_menu .search-nav > li .icon-hd-box {
+    margin: 0 auto;
+    position: relative;
+    top: -44px;
+    max-width: 78px;
+    height: 18px;
+    overflow: hidden
+}
+
+.m_head_menu .search-nav > li .icon-hd {
+    width: auto
+}
+
+.search-nav li a.on {
+    color: #f60
+}
+
+.m_head_menu .sc_box {
+    margin-top: 15px;
+    float: right;
+    width: 340px;
+    position: relative
+}
+
+.sc_box .icon-search {
+    position: absolute;
+    top: 7px;
+    right: 0;
+    cursor: pointer
+}
+
+.search-nav > li a {
+    line-height: 24px
+}
+
+.m_head_menu .ipt_sc {
+    box-sizing: border-box;
+    width: 340px;
+    height: 32px;
+    padding-left: 8px;
+    color: #999;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    background: #fff
+}
+
+.m_head_menu .ipt_sc.focus, .m_head_menu .ipt_sc:focus {
+    background: #f0f0f0
+}
+
+.hotKeywords {
+    overflow: hidden;
+    margin-top: 5px;
+    line-height: 14px
+}
+
+.hotKeywords li {
+    float: left;
+    margin-right: 15px;
+    font-size: 12px;
+    color: #666
+}
+
+.hotKeywords li:first-child {
+    margin-right: 5px
+}
+
+.hotKeywords li a {
+    font-size: 12px;
+    color: #f60
+}
+
+.hotKeywords li a:hover {
+    text-decoration: underline
+}
+
+.c:after {
+    content: "";
+    display: block;
+    clear: both
+}
+
+.icon {
+    display: inline-block
+}
+
+.icon-qrcode_gwgzh, .icon-qrcode_pinpai, .icon-qrcode_youce {
+    background-image: url(/official/common/component/footer/img/qrcode-21ae56ee42.png);
+    width: 88px;
+    height: 88px
+}
+
+.icon-qrcode_app {
+    width: 88px;
+    height: 88px;
+    background-image: url(/official/common/component/footer/img/qrcode_app-1198c645ee.png)
+}
+
+.icon-qrcode_gwgzh {
+    background-position: 0 0
+}
+
+.icon-qrcode_pinpai {
+    background-position: -88px 0
+}
+
+.icon-qrcode_xcx {
+    background-image: url(/official/common/component/footer/img/small-app-5f76f1f1ab.jpg);
+    width: 88px;
+    height: 88px
+}
+
+.icon-qrcode_youce {
+    background-position: -88px -88px;
+    width: 68px;
+    height: 68px
+}
+
+.icon-icon_weibo {
+    vertical-align: text-bottom
+}
+
+.icon-logo_footer {
+    display: inline-block;
+    width: 220px;
+    height: 108px;
+    background: url(/official/common/component/footer/img/logo-39ae16799e.png) 0 0
+}
+
+.m_footer .qrcode-footer {
+    text-align: center;
+    margin: 40px 10px
+}
+
+.m_footer {
+    width: 100%;
+    min-width: 1180px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    position: relative
+}
+
+.m_footer .footer-right {
+    position: absolute;
+    right: 20px
+}
+
+.m_footer .footer-left {
+    position: absolute;
+    left: 0;
+    font-size: 12px
+}
+
+.m_footer .footer-middle {
+    position: absolute;
+    top: 40px;
+    right: 540px;
+    width: 220px;
+    height: 80px
+}
+
+.m_footer .foo {
+    width: 1180px;
+    height: 200px;
+    margin: 0 auto;
+    position: relative
+}
+
+.m_footer dl {
+    float: left;
+    margin: 40px 35px 0 40px
+}
+
+.m_footer dt {
+    display: block;
+    color: #333;
+    font-weight: 700;
+    padding-bottom: 10px;
+    line-height: 1.2em;
+    font-size: 14px
+}
+
+.m_footer dt a {
+    color: #333
+}
+
+.m_footer dd {
+    display: block;
+    padding-bottom: 10px;
+    line-height: 1.2em
+}
+
+.m_footer dd a {
+    padding-right: 10px;
+    color: #646464
+}
+
+.m_footer dd a:hover {
+    text-decoration: underline
+}
+
+.m_footer .copyright {
+    width: 1180px;
+    margin: 18px auto;
+    color: #acacac
+}
+
+.m_footer .cp_right {
+    float: right;
+    width: 300px;
+    overflow: hidden
+}
+
+.m_footer .cp_txt {
+    font-size: 12px;
+    line-height: 2em;
+    float: left
+}
+
+.m_footer .cp_txt a {
+    color: #333
+}
+
+.m_footer .icp {
+    float: left;
+    font-size: 12px
+}
+
+.m_footer .icp a {
+    float: left;
+    color: #333;
+    margin-left: 10px
+}
+
+.m_footer .icp a:hover {
+    color: #f60;
+    text-decoration: underline
+}
+
+.m_footer .icp .icon_anquan, .m_footer .icp .icon_wangan {
+    display: block;
+    text-indent: -9999px;
+    overflow: hidden;
+    margin: -7px 0 0;
+    cursor: default;
+    background: url(/official/common/component/footer/img/footer-e2110d1b52.png) no-repeat
+}
+
+.m_footer .icp .icon_wangan {
+    background-position: -25px -50px;
+    height: 33px;
+    width: 25px
+}
+
+.m_footer .icp .icon_anquan {
+    background-position: 0 -50px;
+    height: 30px;
+    width: 25px;
+    margin: -5px 0 0
+}
+
+.fixed-sidebar {
+    position: fixed;
+    z-index: 8;
+    width: 40px;
+    right: 6px;
+    bottom: 60px;
+    text-align: center
+}
+
+.fixed-sidebar span {
+    display: block
+}
+
+.fixed-sidebar .icon-inline-service {
+    background-position: -110px 0;
+    width: 23px;
+    height: 22px
+}
+
+.fixed-sidebar .icon-to-top {
+    background-position: -110px -22px;
+    width: 22px;
+    height: 22px
+}
+
+.fixed-sidebar .icon-qrcode-icon {
+    margin: 9px auto 0;
+    width: 22px;
+    height: 22px
+}
+
+.fixed-sidebar .icon-qrcode, .icon-qrcode_mark img {
+    margin: 9px auto 0;
+    width: 110px;
+    height: 108px
+}
+
+.fixed-sidebar .icon-qrcode {
+    display: block
+}
+
+.fixed-sidebar .icon-to-top {
+    background-position: -110px -44px
+}
+
+.fixed-sidebar .icon-inline-service, .fixed-sidebar .icon-to-top {
+    background-image: url(/official/common/component/sidebar/img/right_service-ed5abe0b1c.png);
+    margin: 9px auto 0
+}
+
+.icon-qrcode_mark {
+    width: 40px;
+    height: 40px;
+    background: #f36c28;
+    border-radius: 2px;
+    display: block;
+    position: relative
+}
+
+.icon-qrcode_pagw {
+    width: 118px;
+    background-position: 0 0;
+    background: #fff;
+    box-shadow: 0 2px 4px 0 hsla(0, 0%, 60%, .5);
+    position: absolute;
+    left: -118px;
+    top: -100px;
+    display: none
+}
+
+.icon-qrcode_pagw p {
+    color: #f36c28;
+    font-size: 12px;
+    margin-bottom: 5px
+}
+
+.fixed-sidebar .middleline {
+    display: block;
+    width: 108px;
+    height: 1px;
+    background-color: #ddd;
+    margin: 0 auto
+}
+
+.fixed-sidebar .app-qrcode {
+    width: 110px;
+    height: 108px;
+    margin: 0 auto;
+    background: url(/official/common/component/sidebar/img/qrcode-app-c91b928d92.png) 50% no-repeat;
+    background-size: 100%
+}
+
+.icon-qrcode_mark:hover .icon-qrcode_pagw {
+    display: block
+}
+
+.inline-service, .inline-top {
+    width: 40px;
+    height: 40px;
+    background: #f36c28;
+    border-radius: 2px;
+    margin-top: 3px
+}
+
+.icon-qrcode:before, .icon-qrcode_mark:before, .inline-service:before, .inline-top:before {
+    content: "";
+    display: table
+}
+
+.inline-service .service-content, .inline-top .top-content {
+    display: block;
+    text-align: center;
+    line-height: 14px;
+    padding-top: 6px;
+    color: #fff;
+    font-size: 12px;
+    display: none
+}
+
+.inline-service:hover .icon-inline-service {
+    display: none
+}
+
+.inline-service:hover .service-content {
+    display: block
+}
+
+.inline-top:hover .icon-to-top {
+    display: none
+}
+
+.inline-top:hover .top-content {
+    display: block
+}
+
+.inline-service:hover a, .inline-top:hover a {
+    text-decoration: none
+}
+
+.insurance-banner {
+    width: 1180px;
+    height: 372px;
+    margin: 11px auto 0
+}
+
+.common-banner, .insurace-nav, .insurance-banner-adv {
+    box-shadow: 0 2px 4px 0 hsla(0, 0%, 60%, .4)
+}
+
+.common-banner, .insurace-nav, .insurance-banner-adv, .insurance-subnav-recommend_lf, .insurance-subnav-recommend_rt {
+    float: left;
+    height: 100%
+}
+
+.insurace-nav {
+    width: 200px;
+    background: #f16c34
+}
+
+.insurace-nav > ul {
+    position: relative
+}
+
+.insurace-nav-item {
+    height: 62px;
+    overflow: hidden
+}
+
+.insurace-nav-item h4 i {
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    margin: 0 25px 0 37px;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: 0 0
+}
+
+.insurace-nav-item h4 a {
+    display: block;
+    height: 100%;
+    line-height: 62px;
+    color: #fff;
+    font-size: 16px
+}
+
+.insurace-nav-item:hover h4 a {
+    color: #f16c34;
+    background: #fff
+}
+
+.insurace-nav-item:hover h4 i {
+    background-position: -21px 0
+}
+
+.insurace-nav-item:hover .insurance-subnav {
+    display: block
+}
+
+.insurance-subnav {
+    position: absolute;
+    top: 0;
+    z-index: 5;
+    left: 199px;
+    width: 607px;
+    height: 372px;
+    background: url(/official/component/insurance-home/banner/img/nav-bg-17556de69b.png) 0 2px;
+    padding: 20px 0 0 30px;
+    display: none
+}
+
+.insurance-subnav h5 {
+    height: 16px;
+    line-height: 16px;
+    border-left: 3px solid #f36c28;
+    padding-left: 11px;
+    font-size: 16px;
+    color: #333;
+    font-weight: 700
+}
+
+.insurance-subnav .insurance-subnav-list {
+    width: 540px;
+    height: 100px;
+    padding-top: 5px;
+    border-top: 1px solid #ddd;
+    line-height: 24px;
+    margin-top: 16px;
+    overflow: hidden
+}
+
+.insurance-subnav li {
+    float: left;
+    margin-right: 20px
+}
+
+.insurance-subnav a {
+    font-size: 14px;
+    color: #171717
+}
+
+.insurance-subnav a:hover {
+    color: #f36c28
+}
+
+.insurance-subnav-recommend {
+    width: 496px;
+    height: 155px;
+    margin-top: 16px;
+    background: #fff url(/official/component/insurance-home/banner/img/nav-reconmend-bg-7c4938e034.png) -5px -2px no-repeat;
+    box-shadow: 0 2px 4px 0 hsla(0, 0%, 60%, .4)
+}
+
+.insurance-subnav-recommend_lf {
+    width: 248px;
+    margin-left: 48px
+}
+
+.insurance-subnav-recommend_name {
+    padding: 24px 0 5px;
+    border-bottom: 1px solid #ddd;
+    font-size: 18px;
+    color: #ff7d1c;
+    background-position: 160px 4px;
+    background-repeat: no-repeat
+}
+
+.insurance-subnav-recommend_desc {
+    margin: 8px 0 5px;
+    font-size: 12px;
+    color: #616161
+}
+
+.insurance-subnav-recommend_range {
+    height: 14px;
+    line-height: 14px;
+    font-size: 10px;
+    color: #888;
+    margin-top: 2px;
+    padding-left: 16px;
+    background: url(/official/component/insurance-home/banner/img/nav-range-star-0b6f7b9412.png) 0 1px no-repeat
+}
+
+.insurance-subnav-recommend_rt {
+    width: 192px;
+    margin-left: 8px;
+    background: #f7f7f7;
+    text-align: center;
+    color: #f36c28
+}
+
+.insurance-subnav-recommend_rt .insurance-subnav-recommend_btn {
+    display: block;
+    width: 130px;
+    height: 34px;
+    color: #fff;
+    line-height: 34px;
+    background: #f36c28;
+    border-radius: 2px;
+    margin: 0 auto
+}
+
+.insurance-subnav-recommend_rt a.insurance-subnav-recommend_btn:hover {
+    color: #fff;
+    background: #f05a23
+}
+
+.insurance-subnav-recommend_title {
+    font-size: 12px;
+    margin: 27px 0 11px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    display: -webkit-box;
+    display: -moz-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2
+}
+
+.insurance-subnav-recommend_price {
+    font-size: 24px;
+    margin-bottom: 9px
+}
+
+.common-banner {
+    position: relative;
+    width: 720px;
+    margin: 0 10px;
+    overflow: hidden
+}
+
+.common-banner-img {
+    height: 100%;
+    overflow: hidden
+}
+
+.common-banner-img a {
+    display: block;
+    height: 394px;
+    background: #636363
+}
+
+.banner-next-btn:hover, .banner-prev-btn:hover {
+    background-color: rgba(0, 0, 0, .5)
+}
+
+.banner-next-btn, .banner-prev-btn {
+    width: 30px;
+    height: 50px;
+    position: absolute;
+    top: 160px;
+    z-index: 1;
+    background-color: #636363;
+    background-color: rgba(0, 0, 0, .1);
+    cursor: pointer
+}
+
+.banner-next-btn {
+    right: 0
+}
+
+.banner-next-btn i {
+    background-position: -10px 0
+}
+
+.banner-prev-btn {
+    left: 0
+}
+
+.banner-prev-btn i {
+    background-position: 0 0
+}
+
+.banner-next-btn i, .banner-prev-btn i {
+    display: block;
+    background-image: url(/official/component/insurance-home/banner/img/arrow-39c063d0b0.png);
+    width: 10px;
+    height: 16px;
+    margin: 17px 0 0 10px
+}
+
+.common-slide-btn {
+    width: 100%;
+    position: absolute;
+    bottom: 21px;
+    z-index: 1;
+    text-align: center
+}
+
+.common-slide-btn span {
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #fff;
+    background: hsla(0, 0%, 100%, .7)
+}
+
+.common-slide-btn .curr {
+    background: #f60
+}
+
+.insurance-banner-adv {
+    width: 240px;
+    overflow: hidden
+}
+
+.insurance-banner-adv a {
+    display: block
+}
+
+.insurance-banner-adv img {
+    width: 240px;
+    height: 372px
+}
+
+.insurance-subnav-recommend_desc, .insurance-subnav-recommend_name, .insurance-subnav-recommend_price, .insurance-subnav-recommend_range {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden
+}
+
+.insurance-app-group {
+    width: 322px;
+    height: 276px;
+    float: left;
+    background: url(/official/common/component/app/img/app-06c953a00a.png) 0 0 no-repeat;
+    box-shadow: 0 2px 4px 0 hsla(0, 0%, 60%, .4)
+}
+
+.insurance-app-group img {
+    width: 100%;
+    height: 100%
+}
+
+.insurance-app-show {
+    margin: 42px 20px 0;
+    height: 126px;
+    border-bottom: 1px solid #ccc;
+    color: #fff;
+    overflow: hidden;
+    position: relative
+}
+
+.insurance-app-show dl {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    margin-top: 126px;
+    visibility: hidden;
+    transition: margin-top .3s linear
+}
+
+.insurance-app-show dl.show {
+    visibility: visible;
+    margin-top: 0
+}
+
+.insurance-app-show dd, .insurance-app-show dt {
+    float: left
+}
+
+.insurance-app-show dt {
+    width: 96px;
+    height: 96px;
+    margin-right: 12px;
+    overflow: hidden
+}
+
+.insurance-app-show dd {
+    width: 174px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.insurance-app-show .insurance-app-title {
+    font-size: 22px
+}
+
+.insurance-app-show .insurance-app-desc, .insurance-app-show .insurance-app-short_desc {
+    font-size: 14px
+}
+
+.insurance-app-show .insurance-app-desc {
+    margin-top: 26px
+}
+
+.insurance-app-list {
+    overflow: hidden;
+    margin: 27px 19px 0
+}
+
+.insurance-app-list li {
+    float: left;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0 10px 0 11px;
+    cursor: pointer
+}
+
+.insurance-group {
+    margin: 30px auto 50px;
+    width: 1180px;
+    height: 276px
+}
+
+.insurance-group-con {
+    float: left;
+    padding-left: 2px;
+
+}
+
+.insurance-group-con li {
+    position: relative;
+    margin-right: 18px;
+    width: 276px;
+    height: 276px;
+    overflow: hidden;
+    float: left;
+    box-shadow: 0 2px 4px 0 hsla(0, 0%, 60%, .4)
+}
+
+.insurance-group-con img {
+    width: 100%;
+    height: 100%
+}
+
+.insurance-group-con .insurance-group-item_con {
+    background: #fff;
+    height: 80px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    transition: bottom .4s ease
+}
+
+.insurance-group-con .insurance-group-item_title {
+    color: #171717;
+    font-size: 16px;
+    margin-top: 14px
+}
+
+.insurance-group-con .insurance-group-item_price {
+    color: #f16c34;
+    font-size: 20px;
+    margin-top: 5px
+}
+
+.insurance-group-con li:hover .insurance-group-item_mask {
+    margin-top: 0
+}
+
+.insurance-group-con li:hover .insurance-group-item_con {
+    bottom: -80px
+}
+
+.insurance-group-item_mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(36, 21, 21, .5);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F000000, 0, endColorstr=#7F000000, 0);
+    color: #fff;
+    text-align: center;
+    margin-top: 276px;
+    transition: margin-top .4s ease
+}
+
+.insurance-group-item_mask .insurance-group-item_mask_title {
+    font-size: 16px;
+    margin: 61px 0 4px
+}
+
+.insurance-group-item_mask .insurance-group-item_mask_price {
+    font-size: 20px
+}
+
+.insurance-group-item_mask .insurance-group-item_mask_desc {
+    width: 128px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 14px auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    display: -webkit-box;
+    display: -moz-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2
+}
+
+.insurance-group-item_mask .insurance-group-item_mask_btn {
+    width: 160px;
+    height: 34px;
+    line-height: 34px;
+    color: #fff;
+    font-size: 14px;
+    background: #f16c34;
+    border-radius: 3px;
+    position: absolute;
+    top: 189px;
+    left: 58px
+}
+
+.insurance-group-item_mask .insurance-group-item_mask_btn:hover {
+    background-color: #f05a23;
+    text-decoration: none
+}
+
+.insurance-group-item_mask_price, .insurance-group-item_mask_title, .insurance-group-item_price, .insurance-group-item_title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.insurance-topic {
+    width: 1180px;
+    margin: 0 auto 50px
+}
+
+.insurance-topic h1 {
+    margin-bottom: 42px;
+    text-align: center;
+    position: relative
+}
+
+.insurance-topic h1 a {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 16px;
+    color: #f16c34
+}
+
+.insurance-topic h1 img {
+    width: 508px;
+    height: 67px
+}
+
+.insurance-topic li {
+    float: left;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 2px 4px 0 hsla(0, 0%, 60%, .4)
+}
+
+.insurance-topic li a {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%
+}
+
+.topic-first {
+    width: 585px;
+    height: 500px
+}
+
+.topic-other {
+    width: 585px;
+    height: 245px;
+    margin: 0 0 10px 10px
+}
+
+.topic-other .topic-item-img {
+    float: right;
+    width: 314px;
+    height: 100%;
+    overflow: hidden
+}
+
+.topic-other img {
+    width: 100%;
+    height: 100%
+}
+
+.insurance-topic .topoic-bot {
+    margin-left: 0
+}
+
+.insurance-topic .topoic-bot ~ .topoic-bot {
+    margin-left: 10px
+}
+
+.topic-item-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3
+}
+
+.topic-other .topic-item-cover {
+    padding: 33px 0 0 40px;
+    width: 272px
+}
+
+.topic-other .topic-item-cover h3 {
+    color: #333;
+    font-size: 18px
+}
+
+.topic-other .topic-item-cover .item-desc {
+    width: 130px;
+    height: 44px;
+    font-size: 16px;
+    color: #666;
+    line-height: 22px;
+    margin-top: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    display: -webkit-box;
+    display: -moz-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2
+}
+
+.topic-other .topic-item-cover .item-price {
+    color: #f36c28;
+    font-size: 26px;
+    margin-top: 8px
+}
+
+.topic-other .topic-item-cover .item-btn {
+    width: 130px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    color: #fff;
+    background: #f36c28;
+    margin-top: 10px;
+    border-radius: 2px
+}
+
+.topic-other .topic-item-cover .item-btn:hover {
+    background: #f05a23
+}
+
+.insurance-topic img {
+    transition: -webkit-transform .5s ease-in;
+    transition: transform .5s ease-in;
+    transition: transform .5s ease-in, -webkit-transform .5s ease-in
+}
+
+.insurance-topic ul:after {
+    content: "";
+    display: block;
+    clear: both
+}
+
+.insurance-topic a:hover img {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1)
+}
+
+.topic-first .topic-item-cover {
+    padding: 320px 0 0 58px;
+    color: #fff
+}
+
+.topic-first .topic-item-cover h3 {
+    font-size: 32px;
+    background: url(/official/component/insurance-home/img/topic-title-bg-ea03e0f97c.png) 0 0 no-repeat
+}
+
+.topic-first .topic-item-cover .item-desc {
+    margin: 7px 0 18px;
+    font-size: 16px
+}
+
+.topic-first .topic-item-cover .item-price {
+    font-size: 26px
+}
+
+.topic-first .topic-item-cover .item-btn {
+    position: absolute;
+    right: 71px;
+    bottom: 40px;
+    width: 160px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    background: #f36c28;
+    color: #fff;
+    border-radius: 3px
+}
+
+.topic-first .topic-item-cover .item-btn:hover {
+    background: #f05a23
+}
+
+.topoic-bot {
+    height: 225px
+}
+
+.insurance-topic .item-price, .insurance-topic h3, .topic-first .item-desc {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+body {
+    background: url(/official/page/insurance/img/insurance-bg-dbc9dc93d3.png) center 194px no-repeat
+}
+
+img {
+    width: 100%;
+    height: 100%
+}
