@@ -372,8 +372,22 @@
                    otitle="保险专题页-banner下方广告位-位置3-医疗险精选" otype="click" data-event-name="保险专题页-banner下方广告位-位置3-医疗险精选"
                    data-event-param="保险专题页-banner下方广告位-位置3-医疗险精选" data-event-type="click">立即投保</a></div>
         </li>
+        <li><img src="insurance/images/15645673382396.jpg" alt="医疗险精选">
+            <div class="insurance-group-item_con"><p class="insurance-group-item_title">医疗险精选</p>
+                <p class="insurance-group-item_price">174元/起</p></div>
+            <div class="insurance-group-item_mask">
+                <div class="insurance-group-item_mask_title">医疗险精选</div>
+                <div class="insurance-group-item_mask_price">174元/起</div>
+                <div class="insurance-group-item_mask_desc">不限社保目录
+                    自费药/进口药全可报
+                </div>
+                <a class="insurance-group-item_mask_btn"
+                   href="http://chaoshi.pingan.com//baoxian/pinganeshengbao.shtml?source=gw-cptj3" target="_blank"
+                   otitle="保险专题页-banner下方广告位-位置3-医疗险精选" otype="click" data-event-name="保险专题页-banner下方广告位-位置3-医疗险精选"
+                   data-event-param="保险专题页-banner下方广告位-位置3-医疗险精选" data-event-type="click">立即投保</a></div>
+        </li>
     </ul>
-    <div class="insurance-app-group">
+    <#--<div class="insurance-app-group">
         <div class="insurance-app-show">
             <dl class="show">
                 <dt><img src="insurance/images/15252664188699.png" alt="平安移动官网"></dt>
@@ -399,7 +413,7 @@
             <li><img src="insurance/images/15252731816064.png" alt="微平安"></li>
             <li><img src="insurance/images/15252731613494.jpg" alt="平安就在你身边"></li>
         </ul>
-    </div>
+    </div>-->
 </div>
 <div class="insurance-topic"><h1 style="color: #4d4d4d;font-size: 42px;font-weight: 600;font-family: 隶书">
         健康险
@@ -532,94 +546,169 @@
         </ul>
     </div>
 </div>
-<div class="m_footer">
-    <div class="foo c">
-        <div class="footer-left">
-            <dl>
-                <dt>关于平安</dt>
-                <dd><a href="http://pingan.cn/about/overview.shtml" rel="nofollow" target="_blank"
-                       otitle="footer-关于平安-集团简介">集团简介</a></dd>
-                <dd><a href="http://pingan.cn/csr/index.shtml" rel="nofollow" target="_blank"
-                       otitle="footer-关于平安-企业社会责任">企业社会责任</a></dd>
-                <dd><a href="http://pingan.cn/ir/index.shtml" rel="nofollow" target="_blank" otitle="footer-关于平安-投资者关系">投资者关系</a>
-                </dd>
-                <dd><a href="http://www.pingan.com/official/recruitment" rel="nofollow" target="_blank"
-                       otitle="footer-关于平安-加入平安">加入平安</a></dd>
-            </dl>
-            <dl>
-                <dt>帮助中心</dt>
-                <dd><a href="http://www.pingan.com/homepage/protocol.html" target="_blank" otitle="footer-帮助中心-隐私保密声明">隐私保密声明</a>
-                </dd>
-                <dd><a href="http://www.pingan.com/homepage/articlewebline.html" target="_blank"
-                       otitle="footer-帮助中心-网站声明">网站声明</a></dd>
-                <dd><a href="http://www.pingan.com/homepage/sitemap.html" target="_blank"
-                       otitle="footer-帮助中心-网站地图">网站地图</a></dd>
-                <dd><a href="http://www.pingan.com/homepage/contact/contact.jsp" target="_blank"
-                       otitle="footer-帮助中心-联系我们">联系我们</a></dd>
-                <dd><a href="https://www.pingan.com/msgquery/index.html" target="_blank"
-                       otitle="footer-帮助中心-短信验伪">短信验伪</a></dd>
-                <dd><a href="https://www.pingan.com/huodong/bdcx.shtml" target="_blank"
-                       otitle="footer-帮助中心-电子发票">电子发票</a></dd>
-            </dl>
+<!---footer s--->
+<footer>
+    <div class="fmain w" ">
+    <div class="fm-top" >
+        <div class="left">
+
+            <div class="ilist">
+                <h1>联系我们</h1>
+                <div class="t">客服电话</div>
+                <div class="tel">400-8800-379</div>
+                <div class="t">邮箱：1059193212@qq.com</div>
+            </div>
+
+            <div class="ilist">
+                <h1>关于我们</h1>
+                <a href="">公司简介</a>
+                <a href="">大事记</a>
+                <a href="">加入我们</a>
+            </div>
+
+            <div class="ilist">
+                <h1>帮助中心</h1>
+                <a href="">客户指引</a>
+            </div>
+
+
         </div>
-        <div class="footer-middle"><a class="paTel" id="JslazyLoadImg8"
-                                      href="http://www.pingan.com/homepage/contact/contact.jsp?ptag=1"
-                                      otitle="首页-footer-底部logo" target="_blank"><i class="icon-logo_footer"></i></a>
-        </div>
-        <div class="footer-right">
-            <dl class="qrcode-footer">
-                <dt>平安APP</dt>
-                <dd><i class="icon icon-qrcode_app"></i></dd>
-            </dl>
-            <dl class="qrcode-footer">
-                <dt>官网公众号</dt>
-                <dd><i class="icon icon-qrcode_gwgzh"></i></dd>
-            </dl>
-            <dl class="qrcode-footer">
-                <dt>品牌公众号</dt>
-                <dd><i class="icon icon-qrcode_pinpai"></i></dd>
-            </dl>
-            <dl class="qrcode-footer">
-                <dt>企业文化号</dt>
-                <dd><i class="icon icon-qrcode_xcx"></i></dd>
-            </dl>
-        </div>
+        <#--<div class="right">
+            <div class="ewm"><img src="images/qrc.png"><span>添加我们的微信</span></div>
+            <div class="ewm" style="margin-left:20px;"><img src="images/qrc.png"><span>关注公众号</span></div>
+        </div>-->
     </div>
-    <div class="copyright c"><p class="cp_txt">版权所有 © 中国<a href="http://www.pingan.com/">平安保险</a>（集团）股份有限公司未经许可不得复制、转载或摘编，违者必究!<br>Copyright
-            © PING AN insurance (GROUP) COMPANY OF CHINA ，LTD. All Rights Reserved</p>
-        <div class="cp_right"><span class="icp"><a class="icon_wangan" target="_blank" rel="nofollow" otype="button"
-                                                   otitle="首页-footer-深圳网警">深圳网警</a><a class="icon_anquan"
-                                                                                      target="_blank" rel="nofollow"
-                                                                                      otype="click"
-                                                                                      otitle="首页-footer-安网备案">安网备案</a><a
-                        href="http://www.miitbeian.gov.cn/" target="_blank"
-                        rel="nofollow">ICP许可证号 粤ICP备06118290号</a></span>
-            <div style="width:300px;padding-top:8px;float:left;"><a target="_blank"
-                                                                    href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030402000833"
-                                                                    rel="nofollow"
-                                                                    style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img
-                            src="insurance/images/beian-d0289dc0a4.png"
-                            style="float:left;width:20px;height:20px;margin:0 5px;">
-                    <p style="float:left;height:20px;line-height:20px; color:#939393;font-size:12px;">粤公网安备
-                        44030402000833号</p></a></div>
+    <div class="fm-bot">
+        <span>&copy; 2018 &nbsp;北京汇添金科技有限公司 &nbsp;京ICP备：12054803号 </span>
+        <dl>市场有风险 投资需谨慎</dl>
+    </div>
+    </div>
+</footer>
+<!---footer e--->
+
+
+<!---申请窗口 S---->
+<div class="fullscreenMask" id="fullscreenMask" style="display:none;">
+</div>
+<div class="applyMain" id="applyMain" style="display:none;">
+    <div class="title"><span>请填写申请信息</span><i class="icon-0310" onclick="hideenlistDiv()"></i></div>
+    <input id="pronum" type="hidden" name="pronum" value="">
+    <div class="txt" style="margin-top:30px;">您的姓名：</div>
+    <input type="text" name="name" required placeholder="请输入您的姓名" autocomplete="off" class="input">
+    <div class="txt" style="margin-top:15px;">联系电话：</div>
+    <input type="text" name="name" required placeholder="请输入您的联系电话" autocomplete="off" class="input">
+    <div class="txt" style="margin-top:15px;">投资意向情况说明：</div>
+    <textarea name="textarea"  placeholder="请输入投资意向情况说明" class="textarea"></textarea>
+    <input type="submit" class="button" value="提   交">
+</div>
+<script type="text/javascript">
+
+    function shoenlistDiv(form){
+        //点击报名按钮将值传入文本框中
+        var kcid=$(form).attr("pronum");
+        var oText=document.getElementById('pronum');
+        oText.value=kcid;
+        //alert(kcid);
+        //获取要显示的div对象
+        var  otherDiv=document.getElementById('applyMain');
+        //显示
+        otherDiv.style.display="block";
+        var  otherDiv=document.getElementById('fullscreenMask');
+        otherDiv.style.display="block";
+
+
+    }
+    function hideenlistDiv(){
+        //获取要显示的div对象
+        var  otherDiv=document.getElementById('applyMain');
+        //显示
+        otherDiv.style.display="none";
+        var  otherDiv=document.getElementById('fullscreenMask');
+        otherDiv.style.display="none";
+    }
+</script>
+<!---申请窗口 E---->
+
+<!---客服代码 S--->
+<div class="suspension">
+    <div class="suspension-box">
+        <a href="#" class="a a-service "><i class="i"></i></a>
+        <a href="javascript:;" class="a a-service-phone "><i class="i"></i></a>
+        <#--<a href="javascript:;" class="a a-qrcode"><i class="i"></i></a>-->
+        <a href="javascript:;" class="a a-top"><i class="i"></i></a>
+        <div class="d d-service">
+            <i class="arrow"></i>
+            <div class="inner-box">
+                <div class="d-service-item clearfix">
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin={$WEB.qq}&site=qq&menu=yes" class="clearfix"><span class="circle"><i class="i-qq"></i></span><h3>咨询在线客服</h3></a>
+                </div>
+            </div>
         </div>
+        <div class="d d-service-phone">
+            <i class="arrow"></i>
+            <div class="inner-box">
+                <div class="d-service-item clearfix">
+                    <span class="circle"><i class="i-tel"></i></span>
+                    <div class="text">
+                        <p>服务热线</p>
+                        <p class="red number">400-8800-379</p>
+                    </div>
+                </div>
+                <div class="d-service-intro clearfix">
+
+                </div>
+            </div>
+        </div>
+        <div class="d d-qrcode">
+            <i class="arrow"></i>
+            <div class="inner-box">
+                <div class="qrcode-img"><img src="images/side_ewm.jpg" alt="" width="110"></div>
+                <p>微信服务号</p>
+            </div>
+        </div>
+
     </div>
 </div>
-<div class="fixed-sidebar">
-    <div class="icon-qrcode_mark"><span class="icon-qrcode-icon"
-                                        style="background-image: url(&quot;//pa18-pweb.pingan.com/upload/chnapp/pc/uploads/img/banner/2018/08/21/15348317040029.png&quot;);"></span>
-        <div class="icon-qrcode_pagw"><img src="insurance/images/15348318549726.png">
-            <p>平安+PLUS APP</p><i class="middleline"></i><img src="insurance/images/15289777367298.png">
-            <p>平安官网微信公众号</p></div>
-    </div>
-    <div class="inline-service"><span class="icon-inline-service"></span><a class="service-content"
-                                                                            href="https://www.pingan.com/homepage/contact.shtml"
-                                                                            target="_blank" otitle="侧边浮动-在线客服"
-                                                                            otype="button">在线<br>客服</a></div>
-    <div class="inline-top"><span class="icon-to-top"></span><a class="top-content"
-                                                                href="https://www.pingan.com/official/insurance">返回<br>顶部</a>
-    </div>
-</div>
+
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        /* ----- 侧边悬浮 ---- */
+        $(document).on("mouseenter", ".suspension .a", function(){
+            var _this = $(this);
+            var s = $(".suspension");
+            var isService = _this.hasClass("a-service");
+            var isServicePhone = _this.hasClass("a-service-phone");
+            var isQrcode = _this.hasClass("a-qrcode");
+            if(isService){ s.find(".d-service").show().siblings(".d").hide();}
+            if(isServicePhone){ s.find(".d-service-phone").show().siblings(".d").hide();}
+            if(isQrcode){ s.find(".d-qrcode").show().siblings(".d").hide();}
+        });
+        $(document).on("mouseleave", ".suspension, .suspension .a-top", function(){
+            $(".suspension").find(".d").hide();
+        });
+        $(document).on("mouseenter", ".suspension .a-top", function(){
+            $(".suspension").find(".d").hide();
+        });
+        $(document).on("click", ".suspension .a-top", function(){
+            $("html,body").animate({scrollTop: 0});
+        });
+        $(window).scroll(function(){
+            var st = $(document).scrollTop();
+            var $top = $(".suspension .a-top");
+            if(st > 400){
+                $top.css({display: 'block'});
+            }else{
+                if ($top.is(":visible")) {
+                    $top.hide();
+                }
+            }
+        });
+
+    });
+</script>
+<!---客服代码 E--->
 <script src="insurance/js/hm.js"></script>
 <#--<script src="insurance/js/insurance-03dc66f04c.js"></script>-->
 <script src="insurance/js/web.js"></script>
