@@ -83,7 +83,7 @@ blockquote, body, button, dd, div, dl, dt, h1, h2, h3, h4, h5, h6, input, li, ol
 .topAdv-close {
     width: 10px;
     height: 10px;
-    background-image: url(/official/common/component/adv/img/close-71d36a3826.png);
+    background-image: url("#");
     position: absolute;
     top: 13px;
     right: 13px;
@@ -1244,12 +1244,14 @@ blockquote, body, button, dd, div, dl, dt, h1, h2, h3, h4, h5, h6, input, li, ol
 }
 
 .insurance-group-con {
-    float: left
+    float: left;
+    padding-left: 2px;
+
 }
 
 .insurance-group-con li {
     position: relative;
-    margin-right: 10px;
+    margin-right: 18px;
     width: 276px;
     height: 276px;
     overflow: hidden;
