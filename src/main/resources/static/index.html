@@ -7,12 +7,12 @@
 <meta name="description" content="汇创点投" />
 <link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"/>
 <link rel="stylesheet" href="css/style.css"/>
-<link rel="stylesheet" href="css/page.css"/>
+<link rel="stylesheet" href="css/index.css"/>
 <link href="css/iconfont/RjdaoIcon.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 </head>
 
-<body style="background-color:#f0f0f0;">
+<body>
 
 <!----header s---->
 <div class="topnav">
@@ -28,104 +28,187 @@
     </div>
 </div>
 
-<header>
-	<div class="hmain w">
-      <a href="index.html" class="logo"><img src="images/logo.png"></a>
-      <a href="login.html" class="ubut">退出</a>
-      <a href="/toUser" class="ubut" style="padding:0 15px;">个人中心<span><dl>我的资产：2830.00</dl></span></a>
-      <nav>
-          <a href="index.html">首页</a>
-          <a href="about.html">关于汇创</a>
-          <a href="touzi_list.html" class="cur">投资理财</a>
-          <a href="service.html">项目支持</a>
-          <a href="news_list.html">信息披露</a>
-      </nav>
-    </div>
+<header class="w">
+	<a href="index.html" class="logo"><img src="images/logo.png"></a>
+    <a href="register.html" class="topbut">注册</a>
+    <a href="login.html" class="topbut-cur">登录</a>
+    <nav>
+    	<a href="index.html" class="cur">首页</a>
+        <a href="about.html">关于汇创</a>
+        <a href="touzi_list.html">投资理财</a>
+        <a href="service.html">项目支持</a>
+        <a href="news_list.html">信息披露</a>
+    </nav>
 </header>
 <!----header e---->
 
 
-<div class="invest-banner w">
-	<img src="images/invest-banner.jpg">
+
+
+<!--focus start-->
+<div class="focus" id="focus">
+	
+    <div class="login_box w">
+		<div class="login">
+        	<div class="title">余盈利</div>
+            <div class="nllv">3.752%</div>
+            <div class="txt">月盈利率</div>
+            <a onclick="shoenlistDiv(this)" pronum="7" class="jiabut">立即申请</a>
+            <div class="txt" style="margin-top:20px;color:#333;">汇创点投为您推荐产品</div>
+		</div>
+	</div>
+    
+	<div id="focus_m" class="focus_m">
+		<ul>
+			<li class="li_1" style="background:url(images/1.jpg) center 0 no-repeat #288cc0;"><a href="#" hidefocus="true"></a></li>
+			<li class="li_2" style="background:url(images/2.jpg) center 0 no-repeat #76b7d8;"><a href="#" hidefocus="true"></a></li>
+			<li class="li_3" style="background:url(images/3.jpg) center 0 no-repeat #bb3838;"><a href="#" hidefocus="true"></a></li>
+		</ul>
+	</div>
+	<a href="javascript:;" class="focus_l" id="focus_l" hidefocus="true" title="上一张"><b></b><span></span></a>
+	<a href="javascript:;" class="focus_r" id="focus_r" hidefocus="true" title="下一张"><b></b><span></span></a>
+</div>
+<!--focus end-->
+
+
+
+<div class="in-motice">
+	<div class="conmain w">
+    	<i class="icon-0724"></i>
+        <a href="" class="title">最新公告：关于存管支付系统搬迁期间暂停体现的通知</a>
+        <a href="" class="more"><span>查看更多</span><i class="icon-0244"></i></a>
+    </div>
 </div>
 
 
+<div class="datanav w">
+	<div class="txt"><span>项目路演</span><em>101</em><span>场</span></div>
+    <div class="txt"><span>交易金额</span><em>1.02</em><span>亿</span></div>
+    <div class="txt"><span>投资收益</span><em>3316</em><span>万</span></div>
+    <div class="txt"><span>服务用户</span><em>2203</em><span>位</span></div>
+</div>
 
-<!---invest-list s--->
-<div class="invest-list">
+<div style="background-color:#EAEAEA;width:100%; height:auto; overflow:hidden; padding:30px 0;">
 
-	<div class="classname">直投项目</div>
+<div class="way-title">为什么选择汇创点投？</div>
 
-	<div class="title">
-    	<div class="h1">项目名称</div>
-        <div class="h2">预期年化收益</div>
-        <div class="h3">项目期限</div>
-        <div class="h4">还款方式</div>
-        <div class="h5"></div>
-    </div>
-    
-    <div class="item">
-    	<div class="txt h1">&nbsp;阳光智选 | 2018073110</div>
-        <div class="txt h2">8.50%</div>
-        <div class="txt h3"><em>12</em>个月</div>
-        <div class="txt h4">按月付息</div>
-        <div class="txt h5"><a onclick="shoenlistDiv(this)" pronum="2" class="but">立即申请</a></div>
-    </div>
-    
-    <div class="item">
-    	<div class="txt h1">&nbsp;阳光智选 | 2018073110</div>
-        <div class="txt h2">8.50%</div>
-        <div class="txt h3"><em>12</em>个月</div>
-        <div class="txt h4">按月付息</div>
-        <div class="txt h5"><a onclick="shoenlistDiv(this)" pronum="2" class="but">立即申请</a></div>
-    </div>
-    
-    <div class="item">
-    	<div class="txt h1">&nbsp;阳光智选 | 2018073110</div>
-        <div class="txt h2">8.50%</div>
-        <div class="txt h3"><em>12</em>个月</div>
-        <div class="txt h4">按月付息</div>
-        <div class="txt h5"><a onclick="shoenlistDiv(this)" pronum="2" class="but">立即申请</a></div>
-    </div>
-    
-    <div class="item">
-    	<div class="txt h1">&nbsp;阳光智选 | 2018073110</div>
-        <div class="txt h2">8.50%</div>
-        <div class="txt h3"><em>12</em>个月</div>
-        <div class="txt h4">按月付息</div>
-        <div class="txt h5"><a onclick="shoenlistDiv(this)" pronum="2" class="but">立即申请</a></div>
-    </div>
-    
-    
-    <div class="classname" style="margin-top:15px;">合投项目</div>
+<div class="way-main w">
 
-	<div class="title">
-    	<div class="h1">项目名称</div>
-        <div class="h2">预期年化收益</div>
-        <div class="h3">项目期限</div>
-        <div class="h4">还款方式</div>
-        <div class="h5"></div>
+	<div class="item">
+    	<i class="ico1"></i>
+        <div class="tit">
+        	<span>项目好</span>
+            <dl>佣金高</dl>
+        </div>
     </div>
     
     <div class="item">
-    	<div class="txt h1">&nbsp;阳光智选 | 2018073110</div>
-        <div class="txt h2">8.50%</div>
-        <div class="txt h3"><em>12</em>个月</div>
-        <div class="txt h4">按月付息</div>
-        <div class="txt h5"><a onclick="shoenlistDiv(this)" pronum="2" class="but">立即申请</a></div>
+    	<i class="ico2"></i>
+        <div class="tit">
+        	<span>收益好</span>
+            <dl>专业风控优中优选</dl>
+        </div>
     </div>
     
     <div class="item">
-    	<div class="txt h1">&nbsp;阳光智选 | 2018073110</div>
-        <div class="txt h2">$2300000.00</div>
-        <div class="txt h3"><em>12</em>个月</div>
-        <div class="txt h4">按月付息</div>
-        <div class="txt h5"><a onclick="shoenlistDiv(this)" pronum="2" class="but">立即申请</a></div>
+    	<i class="ico3"></i>
+        <div class="tit">
+        	<span>融资快</span>
+            <dl>项目成立1个工作日结佣</dl>
+        </div>
     </div>
     
+    <div class="item">
+    	<i class="ico4"></i>
+        <div class="tit">
+        	<span>服务好</span>
+            <dl>专业服务经理1对1服务</dl>
+        </div>
+    </div>
 
 </div>
-<!---invest-list e--->
+
+</div>
+
+
+<!---invest-title s--->
+<div class="invest-title"><dl></dl><span class="tx">投资项目</span><dl></dl></div>
+<div class="invest-list w">
+
+  <div class="item">
+  		<div class="mask"></div>
+        <div class="nhl">年化盈利率：<span>2.78%</span></div>
+    	<div class="pic"><img src="images/pro-1.jpg"></div> 
+        <a onclick="shoenlistDiv(this)" pronum="1" class="joinbut">立即申请</a>
+        <div class="title">最新投资理财项目</div>
+        <div class="con">
+        	<span class="l">筹资金额：</span><em>1788 </em> <span class="l"> 元</span>
+            <dl>已完成</dl><span class="r">状态：</span>
+        </div>
+  </div>
+  
+  <div class="item">
+  		<div class="mask"></div>
+        <div class="nhl">年化盈利率：<span>2.78%</span></div>
+    	<div class="pic"><img src="images/pro-1.jpg"></div> 
+        <a  onclick="shoenlistDiv(this)" pronum="2" class="joinbut">立即申请</a>
+        <div class="title">最新投资理财项目</div>
+        <div class="con">
+        	<span class="l">筹资金额：</span><em>1788 </em> <span class="l"> 元</span>
+            <dl>已完成</dl><span class="r">状态：</span>
+        </div>
+  </div>
+  
+  <div class="item">
+  		<div class="mask"></div>
+        <div class="nhl">年化盈利率：<span>2.78%</span></div>
+    	<div class="pic"><img src="images/pro-1.jpg"></div> 
+        <a  onclick="shoenlistDiv(this)" pronum="3" class="joinbut">立即申请</a>
+        <div class="title">最新投资理财项目</div>
+        <div class="con">
+        	<span class="l">筹资金额：</span><em>1788 </em> <span class="l"> 元</span>
+            <dl>已完成</dl><span class="r">状态：</span>
+        </div>
+  </div>
+  
+  <div class="item">
+  		<div class="mask"></div>
+        <div class="nhl">年化盈利率：<span>2.78%</span></div>
+    	<div class="pic"><img src="images/pro-1.jpg"></div> 
+        <a  onclick="shoenlistDiv(this)" pronum="4" class="joinbut">立即申请</a>
+        <div class="title">最新投资理财项目</div>
+        <div class="con">
+        	<span class="l">筹资金额：</span><em>1788 </em> <span class="l"> 元</span>
+            <dl>已完成</dl><span class="r">状态：</span>
+        </div>
+  </div>
+  
+  <div class="item">
+  		<div class="mask"></div>
+        <div class="nhl">年化盈利率：<span>2.78%</span></div>
+    	<div class="pic"><img src="images/pro-1.jpg"></div> 
+        <a  onclick="shoenlistDiv(this)" pronum="5" class="joinbut">立即申请</a>
+        <div class="title">最新投资理财项目</div>
+        <div class="con">
+        	<span class="l">筹资金额：</span><em>1788 </em> <span class="l"> 元</span>
+            <dl>已完成</dl><span class="r">状态：</span>
+        </div>
+  </div>
+  
+  <div class="item">
+  		<div class="mask"></div>
+        <div class="nhl">年化盈利率：<span>2.78%</span></div>
+    	<div class="pic"><img src="images/pro-1.jpg"></div> 
+        <a onclick="shoenlistDiv(this)" pronum="6" class="joinbut">立即申请</a>
+        <div class="title">最新投资理财项目</div>
+        <div class="con">
+        	<span class="l">筹资金额：</span><em>1788 </em> <span class="l"> 元</span>
+            <dl>已完成</dl><span class="r">状态：</span>
+        </div>
+  </div>
+
+</div>
+<!---invest-title e--->
 
 
 
@@ -246,7 +329,7 @@ function hideenlistDiv(){
 		<div class="d d-qrcode">
 			<i class="arrow"></i>
 			<div class="inner-box">
-				<div class="qrcode-img"><img src="images/side_ewm.jpg" alt=""></div>
+				<div class="qrcode-img"><img src="images/side_ewm.jpg" alt="" width="110"></div>
 				<p>微信服务号</p>
 			</div>
 		</div>
@@ -293,5 +376,6 @@ $(document).ready(function(){
 });	
 </script>
 <!---客服代码 E--->
+<script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
