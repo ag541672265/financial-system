@@ -12,13 +12,24 @@ import java.util.Date;
  *   `dealTime` datetime NOT NULL COMMENT '时间',
  *   `comment` varchar(255) DEFAULT NULL COMMENT '交易详情',
  *   `status` int(255) NOT NULL DEFAULT '1',
+ *   orderNumber 交易单号
  */
 
 public class Trades {
     private Integer ticket,accFrom,goodsID,type,status;
     private double amount;
-    private String comment;
+    private String comment,orderNumber;
     private Date dealTime;
+
+    public String getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber;
+    }
+
+
 
     public Integer getTicket() {
         return ticket;
