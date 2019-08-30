@@ -5,10 +5,13 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.financial.financialsystem.entity.Users;
 import com.financial.financialsystem.services.UserService;
-import com.financial.financialsystem.util.RedisUtils;
-import com.financial.financialsystem.util.Token;
+import com.financial.financialsystem.util.CodeUtils;
+import com.financial.financialsystem.util.GenerateWord;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -36,7 +39,7 @@ public class UserController {
 
 
     //异步查重用户名
-    @PostMapping(value="checkNickName",produces= {"application/json;charset=UTF-8"})
+   /* @PostMapping(value="checkNickName",produces= {"application/json;charset=UTF-8"})
     @ResponseBody
     public String checkNickName(@RequestParam("nickName")String nickName){
         int n=0;
@@ -47,7 +50,7 @@ public class UserController {
         }
         // String data=JSON.toJSONStringWithDateFormat(d, "yyyy-MM-dd", SerializerFeature.PrettyFormat);
         return JSON.toJSONString(n, SerializerFeature.PrettyFormat);
-    }
+    }*/
     //异步查重手机号
     @PostMapping(value="checkPhone",produces= {"application/json;charset=UTF-8"})
     @ResponseBody
@@ -61,16 +64,23 @@ public class UserController {
         // String data=JSON.toJSONStringWithDateFormat(d, "yyyy-MM-dd", SerializerFeature.PrettyFormat);
         return JSON.toJSONString(n, SerializerFeature.PrettyFormat);
     }
+    //短信验证
+    @PostMapping(value="reception",produces= {"application/json;charset=UTF-8"})
+    @ResponseBody
+    public String reception(@RequestParam("phone")String phone) {
+        String randomNum= CodeUtils.note(phone);
+        return JSON.toJSONString(randomNum, SerializerFeature.PrettyFormat);
+    }
 
     //用户注册
     @PostMapping("/register")
     public String register(HttpServletRequest request,
-                           @RequestParam("nickName")String nickName,
                            @RequestParam("phone")String phone,
                            @RequestParam("password")String password,
                            @RequestParam("tuijianren")String tuijianren){
         Users user=new Users();
-        user.setNickName(nickName);
+        String account=phone+ GenerateWord.generateWord();
+        user.setAccount(account);
         user.setPhone(phone);
         user.setPassword(password);
         int n=userService.register(user,tuijianren);
@@ -99,10 +109,6 @@ public class UserController {
             return "userRegister";
         }else{
             if(user.getPassword().equals(password)){
-                String tokenStr= Token.genetateToken();
-                RedisUtils redis=new RedisUtils();
-                //redis.set("token",tokenStr);
-                //request.getSession().setAttribute("token",tokenStr);
                 request.getSession().setAttribute("user",user);
                 return "index";
             }else{

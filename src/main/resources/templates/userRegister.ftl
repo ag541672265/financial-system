@@ -13,7 +13,7 @@
     <script type="text/javascript">
         $(function(){
 
-            $("[name='nickName']").blur(function(){
+            /*$("[name='nickName']").blur(function(){
                 var nickName=$("[name='nickName']").val();
                 $.post("/checkNickName",{"nickName":nickName},
                     function(n){
@@ -26,7 +26,7 @@
                         }
                     },"json"
                 );
-            });
+            });*/
             $("[name='phone']").blur(function(){
                 var phoneNum=$("[name='phone']").val();
                 $.post("/checkPhone",{"phone":phoneNum},
@@ -41,13 +41,23 @@
                     },"json"
                 );
             });
+            $("#button").click(function(){
+                var phoneNum=$("[name='phone']").val();
+                $.post("/reception",{"phone":phoneNum},
+                    function(n){
+                        var m=parseInt(n);
+                        $("[name='code2']").val(m);
+                    },"json"
+                );
+            });
         })
-
         function check() {
             var phoneNum=$("[name='phone']").val();
             var password=$("[name='password']").val();
             var repasswd=$("[name='pass2']").val();
             var tuijianren=$("[name='tuijianren']").val();
+            var code=$("[name='code']").val();
+            var code2=$("[name='code2']").val();
             var reg = /^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\d{8}$/;
             if(!reg.test(phoneNum)){
                 alert("输入格式必须为手机号");
@@ -61,6 +71,9 @@
             }else if(!reg.test(tuijianren)){
                 alert("推荐人格式须为手机号");
                 $("[name='tuijianren']").focus().select();
+                return false;
+            }else if(!(code==code2)){
+                alert("验证码错误");
                 return false;
             }else{
                 return true;
@@ -108,12 +121,14 @@
     	<div class="wframe">
             <form action="/register" method="post">
                 <div class="title" style="margin-top:10px;">30秒快速注册</div>
-                <input type="text" name="nickName" required placeholder="请输入用户名" autocomplete="off" class="input ph">
+                <#--<input type="text" name="nickName" required placeholder="请输入用户名" autocomplete="off" class="input ph">-->
                 <input type="text" name="phone" required placeholder="请输入正确的手机号码" autocomplete="off" class="input ph">
                 <input type="password" name="password" required placeholder="请输入正确的密码" autocomplete="off" class="input ph">
                 <input type="password" name="pass2" required placeholder="再次确认密码" autocomplete="off" class="input ph">
                 <input type="text" name="tuijianren" required placeholder="请输入推荐人手机号" autocomplete="off" class="input ph">
-              <#--  <input type="text" name="code" required placeholder="获取短信验证" autocomplete="off" class="input ph">-->
+                <input type="text" name="code" required placeholder="获取短信验证" autocomplete="off" class="input ph">
+                <input type="hidden" name="code2" required placeholder="获取短信验证" autocomplete="off" class="input ph">
+                <input type="button" id="button"  value="点击获取">
                 <div class="tongyi"><i class="icon-0332"></i><a>我已阅读并同意<em>《使用协议》</em>及<em>《隐私条款》</em></a></div>
                 <input type="submit" class="button" onclick="return check()" value="注   册">
                 <div class="text2"><a href="/toLogin">使用账号密码登录</a></div>
@@ -121,8 +136,6 @@
     </div>
 
 </div>
-
-
 
 
 

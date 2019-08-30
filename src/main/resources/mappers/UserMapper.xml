@@ -12,7 +12,7 @@
     </select>
     <!--添加用户-->
     <insert id="addUser" parameterType="Users">
-        insert into users(password,phone,nickName) values(#{password},#{phone},#{nickName})
+        insert into users(account,password,phone,createDate) values(#{account},#{password},#{phone},SYSDATE())
     </insert>
     <!--给推荐人奖金-->
     <update id="updateCapital" parameterType="String">
