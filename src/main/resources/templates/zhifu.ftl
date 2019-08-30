@@ -9,7 +9,6 @@
 
                 $("[name='tiJiao']").click(function(){
                     var jine=$("[name='jine']").val();
-                        alert(jine);
                     if(jine==""||jine==null){
                         alert("请输入金额！");
                         return false;
