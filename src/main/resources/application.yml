@@ -1,7 +1,7 @@
 spring:
   datasource:
     username: root
-    password: root
+    password: 123456
     url: jdbc:mysql://localhost:3306/financial?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
   data:
@@ -15,26 +15,9 @@ spring:
       max-file-size: 5MB
 
 
-
   mvc:
     static-path-pattern=/static/**:
 
+
 mybatis:
   mapper-locations: classpath:mappers/*.xml
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-debug: true
