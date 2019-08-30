@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.financial.financialsystem.dao.PicturesDao">
+
+    <select id="getPicAddressByGidAndType12" resultType="java.lang.String">
+        select pic_address from pictures where pic_goods_id = #{pic_goods_id} and pic_type = #{pic_type} and pic_type2 = #{pic_type2}
+    </select>
+
+    <insert id="addOnePicture">
+        INSERT INTO pictures (pic_address,pic_goods_id,pic_type,pic_type2) VALUES (pic_address,pic_goods_id,pic_type,pic_type2)
+    </insert>
+
+    <delete id="delPicture">
+        delete from pictures where pic_id = #{pic_id}
+    </delete>
+
+    <update id="setOnePictureById">
+        UPDATE pictures p
+        <trim prefix="set" suffixOverrides=",">
+            <if test="pic_address != null and pic_address != ''">
+                p.pic_address = #{pic_address},
+            </if>
+            <if test="pic_goods_id != null and pic_goods_id != ''">
+                p.pic_goods_id = #{pic_goods_id},
+            </if>
+            <if test="pic_type != null and pic_type != ''">
+                p.pic_type = #{pic_type},
+            </if>
+            <if test="pic_type2 != null and pic_type2 != ''">
+                p.pic_type2 = #{pic_type2},
+            </if>
+        </trim>
+        WHERE pic_id = #{pic_id}
+    </update>
+
+    <select id="test" resultType="com.financial.financialsystem.entity.Pictures">
+        select * from pictures
+    </select>
+
+</mapper>

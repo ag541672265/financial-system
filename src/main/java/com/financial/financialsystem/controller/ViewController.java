@@ -45,6 +45,11 @@ public class ViewController {
     public String fund(){
         return "fund";
     }
+    //去保险产品介绍页
+    @RequestMapping(value = "insurancePro",method = RequestMethod.GET)
+    public String insurancePro(){
+        return "insurancePro";
+    }
 
 
 

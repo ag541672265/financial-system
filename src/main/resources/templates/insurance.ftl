@@ -332,7 +332,12 @@
 </div>
 <div class="insurance-group">
     <ul class="insurance-group-con">
-        <li><img src="insurance/images/15645672524114.jpg" alt="短期综合意外险">
+        <li>
+            <#if p1 ??>
+                <img src="${p1}" alt="一号商品">
+                <#else >
+                    <img src="insurance/images/15645672524114.jpg" alt="一号商品">
+            </#if>
             <div class="insurance-group-item_con"><p class="insurance-group-item_title">短期综合意外险</p>
                 <p class="insurance-group-item_price">3.5元/起</p></div>
             <div class="insurance-group-item_mask">
@@ -435,7 +440,12 @@
                         href="https://health.pingan.com/cshi-internet/chanpinlist/wangxiaochanpin/sourcecode_PAH/postid_PAB7/newpaejb.shtml"
                         otitle="保险专题页-保险首页健康险-位置2-平安e家保2018" otype="click" data-event-name="保险专题页-保险首页健康险-位置2-平安e家保2018"
                         data-event-param="保险专题页-保险首页健康险-位置2-平安e家保2018" data-event-type="click" target="_blank">
-                    <div class="topic-item-img"><img src="insurance/images/15550489075725.png" alt="平安e家保2018">
+                    <div class="topic-item-img">
+                        <#if jkp1 ??>
+                            <img src="${jkp1}" alt="一号商品">
+                        <#else >
+                            <img src="insurance/images/15550489075725.png" alt="平安e家保2018">
+                        </#if>
                     </div>
                     <div class="topic-item-cover"><h3>平安e家保2018</h3>
                         <p class="item-desc">小病有保障；支持线上问诊</p>
