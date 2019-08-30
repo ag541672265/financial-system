@@ -5,7 +5,7 @@
 <title>汇添金</title>
 <meta name="keywords" content="汇添金" />
 <meta name="description" content="汇添金" />
-<link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"/>
+<#--<link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"/>-->
 <link rel="stylesheet" href="css/style.css"/>
 <link rel="stylesheet" href="css/index.css"/>
 <link href="css/iconfont/RjdaoIcon.css" rel="stylesheet" type="text/css">
@@ -41,12 +41,12 @@
     </#if>
     <nav>
     	<a href="/index" class="cur">首页</a>
-        <#--链接未完成部分'''-->
-        <a href="about.html">基金</a>
-        <a href="touzi_list.html">理财</a>
-        <a href="insurance">保险</a>
+
+        <a href="/fund">基金</a>
+        <a href="/fProducts">理财</a>
+        <a href="/insurance">保险</a>
         <a href="news_list.html">汇金红</a>
-        <#--链接未完成部分...-->
+
     </nav>
 </header>
 <!----header e---->

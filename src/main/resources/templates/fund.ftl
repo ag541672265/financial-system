@@ -17,7 +17,7 @@
 <!----header s---->
 <div class="topnav">
 	<div class="mainw w">
-    <div class="l-txt">欢迎致电：400-0000-000 &nbsp;&nbsp; 服务时间：08:30-18:30（工作日）</div>
+    <div class="l-txt">欢迎致电：400-8800-379 &nbsp;&nbsp; 服务时间：08:30-18:30（工作日）</div>
     <#--<div class="wapbut">-->
    	  <#--<span>手机端</span><i class="icon-0198"></i>-->
     	<#--<div class="qrc"><img src="images/qrc.png"></div>-->
@@ -30,14 +30,20 @@
 
 <header>
 	<div class="hmain w">
-      <a href="index.ftl" class="logo"><img src="images/logo.png"></a>
-      <a href="login.ftl" class="ubut">退出</a>
-      <a href="user_index.html" class="ubut" style="padding:0 15px;">个人中心<span><dl>我的资产：2830.00</dl></span></a>
+        <#--logo图片-->
+        <a href="/index" class="logo"><img src="images/logo.png" <#--alt="汇添金logo图片"-->></a>
+        <#if user ??>
+            <a href="/index" class="ubut">退出</a>
+            <a href="user_index" class="ubut" style="padding:0 15px;">个人中心<span><dl>我的资产：2830.00</dl></span></a>
+        <#else>
+            <a href="/register" class="topbut">注册</a>
+            <a href="/login" class="topbut-cur">登录</a>
+        </#if>
       <nav>
           <a href="/index">首页</a>
-          <a href="/touzi_list" class="cur">基金投资</a>
-          <a href="about.html">理财产品</a>
-          <a href="service.html">保单保险</a>
+          <a href="/fund" class="cur">基金</a>
+          <a href="/fProducts">理财</a>
+          <a href="/insurance">保险</a>
           <a href="news_list.html">汇金红</a>
       </nav>
     </div>
@@ -107,8 +113,8 @@
             	<div class="ilist">
                 	<h1>联系我们</h1>
                     <div class="t">客服电话</div>
-                    <div class="tel">400-0000-000</div>
-                    <div class="t">邮箱：xiezhengy6@126.com</div>
+                    <div class="tel">400-8800-379</div>
+                    <div class="t">邮箱：1059193212@qq.com</div>
                 </div>
                 
                 <div class="ilist">
@@ -130,7 +136,7 @@
             </div>
         </div>
         <div class="fm-bot">
-        	<span>&copy; 2018 &nbsp;北京汇创点投科技有限公司 &nbsp;京ICP备：00000000号 </span>
+        	<span>&copy; 2018 &nbsp;北京汇创点投科技有限公司 &nbsp;京ICP备：12054803号 </span>
             <dl>市场有风险 投资需谨慎</dl>
         </div>
     </div>
@@ -185,7 +191,7 @@ function hideenlistDiv(){
 	<div class="suspension-box">
 		<a href="#" class="a a-service "><i class="i"></i></a>
 		<a href="javascript:;" class="a a-service-phone "><i class="i"></i></a>
-		<a href="javascript:;" class="a a-qrcode"><i class="i"></i></a>
+		<#--<a href="javascript:;" class="a a-qrcode"><i class="i"></i></a>-->
 		<a href="javascript:;" class="a a-top"><i class="i"></i></a>
 		<div class="d d-service">
 			<i class="arrow"></i>
@@ -202,7 +208,7 @@ function hideenlistDiv(){
 					<span class="circle"><i class="i-tel"></i></span>
 					<div class="text">
 						<p>服务热线</p>
-						<p class="red number">400-0000-000</p>
+						<p class="red number">400-8800-379</p>
 					</div>
 				</div>
 				<div class="d-service-intro clearfix">

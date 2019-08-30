@@ -46,12 +46,12 @@
     </#if>
     <nav>
         <a href="/index">首页</a>
-        <#--链接未完成部分'''-->
-        <a href="about.html">基金</a>
-        <a href="touzi_list.html">理财</a>
-        <a href="insurance" class="cur">保险</a>
+
+        <a href="/fund">基金</a>
+        <a href="/fProducts">理财</a>
+        <a href="/insurance" class="cur">保险</a>
         <a href="news_list.html">汇金红</a>
-        <#--链接未完成部分...-->
+
     </nav>
 </header>
 <!----header e---->

@@ -26,6 +26,16 @@ public class ViewController {
         return "insurance";
     }
 
+    @RequestMapping(value = "fProducts",method = RequestMethod.GET)
+    public String fProducts(){
+        return "financialProducts";
+    }
+
+    @RequestMapping(value = "fund",method = RequestMethod.GET)
+    public String fund(){
+        return "fund";
+    }
+
 
 
 
