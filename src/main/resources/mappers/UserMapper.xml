@@ -3,5 +3,20 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.financial.financialsystem.dao.UserDao"><!-- dao层地址 -->
 
-
+    <!--根据手机号查询用户-->
+    <select id="getUserByPhone" resultType="Users">
+        select * from users where phone=#{phone}
+    </select>
+    <!--根据昵称查询用户-->
+    <select id="getUserByNickName" resultType="Users">
+        select * from users where nickName=#{nickName}
+    </select>
+    <!--添加用户-->
+    <insert id="addUser" parameterType="Users">
+        insert into users(account,password,phone,createDate) values(#{account},#{password},#{phone},SYSDATE())
+    </insert>
+    <!--给推荐人奖金-->
+    <update id="updateCapital" parameterType="String">
+        update users set capital=capital+100 where phone=#{tuijianren}
+    </update>
 </mapper>
