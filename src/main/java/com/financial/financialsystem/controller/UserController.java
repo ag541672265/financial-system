@@ -8,6 +8,7 @@ import com.financial.financialsystem.services.UserService;
 import com.financial.financialsystem.util.CodeUtils;
 import com.financial.financialsystem.util.GenerateWord;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -100,6 +101,14 @@ public class UserController {
                 return "userLogin";
             }
         }
+    }
+
+
+    //个人页面查看，可看自己的资产，交易记录等
+    //进入资产界面
+    @RequestMapping("/toassets")
+    public String toassets(Model model){
+        return "assets";
     }
 
 }
