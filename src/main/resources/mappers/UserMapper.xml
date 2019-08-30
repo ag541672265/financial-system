@@ -19,4 +19,11 @@
     <update id="updateCapital" parameterType="String">
         update users set capital=capital+100 where phone=#{tuijianren}
     </update>
+
+    <update id="UpdateUser">
+        update users set balance=#{balance}+#{balanc} where phone=#{phone}
+    </update>
+    <insert id="addtrades">
+        insert into trades(accFrom,goodsID,amount,type,dealTime,comment) values(#{accFrom},0,#{amount},1,now(),'入金')
+    </insert>
 </mapper>
