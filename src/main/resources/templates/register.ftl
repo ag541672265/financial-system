@@ -19,8 +19,12 @@
             // alert(col=="rgb(204, 204, 204)")
             if (col=="rgb(204, 204, 204)"){
                 $("#ty").css("color", "rgb(0,153,0)")
+                $("#rdl").show();
+                $("#gdl").hide();
             }else {
                 $("#ty").css("color", "rgb(204, 204, 204)")
+                $("#rdl").hide();
+                $("#gdl").show();
             }
             // alert($("#ty").css("color"))
 //              0,153,0
@@ -73,7 +77,8 @@
             <input type="password" name="pass2" required placeholder="再次确认密码" autocomplete="off" class="input ph">
             <div class="tongyi"><i class="icon-0332" onclick="ty()"
                                    id="ty"></i><a>我已阅读并同意<em>《使用协议》</em>及<em>《隐私条款》</em></a></div>
-            <input type="submit" class="button" value="登   录">
+            <input type="submit" class="button" value="登   录" id="rdl">
+            <input type="buttom" class="button" value="登   录" style="display: none;background-color: grey" id="gdl">
             <div class="text2"><a href="/login">使用账号密码登录</a></div>
         </div>
     </div>
