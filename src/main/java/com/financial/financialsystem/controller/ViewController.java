@@ -16,6 +16,10 @@ public class ViewController {
     public String toIndex(HttpServletRequest request){
         return "index";
     }
+    @GetMapping(value = "/index")
+    public String toIndex2(HttpServletRequest request){
+        return "index";
+    }
     //去登录页面
     @RequestMapping("/login")
     public String toLogin(){
@@ -26,17 +30,17 @@ public class ViewController {
     public String toRegister(){
         return "userRegister";
     }
-
+    //去保险页面
     @RequestMapping(value = "insurance",method = RequestMethod.GET)
     public String insurance(){
         return "insurance";
     }
-
+    //去理财页面
     @RequestMapping(value = "fProducts",method = RequestMethod.GET)
     public String fProducts(){
         return "financialProducts";
     }
-
+    //去基金页面
     @RequestMapping(value = "fund",method = RequestMethod.GET)
     public String fund(){
         return "fund";
