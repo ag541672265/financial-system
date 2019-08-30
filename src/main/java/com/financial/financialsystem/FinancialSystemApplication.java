@@ -6,8 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
-@EnableTransactionManagement
-@MapperScan("com.financial.financialsystem.dao")
+
+@MapperScan(basePackages = "com.financial.financialsystem.dao")
+@EnableTransactionManagement //事务声明
+
 public class FinancialSystemApplication {
 
     public static void main(String[] args) {
