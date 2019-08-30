@@ -34,7 +34,8 @@ public class Users {
     ;
 
 
-    private Integer uid, cardstate, states;
+    private Integer cardstate, states;
+    private int uid;
     private String account, password, phone, headimg, nickName, email;
     private Date createDate;
     private double balance,capital;
@@ -47,11 +48,11 @@ public class Users {
         this.capital = capital;
     }
 
-    public Integer getUid() {
+    public int getUid() {
         return uid;
     }
 
-    public void setUid(Integer uid) {
+    public void setUid(int uid) {
         this.uid = uid;
     }
 

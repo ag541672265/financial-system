@@ -12,32 +12,33 @@ import java.util.Date;
  */
 
 public class IdCard {
-    private Integer cid,uid;
-    private Date caredate;
+    private int cid;
+    private int uid;
+    private Date createDate;
     private String cName,cardID;
 
-    public Integer getCid() {
+    public int getCid() {
         return cid;
     }
 
-    public void setCid(Integer cid) {
+    public void setCid(int cid) {
         this.cid = cid;
     }
 
-    public Integer getUid() {
+    public int getUid() {
         return uid;
     }
 
-    public void setUid(Integer uid) {
+    public void setUid(int uid) {
         this.uid = uid;
     }
 
-    public Date getCaredate() {
-        return caredate;
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setCaredate(Date caredate) {
-        this.caredate = caredate;
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
     public String getcName() {

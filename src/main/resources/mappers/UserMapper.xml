@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.financial.financialsystem.dao.UserDao"><!-- dao层地址 -->
+    <!--查找用户-->
+    <select id="queryUserByAccount" resultType="com.financial.financialsystem.entity.Users">
+        select * from users where account=#{account}
+    </select>
+
+    <!--添加用户-->
+    <insert id="addUsers" parameterType="com.financial.financialsystem.entity.Users">
+        insert into users(uid,account,password,phone,nickName,cardstate,email,balance,capital,createDate,headimg,states) values (null,#{account},#{password},#{phone},#{nickName},0,null,0,0,SYSDATE(),null,1)
+    </insert>
+    <!--根据电话号查找用户-->
+    <select id="queryUserByPhone" resultType="com.financial.financialsystem.entity.Users">
+        select * from users where phone=#{phone}
+    </select>
+    <!--添加100块邀请钱-->
+    <update id="addMoneyByPhone">
+       UPDATE users SET capital=#{capital} WHERE phone=#{phone}
+    </update>
+    <!--查找用户昵称-->
+    <select id="getUserByNickName" resultType="String">
+        select nickName from users where nickName=#{nickName}
+    </select>
+    <!--根据电话号查找用户个数-->
+    <select id="getUserByPhone" resultType="String">
+        select phone from users where phone=#{phone}
+    </select>
+    <!--插入身份证及真实姓名-->
+    <insert id="addIdCard">
+    INSERT INTO idcard(cid,uid,cName,cardId,createDate,title) VALUES(NULL,#{uid},#{cName},#{cardId},SYSDATE(),null)
+    </insert>
+    <!--根据account查找用户uid,没用-->
+    <select id="getUidByAccount" resultType="int">
+    SELECT uid FROM users WHERE account=#{account}
+    </select>
+    <!--买完东西修改金额-->
+    <update id="updateBalance">
+       UPDATE users SET balance=#{balance} WHERE uid=#{uid}
+    </update>
+    <!--即时余额-->
+    <select id="getBanlanceByUid" resultType="double">
+    SELECT balance FROM users WHERE uid=#{uid}
+    </select>
+</mapper>
