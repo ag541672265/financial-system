@@ -11,8 +11,12 @@
     <link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/user.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
     <link href="css/iconfont/RjdaoIcon.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="js/jquery-1.9.0.js"></script>
+    <style type="text/css">
+        .focus_s ul {height:12px;overflow:hidden;position:absolute;left:35%;top:350px;}
+    </style>
 </head>
 <body <#--style="background-position: center 110px;"-->><!-- 登录条-->
 
@@ -61,7 +65,7 @@
                             data-event-param="保险专题页-banner左侧导航栏-位置1-健康险" data-event-type="click"><i
                                 style="background-image:url(//pa18-pweb.pingan.com/upload/chnapp/pc/uploads/img/category/2018/04/28/15249004307453.png);"> </i>健康险</a>
                 </h4>
-                <div class="insurance-subnav"><h5>健康险</h5>
+                <div class="insurance-subnav" style="background-color: white"><h5>健康险</h5>
                     <ul class="insurance-subnav-list">
                         <li>
                             <a href="https://www.pingan.com/official/insurance?secondclass=e3136e55f616815a&amp;flag=a6cd7dbd9051778b"
@@ -107,7 +111,7 @@
                     </div>
                 </div>
             </li>
-            <li class="insurace-nav-item"><h4><a
+            <#--<li class="insurace-nav-item"><h4><a
                             href="https://www.pingan.com/official/insurance?firstclass=8fb957c6751dd66d"
                             otitle="保险专题页-banner左侧导航栏-位置2" otype="click" data-event-name="保险专题页-banner左侧导航栏-位置2"
                             data-event-param="保险专题页-banner左侧导航栏-位置2-意外险" data-event-type="click"><i
@@ -151,14 +155,14 @@
                         </div>
                     </div>
                 </div>
-            </li>
+            </li>-->
             <li class="insurace-nav-item"><h4><a
                             href="https://www.pingan.com/official/insurance?firstclass=753a80ca3d9db73d"
                             otitle="保险专题页-banner左侧导航栏-位置3" otype="click" data-event-name="保险专题页-banner左侧导航栏-位置3"
                             data-event-param="保险专题页-banner左侧导航栏-位置3-寿险" data-event-type="click"><i
                                 style="background-image:url(//pa18-pweb.pingan.com/upload/chnapp/pc/uploads/img/category/2018/04/28/15249004546853.png);"> </i>寿险</a>
                 </h4>
-                <div class="insurance-subnav"><h5>寿险</h5>
+                <div class="insurance-subnav" style="background-color: white"><h5>寿险</h5>
                     <ul class="insurance-subnav-list">
                         <li>
                             <a href="https://www.pingan.com/official/insurance?secondclass=fe6438536d31be8d&amp;flag=753a80ca3d9db73d"
@@ -199,7 +203,7 @@
                     </div>
                 </div>
             </li>
-            <li class="insurace-nav-item"><h4><a
+            <#--<li class="insurace-nav-item"><h4><a
                             href="https://www.pingan.com/official/insurance?firstclass=47b8b71a21e9494e"
                             otitle="保险专题页-banner左侧导航栏-位置4" otype="click" data-event-name="保险专题页-banner左侧导航栏-位置4"
                             data-event-param="保险专题页-banner左侧导航栏-位置4-旅游险" data-event-type="click"><i
@@ -241,8 +245,8 @@
                         </div>
                     </div>
                 </div>
-            </li>
-            <li class="insurace-nav-item"><h4><a
+            </li>-->
+            <#--<li class="insurace-nav-item"><h4><a
                             href="https://www.pingan.com/official/insurance?firstclass=3692c35f2d6f02fc"
                             otitle="保险专题页-banner左侧导航栏-位置5" otype="click" data-event-name="保险专题页-banner左侧导航栏-位置5"
                             data-event-param="保险专题页-banner左侧导航栏-位置5-财产险" data-event-type="click"><i
@@ -283,18 +287,28 @@
                                data-event-param="保险专题页-banner左侧导航特别推荐-位置4-家庭财产保险" data-event-type="click">立即投保</a></div>
                     </div>
                 </div>
-            </li>
-            <li class="insurace-nav-item"><h4><a
+            </li>-->
+            <#--<li class="insurace-nav-item"><h4><a
                             href="http://www.4008000000.com/cpchexian/sem/newm.shtml?area=sc03-wm-pagw-&amp;WT.mc_id=sc03-wm-pagw-04"
                             target="_blank" otitle="保险专题页-banner左侧导航栏-位置6" otype="click"
                             data-event-name="保险专题页-banner左侧导航栏-位置6" data-event-param="保险专题页-banner左侧导航栏-位置6-车险"
                             data-event-type="click"><i
                                 style="background-image:url(//pa18-pweb.pingan.com/upload/chnapp/pc/uploads/img/category/2018/04/28/15248993394545.png);"> </i>车险</a>
-                </h4></li>
+                </h4></li>-->
         </ul>
     </div>
-    <div class="common-banner" id="banner">
-        <ul class="common-banner-img" id="bannerAdimg" style="position: relative; width: 720px; height: 394px;">
+    <div class="common-banner" <#--id="banner"--> id="focus" style="width: 81%;">
+        <div id="focus_m" class="focus_m">
+            <ul>
+                <li class="li_1" style="background:url(images/picc3.jpg) center 0 no-repeat #288cc0;background-size: 100% 100%"><a href="#" hidefocus="true"></a></li>
+                <li class="li_2" style="background:url(images/2.jpg) center 0 no-repeat #76b7d8;background-size: 100% 100%"><a href="#" hidefocus="true"></a></li>
+                <li class="li_3" style="background:url(images/3.jpg) center 0 no-repeat #bb3838;background-size: 100% 100%"><a href="#" hidefocus="true"></a></li>
+                <li class="li_3" style="background:url(images/1.jpg) center 0 no-repeat #bb3838;background-size: 100% 100%"><a href="#" hidefocus="true"></a></li>
+            </ul>
+        </div>
+        <a href="javascript:;" class="focus_l" id="focus_l" hidefocus="true" title="上一张"><b></b><span></span></a>
+        <a href="javascript:;" class="focus_r" id="focus_r" hidefocus="true" title="下一张"><b></b><span></span></a>
+        <#--<ul class="common-banner-img" id="bannerAdimg" style="position: relative; width: 720px; height: 394px;">
             <li style="position: absolute; width: 720px; left: 0px; top: 0px; display: none;"><a
                         href="http://life.pingan.com/productDetail.html?code=PAF&amp;source=JTGWbaoxianbanner"
                         target="_blank" otitle="保险专题页-顶部banner-位置1" otype="click" data-event-name="保险专题页-顶部banner-位置1"
@@ -308,12 +322,13 @@
         </ul>
         <div class="banner-prev-btn" id="prev-btn"><i>&lt;</i></div>
         <div class="banner-next-btn" id="next-btn"><i>&gt;</i></div>
-        <p class="common-slide-btn" id="bannerSlideBtn"><span class=""></span><span class="curr"></span></p></div>
-    <div class="insurance-banner-adv"><a
+        <p class="common-slide-btn" id="bannerSlideBtn"><span class=""></span><span class="curr"></span></p>-->
+    </div>
+    <#--<div class="insurance-banner-adv"><a
                 href="http://www.4008000000.com/cpchexian/sem/newm.shtml?area=sc03-wm-pagw-&amp;WT.mc_id=sc03-wm-pagw-04"
                 target="_blank" otitle="保险专题页-banner右侧广告位" otype="click" data-event-name="保险专题页-banner右侧广告位"
                 data-event-param="保险专题页-banner右侧广告位" data-event-type="click"><img
-                    src="insurance/images/15541124729133.jpg" alt="保险首页导航栏右侧"></a></div>
+                    src="insurance/images/15541124729133.jpg" alt="保险首页导航栏右侧"></a></div>-->
 </div>
 <div class="insurance-group">
     <ul class="insurance-group-con">
@@ -360,13 +375,13 @@
     </ul>
     <div class="insurance-app-group">
         <div class="insurance-app-show">
-            <dl class="">
+            <dl class="show">
                 <dt><img src="insurance/images/15252664188699.png" alt="平安移动官网"></dt>
                 <dd class="insurance-app-title">平安移动官网</dd>
                 <dd class="insurance-app-short_desc">你的专业金融助手</dd>
                 <dd class="insurance-app-desc">汇你所想，惠你所需</dd>
             </dl>
-            <dl class="show">
+            <dl class="">
                 <dt><img src="insurance/images/15252668960727.png" alt="微平安"></dt>
                 <dd class="insurance-app-title">微平安</dd>
                 <dd class="insurance-app-short_desc">一站式财富管理微服务平台</dd>
@@ -386,14 +401,13 @@
         </ul>
     </div>
 </div>
-<div class="insurance-topic"><h1><img src="insurance/images/15249186874508.png" alt="保险首页健康险"><a
-                href="http://www.pingan.com/official/insurance?firstclass=a6cd7dbd9051778b" otitle="保险专题页-保险首页健康险"
-                otype="click" data-event-name="保险专题页-保险首页健康险" data-event-param="保险专题页-保险首页健康险" data-event-type="click"
-                target="_blank">查看更多&gt;</a></h1>
+<div class="insurance-topic"><h1 style="color: #4d4d4d;font-size: 42px;font-weight: 600;font-family: 隶书">
+        健康险
+        <a href="#">查看更多&gt;</a></h1>
     <div class="insurance-topic">
         <ul>
             <li class="topic-first"><a
-                        href="https://pingan.com.cn/cshi-internet/chanpinlist/wangxiaochanpin/sourcecode_PAH/postid_Z2/zjwy.shtml"
+                        href="#"
                         otitle="保险专题页-保险首页健康险-位置1-E生康重疾无忧" otype="click" data-event-name="保险专题页-保险首页健康险-位置1-E生康重疾无忧"
                         data-event-param="保险专题页-保险首页健康险-位置1-E生康重疾无忧" data-event-type="click" target="_blank">
                     <div class="topic-item-img"><img src="insurance/images/15513455896365.png" alt="E生康重疾无忧"></div>
@@ -454,10 +468,8 @@
         </ul>
     </div>
 </div>
-<div class="insurance-topic"><h1><img src="insurance/images/15277740352863.png" alt="保险首页意外险"><a
-                href="http://www.pingan.com/official/insurance?firstclass=8fb957c6751dd66d" otitle="保险专题页-保险首页意外险"
-                otype="click" data-event-name="保险专题页-保险首页意外险" data-event-param="保险专题页-保险首页意外险" data-event-type="click"
-                target="_blank">查看更多&gt;</a></h1>
+<div class="insurance-topic"><h1 style="color: #4d4d4d;font-size: 42px;font-weight: 600;font-family: 隶书">寿&nbsp;&nbsp;险<a
+                href="#">查看更多&gt;</a></h1>
     <div class="insurance-topic">
         <ul>
             <li class="topic-first"><a
@@ -611,5 +623,6 @@
 <script src="insurance/js/hm.js"></script>
 <#--<script src="insurance/js/insurance-03dc66f04c.js"></script>-->
 <script src="insurance/js/web.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
