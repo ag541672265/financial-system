@@ -60,7 +60,7 @@
     <div class="insurace-nav">
         <ul>
             <li class="insurace-nav-item"><h4><a
-                            href="https://www.pingan.com/official/insurance?firstclass=a6cd7dbd9051778b"
+                            href="#jiankangxian"
                             otitle="保险专题页-banner左侧导航栏-位置1" otype="click" data-event-name="保险专题页-banner左侧导航栏-位置1"
                             data-event-param="保险专题页-banner左侧导航栏-位置1-健康险" data-event-type="click"><i
                                 style="background-image:url(//pa18-pweb.pingan.com/upload/chnapp/pc/uploads/img/category/2018/04/28/15249004307453.png);"> </i>健康险</a>
@@ -157,7 +157,7 @@
                 </div>
             </li>-->
             <li class="insurace-nav-item"><h4><a
-                            href="https://www.pingan.com/official/insurance?firstclass=753a80ca3d9db73d"
+                            href="#shouxian"
                             otitle="保险专题页-banner左侧导航栏-位置3" otype="click" data-event-name="保险专题页-banner左侧导航栏-位置3"
                             data-event-param="保险专题页-banner左侧导航栏-位置3-寿险" data-event-type="click"><i
                                 style="background-image:url(//pa18-pweb.pingan.com/upload/chnapp/pc/uploads/img/category/2018/04/28/15249004546853.png);"> </i>寿险</a>
@@ -420,7 +420,7 @@
         </ul>
     </div>-->
 </div>
-<div class="insurance-topic"><h1 style="color: #4d4d4d;font-size: 42px;font-weight: 600;font-family: 隶书">
+<div class="insurance-topic"><a name="jiankangxian"></a><h1 style="color: #4d4d4d;font-size: 42px;font-weight: 600;font-family: 隶书">
         健康险
         <a href="#">查看更多&gt;</a></h1>
     <div class="insurance-topic">
@@ -492,7 +492,7 @@
         </ul>
     </div>
 </div>
-<div class="insurance-topic"><h1 style="color: #4d4d4d;font-size: 42px;font-weight: 600;font-family: 隶书">寿&nbsp;&nbsp;险<a
+<div class="insurance-topic"><a name="shouxian"></a><h1 style="color: #4d4d4d;font-size: 42px;font-weight: 600;font-family: 隶书">寿&nbsp;&nbsp;险<a
                 href="#">查看更多&gt;</a></h1>
     <div class="insurance-topic">
         <ul>

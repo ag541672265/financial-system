@@ -35,6 +35,17 @@ public class ViewController {
     public String insurance(){
         return "insurance";
     }
+
+    //去保险产品介绍页
+    @RequestMapping(value = "insurancePro",method = RequestMethod.GET)
+    public String insurancePro(){
+        return "insurancePro";
+    }
+
+    @RequestMapping(value = "insurancePro2",method = RequestMethod.GET)
+    public String insurancePro2(){
+        return "insurancePro2";
+    }
     //去理财页面
     @RequestMapping(value = "fProducts",method = RequestMethod.GET)
     public String fProducts(){
@@ -45,11 +56,7 @@ public class ViewController {
     public String fund(){
         return "fund";
     }
-    //去保险产品介绍页
-    @RequestMapping(value = "insurancePro",method = RequestMethod.GET)
-    public String insurancePro(){
-        return "insurancePro";
-    }
+
 
 
 
