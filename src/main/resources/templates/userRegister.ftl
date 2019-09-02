@@ -100,7 +100,7 @@
 <header>
 	<div class="hmain w">
       <a href="/" class="logo"><img src="images/logo.png"></a>
-      <a href="/" class="ubut">退出</a>
+      <a href="/login" class="ubut">退出</a>
        <nav>
           <a href="/">首页</a>
           <#--链接未完成部分'''-->

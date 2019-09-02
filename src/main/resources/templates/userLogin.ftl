@@ -33,6 +33,14 @@
             }
         }
     </script>
+    <script type="text/javascript">
+        //防止页面后退
+        history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', function () {
+            history.pushState(null, null, document.URL);
+        });
+
+    </script>
 </head>
 
 <body style="background-color:#f0f0f0;">
@@ -53,7 +61,6 @@
 <header>
 	<div class="hmain w">
       <a href="/" class="logo"><img src="/images/logo.png"></a>
-      <a href="/" class="ubut">退出</a>
        <nav>
           <a href="/">首页</a>
           <#--链接未完成部分'''-->

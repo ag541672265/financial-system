@@ -31,6 +31,14 @@
 //             204,204,204
         }
     </script>
+    <script type="text/javascript">
+        //防止页面后退
+        history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', function () {
+            history.pushState(null, null, document.URL);
+        });
+
+    </script>
 </head>
 
 <body style="background-color:#f0f0f0;">
