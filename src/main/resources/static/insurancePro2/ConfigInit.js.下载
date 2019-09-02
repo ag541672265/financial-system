@@ -1,0 +1,784 @@
+/**
+ * 配置初始化js
+ */
+/*$(document).ready(
+		function(){
+			productCode=$("#productCode").val();
+			initDate("EAG_T1");
+	}
+		);*/
+/**
+ * 初始化首页数据，目前包括初始化时间、案例分析、热销产品
+ * @param productCode
+ */
+function initDate(productCode){
+	var configUrl = "/eproduct/conproposal/getIndexConfig.do";
+	$.ajax({
+		type:'post',
+		data:'productCode=' + productCode ,
+		url:configUrl,
+		async : false,
+		success : function(data, textStatus) { 
+			var pztime=data.pztime;
+			var pzcaseanalys=data.pzcaseanalys;
+			var pzmains=data.pzmains;
+			var popularProducts=data.pzpopularproducts;
+			var displayplans=data.displayplans;
+			var pzitemkinds=data.pzitemkinds;
+			var pzitemkindamounts=data.pzitemkindamounts;
+//			var pzitemkindTemps=data.pzitemkindTemps;
+			initHiddenData(pztime);
+//			initCaseAnalysis(pzcaseanalys,pzmains);
+			initpzPopularProducts(popularProducts);
+			initItemkind(displayplans,pzitemkinds,pzitemkindamounts);
+		},
+		error : function(data,textStatus){
+		}
+	});
+}
+/**
+ * 给隐藏域赋值
+ * @param pztime
+ */
+function initHiddenData(pztime){
+	//$("#startDate").val(pztime.startdatevalue);//给开始日期赋值
+	$("#startDateHidden").val(pztime.startdatevalue);
+	//$("#endDate").val(pztime.enddatedefvalue);//给结束日期赋值
+	$("#endDateHidden").val(pztime.enddatedefvalue);
+	$("#startDateType").val(pztime.startdatetype);//给开始日期类型赋值
+	$("#endDateMax").val(pztime.city);//暂时用城市存储最大结束日期
+	var range="";//结束日期可选范围
+	var startRange="";//保障范围开始时间
+	var endRange=""; //保障范围结束时间
+	var gdFlag="false";//是否固定日期
+	var timeBegin=pztime.timebegin.substring(0, pztime.timebegin.length-1);
+	var timeEnd = pztime.timeend.substring(0, pztime.timeend.length-1);
+	var  timeBegiUunit= pztime.timebegin.substring(pztime.timebegin.length-1);
+	var  timeEndUunit = pztime.timeend.substring(pztime.timeend.length-1);
+	$("#timeBegiUunit").val(timeBegiUunit);
+	$("#timeEndUunit").val(timeEndUunit);
+	if(timeBegin==timeEnd){//日期在固定的某个范围
+		range=timeBegin;
+		startRange=timeBegin;
+		endRange=timeEnd;
+		gdFlag="true";
+	}else{
+		if(timeBegin!="0"){
+			if(parseInt(timeBegin)>1){//日期范围从大于1开始
+				range=parseInt(timeEnd)-parseInt(timeBegin);
+			}else{//日期范围从1开始
+				range=parseInt(timeEnd)-parseInt(timeBegin)+1;
+			}
+			startRange=timeBegin;
+			endRange=timeEnd;
+		}
+	}
+	if(gdFlag=="true"){
+		$("#endDate").parent().addClass("readonly");
+	}
+	$("#range").val(range);
+	$("#startRange").val(startRange);
+	$("#endRange").val(endRange);
+	$("#gdFlag").val(gdFlag);
+}
+
+/**
+ * 显示日历，根据配置表正确显示可选日期范围
+ * @param type
+ */
+function setDate(type){
+	var startDate=$("#startDate").val();
+	var startDateHidden=$("#startDateHidden").val();
+	var endDate=$("#endDate").val();
+	var endDateMax=$("#endDateMax").val();
+	range=parseInt($("#range").val())-1;
+	startRange=parseInt($("#startRange").val())-1;
+	endRange=parseInt($("#endRange").val())-1;
+	var startDateType=$("#startDateType").val();
+	var gdFlag=$("#gdFlag").val();
+	var timeBegiUunit=$("#timeBegiUunit").val();
+	var timeEndUunit=$("#timeEndUunit").val();
+	if(type=="1"){//置开始日期日历
+		if (startDateType=="2"||startDateType=="3"){
+			var maxDate = "#{%y+1}-12-31";
+			var maxStartDate=$("#maxStartDate").val();
+			if(maxStartDate!=""&&maxStartDate!=null&&maxStartDate!=undefined){
+				maxDate = "#F{$dp.$D(\'maxStartDate\')}";
+			}
+			new WdatePicker({
+				minDate :  "#F{$dp.$D(\'startDateHidden\')}",
+				maxDate:maxDate,
+				isShowToday : false,
+				isShowClear : false,
+				//onpicked: function(){checkStartDate();},
+				dateFmt : 'yyyy/MM/dd'
+			});
+			if(compareFullDate(startDate,endDate)!=-1){
+				var startDateHidden=$("#startDateHidden").val();
+				var dateChange=DateDiff(startDateHidden,startDate);
+				var endDateHidden=$("#endDateHidden").val();
+				$("#endDate").val(getNextDateFullDate(endDateHidden,dateChange));
+			}
+		}
+	}else {//置结束日期日历
+		if(gdFlag!="true"){
+			if(startDateType=="1"){
+				if(startRange>0){//代表日期范围从大于1开始
+					if(timeBegiUunit==timeEndUunit&&(timeBegiUunit=="M"||timeBegiUunit=="Y")){
+						new WdatePicker({
+							minDate :  "#F{$dp.$D(\'endDate\')}",
+							isShowToday : false,
+							isShowClear : false,
+							maxDate :  "#F{$dp.$D(\'endDateMax\')}",
+							dateFmt : 'yyyy/MM/dd'
+						});
+					}else{
+						new WdatePicker({
+							minDate :  "#F{$dp.$D(\'startDate\',{d:startRange})}",
+							isShowToday : false,
+							isShowClear : false,
+							maxDate : "#F{$dp.$D(\'startDate\',{d:endRange})}",
+							//onpicked: function(){checkEndDate();},
+							dateFmt : 'yyyy/MM/dd'
+						});
+					}
+				}else{
+					if(timeBegiUunit==timeEndUunit&&(timeBegiUunit=="M"||timeBegiUunit=="Y")){
+						new WdatePicker({
+							minDate :  "#F{$dp.$D(\'endDate\')}",
+							isShowToday : false,
+							isShowClear : false,
+							maxDate :  "#F{$dp.$D(\'endDateMax\')}",
+							dateFmt : 'yyyy/MM/dd'
+						});
+					}else{
+						new WdatePicker({
+							minDate :  "#F{$dp.$D(\'startDate\')}",
+							isShowToday : false,
+							isShowClear : false,
+							maxDate : "#F{$dp.$D(\'startDate\',{d:range})}",
+							//onpicked: function(){checkEndDate();},
+							dateFmt : 'yyyy/MM/dd'
+						});
+					}
+				}
+			}else if(startDateType=="2"){
+				if(timeBegiUunit==timeEndUunit&&(timeBegiUunit=="M"||timeBegiUunit=="Y")){
+					new WdatePicker({
+						minDate :  "#F{$dp.$D(\'endDate\')}",
+						isShowToday : false,
+						isShowClear : false,
+						maxDate :  "#F{$dp.$D(\'endDateMax\')}",
+						dateFmt : 'yyyy/MM/dd'
+					});
+				}else{
+					new WdatePicker({
+						minDate :  "#F{$dp.$D(\'startDate\')}",
+						isShowToday : false,
+						isShowClear : false,
+						maxDate : "#F{$dp.$D(\'startDate\',{d:range})}",
+						//onpicked: function(){checkEndDate();},
+						dateFmt : 'yyyy/MM/dd'
+					});
+				}
+			}else if(startDateType=="3"){
+				if(timeBegiUunit==timeEndUunit&&(timeBegiUunit=="M"||timeBegiUunit=="Y")){
+					new WdatePicker({
+						minDate :  "#F{$dp.$D(\'endDate\')}",
+						isShowToday : false,
+						isShowClear : false,
+						maxDate :  "#F{$dp.$D(\'endDateMax\')}",
+						dateFmt : 'yyyy/MM/dd'
+					});
+				}else {
+					new WdatePicker({
+						minDate :  "#F{$dp.$D(\'startDate\')}",
+						isShowToday : false,
+						isShowClear : false,
+						maxDate : "#F{$dp.$D(\'startDate\',{d:range})}",
+						//onpicked: function(){checkEndDate();},
+						dateFmt : 'yyyy/MM/dd'
+					});
+				}
+			}
+		}
+	}
+}
+/**
+ * 当开始日期和结束日期改变时，改变保障期限
+ */
+function  changPeriod(){
+	var startDate=$("#startDate").val();
+	var endDate=$("#endDate").val();
+	var dateChange=DateDiff(startDate,endDate);
+	intDays=parseInt(dateChange)+1;
+	var text=intDays+"天"
+	$("#selectPeriod").html(text);
+	if("jingpinPZ" == $("#jingPin").val()){
+		var itemsJSON = $.parseJSON($("#itemsJSON").val()) ;
+		var pztimes = new Array(); 
+		var items=$("#items").val();
+		$(itemsJSON).each(function(i,item){
+			if(items == itemsJSON[i].planid){
+				pztimes.push(itemsJSON[i]);  
+			}
+		});
+		if(pztimes.length == 1){
+			if(pztimes[0].timebegin==pztimes[0].timeend){
+				$("#insuranceperiod").val(pztimes[0].timebegin);
+			}else{
+				$("#insuranceperiod").val(intDays+"D");
+			}
+		}
+	}
+}
+/**
+ * 初始化案例分析
+ * @param pzcaseanalys
+ */
+function  initCaseAnalysis(pzcaseanalys,pzmain){
+	if(pzmain!=null&&pzmain.caseimg!=null&&pzmain.caseimg!=""){
+		$("#imgConfig").attr("src",pzmain.caseimg);
+	}else{
+		//没有配置图片就把案例分析全部隐藏
+		$("#f3").hide();
+		$(".f3-a").hide();
+	}
+	if(pzcaseanalys!=null){
+		var lis = document.getElementById("caseul").getElementsByTagName("li");
+//		var divList = document.getElementsByName("caseDiv");
+		for(k=0;k<pzcaseanalys.length;k++){
+			lis[k].innerHTML = pzcaseanalys[k].caseayalysname;
+//			divList[k].innerHTML=pzcaseanalys[k].casedes;
+		}
+		if(pzcaseanalys[0]!=undefined&&pzcaseanalys[0]!=null){
+			$("#caseDiv1").html(pzcaseanalys[0].casedes);
+		}
+		if(pzcaseanalys[1]!=undefined&&pzcaseanalys[1]!=null){
+			$("#caseDiv2").html(pzcaseanalys[1].casedes);
+		}
+		if(pzcaseanalys[2]!=undefined&&pzcaseanalys[2]!=null){
+			$("#caseDiv3").html(pzcaseanalys[2].casedes);
+		}
+	}
+	
+}
+/**
+ * 初始化热销产品
+ * @param popularProducts
+ */
+function  initpzPopularProducts(popularProducts){
+//	if(popularProducts!=null){
+//		var lis = document.getElementById("hotProdUl").getElementsByTagName("li");
+//		for(i=0;i<popularProducts.length;i++){
+//			var productpremium=popularProducts[i].popularproductpremium;
+////			lis[i].innerHTML = '<a href='+popularProducts[i].popularproductlinks+'><h3 class="hot-prod-name">'+popularProducts[i].popularproductname+'</h3><p class="hot-prod-intro">'+popularProducts[i].popularproductdes+'</p><p class="hot-prod-price"><strong>￥'+premiums[0]+'.<small>'+premiums[1]+'</small>起</strong></p><img src="'+popularProducts[i].popularproductimg+'" class="hot-prod-img" style="right:-10px" alt="'+popularProducts[i].popularproductname+'" /></a>';
+//			lis[i].innerHTML = '<a href='+popularProducts[i].popularproductlinks+' target="_blank"><h3 class="hot-prod-name">'+popularProducts[i].popularproductname+'</h3><p class="hot-prod-intro">'+popularProducts[i].popularproductdes+'</p><p class="hot-prod-price"><strong>￥'+productpremium+'<small></small></strong></p><img src="'+popularProducts[i].popularproductimg+'" class="hot-prod-img" style="right:-10px" alt="'+popularProducts[i].popularproductname+'" /></a>';
+//		}
+//	}
+}
+/**
+ * 初始化描述，包括适用人群、适用地区、保障期限、分享等
+ * @param pzdescription
+ */
+function initDescription(pzdescription){
+//	$("#descriptionContent").html(pzdescription.description);
+//	var ul=document.getElementById("headUl");
+//	$("#headUl").removeClass('product-header-list');
+//	$("#headUl").addClass('newproduct-header-list');
+//	weight=16;
+//	nextTrlength=20;
+//	if(pzdescription.applycrowd!=null&&pzdescription.applycrowd!=""){
+//		var obj1=document.createElement("li");
+//		var applycrowd=pzdescription.applycrowd;
+//		if(applycrowd.length>nextTrlength){
+//			var newApplycrowd=applycrowd.substring(0,weight)+'<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
+//			newApplycrowd=newApplycrowd+applycrowd.substring(weight,applycrowd.length);
+//			obj1.innerHTML="适用人群："+newApplycrowd;
+//		}else{
+//			obj1.innerHTML="适用人群："+applycrowd;
+//		}
+//		ul.appendChild(obj1); 
+//	}
+//	
+//	if(pzdescription.applyarea!=null&&pzdescription.applyarea!=""){
+//		var obj2=document.createElement("li");
+//		var applyarea=pzdescription.applyarea;
+//		if(applyarea.length>nextTrlength){
+//			var newApplyarea=applyarea.substring(0,weight)+'<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
+//			newApplyarea=newApplyarea+applyarea.substring(weight,applyarea.length);
+//			obj2.innerHTML="适用地区："+newApplyarea;
+//		}else{
+//			obj2.innerHTML="适用地区："+applyarea;
+//		}
+//		ul.appendChild(obj2);
+//	}
+	
+//	if(pzdescription.applyage!=null&&pzdescription.applyage!=""){
+//		var obj3=document.createElement("li");
+//		obj3.innerHTML="适用年龄："+pzdescription.applyage;
+//		ul.appendChild(obj3); 
+//	}
+//	
+//	if(pzdescription.guaranteeperiod!=null&&pzdescription.guaranteeperiod!=""){
+//		var obj4=document.createElement("li");
+//		obj4.innerHTML="保障期限："+pzdescription.guaranteeperiod;
+//		ul.appendChild(obj4); 
+//	}
+	$("#applyageperiod").text(pzdescription.applyage);
+	$("#applyageperiod1").text(pzdescription.applyage);
+	$("#guaranteeperiod").text(pzdescription.guaranteeperiod);
+	$("#guaranteeperiod1").text(pzdescription.guaranteeperiod);
+	document.getElementById("headDiv").style.backgroundImage="url("+pzdescription.productimageurl+")";
+	
+	if(pzdescription.sellingpoint!=null&&pzdescription.sellingpoint.length > 0){
+		$("#sellingpointImg").removeClass("loading");
+		$("#sellingpointImg").attr("src",pzdescription.sellingpoint);
+	}
+	if($("#noticImg").length>0){
+		$("#noticImg").removeClass("loading");
+		$("#noticImg").attr("src",pzdescription.notice);
+	}else{
+		$("#insureNotice").find("ul").remove();
+		$("#insureNotice").find("div").before(pzdescription.insuranceinfo);//投保须知
+	}
+	/*if($("#submitMaterial").length>0){
+		$("#submitMaterial").find("ul").remove();
+		$("#submitMaterial").find("h2").after(pzdescription.submitmaterial);//提交材料
+	}*/
+	if($("#submitMaterial").length>0){
+	    if(pzdescription.submitmaterial==""||pzdescription.submitmaterial==null||pzdescription.submitmaterial==undefined){
+	      $("#submitMaterial").remove();
+	      $(".claim-service-step-text").removeClass("Js_submit-material");
+	    }else{
+	      $("#submitMaterial").find("ul").remove();
+	      $("#submitMaterial").find("h2").after(pzdescription.submitmaterial);//提交材料
+	    }
+	  }
+	$("#commonQuestion").html(pzdescription.commonqa);//常见问题
+	//addSeeMore();
+	$("#sweetReminders").html(pzdescription.hintcontent);//温馨提示
+	//给分享链接赋值 start
+	var sinaAddress="http://v.t.sina.com.cn/share/share.php?url=http://www.shao-ming.com&title=";
+	var share_sina=sinaAddress+pzdescription.imshare;
+	$("#share_sina").attr('href',share_sina);//新浪
+	var tencentAddress="http://v.t.qq.com/share/share.php?url=http://www.shao-ming.com&title=";
+	var share_tencent=tencentAddress+pzdescription.imshare;
+	$("#share_tencent").attr('href',share_tencent);//腾讯
+//	var doubanAddress="http://www.douban.com/recommend/?url=http://www.shao-ming.com&title=";
+//	var share_douban=doubanAddress+pzdescription.imshare;
+//	$("#share_douban").attr('href',share_douban);//豆瓣
+//	var kaixinAddress="http://www.kaixin001.com/repaste/share.php?rurl=http://www.shao-ming.com&rcontent=";
+//	var share_kaixin=kaixinAddress+pzdescription.imshare;
+//	$("#share_kaixin").attr('href',share_kaixin);//开心网
+//	var spaceAddress="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://www.shao-ming.com&desc=";
+//	var share_space=spaceAddress+pzdescription.imshare;
+//	$("#share_space").attr('href',share_space);//qq空间
+	//给分享链接赋值 end
+}
+/**
+ * 初始化保障详情
+ * @param displayplans
+ * @param pzitemkinds
+ */
+function initItemkind(displayplans,pzitemkinds,pzitemkindamounts){
+	var td="";
+	if(displayplans){
+		var lis = document.getElementById("displanType").getElementsByTagName("th");
+		var displanTypeHtml = document.getElementById("displanType").innerHTML;
+		for(i=0;i<displayplans.length;i++){
+			displanTypeHtml=displanTypeHtml+'<th height="50">'+displayplans[i].planname+'</th>';
+		}
+		document.getElementById("displanType").innerHTML=displanTypeHtml;
+		var cells=document.getElementById('productTable').rows[0].cells;
+		var length=displayplans.length;
+		cells[1].colSpan=length;
+		if(displayplans.length/pzitemkinds.length%2==0){//偶数
+			td='<td name="displanPriceTd" class="bgcf4f4f4"></td><td name="displanPriceTd"></td>';
+		}else{//奇数
+			td='<td name="displanPriceTd" class="bgcf4f4f4"></td>';
+		}
+	}
+	var tdOld1='<tr id="displanPriceTr'+i+'" class="text-center"><th>';
+	var tdOld2='</th><td name="displanPriceTd" class="bgcf4f4f4"></td><td name="displanPriceTd"></td>';
+	var tdOld3='<td class="font12 td-text" width="306">';
+	var tdOld4='</td></tr>';
+	var tdOld2new=tdOld2+td;//拼接td
+	var displanPriceHtml="";
+	if(pzitemkinds!=null){
+		j=0;
+		var  flag="false";
+		for(i=0;i<pzitemkinds.length;i++){
+			displanPriceHtml = document.getElementById("displanPrice").innerHTML;
+			displanPriceHtml=tdOld1+pzitemkinds[i].itemkindname+tdOld2new+tdOld3+pzitemkinds[i].description+tdOld4;
+			$(displanPriceHtml).appendTo($("tbody"));
+			var lis = document.getElementsByName("displanPriceTd");
+			if(flag=="true"){
+				for(j;j<pzitemkindamounts.length;j++){
+					lis[j].innerHTML=divided(pzitemkindamounts[j].amount,10000);
+				}
+			}else{
+				for(j;j<displayplans.length;j++){
+					lis[j].innerHTML=divided(pzitemkindamounts[j].amount,10000);
+				}
+				flag="true";
+			}
+		}
+	}
+	displanPriceHtml = document.getElementById("displanPrice").innerHTML;
+}
+/**
+ * 初始化pzmain相关，从pzmain取值
+ * 包括会员折扣和续保折扣
+ * @param pzmain
+ */
+function initPzmain(pzmain,showtype){
+	$("#productName").html(pzmain.displayname);
+	$("#productName2").html(pzmain.displayname+":");
+	var entryId = $("#entryId").val();
+	//还没登录，并且有会员折扣，会显示如下内容
+	var loginText="";
+	if("1" == pzmain.showentryflag){
+		if(entryId==""||entryId==null){
+			if("true" == showtype){
+				loginText='<a href="javascript:changeLogin(1);openlogin_div();">登录会员</a><span style="position: absolute;top: 17px;left: -5px;color: #4e9ff1;">(关联微店出单，请先登录)</span>';
+			}else{
+				loginText='<a href="javascript:changeLogin(1);openlogin_div();">登录会员</a>';
+			}
+			if(pzmain.memberdiscount!="" && pzmain.memberdiscount>0 && pzmain.memberdiscount<1){
+				loginText=loginText+'<span>立省<b id="preferentialPrice"></b>元</span>';
+			}
+		}else{
+			$("#minPremium").parent().css("margin-top","17px");
+		}
+	}
+	if(loginText!=""){
+		$("#memberLogin").html(loginText);
+	}
+	//有续保折扣
+	if(pzmain.renewdiscount!="" && pzmain.renewdiscount!=null && pzmain.renewdiscount>0 && pzmain.renewdiscount<1){
+		$("#fastRenew").html("快速优惠续保");
+	}else{
+		$("#fastRenew").html("快速续保");
+	}
+	if(pzmain.itemurl!=null){
+		$("#clauseA").attr('href',pzmain.itemurl);
+	}
+	
+}
+/**
+ * 登录后调整保费显示位置
+ */
+function refreshEntryMsg(){
+	var entryId = $("#entryId").val();
+	if(entryId!=""&&entryId!=null){
+		$("#minPremium").parent().css("margin-top","17px");
+	}
+}
+/**
+ * 截取小数点后两位
+ * @param value
+ * @param precision
+ * @returns
+ */
+function formatPrecision (value,precision){
+	if(value != null && value != ""){
+		return parseFloat(value).toFixed(precision);
+	}else{
+		return value;
+	}	
+}
+/**
+ * 转换为以万为单位的
+ * @param arg1
+ * @param arg2
+ * @returns {String}
+ */
+function divided(arg1,arg2){
+  var t1=0,t2=0,r1,r2;
+  t1=arg1.toString().split(".")[1].length
+  t2=arg2.toString().split(".")[1].length
+  with(Math)
+  {
+     r1=Number(arg1.toString().replace(".",""))
+     r2=Number(arg2.toString().replace(".",""))
+     return (r1/r2)*pow(10,t2-t1)+"万";
+  }
+}
+/**
+ * 算费后会写首页保费和立省额
+ * @param data
+ */
+function displayPremium(data,str){
+	var items=document.getElementById('items').value;
+	
+	if(data!=null){
+		var entryId = $("#entryId").val();
+		for(i=0;i<data.length;i++){
+			if(data[i].labelname!="sumPremium"){
+				if(entryId!=""&&entryId!=null){
+					//当查询到此类产品后 调联动方法
+					if($("#jingPin").val()=="jingPin"){
+						if($("#chanPin").val()=="new"){
+							$("#calc_"+(i+1)).html((data[i].memberPremium).toFixed(2)+"元");
+						}else{
+							$("#calc_"+(i+1)).html((data[i].memberPremium).toFixed(2));
+							$("#calc_"+(i+1)).next("span").html("元起");
+						}
+					}else if($("#jingPin").val()=="jingpinPZ" || $("#jingPin").val()=="staticJP"){
+						$("#calc_"+(i+1)).html((data[i].memberPremium).toFixed(2)+"元");
+					}
+				}else{
+					if($("#jingPin").val()=="jingPin"){
+						if($("#chanPin").val()=="new"){
+							$("#calc_"+(i+1)).html((data[i].premium).toFixed(2)+"元");
+						}else{
+							$("#calc_"+(i+1)).html((data[i].premium).toFixed(2));							
+							$("#calc_"+(i+1)).next("span").html("元起");
+						}
+					}else if($("#jingPin").val()=="jingpinPZ" || $("#jingPin").val()=="staticJP"){
+						$("#calc_"+(i+1)).html((data[i].premium).toFixed(2)+"元");
+					}
+					//$("#preferentialPrice").text(formatPrecision((data[i].premium-data[i].memberPremium),2));
+				}
+			}else{
+				if(entryId!=""&&entryId!=null){
+					$("#minPremium").text("￥"+formatPrecision(data[i].memberPremium,2));
+					$("#minPremium3").text("￥"+formatPrecision(data[i].memberPremium,2));
+					$("#minPremium2").text("￥"+formatPrecision(data[i].memberPremium,2));
+				}else{
+					$("#minPremium").text("￥"+formatPrecision(data[i].premium,2));
+					$("#minPremium2").text("￥"+formatPrecision(data[i].premium,2));
+					$("#minPremium3").text("￥"+formatPrecision(data[i].premium,2));
+					$("#preferentialPrice").text(formatPrecision((data[i].premium-data[i].memberPremium),2));
+				}
+			}
+		}
+		
+	}	
+}
+/**
+ * 保费联动显示
+ */
+/*function liandongCalc(data,str){	
+	//联动显示保费  针对竞品产品的首页保费问题、
+	$("#calc_"+str).html((data[0].premium).toFixed(2));
+}*/
+
+
+/**
+ * 案例分析切换主题
+ * @param id
+ */
+function changText(id){
+	if(id=="caseTitle1"){
+		if($("#caseDiv1").is('.hide')){
+			$("#caseDiv1").removeClass('hide');
+		}
+		if(!($("#caseDiv2").is('.hide'))){
+			$("#caseDiv2").addClass('hide');
+		}
+		if(!($("#caseDiv3").is('.hide'))){
+			$("#caseDiv3").addClass('hide');
+		}
+	}
+	if(id=="caseTitle2"){
+		if($("#caseDiv2").is('.hide')){
+			$("#caseDiv2").removeClass('hide');
+		}
+		if(!($("#caseDiv1").is('.hide'))){
+			$("#caseDiv1").addClass('hide');
+		}
+		if(!($("#caseDiv3").is('.hide'))){
+			$("#caseDiv3").addClass('hide');
+		}
+	}
+	if(id=="caseTitle3"){
+		if($("#caseDiv3").is('.hide')){
+			$("#caseDiv3").removeClass('hide');
+		}
+		if(!($("#caseDiv2").is('.hide'))){
+			$("#caseDiv2").addClass('hide');
+		}
+		if(!($("#caseDiv1").is('.hide'))){
+			$("#caseDiv1").addClass('hide');
+		}
+	}
+}
+
+var jumpid = "0";
+
+function addentryId(){
+	setSessionInfo();
+	//登录之后的显示保费
+	if($("#jingPin").val() != "staticJP" || ($("#jingPin").val() == "staticJP" && $("#newplanbox").length >0)){
+		calculateFee();
+	}
+
+	$("#planbox a .selected").trigger("click");
+	$("#newplanbox a .selected").trigger("click");
+	//setItemsinit('date');
+	writeVtopSpan();
+	$("#memberLogin").hide();
+	refreshEntryMsg();
+	if(jumpid == "1"){
+        dialogMove(".P_first h2",".P_first");
+        jumpid = "0";
+    }
+	//产品首页登录成功后  查询优惠券情况  弹窗提醒
+	dialogRemindCoupons();
+}
+
+//将登录信息放到session
+function setSessionInfo(){
+	/*var entryId=$('#entryId').val();
+	$.ajax({
+		url:"/eproduct/member/setSessionInfo.do",
+		async: false,
+		type:"post",
+		data : "entryId="+ entryId,
+		success:function(data){
+		}
+	});*/
+}
+
+//写页面左上角的登陆信息
+function writeVtopSpan(){
+   
+    if($("#jingPin").val()=="jingPin"||$("#jingPin").val()=="staticJP"){
+    	var vtop = document.getElementById("ecenterUl"); //头部;	
+    }else{
+    	 var vtop = document.getElementById("vtop"); //头部;
+    }
+    
+    $.ajax({
+        url: '/ecenter/views/loginRegister/support/findLt.jsp?n=' + Math.random(),
+        type: 'get',
+        dateType: 'html',
+        success: function (data) {
+            var unamelt = $.trim(data);
+            if (unamelt != 'null' && "" != unamelt) {
+                if (unamelt.indexOf("@") == -1) {
+                    if (unamelt.substring(0, 4) == "sina") {
+                        unamelt = "新浪微博用户";
+                    } else if (unamelt.substring(0, 2) == "qq") {
+                        unamelt = "腾讯用户";
+                    }
+                }
+                var showname = unamelt;
+                if (vtop != null) {
+                    if (showname.length > 30) {
+                        showname = showname.substring(0, 30) + '..';
+                    }
+//                    vtop.style.width = '100%';//注掉防止换行
+                    if($("#jingPin").val()=="jingPin"||$("#jingPin").val()=="staticJP"){
+	                    vtop.innerHTML = '<span><a href="/newecenter/" target="_blank">会员中心</a></span><span class="line-y"></span><span>' + showname + '&nbsp;&nbsp;</span>' + afterLogonT;
+                    }else{
+                    	vtop.innerHTML = '<span class="welcome" style="display:inline-block;height:29px;line-height:29px;vertical-align:middle;">您好，' + showname + '&nbsp;&nbsp;</span>' + afterLogonT;
+                    }    
+                }
+            } else {
+                $.ajax({
+                    url: '/ecenter/views/loginRegister/support/findLt.jsp?n=' + Math.random(),
+                    type: 'get',
+                    dateType: 'html',
+                    success: function (data) {
+                        var unameltT = $.trim(data);
+                        if (unameltT != 'null' && "" != unameltT) {
+                            if ("@".indexOf(unameltT) == -1) {
+                                if (unameltT.substring(0, 4) == "sina") {
+                                    unameltT = "新浪微博用户";
+                                } else if (unameltT.substring(0, 2) == "qq") {
+                                    unameltT = "腾讯用户";
+                                }
+                            }
+                            var showname = unameltT;
+                            if (vtop != null) {
+                                if (showname.length > 30) {
+                                    showname = showname.substring(0, 30) + '..';
+                                }
+//                                vtop.style.width = '100%';//注掉防止换行
+                                vtop.innerHTML = '<span class="welcome" style="display:inline-block;height:29px;line-height:29px;vertical-align:middle;">您好，' + showname + '&nbsp;&nbsp;</span>' + afterLogonT;
+                            }
+                        } else {
+                            vtop.innerHTML = beforeLogonT;
+                        }
+                    },
+                    error: function () {}
+                });
+            }
+        },
+        error: function () {}
+    });
+}
+function openlogin_div(){
+	jumpid ="0";
+}
+	//关闭弹层 , 如果有需要, 我这边也会调用这个函数
+function closePopLogin() {
+	var hostport=window.parent.location.href
+	var strs=hostport.substring(hostport.length-1);  
+	 var strExp=/^[0-9]+$/; 
+	if (hostport.indexOf("continue") >= 0) {  
+		closeBox();  
+	}else{  
+		close_LoginDiv();
+	}
+}
+function close_LoginDiv() {
+if (IETester()){
+	document.getElementById("mask").removeNode(true);
+	document.getElementById("divLogin").removeNode(true);
+	document.getElementById("loginIframe").removeNode(true);
+}else {
+	document.getElementById("mask").remove();
+	document.getElementById("divLogin").remove();
+	document.getElementById("loginIframe").remove();
+}
+}
+//当用户注册或者登陆，改变页面上。提示信息的显示内容
+function doLoginSuccess(data){
+	$("#entryId").val(data.entryId);
+	$("#zentryId").val(data.entryId);
+	setTimeout(function (){
+		closePopLogin();
+	}, 300);
+	addentryId();
+}
+function showSpecialAgreement(){
+    //隐藏日期控件
+    $("#_my97DP").hide();
+	$("#special-div").show();
+	$(".special-mask").show();
+}
+function special_close(){
+	$("#special-div").hide();
+	$(".special-mask").hide();
+}
+/*特别约定*/
+function getSpecialAgreement(){
+	$.ajax( {
+	url : "/eproduct/conproposal/getSpecialAgreement.do",
+	type : "post",
+	data : $("#form").serialize(),
+	async : false,
+	success : function(data, textStatus) {
+		$("#special-ul").html("");
+		var result = data.result;
+		if (result == "success") {
+			var liStr = "";
+			var engages = data.prpdplanengageList;
+			$.each(data.prpdplanengageList,function(index,element){
+				liStr = liStr + "<li><p style='font-weight: bold;'>"+element.engagecname+"</p><P>"+element.engagedesc+"</P></li>";
+			})
+			$("#special-ul").html(liStr);
+			$("#special-a").show();
+		}
+		if(result == "null"){
+			$("#special-a").hide();
+			$("#special-div").hide();
+			$(".special-mask").hide();
+		}
+	}
+	});
+}

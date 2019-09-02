@@ -1,0 +1,1384 @@
+$(document).ready(function(){
+
+	/**获取着陆页面热销产品近3个月的保单量*/
+	var productcode = $('#productcode').val();
+	
+    if(productcode!=null&&productcode!=""){
+		$.ajax({
+			url:'/eproduct/displayInfo/getConfigurePolicyNum.do',
+			data:{
+				productcode:productcode
+	           },
+			type:'post',
+			dataType:'json',
+			async:false,
+			success:function(data){
+					var code = productcode;
+					$("#num"+code).html(data[code]);
+					
+					
+						$("#productNums").html(data[code]);	
+					
+						
+			
+			},
+			err:function(){
+			}
+		});
+	}
+	/**客户评价 待客户经理系统客户评价配置功能上线后打开,动态从数据库获取评价内容*/
+	var flag = getCommentCount();
+	if(flag=="1"){
+		getSelectedPageComment("first");
+	}
+	//根据链接地址生成二维码
+	getQRcode();
+
+});
+function getcookies(id){
+	//获取cookie字符串
+	var strCookie=document.cookie;
+	//将多cookie切割为多个名/值对
+	var arrCookie=strCookie.split("; ");
+	var sumclick=0;
+	//遍历cookie数组，处理每个cookie对
+	for(var i=0;i<arrCookie.length;i++){
+		var arr=arrCookie[i].split("=");
+		//找到名称为userId的cookie，并返回它的值
+		if(id==arr[0]){
+			sumclick=arr[1];
+			break;
+		}
+	} 
+	return sumclick;
+}
+
+function changeclass(id){
+	var ID="#"+id;
+	if($(ID).hasClass("praise no")){
+		$(ID).removeClass("praise no");
+		$(ID).addClass("praise");
+		var sum = getcookies(id);
+		sum=parseInt(sum)+1;
+		//ajax调用 将数据库中的值加1---
+		var urlPath = "/eproperty/displayInfo/addPraiseNum.do";
+		$.ajax({
+					url : urlPath,
+					type : "post",
+					data : {questionid:id},
+					async : true,
+					dataType : "json",
+					success : function(data, textStatus) {
+					},
+					error : function(data, textStatus) {
+					},
+					complete : function(data, textStatus) { 
+					},
+					beforeSend : function(data, textStatus) {
+					}
+				});
+		////////////////////////
+		$(ID).html("赞("+sum+")");
+		//设置两个cookie
+		var d= new Date();
+		d.setHours(d.getHours() + (24 * 30)); //保存一个月
+		document.cookie=id+"="+sum+";expires=" + d.toGMTString();
+		document.cookie=id+"click=true;expires=" + d.toGMTString();
+	}
+	else
+		return false;
+}
+function setfaqclick(){
+	var productcode = $("#productcode").val();
+	$.ajax({
+		type:'post',
+		async:false,
+		data:'productcode=' + productcode,
+		url:'/eproperty/comment/queryFaqs.do',
+		success:function(data){
+			var success = data.result;
+			var err = data.err;
+			if(success == 'success'){
+				var jsonOb=data.faqs;
+				var faqOb = eval("("+jsonOb+")");
+				for(var i=0;i<faqOb.length;i++){
+					var arr=faqOb[i].questionid;
+					var num=faqOb[i].sumclicktimes;
+					document.cookie=arr+"="+num;
+					var isclick = getcookies(arr+"click");
+					if("true"==isclick){
+						$("#"+arr).removeClass("praise no");
+						$("#"+arr).addClass("praise");
+						
+					}
+					$("#"+arr).html("赞("+num+")");	
+				}
+			}else{
+				; 
+			}
+		},
+		err:function(){
+			;
+		}
+	});
+}
+
+function getCommentCount(){
+	var productcode = $("#productcode").val();
+	var flag = "1";
+	$.ajax({
+		type:'post',
+		async:false,
+		data:'productcode=' + productcode + '&next=' + Math.random(),
+		url:'/eproperty/comment/queryCommentCount.do',
+		success:function(data){
+			var success = data.result;
+			var err = data.err;
+			if(success == 'success'){
+				$("#customer_comment").css("display","inline-block"); 
+				$("#prompt_score").css("display","inline-block");
+				$("#prompt_star").css("display","inline-block");
+				$("#prompt_comment").css("display","inline-block");
+				$("#commentcount").val(data.commentCount);
+				$("#commentNum").html(data.commentCount);
+				$("#productevaluationscore").html(data.productevaluationscore);
+				$("#productScore").html(data.productevaluationscore);
+				$("#productStar").width(getStarWidth(data.productevaluationscore));
+				$("#productsupport").html("("+data.productsupport+"分)");
+				$("#productsupportStar").width(getStarWidth(data.productsupport));
+				$("#proposalexperience").html("("+data.proposalexperience+"分)");
+				$("#proposalexperienceStar").width(getStarWidth(data.proposalexperience));
+				$("#customerquality").html("("+data.customerquality+"分)");
+				$("#customerqualityStar").width(getStarWidth(data.customerquality));
+				//买家印象
+//				$('#fixedlabel').css("display","none");
+				$.each(data.geEvaluationLabelList, function(i,item){
+//					$('#fixedlabel').css("display","none");
+					var dd = displaylabel(item);
+					$('#commentlabel').append(dd);
+				});
+			}else{
+				flag = "0";
+				//不显示客户评价模块
+				$("#customer_comment").css("display","none"); 
+				//$("#prompt_score").css("display","none"); 
+				//$("#prompt_star").css("display","none"); 
+				$("#prompt_comment").css("display","none"); 
+				$("#dibu_comment").css("display","none"); 
+				
+			}
+		},
+		err:function(){
+			flag = "0";
+			var m12=encodeURI(encodeURI('服务器故障，请稍后重试！'));
+		}
+	});
+	return flag;
+}
+
+function getSelectedPageComment(arg){
+	var productcode = $("#productcode").val();
+	var itemcount = $("#commentcount").val();
+	// ----begin:获取分页的总页数max：
+	var max = 1;
+	if (parseInt(itemcount)%8 > 0){
+		max = parseInt(parseInt(itemcount)/8) + 1;  //分页数
+	}else{
+		max = parseInt(parseInt(itemcount)/8);  //分页数
+	}
+	// ----end: 获取分页的总页数max：
+	var pageNo;            //当前被选中显示的页号；
+	var current1 = 1;      //显示在页码条的最左边的页码号
+	var current6 = 6;      //显示在页码条的省略号前的页码号
+	var currentPage = 0;   //当前高亮显示的页码位置；
+	// ----begin: 获取将要显示的页号：
+	if(!isNaN(arg)){
+		var selectedPage = "page_" + parseInt(arg);
+		pageNo = parseInt($("#"+selectedPage).html());
+	}else if($.trim(arg)=="forward"){
+		pageNo = parseInt($('#pageNo').val())+1;
+	}else if($.trim(arg)=="back"){
+		pageNo = parseInt($('#pageNo').val())-1;
+	}else if($.trim(arg)=="first"){  //页码条点击“第一页”之后 总是显示第一页。
+		pageNo = 1;
+	}else{
+		pageNo = "";
+	}
+	// ----end: 获取将要显示的页号：
+	
+	// ----begin: 设置将要显示在页码条控件中的首页号、尾页号、高亮位置：
+	if(max>=9){
+		if(pageNo == max){
+			current7 = max-1;
+			current1 =  max-7;
+			currentPage = 9;
+		}else if(pageNo<=4){
+			current1 = 1;
+			current7 = 7;
+			currentPage = pageNo;
+		}else if(pageNo>=(max-3)){
+			current1 = max-7;
+			current7 = max-1;
+			currentPage = 8-(max-pageNo);
+		}else{
+			current1 = pageNo-3;
+			current7 = pageNo+3;
+			currentPage = 4;
+		}
+	}else if(max==8){
+		current1 = 1;
+		current7 = 7;
+		if(pageNo==max){
+			currentPage = 9;
+		} else{
+			currentPage = pageNo;
+		}
+	}
+	// ----end: 设置将要显示在页码条控件中的首页号、尾页号、高亮位置：
+	$.ajax({
+		type:'post',
+		async:false,
+		data:'pageNo=' + pageNo + '&productcode=' + productcode + '&next=' + Math.random(),
+		url:'/eproperty/comment/queryComment.do',
+		success:function(data){
+			var success = data.result;
+			var err = data.err;
+			if(success != 'null'){
+				//----begin:重新设置页码条：
+				var selectedPageitem = "";
+				if (parseInt(max)>1){//当有多个分页时显示页码条：
+					//$('#paging').css("display","inline-block");
+					$('#page_first').css("display","inline-block"); //显示“第一页”按钮。
+					if (parseInt(max)<8){
+						for(var i=1; i<=8; i++){
+							var pageitem = "page_" + i;
+							if(i<=max){
+								$("#"+pageitem).css("display","inline-block"); 
+							}else{
+								$("#"+pageitem).css("display","none"); 
+							}
+							$("#"+pageitem).removeClass("thisclass");
+						}
+						$('#page_9').css("display","none");  //如果max<8,最后一个页码格一定要隐藏。
+						if(!isNaN(pageNo)){
+							selectedPageitem = "page_" + pageNo; 
+							$("#"+selectedPageitem).addClass("thisclass");
+						}
+					}else{                            // max>=8
+						for(var i=1; i<=7; i++){
+							var pageitem = "page_" + i;
+							$("#"+pageitem).css("display","inline-block");
+							$("#"+pageitem).html(current1+i-1);
+							$("#"+pageitem).removeClass("thisclass");
+						}
+						$('#page_8').html("...");
+						$('#page_8').removeClass("thisclass");
+						if(max==8){
+							$('#page_8').css("display","none");
+						}else{  //如果   max>8 && pageNo>=max-4的时候，也需要隐藏"省略号"
+							if(pageNo>=max-4){
+								$('#page_8').css("display","none");
+							}else{
+								$('#page_8').css("display","inline-block");
+							}
+						}
+						$('#page_9').html(max);
+						$('#page_9').removeClass("thisclass");
+						$('#page_9').css("display","inline-block");
+						selectedPageitem = "page_" + currentPage;
+						$("#"+selectedPageitem).addClass("thisclass");
+					}
+					   //----begin:处理分页条的“上一页”和“下一页”
+					if(parseInt(pageNo)>1){
+						$('#page_back').css("display","inline-block");
+					}else{
+						$('#page_back').css("display","none");
+					}
+						
+					if(parseInt(pageNo)<max){
+						$('#page_forward').css("display","inline-block");
+					}else{
+						$('#page_forward').css("display","none");
+					}
+					  //---end:处理分页条的“上一页”和“下一页”
+				}else{//只有一页时不显示页码条：
+					$('#paging').css("display","none");
+				}
+				
+				//----end:重新设置页码条.
+				
+				$('#insertCommentJSP').empty();
+				$.each(data.commentList, function(i, item){
+					var itemNum = (pageNo-1)*8 + i + 1;
+					var li = displayComment(item, itemNum);
+					$('#insertCommentJSP').append(li);
+				});
+		
+				if($('#insertCommentJSP').children().length > 0){
+					$('#insuredList').css('display', 'block');
+				}
+				//如果调用ajax成功就重新设置pageNo：
+				$("#pageNo").val(pageNo);
+
+				if(itemcount>0){
+				}else{
+				}
+			}else{
+
+			}
+		},
+		err:function(){
+
+			var m12=encodeURI(encodeURI('服务器故障，请稍后重试！'));
+		}
+	});
+}
+
+function displayComment(data, serialNum){
+	var li = document.createElement('li');
+	// 评价人;
+	var td1 = document.createElement('span');
+	td1.innerHTML = data.evaluationpeople.substring(0,1)+"**评价:";
+	// 评价内容;
+	var td2 = document.createElement('p');
+	td2.className = 'con';
+	td2.innerHTML = data.evaluationcontent;
+	// 评分；
+	var td3 = document.createElement('div');
+	var p = document.createElement('p');
+	p.innerHTML="<i style='width:"+getStarWidth(data.starscore)+";'></i>";
+	var em = document.createElement('em');
+//	em.innerHTML = "("+data.starscore+"分)";
+	em.innerHTML = "("+parseFloat(data.starscore).toFixed(2)+"分)";
+	td3.appendChild(p);
+	td3.appendChild(em);
+	// 姓名;
+	var td4 = document.createElement('p');
+	var commentdate = data.evaluationtime1.replace(/\//g,'-');
+	td4.innerHTML = commentdate;
+	td4.className = 'time';
+	
+	li.appendChild(td1);
+	li.appendChild(td2);
+	li.appendChild(td3);
+	li.appendChild(td4);
+	
+	return li;
+}
+
+function displaylabel(data){
+	var dd = document.createElement('dd');
+	var num = 0;
+	if(data.clicknumber>=data.pagenumber){
+		num = data.clicknumber;
+	}else{
+		num = data.pagenumber;
+	}
+	dd.innerHTML = data.labelname+"("+num+")";
+	if(data.color=="gray"){
+		dd.className="too";
+	}
+	return dd;
+}
+
+function getStarWidth(score){
+	var width = '80%';
+	width = score/5*100;
+	return width+'%';
+}
+
+
+function gotoComment(){
+	rollToPos("f6");
+}
+
+function rollToPos(id){
+	var element = document.getElementById(id);
+	element.scrollIntoView(true); 
+}
+
+function popPosition(dom){
+	$("#_my97DP").hide();
+	var width = $(dom).width();
+	var height = $(dom).height();
+	var _scrollHeight = $(document).scrollTop();
+	var	_windowHeight = $(window).height();
+	var	_windowWidth = $(window).width();
+	var	_popupHeight = $(dom).height();
+	var docH = $(document).height();
+	var docw = $(document).width();
+	var	_popupWeight =$(dom).width();
+	var	_posiTop = (_windowHeight - _popupHeight)/2 + _scrollHeight;
+    var	_posiLeft = (_windowWidth - _popupWeight)/2;
+    //alert(_posiLeft)
+	$("body").append("<div class=mask></div>");
+	// 判断 如果 是IE6  加 ifname
+	if($.browser.msie && $.browser.version=="6.0"){ 
+	   $("body").find("select").hide();
+	    $(dom).css({"left":_posiLeft+(width/2),"top":_posiTop,"position":"absolute","margin-left":-(width/2),"margin-top":-(height/2)}).show();	
+	  }  
+	else{
+		$(dom).css({"margin-left":-_popupWeight/2,"margin-top":-_popupHeight/2}).show();	
+		
+ 	}
+	$(dom).focus();
+	//遮罩层高度
+	$(".mask").height(docH + "px") ;
+	
+};
+
+function startCompare(){
+	//点击"开始比较"，页面回到最顶端，直接能看到浮动窗口
+	$("html,body").animate({scrollTop:0},500);
+	//清空两个下拉框的值
+	$('#fixed_risk').html('选择险类');
+	$("#fixed_risk").addClass('grayfont');
+	$('#compare_risktype').val('');
+	$('#fixed_productcode').html('选择产品');
+	$("#fixed_productcode").addClass('grayfont');
+	$('#compare_productcode').val('');
+	$('#ul_compare_productcode').empty();
+	
+}
+
+function modifyZIndex(){
+	$(".background").css("z-index","10000");
+}
+
+//生成QRcode的方法。
+function getQRcode(){
+	var url=window.location.href;//二维码内容
+	$('#weixincode').qrcode({
+        render: "table", //table方式
+        width: 130, //宽度
+        height:130, //高度
+        text:url
+	});
+	var number=$('#weixincode tr').length;
+	var newlength=4*number>150?3*number:4*number;
+	$('#weixincode').html("");
+	$('#weixincode').qrcode({
+        render: "table", //table方式
+        width: newlength, //宽度
+        height:newlength, //高度
+        text:url
+	});
+	$('#weixincode').height(newlength).width(newlength);
+	$('#weixincode table').height(newlength).width(newlength);
+}
+
+function setUnderscoreSetting(){
+	_.templateSettings = {
+			evaluate    : /\{\{(.+?)\}\}/g,
+			interpolate : /\{\{=(.+?)\}\}/g,
+			escape      : /\{\{-(.+?)\}\}/g
+	};
+	_.mixin({ 
+	});
+}
+
+function setcalenderZindex(){
+	$("#_my97DP").css("z-index","990");
+	
+}
+/**
+ * 初始化pzmain相关
+ */
+function getPZinfo(){
+	setUnderscoreSetting();
+	var productcode=$("#productcode").val();
+	$.ajax({
+		url:"/eproduct/conproposal/initconfigproposal.do",
+		async: false,
+		type:"post",
+		data : "productcode="+ productcode,
+		success:function(data){
+			if(data.result=="success"){
+				var pzmain=data.pzmain;
+				var showtype = data.cityShowType;
+				$("#showtype").val(showtype);
+				if(pzmain!=null){
+					initPzmain(pzmain,showtype);
+					getPzdescriptioninfo();
+					getTimesItems();
+					getPzdisplayinfo();
+//					getPzcaseanalysisinfo();
+//					if($("#productcode").val()=="EAG_T?"||$("#productcode").val()=="EAG_T"){
+//						//影藏
+//					}else{
+					getPzitemkindinfo();	
+//					}
+//					getPzpopularproduct();
+//					getPlanAndtimes();
+				}else{
+					popPosition('#noProduct');
+					$(".mask").css("z-index","1010") ;
+				}
+
+			}else{
+				popPosition('#noProduct');
+				$(".mask").css("z-index","1010") ;
+			}
+			
+		}
+	});
+}
+
+function getPzdisplayinfo(){
+    var displayplans =new DisplayplanCollection();
+    var productcode = $("#productcode").val();
+    displayplans.fetch({data: { productcode:productcode},
+    type: 'POST', 
+	async : false,
+    url:'/eproduct/conproposal/initDisplayplanProposal.do',
+    success:function(collection,data){  
+    	if(data.result=="success"){
+    		$("#zplanJSON").val(JSON.stringify(data.displayplans));
+    		$("#zplanextendJSON").val(JSON.stringify(data.pzdisplayplanextends));
+			
+			var displayplans =new DisplayplanCollection(data.displayplans);
+			var displayView = new DisplayplanView({collection:displayplans });
+			displayView.setTemplate($('#displayplanTemplate').html());
+			displayView.render();
+    		
+			if(data.displayplans.length>3){
+				$("#offerBox").addClass("more2"); 
+			}
+			if(data.displayplans.length>0){
+				$(".product-offer-enter").addClass("lev"+data.displayplans.length);
+				$("#itemplanTR").addClass("lev"+data.displayplans.length); 
+			}
+			
+			var itemplanView = new ItemplanView({collection:displayplans });
+			
+			if("staticJP"!=$("#jingPin").val()){
+				itemplanView.setTemplate($('#itemplanTemplate').html());
+				itemplanView.render();	
+			}
+			//}
+      		 
+			$("#itemplanTH").attr("colspan",displayplans.length); 
+			if($('#planbox').length>0){
+				$('#planbox').children('a').first().trigger("click");//触发第一个a标签的onclick方法（很隐秘）
+			}else{
+				$('#newplanbox').find('a').first().trigger("click");
+			}
+		}else{
+			alert("产品方案获取失败！");
+		}
+    },error:function(){  
+            //当返回格式不正确或者是非json数据时，会执行此方法  
+            alert('error');  
+    }})  
+}
+/**
+ * 获取案例分析
+ */
+function getPzcaseanalysisinfo(){
+    var productcode = $("#productcode").val();
+    $.ajax({data: { productcode:productcode},
+    type: 'POST', 
+	async : true,
+    url:'/eproduct/conproposal/initCaseanalysisProposal.do',
+    success:function(data){
+    	if(data.result=="success"){  
+    		var pzcaseanalys=data.pzcaseanalys;
+    		var pzmain=data.pzmain;
+    		initCaseAnalysis(pzcaseanalys,pzmain);
+    	}else{
+    		$("#f3").css("display","none");
+    		$(".f3-a").hide();
+//    		alert("案例分析获取失败！");
+    	}
+    },error:function(){  
+            //当返回格式不正确或者是非json数据时，会执行此方法  
+            alert('error');  
+    }})  
+}
+/**
+ * 获取配置化日期
+ */
+function getPztimeinfo(pztime,flag){
+    initHiddenData(pztime,flag); 
+}
+function initHiddenData(pztime,flag){
+//	$("#startDate").val(pztime.startdatevalue);//给开始日期赋值
+	$("#startDateHidden").val(pztime.startdatevalue);
+//	$("#endDate").val(pztime.enddatedefvalue);//给结束日期赋值
+	$("#endDateHidden").val(pztime.enddatedefvalue);
+	$("#startDateType").val(pztime.startdatetype);//给开始日期类型赋值
+	$("#endDateMax").val(pztime.city);//暂时用城市存储最大结束日期
+	$("#maxStartDate").val(pztime.maxStartDate);//最大开始日期
+	var range="";//结束日期可选范围
+	var startRange="";//保障范围开始时间
+	var endRange=""; //保障范围结束时间
+	var gdFlag="false";//是否固定日期
+	var timeBegin=parseInt(pztime.timebegin.substring(0, pztime.timebegin.length-1));
+	var timeEnd = parseInt(pztime.timeend.substring(0, pztime.timeend.length-1));
+	var  timeBegiUunit= pztime.timebegin.substring(pztime.timebegin.length-1);
+	var  timeEndUunit = pztime.timeend.substring(pztime.timeend.length-1);
+	$("#timeBegiUunit").val(timeBegiUunit);
+	$("#timeEndUunit").val(timeEndUunit);
+	if(timeBegin==timeEnd){//日期在固定的某个范围
+		range=timeBegin;
+		startRange=timeBegin;
+		endRange=timeEnd;
+		gdFlag="true";
+	}else{
+		if(timeBegin!="0"){
+			if(parseInt(timeBegin)>1){//日期范围从大于1开始
+				range=parseInt(timeEnd)-parseInt(timeBegin);
+			}else{//日期范围从1开始
+				range=parseInt(timeEnd)-parseInt(timeBegin)+1;
+			}
+			startRange=timeBegin;
+			endRange=timeEnd;
+		}
+	}
+	if(gdFlag=="true"){
+		$("#endDate").parent().addClass("readonly");
+	}else{
+		$("#endDate").parent().removeClass("readonly");
+	}
+	range=parseInt(range);
+	$("#range").val(range);
+	$("#startRange").val(startRange);
+	$("#endRange").val(endRange);
+	$("#gdFlag").val(gdFlag);
+	if(flag="chang"){
+		if(pztime.startdatetype=="1"){
+			$("#startDate").val(pztime.startdatevalue);
+			$("#endDate").val(pztime.enddatedefvalue);
+		}else{
+			if($("#startDate").val()<pztime.startdatevalue || (""!=pztime.maxStartDate && null!=pztime.maxStartDate && $("#startDate").val()>pztime.maxStartDate)){//date1<date2
+				$("#startDate").val(pztime.startdatevalue);
+				$("#endDate").val(pztime.enddatedefvalue);
+			}else{
+				var earliestEnddate=null;
+				var sDate = $('#startDate').val().split("/");
+				var startdatetemp=new Date(sDate[0], sDate[1] - 1, sDate[2]);
+				if(timeBegiUunit=="Y"){
+					earliestEnddate=startdatetemp.addYears(timeBegin);
+					earliestEnddate=earliestEnddate.addDays(-1);
+				}else if(timeBegiUunit=="M"){
+					earliestEnddate=startdatetemp.addMonths(timeBegin);
+					earliestEnddate=earliestEnddate.addDays(-1);
+				}else{
+					earliestEnddate=startdatetemp.addDays(timeBegin-1);
+				}
+				var latestEnddate=null;
+				if(timeEndUunit=="Y"){
+					latestEnddate=startdatetemp.addYears(timeEnd);
+					latestEnddate=latestEnddate.addDays(-1);
+				}else if(timeEndUunit=="M"){
+					latestEnddate=startdatetemp.addMonths(timeEnd);
+					latestEnddate=latestEnddate.addDays(-1);
+				}else{
+					latestEnddate=startdatetemp.addDays(timeEnd-1);
+				}
+				sDate = $('#endDate').val().split("/");
+				var enddatetemp=new Date(sDate[0], sDate[1] - 1, sDate[2]);
+				if(enddatetemp<earliestEnddate||enddatetemp>latestEnddate){
+					$("#endDate").val(convertFullDateToString(earliestEnddate));
+				}
+			}
+		}
+	}
+	if(flag=="undefied"){
+		$("#startDate").val(pztime.startdatevalue);
+		$("#endDate").val(pztime.enddatedefvalue);
+	}
+	//changEndDateConfig();
+}
+//查询投保方案是否和时间控件有关联
+function getPlanAndtimes(flag){
+	var plan = null;
+	$("#insurant_period").find("li").remove(); 
+	var productcode = $("#productcode").val();
+	var items=$("#items").val();
+	var zplanJSON = $.parseJSON($("#zplanJSON").val()) ;
+	 
+	$(zplanJSON).each(function(i,item){
+		if(items == zplanJSON[i].planid){
+			plan =  zplanJSON[i]; 
+		}
+	});
+	$("#istimerelated").val(plan.istimerelated);
+	if(plan.istimerelated=="1"){//与Pztime有关系
+		getTimes(productcode,items,flag);
+	}else{
+		$("#insurant_period_dl").css('display','none');//不显示投保期限
+		var serialno="1";
+		getPztimeinfos(serialno,flag);//正常
+	}
+}
+//查询pztime的非连续期间数据，并显示下拉框
+function getTimes(productcode,items,flag){
+	var itemsJSON = $.parseJSON($("#itemsJSON").val()) ;
+	var pztimes = new Array(); 
+	$(itemsJSON).each(function(i,item){
+		if(items == itemsJSON[i].planid){
+			pztimes.push(itemsJSON[i]);  
+		}
+	});
+	if(pztimes.length > 1 && pztimes[0].iscontinutime == "0"){
+		$("#insurant_period_dl").css('display','block');//显示投保期限
+		$("#offerBox").addClass("more");
+		var ul=document.getElementById("insurant_period");
+		var insurant_input="";
+		var samePeriodIndex=0;
+		$('#insurant_period').find("li").remove();
+		for(i=0;i<pztimes.length;i++){
+//			var obj=document.createElement("li");
+			var serialno=pztimes[i].serialno;
+			var times=pztimes[i].timebegin;
+			var time=times.substring(0,times.length-1);
+			var unit=transformUnit(times);
+			var timestr=time+unit;
+			if(i==0){
+				insurant_input=timestr;
+			}
+			if(times==$("#insuranceperiod").val()){
+				samePeriodIndex=i;
+				insurant_input=timestr;
+			}
+			var planid = pztimes[i].planid;
+
+//		    obj.setAttribute("onclick","getPztimes(\""+pztimes[i].planid+"\",\""+times+"\");setTnsurantPeriod(\""+timestr+"\",\""+times+"\");");
+			var obj = "<li onclick="+"\"getPztimes('"+planid+"','"+times+"');setTnsurantPeriod('"+timestr+"','"+times+"');\""+">"+timestr+"</li>";
+			
+			obj.innerHTML=timestr;
+			$('#insurant_period').append(obj);
+		}
+		$("#insurant_input").val(insurant_input);//给默认值
+		document.getElementById("insurant_input").readOnly=true;
+		$("#insuranceperiod").val(pztimes[samePeriodIndex].timebegin);
+		var serialno="1";
+		getPztimeinfo(pztimes[samePeriodIndex],flag);
+	}else if(pztimes.length == 1 || pztimes[0].iscontinutime != "0"){
+		$("#insurant_period_dl").css('display','none');//不显示投保期限
+		$("#offerBox").removeClass("more");
+		getPztimeinfo(pztimes[0],flag);
+		changPeriod();
+	}
+}
+//function getConTime(productcode,items,flag){
+//	 $.ajax({data: { productcode:productcode,items:items},
+//	        type: 'POST', 
+//	    	async : false,
+//	        url:'/eproduct/conproposal/getconTimes.do',
+//	        success:function(data){ 
+//	        	if(data.result=="success"){  
+//	        		var pztime=data.pztime;
+//	        		if(pztime!=null){//存在连续期限数据
+//	        			var serialno=pztime.serialno;
+//	         			getPztimeinfo(serialno,flag);
+//	        		}
+//	        	}
+//	        },error:function(){  
+//	                alert('error');  
+//	        }}) 
+//}
+//非连续期限insuranceperiod赋值
+function setTnsurantPeriod(timestr,times){
+	$("#insurant_input").val(timestr);
+	$("#insuranceperiod").val(times);
+}
+//单位转换
+function transformUnit(times){
+	var unit=times.substring(times.length-1,times.length);
+	if(unit=='D'){
+		unit="天";
+	}else if(unit=='M'){
+		unit="月";
+	}else if(unit=='Y'){
+		unit="年";
+	}
+	return unit;
+}
+/**
+ * 获取首页配置化的描述信息
+ */
+function getPzdescriptioninfo(){
+    var productcode = $("#productcode").val();
+    $.ajax({data: { productcode:productcode},
+    type: 'POST', 
+	async : true,
+    url:'/eproduct/conproposal/initPzdescriptionProposal.do',
+    success:function(data){ 
+    	if(data.result=="success"){  
+    		var pzdescription=data.pzdescription;
+    		initDescription(pzdescription);
+    	}else{
+    		alert("说明信息获取失败！");
+    	}
+    },error:function(){  
+            //当返回格式不正确或者是非json数据时，会执行此方法  
+            alert('error');  
+    }})  
+}
+
+/**
+ * 产品方案
+ */
+
+function getPzitemkindinfo(){
+    var itemkindinfos =new ItemkindinfoCollection();
+    var productcode = $("#productcode").val();
+    itemkindinfos.fetch({data: { productcode:productcode},
+    type: 'POST', 
+	async : false,
+    url:'/eproduct/conproposal/initPzitemkindInfoProposal.do',
+    success:function(collection,data){  
+    	if(data.result=="success"){
+    		//取保额值
+			var pzitemkindInfos =new ItemkindinfoCollection(data.pzitemkindInfos);
+			if(("jingPin"==$("#jingPin").val()||"jingpinPZ"==$("#jingPin").val())&&"new"==$("#chanPin").val()){
+				var itemkindView = new ItemkindinfoView({collection:pzitemkindInfos,el:$("#itemkindTbody")});
+				itemkindView.setTemplate($('#itemkindTemplate').html());
+				itemkindView.render();
+				var pzitemkinds = (data.pzitemkindInfos)[0].pzitemkinds;
+				for(var i = 0; i<pzitemkinds.length;i++){
+					var planid=pzitemkinds[i].planid;
+					$("#feeplanid").val(planid);
+					var itemkindView = new ItemkindinfoView({collection:pzitemkindInfos,el:$("#itemkindTbody"+planid)});
+//					$("#allamount"+planid).html((data.sumamount)[i].amount);
+					if($("#allamount"+planid).length>0){
+			            $("#allamount"+planid).html((data.sumamount)[i].amount);
+			          }
+					itemkindView.setTemplate($('#itemkindamountTemplate').html());
+					itemkindView.render();
+					addQuestion();
+	    		}
+			}else if("jingPin"==$("#jingPin").val()&&"new"!=$("#chanPin").val()){
+				var pzitemkinds = (data.pzitemkindInfos)[0].pzitemkinds;
+				for(var i = 0; i<pzitemkinds.length;i++){
+					var planid=pzitemkinds[i].planid;
+					$("#feeplanid").val(planid);
+					var itemkindView = new ItemkindinfoView({collection:pzitemkindInfos,el:$("#itemkindTbody"+planid)});
+					$("#allamount"+planid).html((data.sumamount)[i].amount);
+					itemkindView.setTemplate($('#itemkindTemplate').html());
+					itemkindView.render();
+					addQuestion();
+	    		}
+			}else if("staticJP"==$("#jingPin").val()){
+				addQuestion();
+			}else{
+	      		var itemkindView = new ItemkindinfoView({collection:pzitemkindInfos,el:$("#itemkindTbody")});
+	      		itemkindView.setTemplate($('#itemkindTemplate').html());
+				itemkindView.render();
+				addQuestion();
+			}
+			
+		}else{
+			alert("产品方案获取失败！");
+		}
+    },error:function(){  
+            //当返回格式不正确或者是非json数据时，会执行此方法  
+            alert('error');  
+    }})  
+}
+
+
+//问号
+function addQuestion(){ 
+	//问号 
+	var timer = null; 
+	$(".Js_wenhao").on("mouseenter",function(){
+		$("#itemplanTR").find(".Js_wenhaoCont").hide();
+		clearTimeout(timer); 
+		var $this = $(this), 
+		$top = $this.offset().top, 
+		$left = $this.offset().left, 
+		$height = $this.height(); 
+		var top = $top + $height + 12; 
+		var left = $left - 93; 
+		quesDialog($this,top,left); 
+	}).on("mouseleave",function(){ 
+		timer = setTimeout(function(){ 
+		hideQuesDialog(); 
+		},0); 
+	}) 
+	$(".Js_weohaoCont").on("mouseenter",function(){ 
+		clearTimeout(timer); 
+	}).on("mouseleave",function(){ 
+		timer = setTimeout(function(){ 
+		hideQuesDialog(); 
+		},0); 
+	}); 
+}
+/**
+ * 热销产品
+ */
+function getPzpopularproduct(){
+	  var productcode = $("#productcode").val();
+	    $.ajax({data: { productcode:productcode},
+	    type: 'POST', 
+		async : true,
+	    url:'/eproduct/conproposal/initPzpopularproductInfoProposal.do',
+	    success:function(data){ 
+	    	if(data.result=="success"){  
+	    		var pzpopularproducts=data.pzpopularproducts;
+	    		initpzPopularProducts(pzpopularproducts);
+	    	}else{
+	    		alert("热销产品信息获取失败！");
+	    	}
+	    },error:function(){  
+	            //当返回格式不正确或者是非json数据时，会执行此方法  
+	            alert('error');  
+	    }})  
+}
+
+/**
+ * 校验开始日期
+ */
+function checkStartDate(){
+	var startDate=$("#startDate").val();
+	if(startDate==null||startDate==""){
+		var startDateHidden=$("#startDateHidden").val();
+		$("#startDate").val(startDateHidden);
+	}else{//结束日期根据开始日期变动，否则结束日期显示的日历有可能不正确
+		var startDateHidden=$("#startDateHidden").val();
+		var dateChange=DateDiff(startDateHidden,startDate);
+		var endDateHidden=$("#endDateHidden").val();
+		$("#endDate").val(getNextDateFullDate(endDateHidden,dateChange));	
+	}
+}
+/**
+ * 开始日期改变时结束日期也要跟着变
+ */
+function changEndDate(){
+
+	var startDate=$("#startDate").val();
+	var endDate=$("#endDate").val();
+	var startDateHidden=$("#startDateHidden").val();
+	var dateChange="";
+	var gdFlag=$("#gdFlag").val();
+	if(compareFullDate(startDate,endDate)!=-1){
+		var startDateHidden=$("#startDateHidden").val();
+		var dateChange=DateDiff(startDateHidden,startDate);
+		var endDateHidden=$("#endDateHidden").val();
+		$("#endDate").val(getNextDateFullDate(endDateHidden,dateChange));
+	}
+	endDate=$("#endDate").val();
+	changeDays=DateDiff(startDate,endDate);
+	if(gdFlag=="true"){
+		dateChange=DateDiff(startDateHidden,startDate);
+		var endDateHidden=$("#endDateHidden").val();
+		$("#endDate").val(getNextDateFullDate(endDateHidden,dateChange));
+	}else{
+		rang=parseInt($("#range").val());
+		startRange=parseInt($("#startRange").val());
+		endRange=parseInt($("#endRange").val());
+		var startDateHidden=$("#startDateHidden").val();
+		if(startRange>1){
+			if(changeDays>endRange){
+				var tips="尊敬的客户，本产品保障期间为"+startRange+"-"+endRange+"天，请您在期间内进行选择。";
+				showTipsWindown(tips);
+				$('#startDate').val(startDateHidden);
+			}
+		}else if(startRange==1){
+			if(changeDays>rang){
+				var tips="尊敬的客户，本产品保障期间为"+startRange+"-"+endRange+"天，请您在期间内进行选择。";
+				showTipsWindown(tips);
+				$('#startDate').val(startDateHidden);
+			}
+		}
+		
+	}
+	if(compareFullDate(endDate,startDate)==-1){
+		dateChange=DateDiff(startDateHidden,startDate);
+		var endDateHidden=$("#endDateHidden").val();
+		$("#endDate").val(getNextDateFullDate(endDateHidden,dateChange));
+	}
+	getPztimeinfos("1","chang");
+}
+/**
+ * 首页关闭日期错误提示层
+ */
+function closeDateTipCheckMSG(){
+	$("#popDivNew").hide();
+	$(".mask,.tt").remove();
+
+	if($.browser.msie && $.browser.version=="6.0"){ 
+		$("body").find("select").show();
+	} 
+	if($("#select_102").length>0){
+		   $("#select_102").hide();
+	   }
+	$("#startDate").val($("#startDateHidden").val());
+	$("#endDate").val($("#endDateHidden").val());
+	var items =$("#items").val();
+	calculateFee(items);
+}
+/**
+ * 校验日期
+ * @returns {Boolean}
+ */
+function checkDate(){
+	var startDate=$("#startDate").val();
+	var endDate=$("#endDate").val();
+	if(DateDiff(startDate,endDate)>$("#range").val()){
+		alert("所选日期已超出保障期限！请检查开始时间和结束时间！");
+		return false;
+	}
+}
+
+function goInfo(el){
+	jumpid ="0";
+	if(checkPageIsLoginEpd()){
+		marketingSources();
+		if($("#items").val()==""){
+			alert("请选择保障方案");
+			return false;
+		}
+		var isGotoInfo = true;
+		//团购链接进入的直接按照正常官网流程走
+		if("" == el || null == el || undefined == el){
+			if(""==$("#groupBuyId").val() || null==$("#groupBuyId").val() || undefined==$("#groupBuyId").val()){
+				var showtype = $("#showtype").val();//是否全国
+				if("true" == showtype){
+					//调用V盟引流方法
+					isGotoInfo = gotoVMengDrainage();
+				}
+			}
+		}else if("vmeng" == el){
+			$("#salemode").val("07");
+			$("#dzyl").hide();
+			$(".vmMask").hide();
+			isGotoInfo = true;
+		}else if("pc" == el){
+			$("#accounttype").val("");
+			$("#salemode").val("");
+			$("#groupBuyId").val("");
+			$("#comcode").val("");
+			$("#areacode").val("");
+			$("#dzyl").hide();
+			$(".vmMask").hide();
+			isGotoInfo = true;
+		}
+		if(isGotoInfo){
+			var form = document.getElementById("form");
+			if(!is_weixin()){
+				form.target="_blank";
+			}
+			//添加国双监控代码  TODO
+			//gridIndex();
+			form.submit();
+		}
+	}
+}
+
+function closeNoProduct(){
+	location.href = "http://www.epicc.com.cn";
+}
+
+/*function addSeeMore(){
+    //常见问题查看更多
+    $(".Js_seeMore").on("click",function(){
+    	var $this = $(this);
+    	if($this.hasClass("closed")){
+    		$this.removeClass("closed").addClass("open");
+    		$this.html("<i></i>收起");
+    		$(".Js_quesList").removeClass("closed");
+    	}else{
+    		$this.removeClass("open").addClass("closed");
+			$this.html("<i></i>展开显示更多");
+    		$(".Js_quesList").addClass("closed");
+    	}
+    });
+}*/
+function getTimesItems(){
+	var productcode = $("#productcode").val();
+    $.ajax({data: { productcode:productcode},
+        type: 'POST', 
+    	async : false,
+        url:'/eproduct/conproposal/getTimesItems.do',
+        success:function(data){ 
+        	$("#itemsJSON").val(data.itemsJSON);
+        },error:function(){  
+                //当返回格式不正确或者是非json数据时，会执行此方法  
+                alert('error');  
+        }}) 
+}
+function getPztimes(planid,times){
+	var itemsJSON = $.parseJSON($("#itemsJSON").val()) ;
+	var pztimes = new Array(); 
+	$(itemsJSON).each(function(i,item){
+		if(planid == itemsJSON[i].planid&&times==itemsJSON[i].timebegin){
+			pztimes.push(itemsJSON[i]);  
+		}
+	});
+	getPztimeinfo(pztimes[0]);
+	$("#items").val(planid);
+	calculateFee(planid);
+}
+function getPztimeinfos(serialno,flag){
+	if(flag=="chang"){
+		serialno=1;
+	}
+    var productcode = $("#productcode").val();
+    var items=$("#items").val();
+    var istimerelated=$("#istimerelated").val();
+    var insuranceperiod = $("#insuranceperiod").val();
+    if(undefined ==insuranceperiod || ""==insuranceperiod){
+    	insuranceperiod = "";
+    }
+    $.ajax({data: { productcode:productcode,items:items,isTimereLated:istimerelated,serialno:serialno,insuranceperiod:insuranceperiod},
+    type: 'POST', 
+	async : false,
+    url:'/eproduct/conproposal/initPztimeProposal.do',
+    success:function(data){ 
+    	if(data.result=="success"){  
+    		var pztime=data.pztime;
+    		initHiddenData(pztime,flag);
+    		$("#maxStartDate").val(data.maxStartDate);
+    		
+    	}else{
+    		alert("时间信息获取失败！");
+    	}
+    },error:function(){  
+            //当返回格式不正确或者是非json数据时，会执行此方法  
+            alert('error');  
+    }})  
+}
+function changEndDateConfig(){
+	var startDate="";
+	var endDate="";
+//	if($("#processbar").val()=="Info"){
+//		var startDate=$("#startDate").val();
+//		var endDate=$("#endDate").val();
+//	}else if($("#processbar").val()=="Continue"){
+//		var startDate=$("#startdate").val();
+//		var endDate=$("#enddate").val();
+//	}else{
+//		var startDate=$("#startdate").val();
+//		var endDate=$("#enddate").val();
+//	}
+	var startDate=$("#startDate").val();
+	var endDate=$("#endDate").val();
+	var startDateHidden=$("#startDateHidden").val();
+	var dateChange="";
+	changeDays=DateDiff(startDate,endDate);
+	var gdFlag=$("#gdFlag").val();
+	
+	if(gdFlag=="true"){
+		dateChange=DateDiff(startDateHidden,startDate);
+		var endDateHidden=$("#endDateHidden").val();
+		$("#enddatestr").html(converStrToStr(getNextDateFullDate(endDateHidden,dateChange)));
+		$("#endDate").val(getNextDateFullDate(endDateHidden,dateChange));
+	}else{
+		rang=parseInt($("#range").val());
+		endRange=parseInt($("#endRange").val());
+		var startDateHidden=$("#startDateHidden").val();
+	}
+	if(compareFullDate(startDateHidden,startDate)==-1){
+		dateChange=DateDiff(startDateHidden,startDate);
+		var endDateHidden=$("#endDateHidden").val();
+		$("#enddatestr").html(converStrToStr(getNextDateFullDate(endDateHidden,dateChange)));
+		$("#endDate").val(getNextDateFullDate(endDateHidden,dateChange));
+	}
+}
+
+/**
+ * 产品方案
+ */
+function getPzitemkindinfo2nd(){
+    var itemkindinfos =new ItemkindinfoCollection();
+    var productcode = $("#productcode").val();
+    itemkindinfos.fetch({data: { productcode:productcode},
+    type: 'POST', 
+	async : true,
+    url:'/eproduct/conproposal/initPzitemkindInfo2ndProposal.do',
+    success:function(collection,data){  
+    	if(data.result=="success"){
+			var pzitemkindInfos =new ItemkindinfoCollection(data.pzitemkindInfos);
+      		var itemkindView = new ItemkindinfoView({collection:pzitemkindInfos });
+      		itemkindView.setTemplate($('#itemkindTemplate').html());
+			itemkindView.render();
+			addQuestion();
+		}else{
+			alert("产品方案获取失败！");
+		}
+    },error:function(){  
+            //当返回格式不正确或者是非json数据时，会执行此方法  
+            alert('error');  
+    }})  
+}
+function is_weixin() { 
+    var ua = window.navigator.userAgent.toLowerCase(); 
+    if (ua.match(/MicroMessenger/i) == 'micromessenger') { 
+       return true; 
+    } else { 
+        return false;
+    } 
+}
+function calcCost(el){
+	var peopleNum = 1;
+	var el = $(el);
+	var type = el.attr("data-type");
+    var a = "128.00",b = "216.00";
+	var baofei = $(".Js_baofei");
+	/*var event = el||window.event;
+	if (event.preventDefault) {
+		event.preventDefault();
+	} else {
+		event.returnValue = false;
+	}*/
+	$index = el.index();
+	if(el.hasClass("selected")){
+		el.addClass("selected").siblings().removeClass("selected");
+	}
+	$("#planbox").find("a").eq($index).addClass("selected").siblings().removeClass("selected");
+	$("#schemeList").find("li").eq($index).addClass("selected").siblings().removeClass("selected");
+	$("#items").val($("#planbox").find("a").eq($index).attr("id"));
+	getPlanAndtimes("chang");
+	switch(type){
+		case "0":
+			baofei.text("￥"+(a*peopleNum).toFixed(2));
+		  	break;
+		case "1":
+			baofei.text("￥"+(b*peopleNum).toFixed(2));
+		  	break;
+			default:
+	}
+}
+/*合家安康保障方案联动*/
+function calcCostHjak(el){
+	var peopleNum = 1;
+	var el = $(el);
+	var type = el.attr("data-type");
+    var a = "63.00",b = "121.00",c = "238.00";
+	var baofei = $(".Js_baofei");
+	var dataId = el.data("id");
+	if(dataId =="0"){
+		$index = el.index();
+	}else if(dataId =="1"){
+		$index = el.index()-1;
+	}
+	$("#planbox").find("a").eq($index).addClass("selected").siblings().removeClass("selected");
+	$("#schemeList").children("li").eq($index+1).addClass("selected").siblings().removeClass("selected");
+	$("#items").val($("#planbox").find("a").eq($index).attr("id"));
+	
+	if(el.hasClass("selected")){
+		el.addClass("selected").siblings().removeClass("selected");
+	}	
+	getPlanAndtimes("chang");
+	switch(type){
+		case "0":
+			baofei.text("￥"+(a*peopleNum).toFixed(2));
+		  	break;
+		case "1":
+			baofei.text("￥"+(b*peopleNum).toFixed(2));
+		  	break;
+		case "2":
+			baofei.text("￥"+(c*peopleNum).toFixed(2));
+		  	break;
+			default:
+	}
+}
+//V盟引流方法
+function gotoVMengDrainage(){
+	var isGotoInfo = true;
+	var productcode = $("#productcode").val();
+	//首先判断是否登录
+	$.ajax({
+		url:"/eproduct/conproposal/getAccountType.do",
+		async: false,
+		type: "post",
+		data: "productcode="+ productcode,
+		success: function(data){
+			var result = data.result;
+			//var accounttype = "2";
+			if(result == "success"){
+				var accounttype = data.accounttype;
+				$("#accounttype").val(accounttype);
+				if(null!=data.comcode){
+					$("#comcode").val(data.comcode);
+					$("#areacode").val(data.areacode);
+				}
+				if(null != data.groupId && 
+						("" == $("#groupBuyId").val() || null == $("#groupBuyId").val() || undefined == $("#groupBuyId").val())){
+					$("#groupBuyId").val(data.groupId);
+				}
+				if("1" == accounttype || "3" == accounttype){
+					isGotoInfo = false;
+					$("#dzyl").show();
+					$(".vmMask").show();
+				}
+			}else {
+				$("#accounttype").val("");
+				$("#comcode").val("");
+				$("#areacode").val("");
+				$("#salemode").val("");
+				$("#groupBuyId").val("");
+			}
+		},
+		error: function(){
+			//alert("调用接口失败");
+			isGotoInfo = true;
+		}
+	});
+	return isGotoInfo;
+}
+
+/**
+ * 校验页面是否登录
+ */
+function checkPageIsLoginEpd(){
+	var productcode = $('#productcode').val();
+	var isLogin = false;
+	$.ajax( {
+		url : "/eproduct/member/checkPageIsLogin.do",
+		type : "post",
+		data : "productcode="+productcode,
+		async : false,
+		beforeSend : function(data, textStatus) {// ajax 调用前执行
+		},
+		success : function(data, textStatus) {
+			if("success"== data.result){
+				isLogin = true;
+			}else{
+				changeLogin(1);
+				//openlogin_div();
+				isLogin = false;
+			}
+		}
+	});
+	return isLogin;
+}
+
+//营销来源
+function marketingSources(){
+	var bd_vid ;
+	var cmpid ;
+	var productcode;
+	var url = window.location.protocol+window.location.host+window.location.pathname;
+	var status;
+	productcode = $("#productcode").val();
+	bd_vid = getParamsStr("bd_vid");
+	cmpid = getParamsStr("cmpid");
+	if(cmpid != null && cmpid != "" && cmpid.substring(5,7) == "oc"){
+		$.ajax({
+			url:"/eproduct/buttJointExternalIF/marketingSources.do",
+			async: true,
+			type:"post",
+			data : {"bd_vid":bd_vid,"cmpid":cmpid,"productCode":productcode,"urlStr":url },
+			success:function(data){
+					status = data;
+			}
+		});
+	}
+}
+
+//获取URL指定参数
+function getParamsStr(name) { 
+	  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+	  var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
+	  var context = ""; 
+	  if (r != null) 
+	     context = r[2]; 
+	  reg = null; 
+	  r = null; 
+	  return context == null || context == "" || context == "undefined" ? "" : context; 
+}

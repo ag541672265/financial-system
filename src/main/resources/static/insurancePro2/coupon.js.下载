@@ -1,0 +1,354 @@
+		$(function () {
+			
+			//ajax 判断首页红包是否展示
+			queryIsOpenCouponByProduct();
+			//加载点击红包按钮  弹出弹层事件
+		    $(".coupon-btn").click(function () {
+		    	getCouponByProductcode();
+            });
+		    
+            dialogRemindCoupons();//优惠券提示弹框
+			//提示弹框新样式绑定事件
+			var _len = $(".coupon-panel-list").find("li").length;
+	        if(_len>2){
+	            $(".notes").show();
+	        }else{
+	            $(".notes").hide();
+	        }
+	        $(".coupon-panel-list").on('click','.right',function () {
+	        	var entryId = $("#entryId").val();
+ 				if(entryId == null || entryId == ""){
+ 					$(".coupon-notLogin-pop").hide();
+ 					$(".coupon-pop-mask").hide();
+ 					$(".mask").hide();
+ 					//登录弹框
+					changeLogin();
+ 					return;
+ 				}
+	        	var self = $(this);
+	        	self.parents(".item").find(".item-mask").show();//遮罩  防止双击  重复点击领取
+	        	var voucherid = self.parents().attr("id");
+	        	var url = "/eproduct/couponControl/receiveCoupons.do";
+	        	$.ajax({
+ 					url : url,
+ 		    		type : "post",
+ 		    		async : false,
+ 		    		data:{"voucherId":voucherid},
+ 		    		success:function(data){
+ 		    			if(data.status=="1"){
+ 		    				if(!self.parents('.active').size()){
+ 		    					//领取成功  有个动画效果
+ 		    					var li=self.parent('.item');
+ 		   	                	var clone=li.clone();
+ 		   	                	clone.addClass('active');
+ 		   	                	var wr='<div style="width:0;height:114px;position:absolute;left:0;top:0;overflow:hidden;"></div>'
+ 		   	                	clone.find('.right').html('领取成功');
+ 		   	                	li.after(clone);
+ 		   	                	clone.wrap(wr);
+ 		   	                	clone.parent().animate({'width':'449px'},200);
+ 		   	                	setTimeout(function() {
+ 		   	                    	clone.parent().after(clone).remove();
+ 		   	                    	li.remove();
+ 		   	                	},200)
+ 		    				}
+ 		    			}else if(data.status=="2"){
+ 		    				self.parent('.item').addClass("active2");
+ 		    				self.html('已抢光');
+ 		    			}else{
+ 		    				$("#failid").text("页面访问过于繁忙，稍后再试。");
+ 		    				$("#fail").removeClass("hide");
+ 		    				if($(".coupon-pop-s").hasClass("hide")){
+ 		    					$(".coupon-pop-mask").show()
+ 		    				}
+ 		    				$(".coupon-panel-mask").show();
+ 		    				self.parents(".item").find(".item-mask").hide();//领取失败的话  把遮罩去掉  可以再次点击领取
+ 		    			}
+ 		    			//如果有多条优惠券  才走里边的代码
+ 		    			if("moreDiv" == self.parents(".coupon-notLogin-pop").attr("id")){
+ 		    				//不管领取结果什么情况  都需要判断是否全部领取完了  改变全部领取按钮的样式
+ 		    				var len1 = $("#moreUl li").find(".item.active").length;//领取成功的
+ 		    				var len2 = $("#moreUl li").find(".item.active2").length;//领光的
+ 		    				//所有优惠券集合
+ 		    				var moreUl = parseInt($("#moreUl li").find(".item").length) - 1;//单个领取有动画效果  有一个克隆方法   代码走到这块默认总数减一
+ 		    				var len3 = len1+len2;
+ 		    				if(len3 == moreUl){
+ 		    					$("#checkAll").show();
+ 		    					$("#receiveAll").hide();
+ 		    				}
+ 		    			}
+ 		    		}
+ 				});
+	        })
+	        $(".coupon-notLogin-close").click(function () {
+	            $(".coupon-notLogin-pop").hide();
+	            $(".mask").hide();
+	        })
+        });
+		function closeCouponPopTips(el) {
+			var el = $("#"+el);
+			el.addClass("hide");
+			$(".mask").hide();
+        }
+		function getCouponByProductcode(){
+	    	var productcode = $("#productcode").val();
+	    	var url = "/eproduct/couponControl/getCouponByProductcode.do";
+	    	$.ajax({
+	    		url : url,
+	    		type : "post",
+	    		async : false,
+	    		data:{"productcode":productcode},
+	    		success : function(data) {
+	    			var zkStr = "";
+	    			var mjStr = "";
+	    			var allStr = "";
+	    			if(data.status=="1"){
+	    				if(data.size > 1){
+	    					var mjStr ="";
+	    					var zkStr = "";
+	    					var mmjStr = "";
+	    					for(var i in data.geCustomerVouchers){
+	    						var staDate = new Date(data.geCustomerVouchers[i].receivestarttime);
+	        					var endDate = new Date(data.geCustomerVouchers[i].receiveendtime);
+	        					var staYear = staDate.getFullYear();
+	        					var staMonth = staDate.getMonth()+1;
+	        					var staDay = staDate.getDate();
+	        					var endYear = endDate.getFullYear();
+	        					var endMonth = endDate.getMonth()+1;
+	        					var endDay = endDate.getDate();
+	        					var dateString = staYear+"."+staMonth+"."+staDay+"-"+endYear+"."+endMonth+"."+endDay;
+	        					if(data.geCustomerVouchers[i].activitytype == "t1"){
+	        						mjStr += "<li><div class='item' id='"+data.geCustomerVouchers[i].voucherid+"'><div class='left'><span class='unit'>￥</span><b class='num'>"+data.geCustomerVouchers[i].discount+"</b><p class='txt'>满"+data.geCustomerVouchers[i].condition+"元可用</p></div><div class='mod'><h3 class='product-name'>"+data.productName+"</h3><p class='product-time'>有效期："+dateString+"</p></div><div class='right'>立即领取</div><div class='item-mask'></div></div></li>";
+		    					}
+		    					if(data.geCustomerVouchers[i].activitytype == "t2"){
+		    						zkStr += "<li><div class='item' id='"+data.geCustomerVouchers[i].voucherid+"'><div class='left zk'><b class='num'>"+data.geCustomerVouchers[i].discount+"</b><span class='zhe'>折</span></div><div class='mod'><h3 class='product-name'>"+data.productName+"</h3><p class='product-time'>有效期："+dateString+"</p></div><div class='right'>立即领取</div><div class='item-mask'></div></div></li>";
+		    					}
+		    					if(data.geCustomerVouchers[i].activitytype == "t3"){
+		    						mmjStr += "<li><div class='item' id='"+data.geCustomerVouchers[i].voucherid+"'><div class='left'><span class='unit'>￥</span><b class='num'>"+data.geCustomerVouchers[i].discount+"</b><p class='txt mmj'>每满"+data.geCustomerVouchers[i].condition+"减"+data.geCustomerVouchers[i].discount+"</p></div><div class='mod'><h3 class='product-name'>"+data.productName+"</h3><p class='product-time'>有效期："+dateString+"</p></div><div class='right'>立即领取</div><div class='item-mask'></div></div></li>";
+		    					}
+	    					}
+	    					var moreStr = mjStr + mmjStr + zkStr;
+	    					if(data.size > 2){
+	    						moreStr += "<li class='notes'> —— 已经到最后了 ——</li>";
+	    					}
+	    					$("#moreUl").html(moreStr);
+	    					$("#moreDiv").removeClass("hide").show();
+	    				}else if(data.size == 1){
+	    					var oneStr = "";
+	    					var staDate = new Date(data.geCustomerVouchers[0].receivestarttime);
+        					var endDate = new Date(data.geCustomerVouchers[0].receiveendtime);
+        					var staYear = staDate.getFullYear();
+        					var staMonth = staDate.getMonth()+1;
+        					var staDay = staDate.getDate();
+        					var endYear = endDate.getFullYear();
+        					var endMonth = endDate.getMonth()+1;
+        					var endDay = endDate.getDate();
+        					var dateString = staYear+"."+staMonth+"."+staDay+"-"+endYear+"."+endMonth+"."+endDay;
+	    					if(data.geCustomerVouchers[0].activitytype == "t1"){
+	    						oneStr = "<li><div class='item' id='"+data.geCustomerVouchers[0].voucherid+"'><div class='left'><span class='unit'>￥</span><b class='num'>"+data.geCustomerVouchers[0].discount+"</b><p class='txt'>满"+data.geCustomerVouchers[0].condition+"元可用</p></div><div class='mod'><h3 class='product-name'>"+data.productName+"</h3><p class='product-time'>有效期："+dateString+"</p></div><div class='right'>立即领取</div><div class='item-mask'></div></div></li>";
+	    					}
+	    					if(data.geCustomerVouchers[0].activitytype == "t2"){
+	    						oneStr = "<li><div class='item' id='"+data.geCustomerVouchers[0].voucherid+"'><div class='left zk'><b class='num'>"+data.geCustomerVouchers[0].discount+"</b><span class='zhe'>折</span></div><div class='mod'><h3 class='product-name'>"+data.productName+"</h3><p class='product-time'>有效期："+dateString+"</p></div><div class='right'>立即领取</div><div class='item-mask'></div></div></li>";
+	    					}
+	    					if(data.geCustomerVouchers[0].activitytype == "t3"){
+	    						oneStr = "<li><div class='item' id='"+data.geCustomerVouchers[0].voucherid+"'><div class='left'><span class='unit'>￥</span><b class='num'>"+data.geCustomerVouchers[0].discount+"</b><p class='txt mmj'>每满"+data.geCustomerVouchers[0].condition+"减"+data.geCustomerVouchers[0].discount+"</p></div><div class='mod'><h3 class='product-name'>"+data.productName+"</h3><p class='product-time'>有效期："+dateString+"</p></div><div class='right'>立即领取</div><div class='item-mask'></div></div></li>";
+	    					}
+	    					$("#oneUl").html(oneStr);
+	    					$("#oneDiv").removeClass("hide").show();
+	    				}
+	    				$(".mask").show();
+	    			}else{
+	    				$("#failid").html("<strong>尊敬的用户您好</strong>您当前没有可以领取的优惠券！");
+		    				$("#fail").removeClass("hide");
+		    				$("#failMask").show();
+		    				if($(".coupon-pop-s").hasClass("hide")){
+		    					$(".coupon-pop-mask").show()
+		    				}
+	    			}
+	    		}
+	    	});
+	    }
+		function closeCouponPop(e) {
+			var el = $(e);
+			el.parent().addClass("hide");
+            $(".coupon-pop-mask").hide();
+            $("#failMask").hide();
+            $(".coupon-panel-mask").hide();
+        }
+		//判断该产品是否已经开启红包功能
+		function queryIsOpenCouponByProduct(){
+			var productcode = $("#productcode").val();
+	    	var url = "/eproduct/couponControl/queryIsOpenCouponByProduct.do";
+	    	$.ajax({
+	    		url : url,
+	    		type : "post",
+	    		async : false,
+	    		data:{"productcode":productcode},
+	    		success:function(data){
+	    			if(data.status=="1"){
+	    				$(".coupon-btn").removeClass("hide");
+	    			}
+	    		}
+	    	});
+		}
+		
+		//产品首页  登录状态下需要提示“尽快使用优惠券”“有领取的优惠券”
+		function dialogRemindCoupons(){
+			var productcode = $("#productcode").val();
+	    	var url = "/eproduct/couponControl/couponReminder.do";
+	    	$.ajax({
+	    		url : url,
+	    		type : "post",
+	    		async : false,
+	    		data:{"productcode":productcode},
+	    		success:function(data){
+	    			if(data.status=="1"){
+	    				$("#couponPopDiscount").text(data.discount);
+	    				$("#couponPopEffective").text(data.expireDate);
+	    				if(null != data.reminder && "" != data.reminder){
+	    					$("#reminderid").text("温馨提示："+data.reminder+"地区尚不参加优惠券抵扣活动，感谢您的关注。");
+	    				}
+	    				$("#couponPopUse").removeClass("hide");
+	    				$(".mask").show();
+	    			}else if(data.status=="2"){
+	    				if(data.size > 1){
+	    					var mjStr ="";
+	    					var zkStr = "";
+	    					var mmjStr = "";
+	    					for(var i in data.geCustomerVouchers){
+	    						var staDate = new Date(data.geCustomerVouchers[i].receivestarttime);
+	        					var endDate = new Date(data.geCustomerVouchers[i].receiveendtime);
+	        					var staYear = staDate.getFullYear();
+	        					var staMonth = staDate.getMonth()+1;
+	        					var staDay = staDate.getDate();
+	        					var endYear = endDate.getFullYear();
+	        					var endMonth = endDate.getMonth()+1;
+	        					var endDay = endDate.getDate();
+	        					var dateString = staYear+"."+staMonth+"."+staDay+"-"+endYear+"."+endMonth+"."+endDay;
+	        					if(data.geCustomerVouchers[i].activitytype == "t1"){
+	        						mjStr += "<li><div class='item' id='"+data.geCustomerVouchers[i].voucherid+"'><div class='left'><span class='unit'>￥</span><b class='num'>"+data.geCustomerVouchers[i].discount+"</b><p class='txt'>满"+data.geCustomerVouchers[i].condition+"元可用</p></div><div class='mod'><h3 class='product-name'>"+data.productName+"</h3><p class='product-time'>有效期："+dateString+"</p></div><div class='right'>立即领取</div><div class='item-mask'></div></div></li>";
+		    					}
+		    					if(data.geCustomerVouchers[i].activitytype == "t2"){
+		    						zkStr += "<li><div class='item' id='"+data.geCustomerVouchers[i].voucherid+"'><div class='left zk'><b class='num'>"+data.geCustomerVouchers[i].discount+"</b><span class='zhe'>折</span></div><div class='mod'><h3 class='product-name'>"+data.productName+"</h3><p class='product-time'>有效期："+dateString+"</p></div><div class='right'>立即领取</div><div class='item-mask'></div></div></li>";
+		    					}
+		    					if(data.geCustomerVouchers[i].activitytype == "t3"){
+		    						mmjStr += "<li><div class='item' id='"+data.geCustomerVouchers[i].voucherid+"'><div class='left'><span class='unit'>￥</span><b class='num'>"+data.geCustomerVouchers[i].discount+"</b><p class='txt mmj'>每满"+data.geCustomerVouchers[i].condition+"减"+data.geCustomerVouchers[i].discount+"</p></div><div class='mod'><h3 class='product-name'>"+data.productName+"</h3><p class='product-time'>有效期："+dateString+"</p></div><div class='right'>立即领取</div><div class='item-mask'></div></div></li>";
+		    					}
+	    					}
+	    					var moreStr = mjStr + mmjStr + zkStr;
+	    					if(data.size > 2){
+	    						moreStr += "<li class='notes'> —— 已经到最后了 ——</li>";
+	    					}
+	    					$("#moreUl").html(moreStr);
+	    					$("#moreDiv").removeClass("hide").show();
+	    				}else if(data.size == 1){
+	    					var oneStr = "";
+	    					var staDate = new Date(data.geCustomerVouchers[0].receivestarttime);
+        					var endDate = new Date(data.geCustomerVouchers[0].receiveendtime);
+        					var staYear = staDate.getFullYear();
+        					var staMonth = staDate.getMonth()+1;
+        					var staDay = staDate.getDate();
+        					var endYear = endDate.getFullYear();
+        					var endMonth = endDate.getMonth()+1;
+        					var endDay = endDate.getDate();
+        					var dateString = staYear+"."+staMonth+"."+staDay+"-"+endYear+"."+endMonth+"."+endDay;
+	    					if(data.geCustomerVouchers[0].activitytype == "t1"){
+	    						oneStr = "<li><div class='item' id='"+data.geCustomerVouchers[0].voucherid+"'><div class='left'><span class='unit'>￥</span><b class='num'>"+data.geCustomerVouchers[0].discount+"</b><p class='txt'>满"+data.geCustomerVouchers[0].condition+"元可用</p></div><div class='mod'><h3 class='product-name'>"+data.productName+"</h3><p class='product-time'>有效期："+dateString+"</p></div><div class='right'>立即领取</div><div class='item-mask'></div></div></li>";
+	    					}
+	    					if(data.geCustomerVouchers[0].activitytype == "t2"){
+	    						oneStr = "<li><div class='item' id='"+data.geCustomerVouchers[0].voucherid+"'><div class='left zk'><b class='num'>"+data.geCustomerVouchers[0].discount+"</b><span class='zhe'>折</span></div><div class='mod'><h3 class='product-name'>"+data.productName+"</h3><p class='product-time'>有效期："+dateString+"</p></div><div class='right'>立即领取</div><div class='item-mask'></div></div></li>";
+	    					}
+	    					if(data.geCustomerVouchers[0].activitytype == "t3"){
+	    						oneStr = "<li><div class='item' id='"+data.geCustomerVouchers[0].voucherid+"'><div class='left'><span class='unit'>￥</span><b class='num'>"+data.geCustomerVouchers[0].discount+"</b><p class='txt mmj'>每满"+data.geCustomerVouchers[0].condition+"减"+data.geCustomerVouchers[0].discount+"</p></div><div class='mod'><h3 class='product-name'>"+data.productName+"</h3><p class='product-time'>有效期："+dateString+"</p></div><div class='right'>立即领取</div><div class='item-mask'></div></div></li>";
+	    					}
+	    					$("#oneUl").html(oneStr);
+	    					$("#oneDiv").removeClass("hide").show();
+	    				}
+	    				$(".mask").show();
+	    			}
+	    		}
+	    	});
+		}
+		
+		//全部领取
+		function receiveAll(el){
+			var entryId = $("#entryId").val();
+				if(entryId == null || entryId == ""){
+					$(".coupon-notLogin-pop").addClass("hide");
+					$(".coupon-pop-mask").hide();
+					$(".mask").hide();
+					//登录弹框
+				changeLogin();
+					return;
+				}
+			var url = "/eproduct/couponControl/receiveAllCoupons.do";
+			var productcode = $("#productcode").val();
+			var moreUl = $("#moreUl li").find(".item");//所有优惠券集合
+			$("#moreUl li").find(".item-mask").show();//每个优惠券加上遮罩  避免双击
+			$(".coupon-panel-btn-mask").show();//全部领取按钮加上遮罩
+			$.ajax({
+				url : url,
+				type : "post",
+				async : false,
+				data:{"productcode":productcode},
+				success:function(data){
+					var successList = data.successList;
+					var failList = data.failList;
+					var noneList = data.noneList;
+					var status = data.status;
+					if(status == "0"){//全部领取失败
+						$("#failid").text("页面访问过于繁忙，稍后再试。");
+		    			$("#fail").removeClass("hide");
+		    			if($(".coupon-pop-s").hasClass("hide")){
+		    				$(".coupon-pop-mask").show();
+		    			}
+		    			$("#moreUl li").find(".item-mask").hide();
+		    			$(".coupon-panel-mask").show();
+		    			$(".coupon-panel-btn-mask").hide();
+					}else if(status == "1"){//全部领取成功
+						$("#moreUl li").find(".item").addClass("active");
+						$("#moreUl li").find(".item").find('.right').html('领取成功');
+					}else if(status == "2"){//部分失败  部分成功  部分已领光
+						for(var i = 0;i<moreUl.length;i++){
+							if(null != successList && successList.length >0){
+								for(var j = 0;j<successList.length;j++){
+									if(successList[j] == moreUl[i].id){
+										$("#moreUl li").find(".item").eq(i).addClass("active");
+										$("#moreUl li").find(".item").eq(i).find('.right').html('领取成功');
+									}
+								}
+							}
+							if(null != noneList && noneList.length >0){
+								for(var j = 0;j<noneList.length;j++){
+									if(noneList[j] == moreUl[i].id){
+										$("#moreUl li").find(".item").eq(i).addClass("active2");
+										$("#moreUl li").find(".item").eq(i).find('.right').html('已抢光');
+									}
+								}
+							}
+							if(null != failList && failList.length >0){
+								for(var j = 0;j<failList.length;j++){
+									if(failList[j] == moreUl[i].id){
+										$("#failid").text("页面访问过于繁忙，稍后再试。");
+			 		    				$("#fail").removeClass("hide");
+			 		    				if($(".coupon-pop-s").hasClass("hide")){
+			 		    					$(".coupon-pop-mask").show();
+			 		    				}
+			 		    				$(".coupon-panel-mask").show();
+			 		    				$("#moreUl li").find(".item-mask").eq(i).hide();
+			 		    				$(".coupon-panel-btn-mask").hide();
+									}
+								}
+							}
+						}
+					}
+					//不管领取结果什么情况  都需要判断是否全部领取完了  改变全部领取按钮的样式
+					var len1 = $("#moreUl li").find(".item.active").length;
+					var len2 = $("#moreUl li").find(".item.active2").length;
+					var len3 = len1+len2;
+					if(len3 == moreUl.length){
+						$("#checkAll").show();
+						$("#receiveAll").hide();
+					}
+				}
+			});
+		}

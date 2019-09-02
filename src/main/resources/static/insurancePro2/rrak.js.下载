@@ -1,0 +1,143 @@
+function setStartDate() {
+    new WdatePicker({
+        minDate:'%y-%M-{%d+1}',
+        maxDate:'%y-%M-{%d+90}',
+        isShowToday: false,
+        isShowClear: false,
+        dateFmt: 'yyyy/MM/dd'
+    });
+}
+function birthdayDate() {
+    new WdatePicker({
+        minDate:'{%y-65}-1-1',
+        maxDate:'%y-%M-{%d-26}',
+        isShowToday: false,
+        isShowClear: false,
+        dateFmt: 'yyyy/MM/dd'
+    });
+}
+function setSocialSecurity(n) {
+    $("#socialSecurity").val(n);
+    changeBirthDate();
+    if(n==0){
+        $("#planextendvalue").val(1)
+    }else{
+        $("#planextendvalue").val(0)
+    }
+}
+function setPlan(n) {
+    $("#planid").val(n);
+    changeBirthDate();
+}
+function setbirthdate1() {
+    var birthdayDate = $("#birthdaydate").val();
+    $("#birthdaydate2").val(birthdayDate);
+    changeBirthDate()
+}
+function setbirthdate2() {
+    var birthdayDate = $("#birthdaydate2").val();
+    $("#birthdaydate").val(birthdayDate);
+    changeBirthDate()
+}
+function changeBirthDate(){
+    var birthdayDate = $("#birthdaydate").val();
+    var day = GetAge(birthdayDate);
+    var plan = $("#planid").val();
+    var index = $("#socialSecurity").val();
+    CalculationFee(day,plan,index);
+}
+function CalculationFee(day,plan,index){
+    var list = [
+        {
+            '0-4':[706,1556],
+            '5-10':[353,718],
+            '11-15':[209,386],
+            '16-20':[122,206],
+            '21-25':[207,433],
+            '26-30':[262,586],
+            '31-35':[350,816],
+            '36-40':[436,1116],
+            '41-45':[523,1576],
+            '46-50':[817,2288],
+            '51-55':[1008,3333],
+            '56-60':[1348,4178],
+            '61-65':[1898,5686]
+        },
+        {
+            '0-4':[778,1716],
+            '5-10':[388,796],
+            '11-15':[230,426],
+            '16-20':[136,228],
+            '21-25':[228,478],
+            '26-30':[290,648],
+            '31-35':[386,898],
+            '36-40':[480,1226],
+            '41-45':[578,1738],
+            '46-50':[898,2528],
+            '51-55':[1116,3680],
+            '56-60':[1490,4618],
+            '61-65':[1990,5970]
+        }
+    ];
+    for (var key in list[plan]){
+        var keySplit = key.split("-");
+        if(day>=keySplit[0]&&day<=keySplit[1]){
+            $("#minPremium").text('￥'+list[plan][key][index].toFixed(2));
+            $("#minPremium2").text('￥'+list[plan][key][index].toFixed(2));
+            $("#minPremium3").text('￥'+list[plan][key][index].toFixed(2));
+        }
+    }
+}
+/*根据出生日期算出年龄*/
+function GetAge(strBirthday){
+    var returnAge;
+    var strBirthdayArr=strBirthday.split("/");
+    var birthYear = strBirthdayArr[0];
+    var birthMonth = strBirthdayArr[1];
+    var birthDay = strBirthdayArr[2];
+    
+    var d = $("#startDate").val().split("/");
+    var nowYear = d[0];
+    var nowMonth = d[1];
+    var nowDay = d[2];
+    
+    if(nowYear == birthYear){
+        returnAge = 0;//同年 则为0岁
+    }else{
+        var ageDiff = nowYear - birthYear ; //年之差
+        if(nowMonth == birthMonth) {
+            var dayDiff = nowDay - birthDay;//日之差
+            if(dayDiff < 0){
+                returnAge = ageDiff - 1;
+            }else{
+                returnAge = ageDiff ;
+            }
+        }else{
+            var monthDiff = nowMonth - birthMonth;//月之差
+            if(monthDiff < 0){
+                returnAge = ageDiff - 1;
+            }else{
+                returnAge = ageDiff ;
+            }
+        }
+    }
+    return returnAge;
+}
+function calcCostRrak(el){
+    var el = $(el);
+    var type = el.attr("data-type");
+    var dataId = el.data("id");
+    if(dataId =="0"){
+        $index = el.index();
+    }else if(dataId =="1"){
+        $index = el.index()-1;
+    }
+    $("#planbox").find("a").eq($index).addClass("selected").siblings().removeClass("selected");
+    $("#schemeList").children("li").eq($index+1).addClass("selected").siblings().removeClass("selected");
+    $("#items").val($("#planbox").find("a").eq($index).attr("id"));
+    if(el.hasClass("selected")){
+        el.addClass("selected").siblings().removeClass("selected");
+    }
+    getPlanAndtimes("chang");
+    
+}

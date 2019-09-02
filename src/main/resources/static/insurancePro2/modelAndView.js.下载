@@ -1,0 +1,100 @@
+/**
+ * definition of backbone's model view and  collection
+ */
+ 
+/**display start**/
+var DisplayplanModel= Backbone.Model.extend({
+    defaults: {
+        productcode: "",
+        planid: "",
+        city:"",
+        planname:"",
+        templateid:"",
+        displayno:""
+    }
+});
+
+var DisplayplanCollection = Backbone.Collection.extend({
+ model: DisplayplanModel
+});
+
+var DisplayplanView = Backbone.View.extend({
+		el: '#planbox',//修改的地址
+        initialize: function() {  
+            //this.template = _.template(tmp);
+        },  
+        render: function() {  
+            this.$el.html(this.template(this.collection.toJSON()));
+            return this;  
+        }, 
+        setTemplate: function(data) {
+		     this.template = _.template(data);
+		}
+}); 
+
+var ItemplanView = Backbone.View.extend({
+		el: '#itemplanTR',//修改的地址
+        initialize: function() {  
+            //this.template = _.template(tmp);
+        },  
+        render: function() {  
+            this.$el.html(this.template(this.collection.toJSON()));
+            return this;  
+        }, 
+        setTemplate: function(data) {
+		     this.template = _.template(data);
+		}
+}); 
+/**display end**/
+/**itemkind start**/
+var ItemkindamountModel =Backbone.Model.extend({
+    defaults: {
+        itemkindid:"",
+        planid:"",
+        amount:""
+    }
+});
+
+var ItemkindamountCollection = Backbone.Collection.extend({
+ model: ItemkindamountModel
+});
+
+var ItemkindinfoModel= Backbone.Model.extend({
+    defaults: {
+		product:"",
+		itemkindname:"",
+		description:"",
+		pzitemkinds:new ItemkindamountCollection,
+		displayno:""
+    },	
+    parse: function(data) {
+        if (data.pzitemkinds) {
+            this.pzitemkinds.reset(data.pzitemkinds);
+        }
+        return _.omit(data, 'pzitemkinds');
+    }
+});
+
+var ItemkindinfoCollection = Backbone.Collection.extend({
+ model: ItemkindinfoModel
+});
+/*if($("#productcode").val()=="EAG_T1"||$("#productcode").val()=="EAG_T"){
+	//影藏
+}else{
+		*/
+		var ItemkindinfoView = Backbone.View.extend({
+//				el: '#itemkindTbody1',//修改的地址
+		        initialize: function() {  
+		            //this.template = _.template(tmp);
+		        },  
+		        render: function() {  
+		            this.$el.html(this.template(this.collection.toJSON()));
+		            return this;  
+		        }, 
+		        setTemplate: function(data) {
+				     this.template = _.template(data);
+				}
+				
+		}); 
+   // }	
+/**itemkind end**/

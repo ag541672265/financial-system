@@ -1,0 +1,164 @@
+/**
+ * INIT PAGE CALCULATION AND VALIDATION FUNCTION
+ */
+ 
+
+function setItems(items){
+	if($("#item"+items).length > 0){
+		$("#item"+items).addClass('current').siblings().removeClass('current');
+	}else{
+		$("#dplan"+items).addClass("selected").siblings().removeClass("selected");
+		$("#uplan"+items).addClass("selected").siblings().removeClass("selected");
+	}
+	$("#items").val(items);
+	var selectedProduct=$("#item"+items).html();
+	$("#selectedItems").html(selectedProduct);
+	getPlanAndtimes("chang");
+	getPlanExtend(items);
+	calculateFee(items);
+	if($("#calcStr_"+items)){ 
+		$("#calcStr_"+items).html("元");
+	}
+	getSpecialAgreement();
+}
+
+
+function calculateFee(str) {
+	var sync = false;
+	if (str == "sync") {
+		sync = false;
+	}
+	var urlPath = "";
+	/*if($("#jingPin").val()=="jingPin"){
+		urlPath = "/eproduct/conproposal/calculateForInit.do";
+	}else{
+	}*/
+	urlPath = "/eproduct/conproposal/calculate.do";
+	if (str=='init'||checkDayBetween()) {
+		//var urlPath = "/eproduct/conproposal/calculateForInit.do";
+		$.ajax({
+			url : urlPath,
+			type : "post",
+			data : $("#form").serialize(),
+			async : sync,
+			dataType : "json",
+			success : function(data, textStatus) {
+				// 显示保费信息
+				displayPremium(data);
+			},
+			error : function(data, textStatus) {
+			},
+			complete : function(data, textStatus) { // 无论请求成功或失败，请求后都会执行的回调函数
+			},
+			beforeSend : function(data, textStatus) {// ajax 调用前执行
+			}
+		});
+	} else
+		return false;
+}
+
+function checkDayBetween() {
+	var dayBetween1 = getDayBetweenNew();
+	//TODO 日期范围校验
+//	var defaultdate = getIframeValue("MINSTARTDATE");
+//	var maxRiskperiod = getIframeValue("MAXRISKPERIOD");
+//	var minRiskperiod = getIframeValue("MINRISKPERIOD");
+//	if (minRiskperiod != "" && maxRiskperiod != "") {
+//	if (dayBetween1 > maxRiskperiod) {
+//	$("#_my97DP").hide();
+//	var tips = "本产品保障期间" + minRiskperiod + "-" + maxRiskperiod
+//	+ "天，请在期间内重新选择。";
+//	showDateError(tips);
+//	$('#startdate').val(defaultdate);
+//	$('#enddate').val(defaultdate);
+//		return false;
+//	} else {
+//		$("#allDay").text(dayBetween1);
+//	}
+//	}
+	if(365==dayBetween1||366==dayBetween1){
+		$("#selectPeriod").html("1年");
+	}else{
+		$("#selectPeriod").html(dayBetween1+"天");
+	}
+	return true;
+} 
+
+function getDayBetweenNew() {
+	if ($('#endDate').val() == "") {
+		if("new"==$("#chanPin").val()){
+			$('#endDate').val($('#endDateHidden').val());
+		}else{
+			$('#endDate').val($('#endDateHidden').val());
+		}
+	}
+	if ($('#startDate').val() == "" || $('#startDate').val()==undefined) {
+		return false;
+	}
+	var sDate = $('#startDate').val().split("/");
+	var startDate = new Date(sDate[0], sDate[1] - 1, sDate[2]);
+	var eDate = $('#endDate').val().split("/");
+	var endDate = new Date(eDate[0], eDate[1] - 1, eDate[2]);
+	if (endDate < startDate) {
+		$('#endDate').val($('#startDate').val());
+		endDate = startDate;
+	}
+	return parseInt(Math.abs(endDate - startDate) / 1000 / 60 / 60 / 24) + 1;
+
+}
+
+/** 点击方案联动下拉框方法 **/
+function getPlanExtend(items){
+	var zplanJSON = $.parseJSON($("#zplanJSON").val());
+	$("#plan_extend").hide();
+	var flag = false;
+	$(zplanJSON).each(function(i,item){
+		if(items == item.planid&&"1"==item.planextendflag){
+			if(!$(".product-offer-enter").hasClass("fwmj")){
+				$(".product-offer-enter").addClass("fwmj");
+			}
+			$("#plan_extend").show();
+			$("#plan_extend_name").text(item.planextendname+"：");
+			$("#planextendvalue").attr("name","planextendvalue");
+			flag = true;
+		}else if(items == item.planid&&"1"!=item.planextendflag){
+			if($(".product-offer-enter").hasClass("fwmj")){
+				$(".product-offer-enter").removeClass("fwmj");
+			}
+			$("#info_planextend_li").hide();
+			$("#planextendvalue").attr("name","");
+		}
+	});
+	if(flag){
+		var extendFlag = true;//判断下拉框是否存在该planextendvalue值，如果有，则对应赋值，如果没有，则默认赋第一个值
+		var zplanextendJSON = $.parseJSON($("#zplanextendJSON").val());
+		var planextends= new Array();
+		$(zplanextendJSON).each(function(i,item){
+			if(items == item.planid){
+				planextends.push(item);  
+			}
+		});
+		$('#plan_extend_ul li').remove();
+		var planextendvalue = $("#planextendvalue").val();
+		for(var i=0;i<planextends.length;i++){
+			if(planextendvalue == planextends[i].planextendvalue){
+				$("#showvalue").val(planextends[i].showvalue);
+				extendFlag = false;
+			}
+			var obj = "<li onclick="+"\"changeExtendValue("+"'"+planextends[i].showvalue+"'"+","+"'"+planextends[i].planextendvalue+"'"+");\""+">"+planextends[i].showvalue+"</li>";
+			$('#plan_extend_ul').append(obj);
+		}
+		if(extendFlag){
+			$("#planextendvalue").val(planextends[0].planextendvalue);
+			$("#showvalue").val(planextends[0].showvalue);
+		}
+	}
+}
+/** 
+ * 点击下拉框给隐藏域赋值
+ **/
+function changeExtendValue(showvalue,planextendvalue){
+	$("#showvalue").val(showvalue);
+	$("#planextendvalue").val(planextendvalue);
+	calculateFee();
+}

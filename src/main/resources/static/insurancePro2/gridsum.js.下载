@@ -1,0 +1,83 @@
+/**国双监控代码**/
+var _gsq = _gsq || [];
+//险类名称
+var riskCName="";
+//产品名称
+var productCName="";
+//操作步骤
+var stepCName = "";
+var productcode = $("#productcode").val();
+$(function(){
+	initStepCName();
+	
+});
+function initStepCName(){
+	var processbar = $("#processbar").val();
+	if("Calc"==processbar){
+		stepCName="方案报价";
+	}else if("Info"==processbar){
+	    stepCName="填写投保信息";
+	}else if("Confirm"==processbar){
+		stepCName="投保确认";
+	}
+}
+function getMoniterInformation(){
+	var configUrl = "/eproduct/conproposal/getMoniterInformation.do";
+	$.ajax({
+		type:'post',
+		data:'productCode=' + productcode ,
+		url:configUrl,
+		dataType : "json",
+		async : false,
+		success : function(data, textStatus) { 
+			var pzmain=data.pzmain;
+			riskCName=pzmain.classcname;
+			productCName=pzmain.productname;
+		},
+		error : function(data,textStatus){
+		}
+	});
+}
+function getPlanName(){
+	var displayplan = eval($("#displayplan").val());
+	var planName = "";
+	$.each(displayplan,function(i,n){
+		if(n.planid==$("#items").val()){
+			planName=n.planname;
+		}
+	});
+	return planName;
+}
+//首页监控
+function gridIndex(){
+	if (window._gsTracker) {
+		try{
+			_gsTracker.trackEvent(riskCName,productCName,"申请投保");
+		}catch(e){}
+    }
+}
+
+//除首页以外的其他页面监控
+function gridOther(clickText){
+	/*if (window._gsTracker) {
+        _gsTracker.trackEvent(riskCName,productCName,stepCName);
+    }*/
+	var planAndPage = "";
+	if("快速投保" == clickText){
+		planAndPage = "老客户快速投保";
+	}else if("提交订单" == clickText){
+		planAndPage = getPlanName()+"/"+$("#premium_btm").text();
+	}
+	if(""==productCName&&productName!=undefined&&productName!=null&&productName!=""){
+		productCName = productName;
+	}else{
+		productCName = $("#displayname").val();
+	}
+	_gsq.push(["T"," GWD-000333","trackEvent",productCName, planAndPage, clickText]);
+    //insigth监测代码
+    try {
+	 insightPage();
+	} catch (e) {
+ 		
+	}
+}

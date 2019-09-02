@@ -1,0 +1,850 @@
+var $$ = function(func){  
+    if (document.addEventListener) {  
+        window.addEventListener("load", func, false);  
+    }  
+    else if (document.attachEvent) {  
+        window.attachEvent("onload", func);  
+    }  
+}  
+  
+$$(function(){  
+	showValiResult();  
+})  	
+function showValiResult(){
+	if($('#validateResult').val()!=''&&$('#validateResult').val()!=null){
+		rollToPos("resultspan");
+	}
+}
+
+//滚动屏幕到指定位置
+function rollToPos(id){
+	var element = document.getElementById(id);
+	element.scrollIntoView(true); 
+}
+
+//点击显示错误文本框
+function showValidateResult(id,msg){
+	if($("#error_"+id).length>0){
+		$("#error_"+id).remove();
+	}
+	if(msg!=""){
+		if($("#focusFlag").val()=="0"){
+			$("#focusFlag").val("1");
+//			$("#"+id).blur().focus().blur();
+//			event.srcElement && event.srcElement.hideFocus=true; 
+			hideTips(id);
+		}
+		if($.browser.msie && $.browser.version=="6.0"){
+			if(id=="confirm_applyEmail"||id=="confirm_applyIdentifyNumber"||id=="confirm_applySex"){
+				$("#"+id).parent().after("<span class='wrong_msg msg' id='error_"+id+"' style='min-width:120px;z-index:9999;background:#fffdef;text-indent:0px;border:#f3e4d1 1px solid; color:#636363;display:inline-block;margin-left:2px;padding:0px 4px;height:20px; line-height:20px; position:absolute;cursor:default;'><font style='background:url(/eproperty/css/theme/images/ico_wrong.png) left no-repeat; text-indent:0px; display:block; _display:inline; _zoom:1; color:#F00; text-decoration:none;font-size:12px'>" +msg +"</font></span>");
+			}else{
+				$("#"+id).after("<span class='wrong_msg msg' id='error_"+id+"' style='min-width:120px;z-index:9999;background:#fffdef;text-indent:0px;border:#f3e4d1 1px solid; color:#636363;display:inline-block;margin-left:2px;padding:0px 4px;height:auto; line-height:20px; position:absolute;cursor:default;'><font style='background:url(/eproperty/css/theme/images/ico_wrong.png) 0px 0px no-repeat; text-indent:0px; display:block; _display:inline; _zoom:1;color:#F00; text-decoration:none;font-size:12px'>" +msg +"</font></span>");
+			}
+		} else{
+			if("YEH"==$("#productcode").val())//将最小值改为80 ，没有勾选确认的错误提示框就和文字大小一样了，但是会影响确认页面的错误提示，导致折行，现在改为与原来一样的设置
+				$("#"+id).after("<span class='wrong_msg msg' id='error_"+id+"' style='min-width:120px;z-index:9999;background:#fffdef;text-indent:0px;border:#f3e4d1 1px solid; color:#636363;display:inline-block;margin-left:2px;padding:0px 4px;height:auto; line-height:20px; position:absolute;cursor:default;'><font style='background:url(/eproperty/css/theme/images/ico_wrong.png) 0px 0px no-repeat; text-indent:0px; display:block; _display:inline; _zoom:1;color:#F00; text-decoration:none;font-size:12px'>" +msg +"</font></span>");
+			else
+			    $("#"+id).after("<span class='wrong_msg msg' id='error_"+id+"' style='min-width:120px;z-index:9999;background:#fffdef;text-indent:0px;border:#f3e4d1 1px solid; color:#636363;display:inline-block;margin-left:2px;padding:0px 4px;height:auto; line-height:20px; position:absolute;cursor:default;'><font style='background:url(/eproperty/css/theme/images/ico_wrong.png) 0px 0px no-repeat; text-indent:0px; display:block; _display:inline; _zoom:1;color:#F00; text-decoration:none;font-size:12px'>" +msg +"</font></span>");
+			}
+		
+		
+//		if($("#focusFlag").val()=="0"){
+//			$("#focusFlag").val("1");
+//			$("#"+id).focus();
+//			$("#"+id).blur();
+//		}
+
+		
+	}
+}
+
+function showValidateLongResult(id,msg){
+	if($("#error_"+id).length>0){
+		$("#error_"+id).remove();
+	}
+	if(msg!=""){
+		if($("#focusFlag").val()=="0"){
+			$("#focusFlag").val("1");
+//			$("#"+id).blur().focus().blur();
+//			event.srcElement && event.srcElement.hideFocus=true; 
+			hideTips(id);
+		}
+		$("#"+id).after("&nbsp;&nbsp;&nbsp;<span class='wrong_msg msg' id='error_"+id+"' style='background:#fffdef;text-indent:0px;border:#f3e4d1 1px solid; color:#636363;display:inline-block;margin-left:2px;padding:0px 4px;height:auto; width:340px;line-height:20px; position:absolute;cursor:default;'><font style='background:url(/eproperty/css/theme/images/ico_wrong.png) 0px 0px no-repeat; text-indent:0px; display:block; _display:inline; _zoom:1;color:#F00; text-decoration:none;font-size:12px'>" +msg +"</font></span>");
+		
+	}
+}
+
+function showValidateResultNoblank(id,msg){
+	hideTipsNew(id);
+	if(msg!=""){
+		$("#"+id).parent('span').css('position','relative');
+		$("#"+id).parent().addClass('errorText');
+		var w=$("#"+id).width();
+		$("#"+id).parent().append('<div class="errorTip active" style="background:0"  id="error_'+id+'"><div class="errorInfoHead"></div><div class="errorInfo">'+msg +'</div><div class="errorInfoFoot"></div></div>');
+		$('#error_'+id).css({'position':'absolute','top':0,'left':w-6,'width':500,'height':32,'z-index':999});
+	}
+}
+
+//用这个方法时，里面的msg可以增加<br>标签
+function showValidateResultBR(id,msg){
+	hideTipsNew(id);
+	if(msg!=""){
+		$("#"+id).parent('span').css('position','relative');
+		$("#"+id).parent().addClass('errorText');
+		var w=$("#"+id).width();
+		$("#"+id).parent().append('<div class="pointBle" id="error_'+id+'"><span class="left"></span><span class="con">'+msg +'</span><span class="right"></span></div>');
+		$('#error_'+id).css({'position':'absolute','top':0,'left':w+20,'width':183,'height':32,'z-index':999});
+	}
+}
+/**
+ * 
+ * @param {}
+ *            field: 校验域对象
+ * @param {}
+ *            msg: 显示的信息
+ * @param {}
+ *            showField: 控制是否显示对号图片
+ * @param {}
+ *            type :判断是用id或者name进行错误信息定位,参数固定为"id"或者"name"
+ */
+function showValidateResultForLDT_E(field, msg, showField, type) {
+	var error_id;
+	var create_div;
+	var element = getElementPos(field.id);
+	if (type == "id") {
+		error_id = "#error_" + field.id;
+		create_div = "<div id='error_"
+				+ field.id
+				+ "' style='margin-left:1px;background:#F8F8F8;border:1px #e3e3e3;padding:0;margin-bottom:0px;position:absolute;text-align: left; top:"
+				+ (element.y + 20)
+				+ "px;left:"
+				+ (element.x)
+				+ "px;line-height:1px;z-index:1001;'><iframe name=\"ifrm_div\" id=\"ifrm_div\" frameborder=\"0\" scrolling=\"no\" style = 'position:absolute;width:158px; height:19px;z-index:1000;margin-left:0px;' ></iframe></div>";
+	} else {
+		error_id = "#error_" + field.name;
+		create_div = "<div id='error_"
+				+ field.name
+				+ "' style='margin-left:1px;background:#F8F8F8;border:1px #e3e3e3; padding:0;position:absolute;text-align: left; top:"
+				+ (element.y + 20)
+				+ "px;left:"
+				+ (element.x)
+				+ "px;line-height:1px;z-index:1001;'><iframe name=\"ifrm_div\" id=\"ifrm_div\" frameborder=\"0\" scrolling=\"no\" style = 'FILTER:alpha(opacity=0);position:absolute;width:158px; height:19px;z-index:1000;margin-left:0px;' ></iframe></div>";
+	}
+	if ($(error_id).length <= 0) {
+		$(create_div).css("color", "red").appendTo($(field).parent());
+	}
+	if (msg == "") {
+		if (field.value != "") {
+			$(error_id).remove();
+			// msg="<img style='float:left; margin-top:2px;'
+			// src='/EbsWeb/images/gou.gif'/>";
+			if (showField == false)
+				$(msg).remove();
+		}
+	} else {
+		msg = "<div style = ' z-index:1002;margin-left:0px;position:relative;height:18px;border:1px solid #E3E3E3;padding:0 5px 0 21px;margin-bottom:0px;width:130px; background:#fffdef url(/EbsWeb/insuredNew/theme/images/ico_wrong.png) left center no-repeat;'><span style='position:absolute;z-index:1;border:1px #e3e3e3;padding-right:5px;line-height:18px;color:#F00;white-space: nowrap;'>"
+				+ msg + "</span></div>";
+	}
+	// if(type == "id"){
+	// $(error_id).parent().remove();
+	// }
+	$(error_id).css("margin-top", "5px");
+	$(error_id).html($(error_id).html() + msg);
+}
+
+/**
+ * 
+ * @param {}
+ *            field: 校验域对象
+ * @param {}
+ *            msg: 显示的信息
+ * @param {}
+ *            showField: 控制是否显示对号图片
+ * @param {}
+ *            type :判断是用id或者name进行错误信息定位,参数固定为"id"或者"name"
+ */
+//点击显示错误文本框(新流程)
+function showValidateResultNew(id,msg){
+	hideTipsNew(id);
+	if(msg!=""){
+//		removeClass('errorText')
+		if(id=="sexSel"){
+			$("#"+id).after("<div class='errorTip active fl'  id='error_"+id+"'><div class='inner'>" +msg +"</div></div>");
+		}else{
+			$("#"+id).parent().addClass('errorText');
+			if("roomcount"==id&&"JAU"==$("#riskcode").val()){
+				 $("#roomcounttext").after("<div class='errorTip active'  style='margin-left:5px;' id='error_"+id+"'><div class='inner'>" +msg +"</div></div>");
+			}else{
+				 $("#"+id).parent().after("<div class='errorTip active'  id='error_"+id+"'><div class='inner'>" +msg +"</div></div>");
+			}
+			
+		}
+		
+	}
+}
+
+//元素定位，根据浏览器据对定位
+function getElementPos(elementId) {
+	var ua = navigator.userAgent.toLowerCase();
+	var isOpera = (ua.indexOf('opera') != -1);
+	var isIE = (ua.indexOf('msie') != -1 && !isOpera); // not opera spoof
+	var el = document.getElementById(elementId);
+	if (el.parentNode === null || el.style.display == 'none') {
+		return false;
+	}
+	var parent = null;
+	var pos = [];
+	var box;
+	if (el.getBoundingClientRect) // IE
+	{
+		box = el.getBoundingClientRect();
+		var scrollTop = Math.max(document.documentElement.scrollTop,
+				document.body.scrollTop);
+		var scrollLeft = Math.max(document.documentElement.scrollLeft,
+				document.body.scrollLeft);
+		return {
+			x : box.left + scrollLeft,
+			y : box.top + scrollTop
+		};
+	} else if (document.getBoxObjectFor) // gecko
+	{
+		box = document.getBoxObjectFor(el);
+		var borderLeft = (el.style.borderLeftWidth) ? parseInt(el.style.borderLeftWidth)
+				: 0;
+		var borderTop = (el.style.borderTopWidth) ? parseInt(el.style.borderTopWidth)
+				: 0;
+		pos = [ box.x - borderLeft, box.y - borderTop ];
+	} else // safari & opera
+	{
+		pos = [ el.offsetLeft, el.offsetTop ];
+		parent = el.offsetParent;
+		if (parent != el) {
+			while (parent) {
+				pos[0] += parent.offsetLeft;
+				pos[1] += parent.offsetTop;
+				parent = parent.offsetParent;
+			}
+		}
+		if (ua.indexOf('opera') != -1
+				|| (ua.indexOf('safari') != -1 && el.style.position == 'absolute')) {
+			pos[0] -= document.body.offsetLeft;
+			pos[1] -= document.body.offsetTop;
+		}
+	}
+	if (el.parentNode) {
+		parent = el.parentNode;
+	} else {
+		parent = null;
+	}
+	while (parent && parent.tagName != 'BODY' && parent.tagName != 'HTML') { // account
+																				// for
+																				// any
+																				// scrolled
+																				// ancestors
+		pos[0] -= parent.scrollLeft;
+		pos[1] -= parent.scrollTop;
+		if (parent.parentNode) {
+			parent = parent.parentNode;
+		} else {
+			parent = null;
+		}
+	}
+	return {
+		x : pos[0],
+		y : pos[1]
+	};
+}
+
+function showTipsWindown(msg){
+//	隐藏日期控件：
+	$("#_my97DP").hide();
+	$("#checkMSG").html(msg);
+//	$("#popDiv").show();
+//	$("#bg").show();
+	popPosition('#popDiv');
+//	$("#bg").css("z-index","10000");
+//	$("#popDiv").css("z-index","10001");
+//	if($.browser.msie && $.browser.version=="6.0"){ 
+//		$("body").find("select").hide();
+//	} 
+//	var docH = $(document).height();
+//	$("#bg").height(docH + "px") ;
+//
+//    $("#bg").width($(document).width());
+//	var m=encodeURI(encodeURI(msg));
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/public/checkMSG.jsp?next=1&msg='+m+'','430','200','','','true','');
+}
+//静态链接弹出层
+function showTipsHelpWindown(title,context){
+	helpdialog(title,context);
+//	if(title.length>=25)title=title.substring(0,25)+'..';
+//	$("#title").html(title);
+//	$("#context").html(context);
+//	$("#help").show();
+//	$("#bg").show();
+//	$("#bg").css("z-index","10000");
+//	$("#help").css("z-index","10001");
+//	if($.browser.msie && $.browser.version=="6.0"){ 
+//		$("body").find("select").hide();
+//	} 
+//	var docH = $(document).height();
+//	
+//    $("#bg").width($(document).width());
+//	$("#bg").height(docH + "px") ;
+}
+function showCheckPersonMsg(){
+	popPosition('#checkPersonDiv');
+	$(".mask").css("z-index","10000");
+}
+function closeTipCheckMSG(){
+	$("#popDiv").hide();
+	$(".mask,.tt").remove();
+	//如果LDT_E产品绑定了相关事件，那么移除该事件：
+	$("#checkMSGConfirm").unbind("click",function(){
+		modifyInsuredPersonForSubmit();
+	});
+
+	if($.browser.msie && $.browser.version=="6.0"){ 
+		$("body").find("select").show();
+	} 
+	if($("#select_102").length>0){
+		   $("#select_102").hide();
+	   }
+	//为组合险加的
+	if($("#sureSubmit").val()!=""){
+		$("#sureSubmit").attr("disabled",false);
+	}
+	var areaCode = $("#areaCode").val();
+	var productCode = $("#productCode").val();
+//	if(areaCode=="11000000"){
+//		var riskCode = $("#riskCode").val();
+//		var hostport=document.location.host;
+//		 if($("#productCode").val()=="EFG"||$("#productCode").val()=="EFF"||riskCode=="EFF"||riskCode=="EFG"){
+//	    	   location.href = "http://"+hostport+"/xgbx/rsbx/rsywx/";
+//	       }else if($("#productCode").val()=="EAJ"){
+//	    	   location.href = "http://"+hostport+"/xgbx/lybx/jwzzyx/";
+//	       }else if($("#productCode").val()=="EAG_V"){
+//	    	   location.href = "http://"+hostport+"/xgbx/lybx/jwswcxx/";
+//	       }else if($("#productCode").val()=="EAG_T"){
+//	    	   location.href = "http://"+hostport+"/xgbx/lybx/jnswcxx/";
+//	       }else if($("#productCode").val()=="EAK_X"){
+//	    	   location.href = "http://"+hostport+"/xgbx/lybx/jnzjy/";
+//	       }else if($("#productCode").val()=="EAK_U"){
+//	    	   location.href = "http://"+hostport+"/xgbx/lybx/jnzzy/";
+//	       }else if($("#productCode").val()=="EJQ_H"){
+//	    	   location.href = "http://"+hostport+"/xgbx/rsbx/hkywndx/";
+//	       }else if($("#productCode").val()=="EJQ_Z"){
+//	    	   location.href = "http://"+hostport+"/xgbx/rsbx/jtgjywx/";
+//	       }
+//	}
+}
+function closeTipHelpCheckMSG(){
+	$("#help").hide();
+	$(".mask,.tt").remove();
+	if($.browser.msie && $.browser.version=="6.0"){ 
+		$("body").find("select").show();
+	} 
+	if($("#select_102").length>0){
+		   $("#select_102").hide();
+	   }
+}
+function showKeepMSG(){
+	$(".succes").html();
+	popPosition('#loginDiv');
+	$(".mask").css("z-index","10000");
+}
+function showKeep2MSG(msg){
+	//$(".succes").html();
+	$(".price").html(msg);
+	popPosition('#successDiv');
+	$(".mask").css("z-index","10000");
+}
+function showPayTipsWindown(msg){
+	$("#bank").html(msg); 
+	popPosition("#payShow");
+	$(".mask").css("z-index","10000");
+}
+//关闭弹出层
+function closeWindow(dom){
+	   $('#'+dom).hide();
+	   $(".mask,.tt").remove();
+	   $("body").find("select").show();
+	   if($("#select_102").length>0){
+		   $("#select_102").hide();
+	   }
+	   if($("#Jxianqu").length>0){
+		   if($("#count").val()==1 || $("#count").val()==2){
+				$("#Jxianqu").hide();
+			}
+	   }
+	   
+	}
+function showInsuredMSG(){
+	$("#_my97DP").hide();
+	popPosition('#insuredMSG');
+	$(".mask").css("z-index","1010") ;
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/E/public/InsuredMSG.html','430','200','','','true','');
+}
+
+function showBeneficiaryMSG(){
+	$("#_my97DP").hide();
+	popPosition('#beneficiaryMSG');
+	$(".mask").css("z-index","1010") ;
+//	tipsWindown('/eproperty/cssb/insuredNew/E/public/showBeneficiaryMSG.html','430','200','','','true','');
+}
+
+function showChinaResidentsMSG(){
+	$("#_my97DP").hide();
+	popPosition('#chinaResidentsMSG');
+	$(".mask").css("z-index","1010") ;
+}
+
+function showWardVocation(){
+	popPosition('#wardVocation');
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/E/public/showWardVocation.html','430','200','','','true','');
+}
+function showAccidentTreatMSG(){
+	$("#_my97DP").hide();
+	popPosition("#accidentTreat");
+	$(".mask").css("z-index","1010") ;
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/E/public/showAccidentTreatMSG.html','430','200','','','true','');
+}
+function showAccidentHarmMSG(){
+	$("#_my97DP").hide();
+	popPosition('#accidentHarm');
+	$(".mask").css("z-index","1010") ;
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/E/public/showAccidentHarmMSG.html','430','200','','','true','');
+}
+
+function showPolicyholderMSG(){
+	$("#_my97DP").hide();
+	popPosition('#policyholderMSG');
+	$(".mask").css("z-index","1010") ;
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/E/public/showPolicyholderMSG.html','430','200','','','true','');
+
+}
+function showBaozhangEAJMSG(){
+	$("#_my97DP").hide();
+	popPosition('#baozhangEAJ');
+	$(".mask").css("z-index","1010") ;
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/E/EAJ/baozhang.html','550','451','','','true','');
+
+}
+function showBaozhangEAJ_SMSG(){
+	$("#_my97DP").hide();
+	popPosition('#baozhangEAJ_S');
+	$(".mask").css("z-index","1010") ;
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/E/EAJ/baozhang.html','550','451','','','true','');
+
+}
+function showBaoZhangEAG_TMSG(){
+	$("#_my97DP").hide();
+	popPosition('#EAG_TBaozhang');
+	$(".mask").css("z-index","1010") ;
+	//tipsWindown('','url:post?/EbsWeb/insuredNew/E/EAG_T/showBaoZhangEAG_TMSG.html','550','451','','','true','');
+
+}
+function showBaozhangEAG_VMSG(){
+	$("#_my97DP").hide();
+	popPosition('#baozhangEAG_V');
+	$(".mask").css("z-index","1010") ;
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/E/EAG_V/showBaozhangEAG_VMSG.html','550','451','','','true','');
+
+}
+function showBaozhangEAK_UMSG(){
+	$("#_my97DP").hide();
+	popPosition('#baozhangEAK_U');
+	$(".mask").css("z-index","1010") ;
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/E/EAK_U/EAK_Ubaozhang.html','550','451','','','true','');
+
+}
+function change(){
+	$("#applyIdentity").val($("#input_applyIdentity").val());
+}
+function showTips(id,msg){
+	if($("#error_"+id).length>0){
+		$("#error_"+id).remove();
+	}
+	if(id=="relation"&&($("#productcode").val()!='EFG_M')){
+		if(!($("#riskcode").val()=="ZKK"||$("#riskcode").val()=="LCB")){
+			//先删除，防止一直追加提示信息
+			hideTips(id);
+			$("#"+id).after("<span class='msg' flagTip='flagTip' id='tip_"+id+"' style='cursor:default;'><font style='font-size:12px;color:#838383'>"+"如为多人投保，请参看<a href=\"#this\" onclick=\"popPosition('#applyHelp');\"  style=\"color:red\">填写说明</a>"+"</font></span>");
+		}
+	}else if(id=="relation"&&($("#productcode").val()=='EFG_M')){
+		hideTips(id);
+	}else{
+		if(msg=='财产地址需与房产证（精确到门牌号）<br>或购房合同中的房屋地址一致')
+	
+			$("#"+id).after("<span class='msg' flagTip='flagTip' id='tip_"+id+"' style='cursor:default;height:40px'><font style='font-size:12px;color:#838383'>"+msg+"</font></span>");
+		else
+			$("#"+id).after("<span class='msg' flagTip='flagTip' id='tip_"+id+"' style='cursor:default;'><font style='font-size:12px;color:#838383'>"+msg+"</font></span>");
+	}
+}
+function showTipsNew(id,msg){
+	hideTipsNew(id);
+	if(msg!=""){
+		if(id=="cityname"&&$("#comcodeSelect").is(":visible")){
+			
+		}else{
+			$("#"+id).parent().after("<div class='point' id='tip_"+id+"'> <span class='left'></span> <span class='con'>"+msg+"</span> <span class='right'></span> </div>");
+
+		}
+	}
+	//$("#"+id).parent().next('.point').fadeIn();
+}
+
+//需要绝对定位的提示框，防止换行
+function showTipsNewAbsPos(id,msg){
+	hideTipsNew(id);
+	if(msg!=""){
+		var of=$("#"+id).offset();
+		var w=$("#"+id).width();
+		$("#"+id).parent("span").css('position','relative');
+		if("JAU"==$("#productcode").val()&&id=='certificateno'){
+			$("#"+id).parent("span").append("<div class='point' id='tip_"+id+"'> <span class='newleft'></span> <span class='newcon'>"+"请输入您预订的航班号，多航"+"<br>"+"班请填写第一个航段的航班号"+"</span></div>");
+		}
+		else {
+			$("#"+id).parent("span").append("<div class='point' id='tip_"+id+"'> <span class='left'></span> <span class='con'>"+msg+"</span> <span class='right'></span> </div>");
+		}
+		//$('.point').css({'top':of.top-90,'left':of.left+w+15,'z-index':9});
+	}
+	//$("#"+id).parent().next('.point').fadeIn();
+}
+
+//function showTipsNewAbsPos(id,msg){
+//	hideTipsNew(id);
+//	if(msg!=""){
+//		var of=$("#"+id).offset();
+//		var w=$("#"+id).width()
+//		$("#"+id).parent().after("<div class='point' id='tip_"+id+"'> <span class='left'></span> <span class='con'>"+msg+"</span> <span class='right'></span> </div>");
+//		$('.point').css({'top':of.top-90,'left':of.left+w+15});
+//	}
+//	//$("#"+id).parent().next('.point').fadeIn();
+//}
+
+function showTipsNew_birthyDay(id,msg){
+	hideTipsNew_birthyDay(id);
+	if(msg!=""){
+		var of=$("#"+id).offset();
+		var w=$("#"+id).width();
+		var h=$("#"+id).height();
+		$("#"+id).parent().after("<div class='point' id='tip_"+id+"' style='position:absolute;'> <span class='left'></span> <span class='con'>"+msg+"</span> <span class='right'></span> </div>");
+		$('.point').css({'display':'block','top':of.top-68-h,'left':of.left+w+8,'z-index':9,'width':'185px'});
+	}
+}
+
+
+function hideTipsNew_birthyDay(id){
+	if($("#tip_"+id).length>0){
+		$("#tip_"+id).remove();
+	}
+	if($("#error_"+id).length>0){
+		$("#"+id).parent().removeClass('errorText');
+		$("#error_"+id).remove();
+	}
+	$.each($(".point"), function(i, item){
+		$(item).remove();
+	});
+
+}
+function showLongTips(id,msg){
+	if($("#error_"+id).length>0){
+		$("#error_"+id).remove();
+	}
+	$("#"+id).after("<span class='msg' flagTip='flagTip' id='tip_"+id+"' style='width:300px;height:auto;'><font style='font-size:12px;color:#838383'>"+msg+"</font></span>");
+}
+function hideTipsNew(id){
+	if($("#tip_"+id).length>0){
+		$("#tip_"+id).remove();
+	}
+	if($("#error_"+id).length>0){
+		$("#"+id).parent().removeClass('errorText');
+		$("#error_"+id).remove();
+	}
+//	$.each($(".point"), function(i, item){
+//		$(item).remove();
+//	});
+}
+function hideTips(id){
+	if($("#tip_"+id).length>0){
+		
+		$("#tip_"+id).hide();
+		 $.each($("span[flagTip]"), function(i, item){
+				$(item).remove();
+			});
+	}
+}
+/*******************************LCB页面的问号解释页面********************************************/
+
+// 被保险人信息 信息展示
+function showInsuredLCBMSG(){
+	popPosition('#showInsuredLCB');
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/L/public/showInsuredLCBMSG.html','430','200','','','true','');
+}
+
+// 保险财产地址信息 信息展示
+function showPropertyAddressLCBMSG(){
+	$("#_my97DP").hide();
+	popPosition('#showPropertyAddressLCB');
+	$(".mask").css("z-index","1010");
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/L/public/showPropertyAdderssLCBMSG.html','430','200','','','true','');
+}
+
+//LDT_E的保险财产地址信息 信息展示
+function showPropertyAddressLDT_EMSG(){
+	$("#_my97DP").hide();
+	popPosition('#showPropertyAddressLDT_E');
+	$(".mask").css("z-index","1010") ;
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/L/public/showPropertyAdderssLDT_EMSG.html','430','200','','','true','');
+}
+
+// 投保人信息展示
+function showApplyLCBMSG(){
+	$("#_my97DP").hide();
+	popPosition('#showApplyLCB');
+	$(".mask").css("z-index","1010") ;
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/L/public/showApplyLCBMSG.html','430','200','','','true','');
+}
+
+// 保障权益问号解释1-12
+function showLCBMSG1(){
+	$("#_my97DP").hide();
+	popPosition('#LCBMSG1');
+	$(".mask").css("z-index","1010") ;
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/L/public/showLCBMSG1.html','430','200','','','true','');
+}
+function showLCBMSG2(){
+	popPosition('#LCBMSG2');
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/L/public/showLCBMSG2.html','430','200','','','true','');
+}
+function showLCBMSG3(){
+	popPosition('#LCBMSG3');
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/L/public/showLCBMSG3.html','430','200','','','true','');
+}
+function showLCBMSG4(){
+	popPosition('#LCBMSG4');
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/L/public/showLCBMSG4.html','430','200','','','true','');
+}
+function showLCBMSG5(){
+	popPosition('#LCBMSG5');
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/L/public/showLCBMSG5.html','430','200','','','true','');
+}
+function showLCBMSG6(){
+	popPosition('#LCBMSG6');
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/L/public/showLCBMSG6.html','430','200','','','true','');
+}
+function showLCBMSG7(){
+	popPosition('#LCBMSG7');
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/L/public/showLCBMSG7.html','430','200','','','true','');
+}
+function showLCBMSG8(){
+	popPosition('#LCBMSG8');
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/L/public/showLCBMSG8.html','430','200','','','true','');
+}
+function showLCBMSG9(){
+	popPosition('#LCBMSG9');
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/L/public/showLCBMSG9.html','430','200','','','true','');
+}
+function showLCBMSG10(){
+	popPosition('#LCBMSG10');
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/L/public/showLCBMSG10.html','430','200','','','true','');
+}
+function showLCBMSG11(){
+	popPosition('#LCBMSG11');
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/L/public/showLCBMSG11.html','430','200','','','true','');
+}
+function showLCBMSG12(){
+	popPosition('#LCBMSG12');
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/L/public/showLCBMSG12.html','430','200','','','true','');
+}
+/*******************************LCB页面的问号解释页面END********************************************/
+/*******************************ZKK_W页面的问号解释页面********************************************/
+function showPersonAllduty(){
+	popPosition('#personAllDuty');
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/Z/public/showPersonAllduty.html','430','200','','','true','');
+}
+function showPersonAlldutyZKKR(){
+	popPosition('#personAllDutyZKKR');
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/Z/public/showPersonAlldutyZKKR.html','430','200','','','true','');
+}
+function showPetduty(){
+	popPosition('#petDuty');
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/Z/public/showPetduty.html','430','200','','','true','');
+}
+function showPolicyholderZKK_WMSG(){
+	popPosition('#policyHolder');
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/Z/public/showPolicyholderZKK_WMSG.html','430','200','','','true','');
+}
+function showPolicyholderZKK_RMSG(){
+	popPosition('#policyHolder');
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/Z/public/showPolicyholderZKK_WMSG.html','430','200','','','true','');
+}
+function showPolicyZKK_WMSG(){
+	popPosition('#plicyZKK_W');
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/Z/public/showPolicyZKK_WMSG.html','430','200','','','true','');
+}
+function showAccidentduty(){
+	popPosition('#acidentdaty');
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/Z/public/showAccidentduty.html','430','200','','','true','');
+}
+function showAddupduty(){
+	popPosition('#addupduty');
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/Z/public/showAddupduty.html','430','200','','','true','');
+}
+function showWardZKK_RMSG(){
+	popPosition('#wardZKK_R');
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/Z/public/showWardZKK_RMSG.html','430','200','','','true','');
+}
+function showPupilZKK_RMSG(){
+	popPosition('#pupilZKK');
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/Z/public/showPupilZKK_RMSG.html','430','200','','','true','');
+}
+function showWardDutyZKK_RMSG(){
+	popPosition('#wardDutyZKK_R');
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/Z/public/showWardDutyZKK_RMSG.html','430','200','','','true','');
+}
+/*******************************ZKK_W页面的问号解释页面END********************************************/
+/*******************************EAK_X页面的问号解释页面START********************************************/
+function showGuaranteeExplain(){
+	popPosition('#baozhangEAK_X');
+//	tipsWindown('','url:post?/EbsWeb/insuredNew/E/EAK_X/showGuaranteeExplain.html','550','451','','','true','');
+
+}
+/*******************************EAK_X页面的问号解释页面END********************************************/
+/*******************************Public InsureStatement(投保声明)解释页面START********************************************/
+function showInsureStatement(){
+	if($("#areacode").val()=="11000000"){
+		$("#BJspecial").show();
+	}else{
+		$("#BJspecial").hide();
+	}
+	
+	popPosition('#insureStatement');
+	//tipsWindown('','url:post?/EbsWeb/insuredNew/public/showInsureStatement.html','550','451','','','true','');
+}
+/*******************************Public InsureStatement(投保声明)解释页面END**********************************************/
+/*******************************Public InsureStatement都市白领职业解释START********************************************/
+function showZhiYeMSG(){
+	tipsWindown('','url:post?/EbsWeb/insuredNew/E/public/showZhiYeMSG.html','430','200','','','true','');
+}
+/*******************************Public InsureStatement都市白领职业解释END**********************************************/
+function showValidateResultTextarea(id,msg){
+	hideTipsTextarea(id);
+	if(msg!=""){
+//		removeClass('errorText')
+		$("#"+id).addClass('errorText');
+		$("#"+id).after("<div class='errorTip active'  id='error_"+id+"'><div class='inner'>" +msg +"</div></div>");
+	}
+}
+function hideTipsTextarea(id){
+	if($("#tip_"+id).length>0){
+		$("#tip_"+id).remove();
+	}
+	if($("#error_"+id).length>0){
+		$("#"+id).removeClass('errorText');
+		$("#error_"+id).remove();
+	}
+	$.each($(".point"), function(i, item){
+		$(item).remove();
+	});
+}
+
+function showTipsBtm(id,msg){
+	hideTipsNew(id);
+	if(msg!=""){
+			var s=$("#"+id).offset();
+			$("#"+id).parent().after("<div class='caution' id='tip_"+id+"'> <div class='ff' >"+msg+"</div></div>");
+			$("#tip_"+id).css({'left':s.left, 'top':s.top-59});
+	}
+}
+
+
+function showValidateResultBtm(id,msg){
+	hideTipsNew(id);
+	if(msg!=""){
+		hideInlineTips(id);
+	}
+	if(msg!=""){
+			var s=$("#"+id).offset();
+			$("#"+id).parent().addClass('errorText');
+			if(id.indexOf("input_insuredsex")>-1){
+				$("#"+id).parent().removeClass("errorText").addClass('errorSex');
+				$("#"+id).parent().after("<div class='' id='error_"+id+"'> <div class='chek-sex' >"+msg+"</div></div>");
+			}else{
+				$("#"+id).parent().after("<div class='caution' id='error_"+id+"'> <div class='erroInput' >"+msg+"</div></div>");
+				if($('#productcode').val()!="LAY_N"){
+					$("#error_"+id).css({'left':s.left, 'top':s.top-59});
+				}
+			}
+
+	}
+}
+
+function showEndDateTips(){
+	$("#enddateTips").show(); 
+}
+function hideEndDateTips(){
+	$("#enddateTips").hide(); 
+}
+
+
+function showStartDateTips(){
+	$("#startdateTips").children('.con').text("请输入保障起始日期");
+	$("#startdateTips").show(); 
+}
+function hideStartDateTips(){
+	$("#startdateTips").hide(); 
+}
+
+function showPeoplecountTips(){
+	$("#peoplecountTips").show(); 
+}
+function hidePeoplecountTips(){
+	$("#peoplecountTips").hide(); 
+}
+
+
+//显示输入框内的提示
+function showInlineTips(id){
+   var defval = $("#"+id).attr("data-value");
+   var thisval = $("#"+id).val();
+   if(thisval=="" || thisval == defval){
+	   $("#"+id).val(defval);
+	   if("YEH" != $("#productcode").val())
+		   $("#"+id).css("color","#999");
+	   else
+		   $("#"+id).css("color","#D6D6D6");
+   }
+}
+
+//清除输入框内的提示
+function cleanInlineTips(id){
+   var defval = $("#"+id).attr("data-value");
+   var thisval = $("#"+id).val();
+   if(thisval==defval){
+	   $("#"+id).val("");
+	   $("#"+id).css("color","#333");
+   }
+}
+
+//隐藏输入框内的提示
+function hideInlineTips(id){
+   var defval = $("#"+id).attr("data-value");
+   var thisval = $("#"+id).val();
+   if(thisval==defval){
+	   $("#"+id).val("");
+	   $("#"+id).css("color","#333");
+   }
+}
+
+/*******************************JBS页面的问号********************************************/
+function showJBSMSG1(){
+	popPosition('#JBSMSG1');
+}
+function showJBSMSG2(){
+	popPosition('#JBSMSG2');
+}
+function showJBSMSG3(){
+	popPosition('#JBSMSG3');
+}

@@ -1,0 +1,619 @@
+// JavaScript Document
+/* 右侧浮动开始*/
+function rightfloat(){
+	var divH=$("#rightFloat").height();
+	var _height=$(window).height()-divH-4;
+	var _width=$(window).width();
+	var _right=(_width-1000)/2-32;
+	if(_width>=1030){
+		$("#rightFloat").css({"right":_right});
+		}
+	else{
+		$("#rightFloat").css({"right":0});
+		}
+	}
+//首先将#back-to-top隐藏
+	$(".a_title").hide();
+	//当滚动条的位置处于距顶部100像素以下时，跳转链接出现，否则消失
+	$(function () {
+	$(window).scroll(function(){
+	rightfloat();	
+	if ($(window).scrollTop()>300){
+	$(".a_title").fadeIn(100);
+	}
+	else
+	{
+	$(".a_title").fadeOut(100);
+	}
+	});
+	//当点击跳转链接后，回到页面顶部位置
+	$(".a_title").click(function(){
+	$("html,body").animate({scrollTop:0},500);
+	return false;
+	});
+	});
+$(window).resize(function(){	
+	rightfloat();
+	});
+$(window).ready(function(){	
+	rightfloat();
+	$('.btnCompare').click(function(){
+	rightfloat();
+	});
+	});		
+
+/* 文本框文字点击失去开始*/
+jQuery.focusblur = function(focusid) {
+   var focusblurid = $(focusid);
+   var defval = focusblurid.val();
+		   focusblurid.focus(function(){
+   var thisval = $(this).val();
+   if(thisval==defval){
+				   $(this).val("");
+				   $(this).css("color","#333");
+			   }
+		   });
+		   focusblurid.blur(function(){
+   var thisval = $(this).val();
+   if(thisval==""){
+				   $(this).val(defval);
+				   $(this).css("color","#999");
+			   }
+		   });
+     };
+ //下面是调用方法
+$.focusblur(".please_input");
+$.focusblur(".please_textarea2");
+$.focusblur(".please_textarea3");
+$.focusblur(".inp_new");
+$.focusblur(".name");
+$.focusblur(".name2");
+$.focusblur(".id");
+$.focusblur(".address");
+$.focusblur(".make");
+$.focusblur(".make2");
+$.focusblur(".mobile");
+$.focusblur(".Email");
+$.focusblur(".Email2");
+$.focusblur(".tel");
+$.focusblur(".piao");
+$.focusblur(".insuredaddress");
+
+
+/*模拟下拉列表框开始*/
+	$(".select").click(function(){
+
+		var thisinput=$(this);
+		var thisul=$(this).find("ul");
+		if(thisul.css("display")=="none"){
+			if(thisul.height()>200){thisul.css({height:"200"+"px","overflow-y":"scroll" })}
+			thisul.fadeIn("100");
+			thisinput.css("z-index","999");
+			thisul.hover(function(){},function(){thisul.fadeOut("100");thisinput.css("z-index","2");})
+			thisinput.hover(function(){},function(){thisul.fadeOut("100");thisinput.css("z-index","2");})
+			thisul.find("li").click(function(){thisinput.children("span").text($(this).text());thisul.fadeOut("100")});
+			}
+		else{
+			thisul.fadeOut("fast");
+			}
+        //2016新增
+        if($(this).find("span").text()=="城镇住宅"){
+            $(".jine").val(5);
+        }
+        if($(this).find("span").text() =="农村住宅"){
+            $(".jine").val(2);
+        }
+	});
+
+//性别
+$('.sex').click(function(){
+	$(this).toggleClass('girl');	
+});
+$('.inputSpan').click(function(){
+	$(this).toggleClass('active');
+	if($(this).hasClass('active')){
+		$(this).find('input[type="checkbox"]').attr("checked","true");
+	}
+	else{
+		$(this).find('input').attr("checked","false");
+	}
+});
+
+//放大字体
+$('.make').focus(function(){
+	var _this=$(this).val();
+	var s=$(this).offset();
+	$('.preTitle').show().css({'left':s.left,'top':s.top-46});
+	$(this).bind('input propertychange', function() {
+		
+		$('.preTitle').html($(this).val());
+	});
+	
+});
+$('.make').blur(function(){
+	$('.preTitle').hide()
+});
+//提示框和错误框
+//$('.papers').focus(function()
+//{
+//	var s=$(this).offset();
+//	$(this).parents('.texts').removeClass('errorText').next('.caution').find('.ff').show().next('.erroInput').hide();
+//	$('.ff').fadeIn();
+//	$('.erroInput').hide();
+//	$('.caution').css({'left':s.left, 'top':s.top-59});
+//
+//});
+//$('.papers').blur(function(){
+//	$(this).parents('.texts').addClass('errorText').next('.caution').find('.ff').hide().next('.erroInput').show();
+//	$('.ff').hide();
+//	$('.erroInput').show();
+//});
+//
+//$('.addressText').focus(function(){
+//	$(this).parents('.textAddress').nextAll('.Newpoint').fadeIn();
+//});
+//$('.addressText').blur(function(){
+//	$(this).parents('.textAddress').nextAll('.Newpoint').hide();
+//});
+//
+//$('.mobile').focus(function(){
+//	$(this).parents('.texts').next().fadeIn();
+//});
+//$('.mobile').blur(function(){
+//	$(this).parents('.texts').next().hide();
+//});
+//
+//$('.Email').focus(function(){
+//	$(this).parents('.texts').next().fadeIn();
+//});
+//$('.Email').blur(function(){
+//	$(this).parents('.texts').next().hide();
+//});
+//$('.card input').blur(function(){
+//	$(this).parent().addClass(' errorText').nextAll('.errorLook').css('display','inline-block').fadeIn();
+//});
+//$('.card input').focus(function(){
+//	$(this).parent().removeClass(' errorText').nextAll('.errorLook').css('display','none').hide();
+//});
+//$('.please_textarea').focus(function(){
+//	$(this).removeClass(' errorText').nextAll('.errorLook').css('display','none').hide();
+//});
+//$('.please_textarea').blur(function(){
+//	$(this).addClass(' errorText').nextAll('.errorLook').css('display','inline-block').fadeIn();
+//});
+//$('.inputSpan_red').click(function(){
+//	$(this).toggleClass('active');
+//});
+//
+//$('.jiSong_style .jiSong li').click(function()
+//	 {
+//		 $(this).addClass('addclass').siblings().removeClass('addclass');
+//	});
+$('.btnInsure').mouseenter(function(){
+	$(this).next().fadeIn();
+});
+$('.btnInsure').mouseleave(function(){
+	$(this).next().fadeOut();
+});
+
+//小问号提示文字
+$('.tit .i_question').click(function(){
+	$(this).parent().next('.tiShi').toggle();
+	$(this).toggleClass('i_answer');
+});
+$('.icon').click(function(){
+    $(".architecture").toggle();
+});
+		
+/*2015-01-06add创业保*/		
+//被保险人信息框错误提示
+//$('.please_input').blur(function(){
+//	$(this).siblings('.caution').append(function(n){
+//	  return '<div class="erroInput">请输入正确的信息</div>';
+//	  });
+//	$(this).parent().addClass("errorT_new");
+//});
+//$('.please_input').focus(function(){
+//	$(this).siblings('.caution').find(".erroInput").remove();
+//	$(this).parent().removeClass("errorT_new");
+//});
+//$('.please_input').focus(function(){
+//	$(this).siblings('.caution').append(function(n){
+//	return '<div class="ff">证件号会关系到索赔，请您仔细填写</div> ';
+//	});
+//});
+//$('.please_input').blur(function(){
+//	$(this).siblings('.caution').find(".ff").remove();
+//});
+////被保险人信息框错误提示2
+//$('.text2_new input').blur(function(){
+//	$(this).siblings('.caution').append(function(n){
+//	  return '<div class="erroInput">请输入正确的信息</div>';
+//	  });
+//	$(this).parent().addClass("errorText1");
+//});
+//$('.text2_new input').focus(function(){
+//	$(this).siblings('.caution').find(".erroInput").remove();
+//	$(this).parent().removeClass("errorText1");
+//});
+//$('.text2_new input').focus(function(){
+//	$(this).siblings('.caution').append(function(n){
+//	return '<div class="ff">证件号会关系到索赔，请您仔细填写</div> ';
+//	});
+//});
+//$('.text2_new input').blur(function(){
+//	$(this).siblings('.caution').find(".ff").remove();
+//});
+
+//普通框错误提示
+//$(".card input").bind('blur',function(){
+//	$(this).parents('dd,li').append(function(n){
+//	  return '<div class="errorLook"><span class="left"></span><span class="con">请输入正确的信息</span><span class="right"></span></div>';
+//	  });
+//	   $('.errorLook').show();
+//	  $(this).parent().addClass(' errorText1');
+//    $(this).parents('dd,li').find('.errorLook').fadeIn();
+//	});
+//$(".card input").bind('focus',function(){
+//	$(this).parent().siblings(".errorLook").remove();
+//	$(this).parent().removeClass(' errorText1');
+//	});
+//时间框错误提示
+//$(".cardtime input").bind('blur',function(){
+//	$(this).parents('dd,li').append(function(n){
+//	  return '<div class="errorLook"><span class="left"></span><span class="con">请输入正确的信息</span><span class="right"></span></div>';
+//	  });
+//	  $('.errorLook').show();
+//	  $(this).parent().addClass(' errortime');
+//	});
+//$(".cardtime input").bind('focus',function(){
+//	$(this).parent().siblings(".errorLook").remove();
+//	$(this).parent().removeClass(' errortime');
+//	});
+//城市框错误提示
+//$(".cardaddr input").bind('blur',function(){
+//	$(this).parents('dd,li').append(function(n){
+//	  return '<div class="errorLook"><span class="left"></span><span class="con">请输入正确的信息</span><span class="right"></span></div>';
+//	  });
+//	  $('.errorLook').show();
+//	  $(this).parent().addClass(' errorAddress');
+//	});
+//$(".cardaddr input").bind('focus',function(){
+//	$(this).parent().siblings(".errorLook").remove();
+//	$(this).parent().removeClass(' errorAddress');
+//	});
+
+//提示框20160615新改
+$('.prompt_f input').focus(function(){
+	  $(this).parents('dd,li').find('.point').fadeIn();
+    $(this).parent().siblings(".errorLook").hide();
+});
+$('.prompt_f input').blur(function(){
+	$(this).parent().siblings(".errorLook").fadeIn();
+    $(this).parents('dd,li').find('.point').hide();
+});
+$('.texts input').focus(function(){
+    $(this).parent().siblings(".errorLook").hide();
+});
+$('.texts input').blur(function(){
+    $(this).parent().siblings(".errorLook").fadeIn();
+});
+$('textarea').focus(function(){
+    $(this).siblings(".errorLook").hide();
+});
+$('textarea').blur(function(){
+    $(this).siblings(".errorLook").fadeIn();
+});
+
+//自选型错误提示
+$('.free_price input').blur(function(){
+	$(this).parents('span').append(function(n){
+	return '<div class="free_card"><div class="top"></div><div class="con">投保人人数上限为300人且不能为0</div><div class="bottom"></div></div>';
+	});
+	$(this).parent().addClass("card_65");
+	$(this).parents('.free_price').addClass("z-index98");
+});
+$('.free_price input').focus(function(){
+	$(this).parents('span').find(".free_card").remove();
+	$(this).parent().removeClass("card_65");
+	$(this).parents('.free_price').removeClass("z-index98");
+});
+
+$('.free_price input').focus(function(){
+	$(this).parents('span').append(function(n){
+	  return '<div class="free_prompt"><div class="top"></div><div class="con">投保人数将影响保费，请认真填写</div><div class="bottom"></div></div>';
+	  });
+    $(this).parents('.free_price').addClass("z-index99");
+	$(this).parents('tr').siblings().find('span').removeClass("z-index98");
+});
+$('.free_price input').blur(function(){
+	$(this).parents('span').find(".free_prompt").remove();
+	$(this).parents('.free_price').removeClass("z-index99");
+});
+
+
+$('.tit>i.yes_no').click(function(){
+	$(this).toggleClass('yes');
+	$('.examine').toggle();			
+	});
+	
+
+/*$('.select_insurance>a.input_import').click(function(){			
+	$('.select_insurance').css('display','none');
+	})*/	
+	
+$(".sel_layer input").click(function(event){
+	var e=window.event || event;
+	if(e.stopPropagation){
+		e.stopPropagation();
+	}else{
+		e.cancelBubble = true;
+	}   
+	$(this).parent().siblings(".select_insurance").show();
+});	
+$(".sel_layer .con").click(function(event){
+	var e=window.event || event;
+	if(e.stopPropagation){
+		e.stopPropagation();
+	}else{
+		e.cancelBubble = true;
+	}   
+	$(this).siblings(".select_insurance").show();
+});	
+//险种弹出层
+$(".select_insurance").click(function(event){
+	var e=window.event || event;
+	if(e.stopPropagation){
+		e.stopPropagation();
+	}else{
+		e.cancelBubble = true;
+	}
+});	
+	
+document.onclick = function(){
+	$(".select_insurance").hide();
+};
+
+//2015-2-4	
+$(".select_insurance ul input").change(function(){
+        var result="";
+		var ulli=$(this).parents('ul');
+		$(ulli).children().each(function(){
+			if($(this).children("input").is(':checked')){
+               result+=$(this).children('span').text().substr(0,4)+',';
+			   alert(result);
+			   }
+        });
+		if(result!=""){
+			result=result.substring(0,result.lastIndexOf(',')); 
+		}
+        $(this).parents('.select_insurance').siblings().find('input').val(result);    
+    });
+//2015-2-4	end
+
+$(".btnAdd").click(function(){	
+$(this).parent().prev().find('tr.new_nav').before(function(n){
+return '<tr><td>13</td><td class="bg_5"><div class="text2 text_name adddiv"><input type="text" class="please_input" /></div><div class="Wrong_notice"> <div class="ff" style="display:none;">证件号会关系到索赔，请您仔细填写</div> <div class="erroInput" style="display:none;">请输入正确的时间</div><!---错误提示----> </div></td> <td><div class="selectDiv select"><span>港澳居民来往内地通行证</span> <ul class="w179"><li>港澳居民来往内地通行证</li> <li>港澳居民来往内地通行证</li></ul>  </div></td><td class="bg_6"><div class="text2 adddiv text_1010"><input type="text"/></div>	<div class="Wrong_notice"> <div class="ff" style="display:none;">证件号会关系到索赔，请您仔细填写</div><div class="erroInput" style="display:none;">请输入正确的时间</div><!---错误提示----></div></td>  <td><input type="text" class="textBirthday"/></td><td class="statement "><div class="w177"><input type="text" class="input_s"></div></td> <td class="delBorser"><a href="javascript:;">保存</a><a>/</a> <a href="javascript:;">删除</a></td> </tr>';        
+		  });
+});    
+//账产标的信息弹出层
+$(".layer").click(function(){
+	$('.pop_subject').show();
+	$('.background').show();
+});  
+$(".close").click(function(){
+	$(this).parent().parent().hide();
+	$('.background').hide();
+});  
+//确认删除
+$('.info-cil2').click(function(){
+	$(".prompt_delete").show();
+	$(".background").show();
+});
+//修改信息
+
+$(".pop_modify .close").click(function(){
+	 $(".pop_modify").hide();
+	 $(".background").hide();
+	 $('.preTitle').removeClass('modiy_pr');
+	 $('.preTitle').hide();
+	});
+
+		
+/*知道弹层*/
+$('a.know').click(function(){
+   $(this).parent().hide();
+   })
+
+
+//2015-1-13 带出单位
+
+$('.unit').click(function(){
+	$(this).parents('table').find('.con_unit,.tit_unit').show();
+	$(this).parents('table').find('.tit_no_unit').hide();
+	});
+$('.no_unit').click(function(){
+	$(this).parents('table').find('.con_unit,.tit_unit').hide();
+	$(this).parents('table').find('.tit_no_unit').show();
+	});
+
+$('.jiSong li').click(function(){
+	if($(this).hasClass('paper')){
+		$('.baoDan').show();
+		}
+	else{
+		$('.baoDan').hide();
+		}
+	});
+
+
+/*2015-1-15*/
+ $(".prompt span").click(function(event){
+    $(this).append(function(n){
+		return '<div class="point"><span class="left"></span><span class="con">公众责任保险和餐饮责任保险不能同时投保</span><span class="right"></span></div>';
+		});
+	$(this).parents('tr').siblings().find('.point').remove();
+    $(document).one("click",function(){
+      $('.point').remove();
+    });
+    event.stopPropagation();
+	//下拉菜单
+	var thisinput=$(this).parent();
+	var thisul=$(this).siblings("ul");
+	if(thisul.css("display")=="none"){
+		thisul.fadeIn("100");
+		thisinput.css("z-index","999");
+		thisul.hover(function(){},function(){thisul.fadeOut("100");thisinput.css("z-index","2");})
+		thisinput.hover(function(){},function(){thisul.fadeOut("100");thisinput.css("z-index","2");})
+		thisul.find("li").click(function(){thisinput.children("span").text($(this).text());thisul.fadeOut("100")});
+		}
+	else{
+		thisul.fadeOut("fast");
+		}
+  });
+$(".addnewli").click(function(){
+   $(this).parent().prev().append(function(n){ 
+      return '<tr><td>1</td><td><div class="text_135"><span class="adddiv"><input type="text" value="张冬冬" class="make" /></span><div class="caution"></div></div></td><td><div class="selectDiv select select_adre1"><span>港澳居民来往内地通行证</span><ul><li>港澳居民来往内地通行证</li><li>港澳居民来往内地通行证</li></ul></div></td> <td><div class="inp-textnum1"><span class="inp_rednum1 adddiv"><input type="text" value="" class="make placeholder" data-value="请输入被证件号码"></span><div class="caution"></div></div></td> <td><div class="birtdate"><span class=" birthDate adddiv"><input type="text" value="1991/11/11"/ ></span><div class="caution"></div></div></td>		<td><div class="selectDiv select selectEhose "><span >父母</span><ul><li>父子</li><li>母子</li></ul></div></td><td class="delBorser"><div><a href="javascript:;">保存</a></div></td></tr>';
+	      });
+		    });
+			
+			
+/*---------20150526家财险新加js---------*/			
+$(".span_stybk span").click(function(){
+	$(".span_add").removeClass("one_span");
+	$(this).addClass("one_span");
+	if($(".one_changcolr span").hasClass("one_span")){
+		$(".interest_start td").removeClass("xuanzhong_bak");
+		$(".one_changcolr").addClass("xuanzhong_bak");
+		}else if($(".two_changcolr span").hasClass("one_span")){
+		$(".interest_start td").removeClass("xuanzhong_bak");
+		$(".two_changcolr").addClass("xuanzhong_bak");
+		}else if($(".third_changcolr span").hasClass("one_span")){
+		$(".interest_start td").removeClass("xuanzhong_bak");
+		$(".third_changcolr").addClass("xuanzhong_bak");
+		}
+	});
+
+$(".biancheck input").focus(function(){
+	$(this).parent().addClass("card_65");
+	$(this).parents('span').append(function(n){
+	  return '<div class="free_prompt"><div class="top"></div><div class="con">保额区间0.5~20万元（注：0为不投保，保额需为1000元的整数倍）</div><div class="bottom"></div></div>';
+	  });
+	});
+$(".biancheck input").blur(function(){
+	$(this).parent().removeClass("card_65");
+	$(".free_prompt").remove();
+	});
+
+$(".padd_lef40>a").click(function(){
+		$(this).toggleClass("addasty");
+		$(this).parents("tr").siblings().find(".padd_lef40").find('a').removeClass("addasty");
+		$(this).parents("tr").next().find("td.hasBackgd").toggle();
+		$(this).parents('tr').next('.question_tr').find('td').toggle();
+		$(this).parents('tr').next('.question_tr').siblings('.question_tr').find('td').hide();
+	});
+/*----代金券-------*/
+$(".nedVoucher").click(function(){
+		$(".vouchLabel").toggleClass("vouchLabelYS");
+		if($('.vouchLabel').hasClass("vouchLabelYS")){
+			$('.haveORno').removeClass('dispNone');
+			}else{
+				$('.haveORno').addClass('dispNone');
+				$('.overVouch').addClass('dispNone');
+				$(".heig_one").show();
+				$(".heig_third").hide();
+			}
+		})
+	$(".useVouch").click(function(){
+		$(this).addClass("useVouch_2");
+		$(".Prompt").show();
+		var numtwo = $('.vouchTwo').val();
+		var num = $('.vouchOne').val();
+		if(numtwo !==""&&num!==""){
+			$('.haveORno').addClass('dispNone');
+			$('.overVouch').removeClass('dispNone');
+			$('.overVouch>span').text($('.vouchOne').val());
+			$(".heig_one,.heig_two").hide();
+			$(".heig_third").show();
+			}else{
+				if(numtwo==""){
+					$('.fuDongTwo').removeClass('dispNone');
+					$('.vouchTwo').addClass('needInpcol');
+				}
+				if(num==""){
+					$('.fuDongOne').removeClass('dispNone');
+					$('.vouchOne').addClass('needInpcol');
+					}
+				}
+		
+		});
+	$('.vouchOne').blur(function(){
+		var num = $('.vouchOne').val();
+		if(num == ""){
+			$('.fuDongOne').removeClass('dispNone');
+			$('.vouchOne').addClass('needInpcol');
+			}else{
+				$('.fuDongOne').addClass('dispNone');
+				$('.vouchOne').removeClass('needInpcol');
+				}
+		});
+	$('.vouchTwo').blur(function(){
+		var numtwo = $('.vouchTwo').val();
+		if(numtwo == ""){
+			$('.fuDongTwo').removeClass('dispNone');
+			$('.vouchTwo').addClass('needInpcol');
+			}else{
+				$('.fuDongTwo').addClass('dispNone');
+				$('.vouchTwo').removeClass('needInpcol');
+				}
+		});
+	/*------会员登录-----------*/	
+$(".denglu").click(function(){
+	$(".heig_one,.heig_third").hide();
+	$(".heig_two").show();
+	});
+	
+	
+	/*-------选择城市提示是否在地震投保内-----*/
+	$(".textAddress input").blur(function(){
+		$(".Prompt2").show();
+		}).focus(function(){
+			$(".Prompt2").hide();
+			});
+
+//20160615新增
+//登录按钮
+
+$('.jiSong_style .jiSong a').click(function()
+{
+    $(this).addClass('addclass').siblings().removeClass('addclass');
+});
+$('.jiSong a').click(function(){
+    if($(this).hasClass('paper')){
+        $('.baoDan').show();
+    }
+    else{
+        $('.baoDan').hide();
+    }
+});
+$(".fontColor").click(function(){
+    $(".pop_notice").fadeIn();
+    $(".background").fadeIn();
+});
+//单选
+$('.repair font').bind('click',function(){
+    $('.repair').find('.active').removeClass('active').find('input:radio').removeAttr('checked');
+    $(this).addClass('active').find('input:radio').prop('checked','checked');
+    return false;
+});
+
+$(".edit").click(function(){
+    if($(this).text() =="修改"){
+        $(".edited").show();
+        $(".editb").hide();
+    }else if($(this).text() =="保存"){
+        $(".edited").hide();
+        $(".editb").show();
+    }
+
+});

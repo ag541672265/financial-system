@@ -1,34 +1,34 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!-- saved from url=(0038)http://www.epicc.com.cn/rsbx/zkjw_wzh/ -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/ubcfg.js.下载"></script><script type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/v.js.下载"></script><style media="screen"></style>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="insurancePro2/ubcfg.js.下载"></script><script type="text/javascript" src="insurancePro2/v.js.下载"></script><style media="screen"></style>
                 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		
 		<title>一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网</title>
     <meta name="description" content="【人人安康百万医疗保险】中国人保官网为0至65周岁提供的一般疾病医疗费用保险、恶性肿瘤医疗费用保险，赔付范围广，看病有保障。买人人安康百万医疗保险，上中国人保官网！"> 
     <meta name="keywords" content="一般医疗保险、恶性肿瘤医疗保险">
-		<link rel="stylesheet" href="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/base.css">
-		<link rel="stylesheet" href="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/product_public.css">
-		<link rel="stylesheet" href="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/rraknew.css">
-		<link rel="stylesheet" href="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/WdatePicker.css">
-                <link rel="stylesheet" href="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/processPublic.css">
+		<link rel="stylesheet" href="insurancePro2/base.css">
+		<link rel="stylesheet" href="insurancePro2/product_public.css">
+		<link rel="stylesheet" href="insurancePro2/rraknew.css">
+		<link rel="stylesheet" href="insurancePro2/WdatePicker.css">
+                <link rel="stylesheet" href="insurancePro2/processPublic.css">
 		
-		<script type="text/javascript" async="" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/gs.js.下载"></script><script type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/jquery-1.7.2.min.js.下载"></script>
-		<script type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/underscore-min.js.下载"></script>
-                <script type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/backbone-min.js.下载"></script>
-                <script type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/public1.js.下载"></script>
-		<script type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/ie6.png.js.下载"></script>
-		<script type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/ConfigInit.js.下载"></script>
-                <script type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/jquery.qrcode.min.js.下载"></script> 
-                <script type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/showValidate.js.下载"></script>
-                <script type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/goinit_feiche.js.下载"></script>
-                <script type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/json2-min.js.下载"></script>
-                <script type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/WdatePicker.js.下载"></script><link href="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/WdatePicker(1).css" rel="stylesheet" type="text/css">
-                <script type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/modelAndView.js.下载"></script>
-                <script type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/intiCalcNValidation.js.下载"></script>
-                <script type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/date.js.下载"></script>   
-                <script type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/oldCustomer.js.下载"></script>
-<script type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/coupon.js.下载"></script>
- <script type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/rrak.js.下载"></script>
+		<script type="text/javascript" async="" src="insurancePro2/gs.js.下载"></script><script type="text/javascript" src="insurancePro2/jquery-1.7.2.min.js.下载"></script>
+		<script type="text/javascript" src="insurancePro2/underscore-min.js.下载"></script>
+                <script type="text/javascript" src="insurancePro2/backbone-min.js.下载"></script>
+                <script type="text/javascript" src="insurancePro2/public1.js.下载"></script>
+		<script type="text/javascript" src="insurancePro2/ie6.png.js.下载"></script>
+		<script type="text/javascript" src="insurancePro2/ConfigInit.js.下载"></script>
+                <script type="text/javascript" src="insurancePro2/jquery.qrcode.min.js.下载"></script> 
+                <script type="text/javascript" src="insurancePro2/showValidate.js.下载"></script>
+                <script type="text/javascript" src="insurancePro2/goinit_feiche.js.下载"></script>
+                <script type="text/javascript" src="insurancePro2/json2-min.js.下载"></script>
+                <script type="text/javascript" src="insurancePro2/WdatePicker.js.下载"></script><link href="insurancePro2/WdatePicker(1).css" rel="stylesheet" type="text/css">
+                <script type="text/javascript" src="insurancePro2/modelAndView.js.下载"></script>
+                <script type="text/javascript" src="insurancePro2/intiCalcNValidation.js.下载"></script>
+                <script type="text/javascript" src="insurancePro2/date.js.下载"></script>   
+                <script type="text/javascript" src="insurancePro2/oldCustomer.js.下载"></script>
+<script type="text/javascript" src="insurancePro2/coupon.js.下载"></script>
+ <script type="text/javascript" src="insurancePro2/rrak.js.下载"></script>
 
 <style>
 .Js_questionnaire{    display: block;
@@ -72,523 +72,16 @@
 }
 .features-intro-list li+li{    margin-top: 30px;}
 .coupon-btn .coupon-btn-close{width: 42px;height: 42px;position: absolute;top:0;right: -18px;background: url(../../css/pzh/images/coupon/coupon-img-close.png);cursor: pointer;}
-</style><script type="text/javascript" id="interactionProposalScript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/interactionProposal_picc.js.下载"></script><script type="text/javascript" id="interactionProposalScript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/interactionProposal_picc.js(1).下载"></script>
+</style><script type="text/javascript" id="interactionProposalScript" src="insurancePro2/interactionProposal_picc.js.下载"></script><script type="text/javascript" id="interactionProposalScript" src="insurancePro2/interactionProposal_picc.js(1).下载"></script>
 	</head>
 
 	<body class="rrak">
-                  <script>
-    //首页导航切换
-    $(function(){
-        var num=$('.nav_items a').length;
-        for(var i=0;i<=num;i++){
-            if($('.nav_items a').eq(i).attr("href")=='../../' || $('.nav_items a').eq(i).attr("href")=='../')
-                $('.nav_items a').eq(i).addClass('current');
-            else if($('.nav_items a').eq(i).attr("href")=='./')
-            {$('.nav_items a').eq(i).addClass('current');}
-            else{}
-        }
-    })
-    //提交form2
-    function submitform2(){
-        $("#form2").submit();
-    }
-</script>
-<div class="header">
-    <div class="bg_top">
-        <div class="float_cet frame_width">
-            <div class="frame f_top pr">
-                <div class="logo-search">
-                    <div class="logo"><a href="http://www.epicc.com.cn/"><img src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/site_logo_1.png"></a></div>
-                </div>
-                <div class="nav">
-                    <div class="category_title">
-                        <div class="cate_menu">
-                            <div class="cate_menu_shadow lft"></div>
-                            <div class="cate_menu_box">
-                                <div class="cate_menu_items">
-                                    <div class="cate_item car">
-                                        <div class="cate_sub_menu">
-                                            <div class="cate_sub_corner s_lt"></div>
-                                            <div class="cate_sub_shadow_hor s_top"></div>
-                                            <div class="cate_sub_corner s_rt"></div>
-                                            <div class="cate_sub_shadow_ver s_lft"></div>
-                                            <div class="cate_sub_inner">
-                                                <div class="cate_sub_content">
-                                                    <div class="cate_sub_column">
-                                                        <ul class="car-insu-wq">
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/chexian/">车险<span>（家庭自用车保险）</span></a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/chexian/">立即报价</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/xinglibaoxian/gongluxinglibaoxian/">车上行李财产保险</a><span class="icon_label hot"></span></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/chexian/caryanchangbaoxiu/">机动车延长保修险</a><span class="icon_label hot"></span></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="cate_sub_column">
-                                                        <h2 class="recommend">为您推荐</h2>
-                                                        <h1><a target="_blank" href="http://www.epicc.com.cn/chexian/" class="h1a">网上买车险</a></h1>
-                                                        <ul>
-                                                            <li>快捷—分分钟完成投保</li>
-                                                            <li>省心—尊享<span>10</span>项金牌服务</li>
-                                                            <li>我的车，我做主</li>
-                                                        </ul>
-                                                        <a target="_blank" href="http://www.epicc.com.cn/chexian/" class="for_detail">我要投保&gt;</a>
-                                                        <div class="cate_sub_illus" style="width:190px;height:130px;background-repeat:no-repeat;background-size: 173px 127px;background-position:bottom center;margin-top:0;"></div>
-                                                    </div>
-                                                    <div class="cate_sub_note">万家网点，理赔舒心，5000万车主的共同选择。</div>
-                                                </div>
-                                            </div>
-                                            <div class="cate_sub_shadow_ver s_rit"></div>
-                                            <div class="cate_sub_corner s_lb"></div>
-                                            <div class="cate_sub_shadow_hor s_btm"></div>
-                                            <div class="cate_sub_corner s_rb"></div>
-                                        </div>
-                                        <div class="hover_layer">
-                                            <dl>
-                                                <dt><span></span><a target="_blank" href="http://www.epicc.com.cn/chexian/">汽车保险</a></dt>
-                                            </dl>
-                                        </div>
-                                    </div>
-                                    <div class="cate_item travel">
-                                        <div class="cate_sub_menu">
-                                            <div class="cate_sub_corner s_lt"></div>
-                                            <div class="cate_sub_shadow_hor s_top"></div>
-                                            <div class="cate_sub_corner s_rt"></div>
-                                            <div class="cate_sub_shadow_ver s_lft"></div>
-                                            <div class="cate_sub_inner">
-                                                <div class="cate_sub_content">
-                                                    <div class="cate_sub_column col_lft">
-                                                        <h2>境内旅游保险</h2>
-                                                        <ul>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/lvyoubaoxian/gnzjy/">境内自驾游保险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/lvyoubaoxian/gnlybxn/">境内旅游保险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/lvyoubaoxian/jngyybx/">高原游保险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/lvyoubaoxian/guoneishangwuchuxingbaoxian/">国内商务出行保险</a></li>
-                                                            <!--<li><a target="_blank" href="../../lvyoubaoxian/hangkongyanwubaoxian/">航空延误损失综合保险</a><span class="icon_label hot"></span></li>-->
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/lvyoubaoxian/hainanlvyoubaoxian/">保游天下-海南旅游保险</a><span class="icon_label hot"></span></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/lvyoubaoxian/lvyoulvyoubaoxian/">华夏游-驴友旅游保险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/lvyoubaoxian/jingneiziyouxing/">境内自由行旅游保险</a></li>
-                                                          </ul>
-                                                        <h2>境外旅游保险</h2>
-                                                        <ul>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/lvyoubaoxian/quanqiulvyoubaoxian/">全球旅游保险</a><span class="icon_label hot"></span></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/lvyoubaoxian/ouzhoulvyoubaoxian/">欧洲旅游保险(申根签证适用)</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/lvyoubaoxian/beimeilvyou/">保游天下-美洲旅游保险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/lvyoubaoxian/gatlybx/">保游天下-港澳台旅游保险</a><span class="icon_label hot"></span></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/lvyoubaoxian/rhlybx/">保游天下-日韩旅游保险</a><span class="icon_label hot"></span></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/lvyoubaoxian/aoxinlybx/">保游天下-澳新旅游保险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/lvyoubaoxian/shangwuchuxingbaoxian/">境外商务出行保险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/lvyoubaoxian/yzlvbx/">亚洲旅游保险（东南亚-日韩）</a></li>
-                                                            <!--<li><a target="_blank" href="../../lvyoubaoxian/gatlvbxnew/">港澳台旅游保险（新）</a></li>-->
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/lvyoubaoxian/haiwaizijiayou/">海外自驾游旅行意外保险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/lvyoubaoxian/jingwaiziyouxing/">境外自由行旅游保险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/lvyoubaoxian/qianzhenglvyou/">签证旅游保险</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="cate_sub_column">
-                                                        <h2 class="recommend">为您推荐</h2>
-                                                        <h1><a target="_blank" href="http://www.epicc.com.cn/lvyoubaoxian/quanqiulvyoubaoxian/" class="h1a">全球旅游保险</a></h1>
-                                                        <h3>境外旅游  户外活动</h3>
-                                                        <div class="price"><span>会员价￥</span><strong>52.00</strong>起</div>
-                                                        <a target="_blank" href="http://www.epicc.com.cn/lvyoubaoxian/quanqiulvyoubaoxian/" class="for_detail">查看详情&gt;</a>
-                                                    </div>
-                                                    <div class="cate_sub_illus"></div>
-                                                </div>
-                                            </div>
-                                            <div class="cate_sub_shadow_ver s_rit"></div>
-                                            <div class="cate_sub_corner s_lb"></div>
-                                            <div class="cate_sub_shadow_hor s_btm"></div>
-                                            <div class="cate_sub_corner s_rb"></div>
-                                        </div>
-                                        <div class="hover_layer">
-                                            <dl>
-                                                <dt><span></span><a target="_blank" href="http://www.epicc.com.cn/chanpin/lvyoubaoxian.html">旅游保险</a></dt>
-                                                <dd><a target="_blank" href="http://www.epicc.com.cn/chanpin/lvyoubaoxian.html">境内</a> | <a href="http://www.epicc.com.cn/chanpin/lvyoubaoxian.html">境外</a> | <a href="http://www.epicc.com.cn/chanpin/lvyoubaoxian.html">办签证</a></dd>
-                                            </dl>
-                                        </div>
-                                    </div>
-                                    <div class="cate_item crash">
-                                        <div class="cate_sub_menu">
-                                            <div class="cate_sub_corner s_lt"></div>
-                                            <div class="cate_sub_shadow_hor s_top"></div>
-                                            <div class="cate_sub_corner s_rt"></div>
-                                            <div class="cate_sub_shadow_ver s_lft"></div>
-                                            <div class="cate_sub_inner">
-                                                <div class="cate_sub_content">
-                                                    <div class="cate_sub_column">
-                                                        <ul>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/yiwaibaoxian/hangkongyiwaixian/">航空意外年度险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/yiwaibaoxian/jiaotonggongjuyiwaixian/">交通工具意外险</a><span class="icon_label hot"></span></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/yiwaibaoxian/renshenyiwaixian/">人身意外险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/yiwaibaoxian/zhonglaonianrenguzhebaoxian/">中老年人骨折险</a></li>
-                                                            <!--<li><a target="_blank" href="../../yiwaibaoxian/jwlxsywx_bak/">境外留学生意外险</a></li>--->
-                                                            <!--   <li><a target="_blank" href="../../xinglibaoxian/lvkexinglibaoxian/">航空行李保险</a></li>   --->
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/yiwaibaoxian/huaxuexian/">境内滑雪运动保险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/yiwaibaoxian/jwhxzhbzbx/">境外滑雪运动保险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/yiwaibaoxian/nxtsjb/">女性特定疾病保险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/yiwaibaoxian/xsyeywbx/">学生幼儿意外保险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/rsbx/zkjw_wzh/">人人安康百万医疗保险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/yiwaibaoxian/quanjiaotongbaoxian/">交通工具综合意外险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/yiwaibaoxian/gerenbaiwanzonghe/">个人百万综合意外保险</a></li>
-                                                            <!--<li><a target="_blank" href="../../yiwaibaoxian/jiatingchengyuanyiwaibaoxian/">家庭成员意外保险</a></li>-->
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/yiwaibaoxian/diandongcheyiwai/">代步工具组合保险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/yiwaibaoxian/fendouwuyou/">奋斗无忧</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/yiwaibaoxian/kaichiwuyou/">开吃无忧</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/yiwaibaoxian/yingyunjiaotonggongju/">营运交通工具乘客意外险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/yiwaibaoxian/yiyuanhuijiabao/">百万出游保</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/yiwaibaoxian/renshenzongheyiwai/">人身意外险全年加强版</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/rsbx/rrakjtb/">人人安康百万医疗保险(家庭版)</a></li>
 
-                                                        </ul>
-                                                    </div>
-                                                    <div class="cate_sub_column">
-                                                        <h2 class="recommend">为您推荐</h2>
-                                                        <h1><a target="_blank" href="http://www.epicc.com.cn/yiwaibaoxian/jiaotonggongjuyiwaixian/" class="h1a">交通工具意外险</a></h1>
-                                                        <h3>海陆空全面保障</h3>
-                                                        <div class="price"><span>会员价￥</span><strong>4.50</strong>起</div>
-                                                        <a target="_blank" href="http://www.epicc.com.cn/yiwaibaoxian/jiaotonggongjuyiwaixian/" class="for_detail">查看详情&gt;</a>
-                                                    </div>
-                                                    <div class="cate_sub_illus"></div>
-                                                </div>
-                                            </div>
-                                            <div class="cate_sub_shadow_ver s_rit"></div>
-                                            <div class="cate_sub_corner s_lb"></div>
-                                            <div class="cate_sub_shadow_hor s_btm"></div>
-                                            <div class="cate_sub_corner s_rb"></div>
-                                        </div>
-                                        <div class="hover_layer">
-                                            <dl>
-                                                <dt><span></span><a target="_blank" href="http://www.epicc.com.cn/chanpin/yiwaibaoxian.html">意外保险</a></dt>
-                                                <dd><a target="_blank" href="http://www.epicc.com.cn/chanpin/yiwaibaoxian.html">人身</a> | <a target="_blank" href="http://www.epicc.com.cn/chanpin/yiwaibaoxian.html">交通</a> | <a target="_blank" href="http://www.epicc.com.cn/chanpin/yiwaibaoxian.html">航空</a></dd>
-                                            </dl>
-                                        </div>
-                                    </div>
-                                    <div class="cate_item home">
-                                        <div class="cate_sub_menu">
-                                            <div class="cate_sub_corner s_lt"></div>
-                                            <div class="cate_sub_shadow_hor s_top"></div>
-                                            <div class="cate_sub_corner s_rt"></div>
-                                            <div class="cate_sub_shadow_ver s_lft"></div>
-                                            <div class="cate_sub_inner">
-                                                <div class="cate_sub_content">
-                                                    <div class="cate_sub_column">
-                                                        <ul>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/rsbx/zkjw_wzh/">家庭财产综合保险（地震也能保）</a><span class="icon_label hot"></span></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/jiatingbaoxian/meimanejiabaoxian/">美满e家组合保险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/jiatingbaoxian/jianghurenzerenxian/">监护人责任险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/rsbx/zkjw_wzh/">宠物责任险</a></li>
-                                                            <!--<li><a target="_blank" href="../../jiatingbaoxian/grzjzh/">个人账户资金安全保险（盗刷险）</a><span class="icon_label hot"></span></li>-->
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/jiatingbaoxian/cxjmzfdzx/">城乡居民住宅地震巨灾保险</a></li>
-                                                            <!--<li><a target="_blank" href="../../jiatingbaoxian/cpaxbxjb/">碎屏安心保（新机版）</a></li>-->
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/jiatingbaoxian/jtcyzrx/">家庭成员责任险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/jiatingbaoxian/ranqizerenbaoxian/">燃气责任险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/jiatingbaoxian/ddzxczrbx/">电动自行车责任保险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/rsbx/zkjw_wzh/">人人安康百万医疗保险</a></li>
-                                                            <!--<li><a target="_blank" href="../../jiatingbaoxian/hjakjtbzjh/">合家安康家庭保障计划</a></li>-->
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/jiatingbaoxian/fwcurzebx/">房屋出租人责任保险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/jiatingbaoxian/shaoeryimiao/">少儿疫苗责任保险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/jiatingbaoxian/baofumanwuzuke/">保福满屋-租客版</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/jiatingbaoxian/baofumanwufangdong/">保福满屋-房东版</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/jiatingbaoxian/disanzhexian/">非机动车第三者责任险</a></li>
-                                                            <!--<li><a target="_blank" href="../../jiatingbaoxian/minsujiacaixian/">民宿家财险</a></li>-->
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/jiatingbaoxian/quanwujiadian/">全屋家电延长保修险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/jiatingbaoxian/gryhkdsbx/">个人银行卡盗刷保险</a></li>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/rsbx/rrakjtb/">人人安康百万医疗保险(家庭版)</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="cate_sub_column">
-                                                        <h2 class="recommend">为您推荐</h2>
-                                                        <h1><a target="_blank" href="http://www.epicc.com.cn/jiatingbaoxian/jiatingcaichanzonghebaoxian/" class="h1a">家庭财产综合保险</a></h1>
-                                                        <h3>防火防盗防漏水</h3>
-                                                        <div class="price"><strong>2</strong><span>元/年</span></div>
-                                                        <a target="_blank" href="http://www.epicc.com.cn/jiatingbaoxian/jiatingcaichanzonghebaoxian/" class="for_detail">查看详情&gt;</a>
-                                                    </div>
-                                                    <div class="cate_sub_illus"></div>
-                                                </div>
-                                            </div>
-                                            <div class="cate_sub_shadow_ver s_rit"></div>
-                                            <div class="cate_sub_corner s_lb"></div>
-                                            <div class="cate_sub_shadow_hor s_btm"></div>
-                                            <div class="cate_sub_corner s_rb"></div>
-                                        </div>
-                                        <div class="hover_layer">
-                                            <dl>
-                                                <dt><span></span><a href="http://www.epicc.com.cn/chanpin/jiatingbaoxian.html">家庭保险</a></dt>
-                                                <dd><a target="_blank" href="http://www.epicc.com.cn/chanpin/jiatingbaoxian.html">房屋</a> | <a target="_blank" href="http://www.epicc.com.cn/chanpin/jiatingbaoxian.html">宠物</a></dd>
-                                            </dl>
-                                        </div>
-                                    </div>
-                                    <div class="cate_item baggage">
-                                        <div class="cate_sub_menu">
-                                            <div class="cate_sub_corner s_lt"></div>
-                                            <div class="cate_sub_shadow_hor s_top"></div>
-                                            <div class="cate_sub_corner s_rt"></div>
-                                            <div class="cate_sub_shadow_ver s_lft"></div>
-                                            <div class="cate_sub_inner">
-                                                <div class="cate_sub_content">
-                                                    <div class="cate_sub_column">
-                                                        <h2>一年期</h2>
-                                                        <ul>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/xinglibaoxian/gongluxinglibaoxian/">国内公路随车行李保险</a></li>
-                                                        </ul>
-                                                        <h2>单航次</h2>
-                                                        <ul>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/xinglibaoxian/hangkonglvkexinglibaoxian/">国内航空旅客行李保险</a></li>
-                                                        </ul>
-                                                        <h2>自由选</h2>
-                                                        <ul>
-                                                            <li><a target="_blank" href="http://www.epicc.com.cn/xinglibaoxian/suirenxinglidingqibaoxian_1/">随人行李定期保险</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="cate_sub_column">
-                                                        <h2 class="recommend">为您推荐</h2>
-                                                        <h1><a target="_blank" href="http://www.epicc.com.cn/xinglibaoxian/hangkonglvkexinglibaoxian/" class="h1a">国内航空旅客行李保险</a></h1>
-                                                        <h3>为航空行李提供全面保障</h3>
-                                                        <div class="price"><strong>1</strong><span>万</span>最高保额</div>
-                                                        <a target="_blank" href="http://www.epicc.com.cn/xinglibaoxian/hangkonglvkexinglibaoxian/" class="for_detail">查看详情&gt;</a>
-                                                    </div>
-                                                    <div class="cate_sub_illus"></div>
-                                                </div>
-                                            </div>
-                                            <div class="cate_sub_shadow_ver s_rit"></div>
-                                            <div class="cate_sub_corner s_lb"></div>
-                                            <div class="cate_sub_shadow_hor s_btm"></div>
-                                            <div class="cate_sub_corner s_rb"></div>
-                                        </div>
-                                        <div class="hover_layer">
-                                            <dl>
-                                                <dt><span></span><a target="_blank" href="http://www.epicc.com.cn/chanpin/xinglibaoxian.html">行李保险</a></dt>
-                                                <dd><a target="_blank" href="http://www.epicc.com.cn/chanpin/xinglibaoxian.html">公路</a> | <a target="_blank" href="http://www.epicc.com.cn/chanpin/xinglibaoxian.html">航空</a> </dd>
-                                            </dl>
-                                        </div>
-                                    </div>
-                                    <div class="cate_item qiye">
-                                        <!--<div class="cate_sub_menu">
-                                            <div class="cate_sub_corner s_lt"></div>
-                                            <div class="cate_sub_shadow_hor s_top"></div>
-                                            <div class="cate_sub_corner s_rt"></div>
-                                            <div class="cate_sub_shadow_ver s_lft"></div>
-                                            <div class="cate_sub_inner">
-                                                <div class="cate_sub_content">
-                                                    <div class="cate_sub_column wild">
-                                                        <h2 class="recommend">为您推荐</h2>
-                                                        <h1><a href=../../qiyebaoxian/chuangyebao/" target="_blank" class="h1a" style="font-size:20px;float:left;">万创保</a><span class="icon_label new"></span></h1>
-                                                        <h3 style="font-size:14px;">为企业、员工提供全面保障</h3>
-                                                        <div class="price"><strong>279</strong><span>元/年起</span></div>
-                                                        <a href="../../qiyebaoxian/chuangyebao/" target="_blank" class="for_detail">查看详情&gt;</a>
-                                                    </div>
-                                                    <div class="cate_sub_illus"></div>
-                                                </div>
-                                            </div>
-                                            <div class="cate_sub_shadow_ver s_rit"></div>
-                                            <div class="cate_sub_corner s_lb"></div>
-                                            <div class="cate_sub_shadow_hor s_btm"></div>
-                                            <div class="cate_sub_corner s_rb"></div>
-                                        </div>-->
-
-                      <div class="cate_sub_menu" style="width: 460px;height: 252px;">
-                        <div class="cate_sub_corner s_lt"></div>
-                        <div class="cate_sub_shadow_hor s_top"></div>
-                        <div class="cate_sub_corner s_rt"></div>
-                        <div class="cate_sub_shadow_ver s_lft"></div>
-                        <div class="cate_sub_inner">
-                            <div class="cate_sub_content">
-                                <div class="cate_sub_column" style="margin-left:15px;">
-                                    <h2>万创保</h2>
-                                            <ul>
-                                                <li><a target="_blank" href="http://www.epicc.com.cn/qiyebaoxian/chuangyebao/">为企业、员工提供全面保障</a></li>
-                                            </ul>
-                                            <h2>金福保</h2>
-                                            <ul>
-                                                <li><a target="_blank" href="http://www.epicc.com.cn/qiyebaoxian/jinfubao/">金福保</a></li>
-                                            </ul>
-
-
-                                </div><div class="cate_sub_column wild" style="width:auto;">
-                                    <h2 class="recommend" style="width:100%;">为您推荐</h2>
-                                    <h1><a target="_blank" href="http://www.epicc.com.cn/qiyebaoxian/jinfubao/">“金福保”餐饮行业方案</a></h1>
-                                    <h3 style="font-size:14px;">为企业、员工提供全面保障</h3>
-                                    <div class="price"><strong>279</strong><span>元/年起</span></div>
-                                    <a href="http://www.epicc.com.cn/qiyebaoxian/jinfubao/" target="_blank" class="for_detail">查看详情&gt;</a>
-                                <div class="cate_sub_illus" style="margin:20px 20px 0 0;"></div></div>
-                                
-                            </div>
-                        </div>
-                        <div class="cate_sub_shadow_ver s_rit"></div>
-                        <div class="cate_sub_corner s_lb"></div>
-                        <div class="cate_sub_shadow_hor s_btm"></div>
-                        <div class="cate_sub_corner s_rb"></div>
-                    </div>                                       
-
-                                        <div class="hover_layer">
-                                            <dl>
-                                                <dt><span></span><a target="_blank" href="http://www.epicc.com.cn/chanpin/qiyebaoxian.html">企业保险</a></dt>
-                                                <dd><a target="_blank" href="http://www.epicc.com.cn/chanpin/qiyebaoxian.html">财产</a> | <a target="_blank" href="http://www.epicc.com.cn/chanpin/qiyebaoxian.html">责任</a> | <a target="_blank" href="http://www.epicc.com.cn/chanpin/qiyebaoxian.html">员工</a></dd>
-                                            </dl>
-                                        </div>
-                                    </div>
-                                    <div class="cate_item person">
-                                        <div class="cate_sub_menu">
-                                            <div class="cate_sub_corner s_lt"></div>
-                                            <div class="cate_sub_shadow_hor s_top"></div>
-                                            <div class="cate_sub_corner s_rt"></div>
-                                            <div class="cate_sub_shadow_ver s_lft"></div>
-                                            <div class="cate_sub_inner">
-                                                <div class="cate_sub_content">
-                                                    <div class="cate_sub_column">
-                                                        <h2>寿险</h2>
-                                                        <ul>
-                                                            <!--<li><a href="http://www.e-picclife.com/ECPL/personal/products/productDetail.jsp?productID=baiwanshenjiahuiminliangquan" target="_blank">百万身价惠民两全保险计划</a><span class="icon_label hot"></span></li>
-                                                            <li><a href="http://www.e-picclife.com/ECPL/personal/products/productDetail.jsp?productID=taotaoleliangquanbaoxian" target="_blank">淘淘乐少儿两全暨重大疾病保险</a></li>-->
-                                                            <li><a href="http://www.e-picclife.com/ECPL/personal/products/productDetail.jsp?productID=XLNJ-B" target="_blank">人保寿险鑫利年金保险（B款）</a></li>
-                                                            <li><a href="http://www.e-picclife.com/ECPL/personal/products/productDetail.jsp?productID=IJKLQ" target="_blank">人保寿险i健康两全保险</a></li>
-                                                            <li><a href="http://www.e-picclife.com/ECPL/personal/products/productDetail.jsp?productID=czrs" target="_blank">财智人生终身寿险（万能型）</a></li>
-                                                        </ul>
-                                                        <h2>健康险</h2>
-                                                        <ul>
-                                                            <li><a href="http://www.epicc.com.cn/rsbx/zkjw_wzh/" target="_blank">人人安康百万医疗保险</a><span class="icon_label new"></span></li>
-                                                            <li><a href="http://www.epicc.com.cn/rsbx/rrakjtb/" target="_blank">人人安康百万医疗保险(家庭版)</a><span class="icon_label new"></span></li>
-                                                            <!--<li><a href="../../jiatingbaoxian/hjakjtbzjh/" target="_blank">合家安康家庭保障计划</a><span class="icon_label new"></span></li>-->
-                                                            <li><a href="http://www.epicc.com.cn/rsbx/zhongjixian/" target="_blank">未成年人重大疾病保险</a><span class="icon_label new"></span></li>
-                                                            <li><a href="http://eshop.picchealth.com/newSales/product/WX0012/productInfo.html?partnerType=1&amp;partnerNo=picch001" target="_blank">E行天下个人综合保障计划</a></li>
-                                                            <li><a href="http://eshop.picchealth.com/newSales/product/WX0009/productInfo.html?partnerType=1&amp;partnerNo=picch001" target="_blank">天使e护—少儿重大疾病保障计划</a></li>
-                                                            <li><a href="http://eshop.picchealth.com/newSales/product/WX0006/productInfo.html?partnerType=1&amp;partnerNo=picch001" target="_blank">健康e生—短期重大疾病保障计划</a></li>
-                                                            <li><a href="http://eshop.picchealth.com/newSales/product/WX0015/productInfo.html?partnerType=1&amp;partnerNo=picch001" target="_blank">北肿防癌--e管家</a><span class="icon_label new"></span></li>
-                                                            <li><a href="http://eshop.picchealth.com/sales/payFormInfo.jsp?productCode=000013&amp;partnerType=1&amp;partnerNo=picch001" target="_blank">儿童乳糖耐受基因检测</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <!--<div class="cate_sub_column wild">
-                                                        <h2 class="recommend">为您推荐</h2>
-                                                        <h1><a href="http://www.epicc.com.cn/rsbx/bwsjhmlqbx/" target="_blank" class="h1a">百万身价惠民两全保险计划</a></h1>
-                                                        <h3>人保寿险百万身价惠民两全保险组合计划是专门针对驾驶/乘坐自驾车的车主和家人亲朋倾力打造...</h3>
-                                                        <a href="http://www.e-picclife.com/ECPL/personal/products/productDetail.jsp?productID=baiwanshenjiahuiminliangquan" target="_blank" class="for_detail">查看详情&gt;</a>
-                                                    </div>
-                                                    <div class="cate_sub_illus"></div>-->
-                                                    
-                                                    <div class="cate_sub_column wild">
-                                                        <h2 class="recommend">为您推荐</h2>
-                                                        <h1><a href="http://www.epicc.com.cn/rsbx/zkjw_wzh/" target="_blank" class="h1a">人人安康百万医疗保险</a></h1>
-                                                        <h3>医无忧，人安康，看病不愁超值选择，最高可续保至80岁</h3>
-                                                        <a href="http://www.epicc.com.cn/rsbx/zkjw_wzh/" target="_blank" class="for_detail">查看详情&gt;</a>
-                                                    </div>
-                                                    <div class="cate_sub_illus illus_2"></div>
-                                                </div>
-                                            </div>
-                                            <div class="cate_sub_shadow_ver s_rit"></div>
-                                            <div class="cate_sub_corner s_lb"></div>
-                                            <div class="cate_sub_shadow_hor s_btm"></div>
-                                            <div class="cate_sub_corner s_rb"></div>
-                                        </div>
-                                        <div class="hover_layer">
-                                            <dl>
-                                                <dt><span></span><a target="_blank" href="http://www.epicc.com.cn/rsbx/zkjw_wzh/">人身保险</a></dt>
-                                                <dd><a target="_blank" href="http://www.epicc.com.cn/rsbx/zkjw_wzh/">寿险</a> | <a target="_blank" href="http://www.epicc.com.cn/rsbx/zkjw_wzh/">健康险</a>  </dd>
-                                            </dl>
-                                        </div>
-                                    </div>
-                        <div class="cate_item fengongsi">
-                            <div class="cate_sub_menu">
-                                <div class="cate_sub_corner s_lt"></div>
-                                <div class="cate_sub_shadow_hor s_top"></div>
-                                <div class="cate_sub_corner s_rt"></div>
-                                <div class="cate_sub_shadow_ver s_lft"></div>
-                                <div class="cate_sub_inner">
-                                    <div class="cate_sub_content">
-                                        <div class="cate_sub_column">
-                                            <h2 style="margin-bottom:10px;">上海</h2>
-                                            <span style="display: block;clear: both;font-size: 14px;line-height: 1;border-left: 2px solid #333;padding-left: 6px;margin-top: 10px;">家庭保险</span>
-                                            <ul>
-                                                <li><a target="_blank" href="http://www.epicc.com.cn/jiatingbaoxian/jinsuojiashun/">金锁家顺险</a></li>
-                                            </ul>
-                                            <span style="display: block;clear: both;font-size: 14px;line-height: 1;border-left: 2px solid #333;padding-left: 6px;margin-top: 10px;">意外保险</span>
-                                            <ul>
-                                                <li><a target="_blank" href="http://www.epicc.com.cn/yiwaibaoxian/gerenbaiwanzongheyiwai/#/main">个人百万综合意外险</a></li>
-                                                <li><a target="_blank" href="http://www.epicc.com.cn/yiwaibaoxian/haidaoqianshuilvyou/#/main">海岛潜水游</a></li>
-                                            </ul>
-                                            <span style="display: block;clear: both;font-size: 14px;line-height: 1;border-left: 2px solid #333;padding-left: 6px;margin-top: 10px;">旅游保险</span>
-                                            <ul>
-                                                <li><a target="_blank" href="http://www.epicc.com.cn/lvyoubaoxian/youlunbaoxian/#/main">邮轮旅游保险</a></li>
-                                            </ul>
-                                            <h2 style="margin-bottom:10px;">北京</h2>
-                                            <span style="display: block;clear: both;font-size: 14px;line-height: 1;border-left: 2px solid #333;padding-left: 6px;margin-top: 10px;">家庭保险</span>
-                                            <ul>
-                                                <li><a target="_blank" href="http://www.epicc.com.cn/jiatingbaoxian/jiatinghuozaibaozha/">家庭财产火灾爆炸保险</a></li>
-                                                <li><a target="_blank" href="http://www.epicc.com.cn/jiatingbaoxian/xianghejujia/">祥和居家家财综合险</a></li>
-                                            </ul>
-                                            <span style="display: block;clear: both;font-size: 14px;line-height: 1;border-left: 2px solid #333;padding-left: 6px;margin-top: 10px;">意外保险</span>
-                                            <ul>
-                                                <li><a target="_blank" href="http://www.epicc.com.cn/yiwaibaoxian/muyinganxinbao/">母婴安心保险</a></li>
-                                                <li><a target="_blank" href="http://www.epicc.com.cn/yiwaibaoxian/550wanhangkongyiwaixian/">550万航空意外险</a></li>
-                                                <li><a target="_blank" href="http://www.epicc.com.cn/yiwaibaoxian/sijiachejiachengyiwai/">55万私家车驾乘意外险</a></li>
-                                            </ul>
-                                            <span style="display: block;clear: both;font-size: 14px;line-height: 1;border-left: 2px solid #333;padding-left: 6px;margin-top: 10px;">旅游保险</span>
-                                            <ul>
-                                                <li><a target="_blank" href="http://www.epicc.com.cn/lvyoubaoxian/jingneizijiayou/#/main">境内自驾旅游险</a></li>
-                                                <li><a target="_blank" href="http://www.epicc.com.cn/lvyoubaoxian/jingneilvyoubaoxian/#/main">境内旅游险</a></li>
-                                            </ul>
-                                            <h2 style="margin-bottom:10px;">浙江</h2>
-                                            <span style="display: block;clear: both;font-size: 14px;line-height: 1;border-left: 2px solid #333;padding-left: 6px;margin-top: 10px;">意外保险</span>
-                                            <ul>
-                                                <li><a target="_blank" href="http://www.epicc.com.cn/yiwaibaoxian/yishengankangnew/">一生安康家庭保障计划</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="cate_sub_column">
-                                            <h2 class="recommend">为您推荐</h2>
-                                            <h1><a target="_blank" href="http://www.epicc.com.cn/jiatingbaoxian/jinsuojiashun/" class="h1a">金锁家顺险</a></h1>
-                                            <h3>360°全方位守护您的家</h3>
-                                            <a target="_blank" href="http://www.epicc.com.cn/jiatingbaoxian/jinsuojiashun/" class="for_detail">查看详情&gt;</a>
-                                        </div>
-                                        <div class="cate_sub_illus"></div>
-                                    </div>
-                                </div>
-                                <div class="cate_sub_shadow_ver s_rit"></div>
-                                <div class="cate_sub_corner s_lb"></div>
-                                <div class="cate_sub_shadow_hor s_btm"></div>
-                                <div class="cate_sub_corner s_rb"></div>
-                            </div>
-                            <div class="clear"></div>
-                            <div class="hover_layer">
-                                <dl>
-                                    <dt><span></span><a href="JavaScript:;">地区优惠专享</a></dt>
-                                    <dd><a target="_blank" href="http://www.epicc.com.cn/chanpin/shanghaidiqu.html">上海</a> | <a target="_blank" href="http://www.epicc.com.cn/chanpin/beijingdiqu.html">北京</a> | <a target="_blank" href="http://www.epicc.com.cn/chanpin/zhejiangdiqu.html">浙江</a></dd>
-                                </dl>
-                            </div>
-                        </div>
-                                </div>
-                                <div class="cate_menu_shadow btm"></div>
-                            </div>
-                            <div class="cate_menu_shadow rit"></div>
-                        </div>
-                        <span class="name">保险分类</span>
-                    </div>
-                    <div class="nav_items">
-                        <a target="_blank" href="http://www.epicc.com.cn/shop/" class="nav_item">商城首页</a>
-                        <a target="_blank" href="http://www.epicc.com.cn/chexian/" class="nav_item">汽车保险</a>
-                        <a target="_blank" href="http://www.epicc.com.cn/lipei/" class="nav_item">理赔中心</a>
-                        <a target="_blank" href="http://www.epicc.com.cn/fuwu/" class="nav_item">服务中心</a>
-                    </div>
-                    <ul class="for-center fr" id="ecenterUl">
-                        <li><a href="http://www.epicc.com.cn/newecenter/" target="_blank">会员中心</a></li>
-                        <li class="line-y"></li>
-                        <!--登录前-->
-                        <li>[<a href="javascript:newLogin();">登录会员</a>]</li>
-                        <li>[<a href="http://www.epicc.com.cn/idprovider/api/register/toRegister">免费注册</a>]</li>
-                        <!--/登录前-->
-                        <!--登录后-->
-                        <!--
-                        <li><a href="javascript:;">sfsffasfasf</a></li>
-                           <li>[<a href="#">退出</a>]</li>
-                           -->
-                        <!--/登录后-->
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 		<div class="product-container">
 			<div class="shadow_bg"></div>
 			<div class="product-header">
 				<div id="headDiv" class="product-header-bg Js_prodBg" style="background-image: url(&quot;http://www.epicc.com.cn/nocarconfig/nocar/PropertiesInfo/1522394637445.png&quot;);"></div>
-<div class="coupon-btn hide"><i class="coupon-btn-close"></i><img src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/coupon-img.png" alt=""></div>
+<div class="coupon-btn hide"><i class="coupon-btn-close"></i><img src="insurancePro2/coupon-img.png" alt=""></div>
 				<div class="product-offer w1190 pr ">
 					<div class="crumbs">
 						<p class="nav_s">
@@ -724,7 +217,7 @@
                                                                         <input type="hidden" id="planid" value="0">
                                                                         <input type="hidden" id="planextendvalue" name="planextendvalue" value="1">
                                                                         <!-- 团购链接 -->
-                                                                        <script type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/groupBuyAndChannel.jsp">  </script><script type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/groupBuyAndChannel.js.下载"></script><input type="hidden" name="flag" id="flag" value=""><input type="hidden" name="groupBuyId" id="groupBuyId" value=""><input type="hidden" name="channelType" id="channelType" value=""><input type="hidden" name="channelCode" id="channelCode" value=""><input type="hidden" name="cityCode" id="cityCode" value=""><input type="hidden" name="cmpid" id="cmpid" value=""><input type="hidden" name="cmpidForZ" id="cmpidForZ" value=""><input type="hidden" name="entryID" id="entryID" value=""><input type="hidden" name="groupbuycode" id="groupbuycode" value=""><input type="hidden" id="city_Name" value="">
+                                                                        <script type="text/javascript" src="insurancePro2/groupBuyAndChannel.jsp">  </script><script type="text/javascript" src="insurancePro2/groupBuyAndChannel.js.下载"></script><input type="hidden" name="flag" id="flag" value=""><input type="hidden" name="groupBuyId" id="groupBuyId" value=""><input type="hidden" name="channelType" id="channelType" value=""><input type="hidden" name="channelCode" id="channelCode" value=""><input type="hidden" name="cityCode" id="cityCode" value=""><input type="hidden" name="cmpid" id="cmpid" value=""><input type="hidden" name="cmpidForZ" id="cmpidForZ" value=""><input type="hidden" name="entryID" id="entryID" value=""><input type="hidden" name="groupbuycode" id="groupbuycode" value=""><input type="hidden" id="city_Name" value="">
                       		                                      </form> 
 							
 							</div>
@@ -742,23 +235,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="product-nav Js_insureFloating">
-					<div class="w1190 clearfix">
-						<ul class="product-nav-list fl Js_floatingNav">
-							<li class="prod-nav-item current"><a href="javascript:;" class="f1-a">产品特色</a></li>
-							<li class="prod-nav-item"><a href="javascript:;" class="f2-a">保障方案</a></li>
-							<li class="prod-nav-item"><a href="javascript:;" class="f3-a">理赔服务</a></li>
-							<li class="prod-nav-item"><a href="javascript:;" class="f4-a">常见问题</a></li>
-							<li class="prod-nav-item"><a href="javascript:;" class="f5-a" id="prompt_comment" style="display: none;">客户评价</a></li>
-						</ul>
-						<div class="nav-prod-info fr Js_navProdInfo hide">
-							<a href="javascript:;" class="insure-btn fr Js_questionnaire" style="width:auto;" onclick="GwdTrackingCode(&#39;“人人安康”百万医疗保险&#39;,&#39;投保入口&#39;,&#39;立即投保&#39;)">精确报价</a>
-							<span class="prod-name" title="" id="productName2">“人人安康”百万医疗保险:</span>
-							<span class="prod-price"><b id="minPremium2">￥122.00</b>元/起</span>
-						</div>
-						
-					</div>
-				</div>
+
 			</div>
 			<div class="product-body" id="productBody">
 				<div class="f f1 prod-features" id="f1">
@@ -776,7 +253,7 @@
 							<div class="characteristic-con">
 								<div class="tab lexiang hide">
 									<div class="lexiang-box">
-										<img src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/lexiang.png" alt="">
+										<img src="insurancePro2/lexiang.png" alt="">
 										<p class="zhu">*注：具体保障内容以保险条款和保单合同约定的内容为准。</p>
 									</div>
 								</div>
@@ -1273,128 +750,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="sides-box Js_sidesBox" id="float">
-			<ul class="sides-list">
-				<li class="advice-line">
-					<a href="tel:4001234567-2">4001234567-2</a>
-					<span>咨询<br>热线</span>
-				</li>
-				<li class="online-service"><a href="http://help.epicc.com.cn:8000/picc/themes/default/" target="_blank">在线<br>客服</a></li>
-				<li class="backtop Js_backtop"><a href="javascript:;"><i class="caret"></i>TOP</a></li>
-			</ul>
-		</div>
-<div class="sides-box Js_sidesBox" id="float">
-    <ul class="sides-list">
-        <li class="advice-line">
-            <a href="javascript:;">4001234567-2</a>
-            <span>咨询<br>热线</span>
-        </li>
-        <li class="online-service"><a href="http://www.epicc.com.cn/kefu/" target="_blank">在线<br>客服</a></li>
-        <li class="backtop Js_backtop"><a href="javascript:;"><i class="caret"></i>TOP</a></li>
-    </ul>
-</div>
 
-<div class="footer">
-    <div class="footer-nav">
-        <div class="w1190 clearfix">
-            <ul class="map_column column_1">
-                <li><span>投保指引</span></li>
-                <li>
-                    <a href="http://www.epicc.com.cn/fuwu/changjianwenti/zhifu/">网上支付帮助</a>
-                </li>
-                <li>
-                    <a href="http://www.epicc.com.cn/fuwu/chaxunbaoxiantiaokuan/">保险条款解读</a>
-                </li>
-                <li>
-                    <a href="http://www.epicc.com.cn/fuwu/changjianwenti/">常见问题</a>
-                </li>
-            </ul>
-            <ul class="map_column column_2">
-                <li><span>服务帮助</span></li>
-                <li>
-                    <a href="javascript:void(0);" onclick="redirectToLogin(&#39;2&#39;);">下载电子保单</a>
-                </li>
-                <li>
-                    <a href="http://www.epicc.com.cn/newecenter/#member/deliverySchedule">查询配送进度</a>
-                </li>
-                <li>
-                    <a href="http://www.epicc.com.cn/newecenter/#member/newcarno">补录新车车牌号</a>
-                </li>
-                <li>
-                  <!--  <a href="javascript:void(0);" onclick="redirectToLogin('7'); return false;">找回投保记录</a>-->
-                     <a href="javascript:void(0);" onclick="redirectToLogin(&#39;22&#39;); return false;">找回待支付订单</a>
-                </li>
-            </ul>
-            <ul class="map_column column_3">
-                <li><span>理赔指南</span></li>
-                <li>
-                    <a href="http://www.epicc.com.cn/lipei/chengnuo/" target="_blank">车险理赔心服务</a>
-                </li>
-                <li>
-                    <a href="http://www.epicc.com.cn/newecenter/#member/noCarOnlineClaim">查询理赔进度</a>
-                </li>
-                <li>
-                    <a href="http://www.epicc.com.cn/lipei/baoxianlipeiliucheng/">了解理赔流程</a>
-                </li>
-                <li>
-                    <a href="http://www.epicc.com.cn/lipei/wangshanglipei/">在线提交索赔资料</a>
-                </li>
-            </ul>
-            <ul class="map_column column_4">
-                <li><span>客户体验</span></li>
-                <li>
-                    <a href="http://www.epicc.com.cn/shop/khty/tyfk/">意见反馈</a>
-                </li>
-                <li>
-                    <a href="http://www.epicc.com.cn/shop/khty/tytsjh/">体验提升计划</a>
-                </li>
-                <li>
-                    <a href="http://www.epicc.com.cn/shop/khty/tytsjh/?answer">问卷调查</a>
-                </li>
-            </ul>
-            <div class="contact">
-                <dl class="weichat">
-                    <dt>微信扫一扫</dt>
-                    <dd><img src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/wei_chat_1.gif"></dd>
-                </dl>
-                <h2>联系我们</h2>
-                <dl class="contact_list">
-                    <dt class="hot_line">投保热线：</dt>
-                    <dd>400-1234567</dd>
-                </dl>
-                <dl class="contact_list">
-                    <dt class="no_icon">客服热线：</dt>
-                    <dd>95518</dd>
-                </dl>
-                <dl class="contact_list">
-                    <dt class="online">客服服务：</dt>
-                    <dd>
-                        <a href="http://www.epicc.com.cn/kefu" target="_blank">在线客服</a>
-                    </dd>
-                </dl>
-                <ul>
-                    <li class="ios">
-                        <a href="http://www.epicc.com.cn/shoujirenbao/">iOS客户端</a>
-                    </li>
-                    <li class="android">
-                        <a href="http://www.epicc.com.cn/shoujirenbao/">安卓客户端</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="footer-copy">
-        <div class="w1190">
-            <p>中国人民财产保险股份有限公司&nbsp;&nbsp;版权所有&nbsp;&nbsp;京ICP证020322 京ICP备10011380号-2<img src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/link_goverment_1.gif" alt="工信部"></p>
-            <div class="szfw_logo">
-                <a href="https://search.szfw.org/cert/l/CX20111229001300001326" target="_blank"><img src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/link_trust_site_1.gif" alt="诚信网站"></a>
-                <span id="KXYZ"><span style="display:inline-block;position:relative;width:auto;"><a href="https://ss.knet.cn/verifyseal.dll?sn=e16092911010564788npjj000000&amp;ct=df&amp;a=1&amp;pa=0.6907783322917065" id="kx_verify" tabindex="-1" target="_blank" kx_type="图标式" style="display:inline-block;"><img src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/cnnic.png" style="border:none;" oncontextmenu="return false;" alt="可信网站"></a></span></span>
-                <script id="kxlogo" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/seallogo.dll.下载"></script>
-                <a id="_pingansec_bottomimagesmall_shiming" href="http://si.trustutn.org/info?sn=392161130025906243088&amp;certType=1" target="_blank"><img src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/bottom_small_img.png"></a>
-            </div>
-        </div>
-    </div>
-</div>
 <script>
 $(function(){
     $("#_pingansec_bottomimagesmall_shiming").append('<img src="http://v.trustutn.org/images/cert/bottom_small_img.png" />');
@@ -1402,10 +758,10 @@ $(function(){
 });
 </script>
 
-<link rel="stylesheet" href="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/TravelwelcomeIndex.css">
-<script type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/entryLogin.js.下载"></script> 
-<script type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/TravelwelcomeIndex.js.下载"></script>
-<script type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/pubilc_popupWindow.js.下载"></script>
+<link rel="stylesheet" href="insurancePro2/TravelwelcomeIndex.css">
+<script type="text/javascript" src="insurancePro2/entryLogin.js.下载"></script> 
+<script type="text/javascript" src="insurancePro2/TravelwelcomeIndex.js.下载"></script>
+<script type="text/javascript" src="insurancePro2/pubilc_popupWindow.js.下载"></script>
 
 <!-- 国双代码 -->
 <!-- Gridsum tracking code begin. -->
@@ -1421,7 +777,7 @@ var _gsq = _gsq || [];
          })();
 </script>
 <!--Gridsum tracking code end. -->
-<script language="JavaScript" type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/scode.js.下载"></script><script type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/es_epicc.js.下载"></script>
+<script language="JavaScript" type="text/javascript" src="insurancePro2/scode.js.下载"></script><script type="text/javascript" src="insurancePro2/es_epicc.js.下载"></script>
 <!--<script type="text/javascript" src="/eproperty/js/IndexMonitor.js"></script>-->	
         <div class="mask_new Js_maskNew"></div>
         <div class="mask" style="display:none;"></div>
@@ -1706,13 +1062,13 @@ var _gsq = _gsq || [];
         <!-- PC官网与微店关联弹层 -->
 <div class="vmMask"></div>
         <div class="dzyl" style="display:none;" id="dzyl">
-      <img src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/dzyl_img.png" class="dzyl_img01">
+      <img src="insurancePro2/dzyl_img.png" class="dzyl_img01">
       <p class="dzyl_p01">嗨 ! 微店主, PC官网已与微店关联</p>
       <p class="dzyl_p02">您可以通过PC官网报价并填写信息，通过扫描二维码在微店完成支付，保单将关联至您的微店账号</p>
       <a href="javascript:;" class="dzyl_btn01" onclick="goInfo(&#39;vmeng&#39;);">关联微店投保</a>
       <a href="javascript:;" class="dzyl_btn02" onclick="goInfo(&#39;pc&#39;);">通过PC官网投保</a>
     </div> 
-        <script src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/base_js.js.下载"></script>
+        <script src="insurancePro2/base_js.js.下载"></script>
 		<script>
 		$(function(){
 			placeHolderStatus();
@@ -1800,7 +1156,7 @@ _gsq.push(["T"," GWD-000333","trackEvent",nav, name, btn]);
                 </script>
              
            <!--续保弹层 开始-->
-	<link href="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/oldcustomerinsured.css" type="text/css" rel="stylesheet">
+	<link href="insurancePro2/oldcustomerinsured.css" type="text/css" rel="stylesheet">
 	<style>
 		.mask{background: none repeat scroll 0 0 #000;height: 100%;left: 0;opacity: 0.5;filter: alpha(opacity=60);position: fixed;top: 0;width: 100%;z-index: 10000;}
 	</style>
@@ -1853,9 +1209,9 @@ _gsq.push(["T"," GWD-000333","trackEvent",nav, name, btn]);
         <input id="identifyNumber_oldCustomer" type="hidden" name="identifyNumber_oldCustomer">
         </form>       
         <!-- <script type="text/javascript" src="../../images/oldCustomer.js"></script> -->
-        <script language="JavaScript" type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/scode.js(1).下载"></script>
-        <script type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/gridsum.js.下载"></script>
-        <script type="text/javascript" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/IndexMonitor.js.下载"></script>
+        <script language="JavaScript" type="text/javascript" src="insurancePro2/scode.js(1).下载"></script>
+        <script type="text/javascript" src="insurancePro2/gridsum.js.下载"></script>
+        <script type="text/javascript" src="insurancePro2/IndexMonitor.js.下载"></script>
 	<!--续保弹层 结束-->  
     <!--日期校验弹出层 start-->
 	<div class="pop_prompt" id="popDivNew" style="display:none;">
@@ -1886,4 +1242,4 @@ _gsq.push(["T"," GWD-000333","trackEvent",nav, name, btn]);
 	<div class="weohao-cont Js_weohaoCont"><span class="caret"><i class="caret1"></i><i class="caret2"></i></span><p></p></div>               
 	
 	 <!--  <script type="text/javascript" src="../../images/oldCustomer.js"></script> -->
-<div id="_my97DP" style="position: absolute; z-index: 100000; top: -1970px; left: -1970px;"><iframe style="width: 186px; height: 196px;" src="./一般医疗保险_恶性肿瘤医疗保险_人人安康百万医疗保险-PICC中国人保官网_files/My97DatePicker.html" frameborder="0" border="0" scrolling="no"></iframe></div></body></html>
+<div id="_my97DP" style="position: absolute; z-index: 100000; top: -1970px; left: -1970px;"><iframe style="width: 186px; height: 196px;" src="insurancePro2/My97DatePicker.html" frameborder="0" border="0" scrolling="no"></iframe></div></body></html>

@@ -1,0 +1,61 @@
+
+var riskCode=$("#riskcode").val();
+var productCode=$("#productcode").val();
+/**测试环境添加代码**/
+var trkPageName="";
+var trkChannel="非车险";
+var trkProp1="";
+var trkProp2="";
+var trkstepCName="首页";
+var trkProducts="";
+var trkproductCName = "";
+/**测试环境添加代码end**/
+
+/**配置表用参start**/
+var symbol=":";
+var className="";
+var productName="";
+var PageNameEnd="产品首页";
+/**配置表用参end**/
+function getMoniterInformation(){
+	var configUrl = "/eproduct/conproposal/getMoniterInformation.do";
+	$.ajax({
+		type:'post',
+		data:'productCode=' + productCode ,
+		url:configUrl,
+		dataType : "json",
+		async : false,
+		success : function(data, textStatus) { 
+			var pzmain=data.pzmain;
+		  	className=pzmain.classcname;
+		  	productName=pzmain.productname;
+		},
+		error : function(data,textStatus){
+		}
+	});
+}
+ function setSarameters(){
+	trkPageName=trkChannel+symbol+className+symbol+productName+symbol+PageNameEnd;
+  	trkProp1=trkChannel+symbol+className;
+  	trkProp2=trkChannel+symbol+className+symbol+productName;
+  	trkProducts=className+";"+productName;
+  	trkproductCName=productName;
+}
+/* You may give each page an identifying name, server, and channel on
+the next lines. */
+getMoniterInformation();
+setSarameters()
+//添加insight监测代码js引用
+$(window).load(function(){ 
+	try {
+		s_picc.pageName=trkPageName;
+		s_picc.channel=trkChannel;
+		s_picc.prop1=trkProp1;
+		s_picc.prop2=trkProp2;
+		s_picc.products=trkProducts;
+		s_picc.t();
+	} catch (e) {
+	 ;
+	}
+
+});

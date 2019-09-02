@@ -1,0 +1,432 @@
+$(function(){
+	scrollFloating();
+	(function(){
+		var $h = $(".Js_insureFloating").height();//获取浮层的高度
+		$(".Js_floatingNav").find("a").click(function(){
+			var $scrollTop = $(window).scrollTop();
+			var $this = $(this),
+				$parent = $this.parent(),
+				$thisCls = $this.attr("class").split("-")[0];
+			if(!$parent.hasClass("current")){
+				$parent.addClass("current").siblings().removeClass("current");
+				$("html,body").animate({
+					scrollTop:$("#"+$thisCls).offset().top - $h
+				},10);
+			}
+		});
+		$(window).scroll(function(){
+			scrollFloating();
+		});
+	})();
+	$("#serviceCenter, #allProduct").bind('mouseenter mouseleave', function(event) {
+		var trigger = $(this),
+			menu = $(this).find(".sub_menu");
+		if(event.type === 'mouseenter') {
+			trigger.addClass("hover");
+			menu.stop().slideDown();
+		} else {
+			trigger.removeClass("hover");
+			menu.hide();
+		}
+	});
+	
+	$(".category_title").bind("mouseenter",function(){
+        var $this = $(this);
+        $this.children(".cate_menu").show();
+    }).bind("mouseleave",function(){
+        var $this = $(this);
+        $this.children(".cate_menu").hide();
+    });
+    $(".cate_item").bind('mouseenter mouseleave', function(event) {
+        var trigger = $(this), sub = $(this).find(".cate_sub_menu");
+        if(event.type === 'mouseenter') {
+            trigger.addClass("hover");
+            sub.stop().fadeIn();
+        } else {
+            trigger.removeClass("hover");
+            sub.stop().hide();
+        }
+    });
+    $(".Js_input").keyup(function(){
+    	placeholder($(this));
+    });
+    //选择保障方案
+//    $(".Js_OfferProjectBox").children("a").bind("click",function(event){
+//    	event.preventDefault();
+//    	var $this = $(this),$index = $this.index();
+//    	if(!$this.hasClass("selected")){
+//    		$this.addClass("selected").siblings().removeClass("selected");
+//    	}
+//    	$(".Js_schemeList").find("li").eq($index).addClass("selected").siblings().removeClass("selected");
+//    });
+    //案例分析tab切换
+    $(".Js_caseExplainTab").children("li").bind("click",function(){
+    	var $this = $(this),$index = $this.index();
+    	if(!$this.hasClass("current")){
+    		$this.addClass("current").siblings().removeClass("current");
+    		$(".Js_caseExplainBox").children("div").addClass("hide").eq($index).removeClass("hide");
+    	}
+    });
+   //常见问题查看更多
+    $(".Js_seeMore").on("click",function(){
+        var $this = $(this);
+        if($this.hasClass("open")){
+            $this.removeClass("open").addClass("closed");
+            $this.html("<i></i>收起");
+            $(".Js_quesList").removeClass("hide");
+        }else{
+            $this.removeClass("closed").addClass("open");
+            $this.html("<i></i>展开查看更多");
+            $(".Js_quesList").addClass("hide");
+        }
+    });
+
+	/*(function(){
+   		//问号
+		$(".Js_wenhao").on("mouseenter",function(){
+			var $this = $(this),
+				$top = $this.offset().top,
+				$left = $this.offset().left,
+				$height = $this.height();
+			var top = $top + $height + 20;
+			var left = $left - 96;
+			quesDialog($this,top,left);
+		}).on("mouseleave",function(){
+			hideQuesDialog();
+			if(ieVersion == "7"){
+				$(this).parents("li").css("z-index","")
+			}
+		}).on("click",function(event){
+			event.stopPropagation();
+		});
+   	})();*/
+	//返回顶部
+	$(".Js_backtop").on("click",function(){
+		$("html,body").animate({
+			scrollTop:0
+		},300)
+	});
+
+	//测算保费入口
+	$(".Js_calcPremBtn").on("click",function(){
+		$(".Js_prodIntro").stop().fadeOut("fast",function(){
+			$(".Js_prodOfferEnter").fadeIn();
+			$(".Js_prodBg").addClass("blur");
+		})
+	});
+	$(".Js_prodOfferClose").on("click",function(){
+		$(".Js_prodOfferEnter").stop().fadeOut("fast",function(){
+			$(".Js_prodIntro").fadeIn();
+			$(".Js_prodBg").removeClass("blur")
+		});
+       $(".notice-insurance").fadeOut("fast");
+       $(".mask").fadeOut("fast");
+	});
+    $(".Js_noticeClose,.Js_read").on("click",function(){
+        $(".notice-insurance").fadeOut("fast");
+        $(".Js_maskNew").hide();
+    });
+    $(".Js_notice-insurance").on("click",function(){
+        $(".notice-insurance").fadeIn("fast");
+        $(".Js_maskNew").show();
+    });
+
+	//投保人数
+	(function(){
+		$(".Js_insuNum").children("span").on("click",function(){
+			var $this = $(this),
+				$text = $this.text(),
+				insuInput = $(".Js_insuInput"),
+				insuInputVal = insuInput.val();
+			if($text == "+"){
+				if(insuInputVal > 9){
+					return false;
+				}
+				insuInputVal++;
+				insuInput.val(insuInputVal);
+			}else{
+				if(insuInputVal < 2){
+					return false;
+				}
+				insuInputVal--;
+				insuInput.val(insuInputVal);
+			}
+			$("#totalNum").text(insuInputVal);
+            $(".peo-num").text($("#totalNum").text())
+		});
+	})();
+	(function(){
+		$(".Js_pj").on("click",function(){
+			$("html,body").animate({
+				scrollTop:$("#f5").offset().top - $(".Js_insureFloating").height()
+			},10);
+		});
+		/*$(".Js_offerLink").on("click",function(){
+			$("html,body").animate({
+				scrollTop:$("#f2").offset().top - $(".Js_insureFloating").height()
+			},10);
+		});*/
+		$(".Js_offerLink").click(function(){
+			$("html,body").animate({
+				scrollTop:$("#f2").offset().top - $(".Js_insureFloating").height()
+			},10);
+		});
+	})();
+	
+//	(function(){
+//		//选择保障方案 - 下面
+//		$(".Js_schemeList").children("li").on("click",function(){
+//			var $this = $(this);
+//			var index = $(this).index();
+//			if(!$this.hasClass("selected")){
+//				$this.addClass("selected").siblings("li").removeClass("selected");
+//			}
+//			$(".Js_OfferProjectBox").find("a").eq(index).addClass("selected").siblings().removeClass("selected");
+//		})
+//	})();
+	
+	//投保时间
+	//设置开始默认时间
+	/*(function(){
+		var curDate = new Date();
+		var y = curDate.getFullYear();
+		var m = curDate.getMonth()+1;
+		var d = curDate.getDate() + 1;
+		d = d < 10 ? "0"+d : d;
+		$("#startDate").val(y+"/"+ m +"/"+ (d));
+		$("#endDate").val(y+"/"+ m +"/"+ (d));
+		$("#startDate").bind("blur",function(){
+			var sd = $(this).val();
+			var ed = $("#endDate").val();
+			var l = compDate(sd,ed);
+//			if(l == 1){
+//				$("#endDate").val(sd);
+//				$(".Js_totalDay").text(1);
+//			}else{
+//				$(".Js_totalDay").text(dateDiff(sd,ed));
+//			}
+		});
+	})()*/
+});
+var ieVersion;
+(function(window) {
+    var theUA = window.navigator.userAgent.toLowerCase();
+    if((theUA.match(/msie\s\d+/) && theUA.match(/msie\s\d+/)[0]) || (theUA.match(/trident\s?\d+/) && theUA.match(/trident\s?\d+/)[0])) {
+    	ieVersion = theUA.match(/msie\s\d+/)[0].match(/\d+/)[0] || theUA.match(/trident\s?\d+/)[0];
+    }
+})(window);
+
+//产品页面鼠标经过问号弹层提示
+function quesDialog(el,top,left){
+	var outer = $("<div class='wenhao-cont Js_wenhaoCont'></div>");
+	var caret = $("<span class='caret'><i class='caret1'></i><i class='caret2'></i></span>");//小三角号
+	var titHtml = $("<h3 class='wh-title Js_whTit'></h3>");
+	var contHtml = $("<p class='wh-cont Js_whCont'></p>");
+	
+	var $el = $(el);
+	var elOffsetL = $el.offset().left;
+	var elPosL = $el.position().left;
+	var prLiOffsetL = $el.parents("li").offset().left;
+	var idx = $el.parents("li").index();
+	var $left = elOffsetL - prLiOffsetL;
+	var quesTxt = $el.siblings("input[type='hidden']").val();
+	quesTxt = eval('(' + quesTxt + ')');
+	caret.css("left",$left - 16);
+	$(el).append(outer);
+	outer.empty().append(caret);
+	outer.append(titHtml.text(quesTxt.title));
+    outer.append(contHtml.text(quesTxt.content)).show();
+
+	outer.css("top",$el.position().top+35);
+	var kindIndex =$("#itemplanTR").find("li").size()-1;
+	if(idx == kindIndex){
+		outer.css({
+			"left":"auto",
+			"right":9
+		});
+		caret.css("left",prLiOffsetL - outer.offset().left + elPosL + $el.width() / 2);
+	}
+	if(ieVersion == "7"){
+		$el.parents("li").css("z-index","2")
+	}
+    if($("#productCode").val() =="JBD_B"){
+        $(".Js_wenhaoCont").css({
+            "width":900,
+            "padding":20
+        })
+    }
+}
+function hideQuesDialog(){
+	$(".Js_wenhaoCont").remove();
+}
+function scrollFloating(){
+	var $h = $(".Js_insureFloating").height() + 4;//获取浮层的高度
+	var $prodBodyTop = $("#productBody").offset().top - $h;
+	var $winH = $(window).height();
+	var $scrollTop = $(window).scrollTop();
+	var $f1Top = $("#f1").offset().top;
+	var $f2Top = $("#f2").offset().top - $h;
+	var $f3Top = $("#f3").offset().top - $h;
+	var $f4Top = $("#f4").offset().top - $h;
+	var $f5Top = $("#f5").offset().top - $h;
+	if($scrollTop >= $prodBodyTop){
+		$(".Js_insureFloating").addClass("fixed");
+		$(".Js_navProdInfo").removeClass("hide");
+		$(".gj-tips").addClass("hide");
+        $(".slide-box-list").animate({
+           "left":0
+        },500,function(){
+            $("#slideTips").removeClass("scale0");
+            $("#slideBar").fadeIn(200);
+        });
+	}else{
+		$(".Js_insureFloating").removeClass("fixed");
+		$(".Js_navProdInfo").addClass("hide");
+		$(".gj-tips").removeClass("hide");
+
+	}
+	if(ieVersion < 9){
+		if($scrollTop >= $winH / 2){
+			$(".Js_sidesBox").fadeIn("500");
+		}else{
+			$(".Js_sidesBox").fadeOut();
+		}
+	}else{
+		if($scrollTop >= $winH / 2){
+			$(".Js_sidesBox").removeClass("scale0");
+		}else{
+			$(".Js_sidesBox").addClass("scale0")
+		}
+	}
+	
+	if($f1Top <= $scrollTop && $scrollTop < $f2Top){
+		operateCurrent(".f1-a");
+	}else if($f2Top <= $scrollTop && $scrollTop < $f3Top){
+		operateCurrent(".f2-a");
+	}else if($f3Top <= $scrollTop && $scrollTop < $f4Top){
+		operateCurrent(".f3-a");
+	}else if($f4Top <= $scrollTop && $scrollTop < $f5Top){
+		operateCurrent(".f4-a");
+	}else if($f5Top <= $scrollTop){
+		operateCurrent(".f5-a");
+	}
+}
+//模拟placeholder
+var placeholder = function(el) {
+	var $this = el,
+		$val = $this.val();
+	if ($val === "" || $val === null) {
+		$this.siblings(".Js_placeholder").show();
+	} else {
+		$this.siblings(".Js_placeholder").hide();
+	}
+};
+//模拟的placeholder 显示或者隐藏
+function placeHolderStatus(){
+	if($(".Js_input").val() !== ""){
+    	$(".Js_placeholder").hide();
+    }else{
+    	$(".Js_placeholder").show();
+    }
+    
+}
+function operateCurrent(el){
+	$(el).parent("li").siblings("li").removeClass("current");
+	$(el).parent("li").addClass("current");
+}
+
+//算费
+//function calculateFee(el){
+//	var peopleNum = $(".Js_insuInput").val();//人数
+//	var startTime = $("#startDate").val();
+//		endTime = $("#endDate").val();
+//	var el = $(el);
+//	var type = el.attr("data-type");
+//	var a = "270.00",b = "350.00",c="650.00",d="1300.00";
+//	var baofei = $(".Js_baofei");
+//	var leftD = dateDiff(startTime,endTime)
+//	switch(type){
+//		case "a":
+//			baofei.text((a*peopleNum).toFixed(2));
+//		  	break;
+//		case "b":
+//			baofei.text((b*peopleNum).toFixed(2));
+//		  	break;
+//		case "c":
+//			baofei.text((c*peopleNum).toFixed(2));
+//            break;
+//        case "d":
+//            baofei.text((d*peopleNum).toFixed(2));
+//			default:
+//	}
+//}
+
+//日期相减
+function dateDiff(sd,ed){
+	var sArr = sd.split("-");
+	var eArr = ed.split("-");
+	var sRDate = new Date(sArr[0], sArr[1], sArr[2]);
+	var eRDate = new Date(eArr[0], eArr[1], eArr[2]);
+	var result = (eRDate-sRDate)/(24*60*60*1000);
+	return result;
+}
+//比较两个日期的大小
+function compDate(sd,ed){
+    var oSd = new Date(sd);
+    var oEd = new Date(ed);
+    if(oSd.getTime() > oEd.getTime()){
+    	return "1";
+    } else {
+    	return "2";
+    }
+}
+function setEndDate(maxday){
+	new WdatePicker({
+		minDate : "#F{$dp.$D(\'startdate\')}",
+		isShowToday : true,
+		isShowClear : false,
+		maxDate : "#F{$dp.$D(\'startdate\',{d:maxday})}",
+		dateFmt : 'yyyy/MM/dd'
+	});
+}
+
+function checkStartDate(str) {
+	var inputDate = $('#startdate').val();
+	var reg0 = /\d{8}$/;
+	if (reg0.test(inputDate)) {
+		$("#startdate").val(inputDate.toString().substring(0,4)+"/"+inputDate.toString().substring(4,6)+"/"+inputDate.toString().substring(6,8));
+		inputDate = $('#startdate').val();
+	} else if(inputDate.length == 10&&inputDate.indexOf("/")==-1){
+		if(inputDate.indexOf("-")!=-1){
+			inputDate = inputDate.replace(/-/g, "/");
+		}
+		else if(inputDate.indexOf(".")!=-1){
+			$("#_my97DP").hide();
+			inputDate = inputDate.replace(/\./g, "/");
+		}
+		$("#startdate").val(inputDate);
+	}
+	return true;
+}
+
+function calcCost(el){
+	var peopleNum = 1;
+	var el = $(el);
+	var type = el.attr("data-type");
+    var a = "270.00",b = "350.00",c="650.00",d="1300.00";
+	var baofei = $(".Js_baofei");
+	switch(type){
+		case "a":
+			baofei.text((a*peopleNum).toFixed(2));
+		  	break;
+		case "b":
+			baofei.text((b*peopleNum).toFixed(2));
+		  	break;
+		case "c":
+			baofei.text((c*peopleNum).toFixed(2));
+            break;
+        case "d":
+            baofei.text((d*peopleNum).toFixed(2));
+			default:
+	}
+}
