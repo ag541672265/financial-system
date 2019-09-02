@@ -12,15 +12,16 @@ import java.util.List;
 //链接基金程序调取其中的数据，存入本程序数据库
 @Controller
 public class FundsController {
+    // 接口地址
+    String address = "http://129.211.129.219:9999/service/webservice?wsdl";
+    // 代理工厂
+    JaxWsProxyFactoryBean jaxWsProxyFactoryBean = new JaxWsProxyFactoryBean();
 
     @RequestMapping("/chajijin")
     @ResponseBody
     public String chajijin(Integer fid){
         try {
-            // 接口地址
-            String address = "http://129.211.129.219:9999/service/webservice?wsdl";
-            // 代理工厂
-            JaxWsProxyFactoryBean jaxWsProxyFactoryBean = new JaxWsProxyFactoryBean();
+
             // 设置代理地址
             jaxWsProxyFactoryBean.setAddress(address);
             // 设置接口类型
@@ -40,10 +41,7 @@ public class FundsController {
     @ResponseBody
     public String chaalljijin(){
         try {
-            // 接口地址
-            String address = "http://129.211.129.219:9999/service/webservice?wsdl";
-            // 代理工厂
-            JaxWsProxyFactoryBean jaxWsProxyFactoryBean = new JaxWsProxyFactoryBean();
+
             // 设置代理地址
             jaxWsProxyFactoryBean.setAddress(address);
             // 设置接口类型
@@ -66,10 +64,7 @@ public class FundsController {
     @ResponseBody
     public String chamezongjijin(Integer uid){
         try {
-            // 接口地址
-            String address = "http://129.211.129.219:9999/service/webservice?wsdl";
-            // 代理工厂
-            JaxWsProxyFactoryBean jaxWsProxyFactoryBean = new JaxWsProxyFactoryBean();
+
             // 设置代理地址
             jaxWsProxyFactoryBean.setAddress(address);
             // 设置接口类型
@@ -93,10 +88,7 @@ public class FundsController {
     @ResponseBody
     public String mairujijin(Integer uid,Integer fid,double money){
         try {
-            // 接口地址
-            String address = "http://129.211.129.219:9999/service/webservice?wsdl";
-            // 代理工厂
-            JaxWsProxyFactoryBean jaxWsProxyFactoryBean = new JaxWsProxyFactoryBean();
+
             // 设置代理地址
             jaxWsProxyFactoryBean.setAddress(address);
             // 设置接口类型
@@ -118,10 +110,7 @@ public class FundsController {
     @ResponseBody
     public String maichujijin(Integer uid,Integer fid,double money){
         try {
-            // 接口地址
-            String address = "http://129.211.129.219:9999/service/webservice?wsdl";
-            // 代理工厂
-            JaxWsProxyFactoryBean jaxWsProxyFactoryBean = new JaxWsProxyFactoryBean();
+
             // 设置代理地址
             jaxWsProxyFactoryBean.setAddress(address);
             // 设置接口类型
