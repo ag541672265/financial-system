@@ -168,7 +168,7 @@
 											<div class="offer-project-box Js_OfferProjectBox">
 												<div id="planbox">
 		
-		 	<a id="planid15532490574320001" class="offer-project-item selected" href="javascript:;" data-type="0" data-id="0" onclick="calcCostRrak(this);setPlan(0)">基础版（仅限续保用户）</a>
+		 	<a id="planid15532490574320001" class="offer-project-item selected" href="javascript:;" data-type="0" data-id="0" onclick="calcCostRrak(this);">基础版（仅限续保用户）</a>
 		    
 		 	<a id="planid15532490574320002" class="offer-project-item" href="javascript:;" data-type="1" data-id="0" onclick="calcCostRrak(this);setPlan(1)">升级版</a>
 		    
