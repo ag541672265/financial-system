@@ -35,7 +35,7 @@
 	<a href="/index" class="logo"><img src="images/logo.png" <#--alt="汇添金logo图片"-->></a>
     <#if user ??>
         <a href="/index" class="ubut">退出</a>
-        <a href="user_index" class="ubut" style="padding:0 15px;">个人中心<span><dl>我的资产：2830.00</dl></span></a>
+        <a href="/toassets" class="ubut" style="padding:0 15px;">个人中心<span><dl>我的资产：2830.00</dl></span></a>
     <#else>
             <a href="/register" class="topbut">注册</a>
             <a href="/login" class="topbut-cur">登录</a>
