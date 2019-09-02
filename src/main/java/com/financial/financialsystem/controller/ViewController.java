@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 //所有页面跳转链接
 
@@ -18,7 +19,8 @@ public class ViewController {
     }
     //去登录页面
     @RequestMapping("/login")
-    public String toLogin(){
+    public String toLogin(HttpSession session){
+        session.removeAttribute("user");
         return "userLogin";
     }
     //去注册页面
