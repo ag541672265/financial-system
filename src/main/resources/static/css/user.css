@@ -75,6 +75,8 @@
 	display:block;
 	float:left;
 	font:18px/40px 'microsoft yahei';
+    /*对号颜色*/
+	/*color:#ccc;*/
 	color:#090;
 	margin-right:10px;
 	cursor:pointer;
@@ -451,6 +453,9 @@
     transition: background 0.3s ease-in-out;
     width:334px;
 }
+
+
+
 
 
 

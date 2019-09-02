@@ -1,5 +1,6 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <meta charset="utf-8">
 <title>汇添金</title>
@@ -9,7 +10,8 @@
 <link rel="stylesheet" href="css/style.css"/>
 <link rel="stylesheet" href="css/index.css"/>
 <link href="css/iconfont/RjdaoIcon.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script type="text/javascript" src="js/jquery-1.9.0.js"></script>
+<#--<script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>-->
 </head>
 
 <body>
@@ -30,15 +32,22 @@
 
 <header class="w">
     <#--logo图片-->
-	<a href="index.html" class="logo"><img src="/images/logo.png" alt="汇添金logo图片"></a>
-    <a href="register.html" class="topbut">注册</a>
-    <a href="login.html" class="topbut-cur">登录</a>
+	<a href="/" class="logo"><img src="images/logo.png" <#--alt="汇添金logo图片"-->></a>
+    <#if user ??>
+        <a href="/" class="ubut">退出</a>
+        <a href="user_index" class="ubut" style="padding:0 15px;">个人中心<span><dl>我的资产：2830.00</dl></span></a>
+    <#else>
+            <a href="/register" class="topbut">注册</a>
+            <a href="/login" class="topbut-cur">登录</a>
+    </#if>
     <nav>
-    	<a href="index.html" class="cur">首页</a>
-        <a href="about.html">基金投资</a>
-        <a href="touzi_list.html">理财产品</a>
-        <a href="service.html">保单保险</a>
-        <a href="news_list.html">汇金红</a>
+    	<a href="/" class="cur">首页</a>
+        <#--链接未完成部分'''-->
+        <a href="/jijin">基金</a>
+        <a href="/licai">理财</a>
+        <a href="/insurance">保险</a>
+        <a href="/huijinhong">汇金红</a>
+        <#--链接未完成部分...-->
     </nav>
 </header>
 <!----header e---->
