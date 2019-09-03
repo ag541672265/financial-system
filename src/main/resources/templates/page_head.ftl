@@ -23,12 +23,12 @@
             <a href="/register" class="topbut">注册</a>
             <a href="/login" class="topbut-cur">登录</a>
     </#if>
-    <nav>
-    	<a href="/index" class="cur">首页</a>
+    <nav id="fTitle">
+    	<a href="/index" class="cur" id="index">首页</a>
 
-        <a href="/fund">基金</a>
-        <a href="/fProducts">理财</a>
-        <a href="/insurance">保险</a>
+        <a href="/fund" id="fu">基金</a>
+        <a href="/fProducts" id="fp">理财</a>
+        <a href="/insurance" id="ins">保险</a>
         <a href="news_list.html">汇金红</a>
 
     </nav>

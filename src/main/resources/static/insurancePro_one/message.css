@@ -1,0 +1,19 @@
+.kw-message-layer { position: fixed !important; position: absolute; background-color: #000; width: 100%; height: 100%; opacity: 0.50; left: 0; top: 0; z-index: 55555556; filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50); }
+
+.kw-message-wrap { position: absolute; width: 200px; padding: 15px; z-index: 1001; background-color: #fff; border-radius: 2px; text-align: center; word-wrap: break-word; word-break: break-all; z-index: 55555557; font-size: 12px; min-height: 16px; _height: 16px; }
+
+.kw-message-img, .kw-message-txt { display: block; }
+
+.kw-message-txt { padding: 5px 10px; line-height: 1.2; font-weight: lighter; margin-left: 40px; text-align: left; line-height: 1.8; }
+
+.kw-message-img { position: absolute; left: 20px; top: 50%; margin-top: -16px; width: 32px; height: 32px; overflow: hidden; }
+
+.kw-no-icon { width: 0 !important; height: 0 !important; }
+
+.kw-loading { background-image: url(//img.huizecdn.com/com/loading.gif); }
+
+.kw-success { background-image: url(//img.huizecdn.com/com/success.png); }
+
+.kw-error { background-image: url(//img.huizecdn.com/com/error.png); }
+
+.kw-warning { background-image: url(//img.huizecdn.com/com/warning.png); }

@@ -71,7 +71,7 @@
 
     <#--滚动图片-->
 	<div id="focus_m" class="focus_m">
-		<ul>
+		<ul style="padding: 0;margin: 0">
 			<li class="li_1" style="background:url(images/picc3.jpg) center 0 no-repeat #288cc0;"><a href="#" hidefocus="true"></a></li>
 			<li class="li_2" style="background:url(images/2.jpg) center 0 no-repeat #76b7d8;"><a href="#" hidefocus="true"></a></li>
 			<li class="li_3" style="background:url(images/3.jpg) center 0 no-repeat #bb3838;"><a href="#" hidefocus="true"></a></li>
