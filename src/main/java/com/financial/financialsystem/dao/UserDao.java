@@ -1,7 +1,10 @@
 package com.financial.financialsystem.dao;
 
+import com.financial.financialsystem.entity.Trades;
 import com.financial.financialsystem.entity.Users;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface UserDao {
 
@@ -16,6 +19,18 @@ public interface UserDao {
 
     //给推荐人奖金
     int updateCapital(@Param("tuijianren")String tuijianren);
+
+    //查询所有用户
+    List<Users> getAllUsers();
+
+    //更新余额
+    int updBalanceByid(Double money,int uid);
+
+    //所有用户交易记录
+    List<Trades> getAllTradesByid();
+
+    //交易到期操作
+    int updTradesByid(int uid);
 
 
     //修改用户金额
