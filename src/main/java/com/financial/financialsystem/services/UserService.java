@@ -14,4 +14,10 @@ public interface UserService {
 
     //用户注册
     int register(Users user,String tuijianren);
+
+
+    //修改用户金额
+    int UpdateUser(@Param("phone") String phone,@Param("balance") double balance,@Param("balanc") double balanc);
+    //添加充值记录
+    int addtrades(@Param("phone")String phone,@Param("amount")double amount);
 }

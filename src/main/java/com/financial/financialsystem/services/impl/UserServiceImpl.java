@@ -34,4 +34,15 @@ public class UserServiceImpl implements UserService {
             return 0;
         }
     }
+
+
+    @Override
+    public int UpdateUser(String phone, double balance,double balanc) {
+        return userDao.UpdateUser(phone,balance,balanc);
+    }
+
+    @Override
+    public int addtrades(String phone, double amount) {
+        return userDao.addtrades(phone,amount);
+    }
 }

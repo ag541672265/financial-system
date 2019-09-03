@@ -18,4 +18,9 @@ public interface UserDao {
     int updateCapital(@Param("tuijianren")String tuijianren);
 
 
+    //修改用户金额
+    int UpdateUser(String phone,double balance,double balanc);
+    //添加充值记录
+    int addtrades(String accFrom,double amount);
+
 }
