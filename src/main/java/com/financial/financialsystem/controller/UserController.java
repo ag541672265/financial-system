@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * 用户调取方法
@@ -107,7 +108,17 @@ public class UserController {
     //个人页面查看，可看自己的资产，交易记录等
     //进入资产界面
     @RequestMapping("/toassets")
-    public String toassets(Model model){
+    public String toassets(HttpServletRequest request,Model model){
+        HttpSession session=request.getSession();
+        Users user=(Users)session.getAttribute("user");
+        System.out.println("username"+user.getNickName());
+        double jijin=1000;
+        double licai=1000;
+        double zongzichan = user.getBalance()+user.getCapital()+jijin+licai;
+        model.addAttribute("zongzichan",zongzichan);
+        model.addAttribute("jijin",jijin);
+        model.addAttribute("licai",licai);
+        request.setAttribute("user",user);
         return "assets";
     }
 

@@ -315,7 +315,7 @@
 	background-color:#5CA448;
 }
 .user-top .nav{
-	width:1138px;
+	width:990px;
 	height:49px;
 	border-radius:6px 6px 0 0;
 	margin:20px auto 0 auto;
@@ -350,7 +350,7 @@
 	float:left;
 	font:14px/49px 'microsoft yahei';
 	transition-duration:0.2s;
-	color:#bfbebe;
+	color:#000000;
 }
 
 .u-main{
