@@ -33,6 +33,14 @@
             }
         }
     </script>
+    <script type="text/javascript">
+        //防止页面后退
+        history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', function () {
+            history.pushState(null, null, document.URL);
+        });
+
+    </script>
 </head>
 
 <body style="background-color:#f0f0f0;">
@@ -52,14 +60,15 @@
 
 <header>
 	<div class="hmain w">
-      <a href="index.html" class="logo"><img src="/images/logo.png"></a>
-      <a href="login.html" class="ubut">退出</a>
-      <a href="/toassets" class="ubut" style="padding:0 15px;">个人中心<span><dl>我的资产：2830.00</dl></span></a>
-      <nav>
-          <a href="index.html">首页</a>
-          <a href="about.ftl">基金</a>
-          <a href="touzi_list.html" class="cur">理财</a>
-          <a href="service.html">保险</a>
+      <a href="/" class="logo"><img src="/images/logo.png"></a>
+       <nav>
+          <a href="/">首页</a>
+          <#--链接未完成部分'''-->
+          <a href="/jijin">基金</a>
+          <a href="/licai">理财</a>
+          <a href="/insurance">保险</a>
+          <a href="/huijinhong">汇金红</a>
+          <#--链接未完成部分...-->
       </nav>
     </div>
 </header>

@@ -1,12 +1,14 @@
 package com.financial.financialsystem.services.impl;
 
 import com.financial.financialsystem.dao.UserDao;
+import com.financial.financialsystem.entity.Trades;
 import com.financial.financialsystem.entity.Users;
 import com.financial.financialsystem.services.UserService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -33,5 +35,36 @@ public class UserServiceImpl implements UserService {
         }else{
             return 0;
         }
+    }
+
+    @Override
+    public List<Users> getAllUsers() {
+        return userDao.getAllUsers();
+    }
+
+    @Override
+    public int updBalanceByid(Double money,int uid) {
+        return userDao.updBalanceByid(money,uid);
+    }
+
+    @Override
+    public List<Trades> getAllTradesByid() {
+        return userDao.getAllTradesByid();
+    }
+
+    @Override
+    public int updTradesByid(int uid) {
+        return userDao.updTradesByid(uid);
+
+
+    @Override
+    public int UpdateUser(String phone, double balance,double balanc) {
+        return userDao.UpdateUser(phone,balance,balanc);
+    }
+
+    @Override
+    public int addtrades(String phone, double amount) {
+        return userDao.addtrades(phone,amount);
+
     }
 }

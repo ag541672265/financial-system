@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="css/user.css"/>
 <link href="css/iconfont/RjdaoIcon.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="js/jquery-1.9.0.js"></script>
+
 </head>
 
 <body style="background-color:#f0f0f0;">
@@ -29,15 +30,15 @@
 
 <header>
 	<div class="hmain w">
-      <a href="index" class="logo"><img src="images/logo.png"></a>
-      <#--<a href="/index" class="ubut">退出</a>-->
-      <#--<a href="user_index" class="ubut" style="padding:0 15px;">个人中心<span><dl>我的资产：2830.00</dl></span></a>-->
+      <a href="/" class="logo"><img src="images/logo.png"></a>
       <nav>
-          <a href="index">首页</a>
-          <a href="about.ftl">基金</a>
-          <a href="touzi_list.html">理财</a>
-          <a href="insurance">保险</a>
-          <a href="news_list.html">汇金红</a>
+          <a href="/">首页</a>
+          <#--链接未完成部分'''-->
+          <a href="/jijin">基金</a>
+          <a href="/licai">理财</a>
+          <a href="/insurance">保险</a>
+          <a href="/huijinhong">汇金红</a>
+          <#--链接未完成部分...-->
       </nav>
     </div>
 </header>

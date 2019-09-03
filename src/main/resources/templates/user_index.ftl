@@ -37,15 +37,17 @@
 
 <header>
     <div class="hmain w">
-        <a href="index.html" class="logo"><img src="images/logo.png"></a>
-        <a href="login.html" class="ubut">退出</a>
-        <a href="user_index.html" class="ubut" style="padding:0 15px;">个人中心<span><dl>我的资产：2830.00</dl></span></a>
+        <a href="/" class="logo"><img src="images/logo.png"></a>
+        <a href="/login" class="ubut">退出</a>
+        <a href="/toUser" class="ubut" style="padding:0 15px;">个人中心<span><dl>我的资产：2830.00</dl></span></a>
         <nav>
-            <a href="index.html">首页</a>
-            <a href="about.html">关于汇创</a>
-            <a href="touzi_list.html" class="cur">投资理财</a>
-            <a href="service.html">项目支持</a>
-            <a href="news_list.html">信息披露</a>
+            <a href="/">首页</a>
+            <#--链接未完成部分'''-->
+            <a href="/jijin">基金</a>
+            <a href="/licai">理财</a>
+            <a href="/insurance">保险</a>
+            <a href="/huijinhong">汇金红</a>
+            <#--链接未完成部分...-->
         </nav>
     </div>
 </header>
@@ -76,7 +78,7 @@
         </div>
         <div class="capital2">
             <a href="/toZhiFu" class="ti">充值</a>
-            <a href="" class="ti">提现</a>
+            <a href="/tixain" class="ti">提现</a>
         </div>
 
     </div>

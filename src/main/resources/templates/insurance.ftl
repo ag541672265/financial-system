@@ -36,10 +36,10 @@
 
 <header class="w">
     <#--logo图片-->
-    <a href="/index" class="logo"><img src="images/logo.png" <#--alt="汇添金logo图片"-->></a>
+    <a href="/" class="logo"><img src="images/logo.png" <#--alt="汇添金logo图片"-->></a>
     <#if user ??>
-        <a href="/index" class="ubut">退出</a>
-        <a href="user_index" class="ubut" style="padding:0 15px;">个人中心<span><dl>我的资产：2830.00</dl></span></a>
+        <a href="/login" class="ubut">退出</a>
+        <a href="/toUser" class="ubut" style="padding:0 15px;">个人中心<span><dl>我的资产：2830.00</dl></span></a>
     <#else>
         <a href="/register" class="topbut">注册</a>
         <a href="/login" class="topbut-cur">登录</a>
@@ -47,10 +47,10 @@
     <nav>
         <a href="/index">首页</a>
         <#--链接未完成部分'''-->
-        <a href="about.html">基金</a>
-        <a href="touzi_list.html">理财</a>
-        <a href="insurance" class="cur">保险</a>
-        <a href="news_list.html">汇金红</a>
+        <a href="/jijin">基金</a>
+        <a href="/licai">理财</a>
+        <a href="/insurance"  class="cur">保险</a>
+        <a href="/huijinhong">汇金红</a>
         <#--链接未完成部分...-->
     </nav>
 </header>
