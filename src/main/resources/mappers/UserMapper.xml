@@ -23,6 +23,7 @@
 
 
 
+
     <!--查询所有用户-->
     <select id="getAllUsers" resultType="Users">
         select * from users;
@@ -43,5 +44,13 @@
         update trades set  `status`=0 where uid=#{uid};
     </update>
 
+
+
+    <update id="UpdateUser">
+        update users set balance=#{balance}+#{balanc} where phone=#{phone}
+    </update>
+    <insert id="addtrades">
+        insert into trades(accFrom,goodsID,amount,type,dealTime,comment) values(#{accFrom},0,#{amount},1,now(),'入金')
+    </insert>
 
 </mapper>

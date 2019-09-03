@@ -1,17 +1,23 @@
 package com.financial.financialsystem.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.internal.util.AlipaySignature;
 import com.alipay.api.request.AlipayTradePagePayRequest;
+import com.financial.financialsystem.entity.Users;
+import com.financial.financialsystem.services.UserService;
 import com.financial.financialsystem.util.AlipayConfig;
+import com.financial.financialsystem.util.EmptyUtils;
 import com.financial.financialsystem.util.GetOrNu;
+import com.financial.financialsystem.util.RedisUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -26,6 +32,13 @@ import java.util.Map;
 
 @Controller
 public class GoController {
+    @Resource
+    private UserService userService;
+    @Resource
+    private RedisUtils redisUtils;
+
+
+    private double amount=0;
 
     @RequestMapping("/toUser")
     public String toUser(){
@@ -46,7 +59,7 @@ public class GoController {
 
     @RequestMapping("/toPay")
     public void toPay(@RequestParam("jine")int jine, HttpServletRequest request, HttpServletResponse response) throws AlipayApiException, IOException {
-
+        amount=jine;
         response.setContentType("text/html;UTF-8");
 
         AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl, AlipayConfig.app_id, AlipayConfig.merchant_private_key, "json", AlipayConfig.charset, AlipayConfig.alipay_public_key, AlipayConfig.sign_type);
@@ -112,6 +125,14 @@ public class GoController {
 
         if(signVerified) {
             System.out.println("支付成功");
+            //获取token
+            String tokenKey="token";
+            String tokenValue=(String)redisUtils.get(tokenKey);
+                JSONObject jsonObject=JSONObject.parseObject(tokenValue);
+                String account=jsonObject.getString("phone");
+                Users users=userService.getUserByPhone(account);
+                int i=userService.addtrades(account,amount);
+                int i1=userService.UpdateUser(account,users.getBalance(),amount);
             return "user_index";
         }else{
             System.out.println("支付失败");
