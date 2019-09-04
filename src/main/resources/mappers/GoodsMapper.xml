@@ -2,6 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.financial.financialsystem.dao.GoodsDao"><!-- dao层地址 -->
+    <select id="getAll" resultType="Goods">
+        select * from goods where state=1
+    </select>
+
+    <select id="getById" resultType="Goods">
+        select * from goods where gid=#{gId}
+    </select>
+
+    <update id="delGoodsById" >
+        update goods set state=0 where gid=#{gId}
+    </update>
+
+    <insert id="addGoods" >
+        insert into goods value(null,#{gNmae},#{gPrice},#{gTitle},#{gRisk},#{pId},#{state},#{gType},#{gImg})
+    </insert>
+
     <insert id="addugcontact">
         INSERT INTO `capital`(`uid`, `gid`, `money`, `createDate`, `states`) VALUES (#{uid},#{gid},#{money},now(),#{states})
     </insert>
