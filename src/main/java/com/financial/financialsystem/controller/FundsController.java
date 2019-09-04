@@ -1,17 +1,26 @@
 package com.financial.financialsystem.controller;
 
 
+import com.financial.financialsystem.external.fund.Funds;
+import com.financial.financialsystem.external.fund.MessagesService;
+import com.financial.financialsystem.external.fund.Userfund;
+import com.financial.financialsystem.services.GoodsService;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 //链接基金程序调取其中的数据，存入本程序数据库
 @Controller
 public class FundsController {
-    /*// 接口地址
+
+    @Resource
+    private GoodsService goodsService;
+
+    // 接口地址
     String address = "http://129.211.129.219:9999/service/webservice?wsdl";
     // 代理工厂
     JaxWsProxyFactoryBean jaxWsProxyFactoryBean = new JaxWsProxyFactoryBean ( );
@@ -87,7 +96,7 @@ public class FundsController {
 
     @RequestMapping("/mairujijin")
     @ResponseBody
-    public String mairujijin(Integer uid, Integer fid, double money) {
+    public String mairujijin(Integer uid, Integer fid, Integer type,double money) {
         try {
 
             // 设置代理地址
@@ -98,10 +107,17 @@ public class FundsController {
             MessagesService ms = (MessagesService) jaxWsProxyFactoryBean.create ( );
             // 数据准备
             // 调用代理接口的方法调用并返回结果
-            boolean result = ms.buyjijin (uid, fid, money);
-            if (result) {
-                System.out.println ("买入成功");
-            }
+            /*if(type==9){
+                if(goodsService.zhifumoney(uid,gid,type,jine,capital,balance)){
+                    boolean result = ms.buyjijin (uid, fid, money);
+                    if (result) {
+                        System.out.println ("买入成功");
+                    }
+                }else{
+                    return "<h>no</h>";
+                }
+            }*/
+
         } catch (Exception e) {
             e.printStackTrace ( );
         }
@@ -131,7 +147,7 @@ public class FundsController {
         return "<h>好了</h>";
     }
 
-*/
+
     /*@RequestMapping("/queryById")
     @ResponseBody
     public String test(@RequestParam(value="id",defaultValue = "0")long id) {
