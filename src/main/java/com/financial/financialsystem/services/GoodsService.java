@@ -5,7 +5,22 @@ import com.financial.financialsystem.entity.Trades;
 
 import java.util.List;
 
+import com.financial.financialsystem.entity.Goods;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+
 public interface GoodsService {
+
+    List<Goods> getAll();
+
+    Goods getById(@Param("gid") Integer gid);
+
+    //管理员功能  下架 上新
+    int delGoodsById(@Param("gid") Integer gid);
+
+
+    int addGoods(Goods goods);
     /*杨可鹏写的，购买方法公用的，我需要用户id，商品id，购买的金额,和代金券剩余的钱,还要传一个type
     *（用户的id和代金券这个钱从session里查，商品id和购买金额是你传给我的,
     *type是告诉我是买的哪种类型的商品（1是基金，2是理财，3是保险）），

@@ -1,11 +1,29 @@
 package com.financial.financialsystem.dao;
 
+import com.financial.financialsystem.entity.Goods;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+
 import com.financial.financialsystem.entity.Capital;
 import com.financial.financialsystem.entity.Trades;
 
 import java.util.List;
 
 public interface GoodsDao {
+
+    List<Goods> getAll();
+
+    Goods getById(@Param("gid") Integer gid);
+
+    //管理员功能  下架 上新
+    int delGoodsById(@Param("gid") Integer gid);
+
+
+    int addGoods(Goods goods);
+
+
+
     //增加一条用户代金券商品关系
     int addugcontact(Integer uid,Integer gid,Integer states,double money);
     //修改一条用户代金券商品关系

@@ -1,6 +1,6 @@
 package com.financial.financialsystem.dao;
 
-import com.financial.financialsystem.external.fund.Userfund;
+
 
 import java.util.List;
 
