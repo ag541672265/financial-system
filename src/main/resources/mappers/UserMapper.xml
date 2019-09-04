@@ -53,4 +53,12 @@
         insert into trades(accFrom,goodsID,amount,type,dealTime,comment) values(#{accFrom},0,#{amount},1,now(),'入金')
     </insert>
 
+
+    <update id="updatehead" >
+        update user  set headimg=#{headimg} where phone=#{phone}
+    </update>
+    <select id="getBlanceByPhone" resultType="double">
+    select balance+capital from users where phone=#{phone}
+</select>
+
 </mapper>

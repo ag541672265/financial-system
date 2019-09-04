@@ -34,6 +34,11 @@ public class ViewController {
         return "insurance";
     }
 
+    @GetMapping(value = "/detail")
+    private String Detail(){
+        return "";
+    }
+
 
 
 

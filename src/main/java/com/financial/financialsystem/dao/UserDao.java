@@ -38,4 +38,11 @@ public interface UserDao {
     //添加充值记录
     int addtrades(String accFrom,double amount);
 
+    //查询当前用户余额
+    double getBlanceByPhone(@Param("phone")String phone);
+
+
+    //修改头像
+    int updatehead(String headimg,String phone);
+
 }

@@ -59,7 +59,7 @@ public class TestQiniuConfig {
         @Bean
         public com.qiniu.storage.Configuration qiniuConfig() {
             //华东
-            return new com.qiniu.storage.Configuration(Zone.zone1 ());
+            return new com.qiniu.storage.Configuration(Zone.zone2 ());
         }
         /**
          * 构建一个七牛上传工具实例

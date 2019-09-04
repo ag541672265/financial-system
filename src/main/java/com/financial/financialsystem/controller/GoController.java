@@ -83,6 +83,7 @@ public class GoController {
 
 
        String orderNumber= GetOrNu.createOrderNumber() ;
+        System.out.println (orderNumber );
         alipayRequest.setBizContent("{\"out_trade_no\":\""+ orderNumber +"\","
                 + "\"total_amount\":\""+ jine +"\","
                 + "\"subject\":\""+ "aa7" +"\","
@@ -125,6 +126,7 @@ public class GoController {
 
         if(signVerified) {
             System.out.println("支付成功");
+            System.out.println (amount );
             //获取token
             String tokenKey="token";
             String tokenValue=(String)redisUtils.get(tokenKey);
@@ -133,7 +135,7 @@ public class GoController {
                 Users users=userService.getUserByPhone(account);
                 int i=userService.addtrades(account,amount);
                 int i1=userService.UpdateUser(account,users.getBalance(),amount);
-            return "user_index";
+            return "assets";
         }else{
             System.out.println("支付失败");
             return "adad";
