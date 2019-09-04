@@ -10,7 +10,7 @@ public class VaultController {
     @RequestMapping("/jijin")
     public String jijin(){
 
-        return "about";
+        return "redirect:/chaalljijin";
     }
 
     @RequestMapping("/licai")

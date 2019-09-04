@@ -1,16 +1,20 @@
 package com.financial.financialsystem.controller;
 
 
+import com.financial.financialsystem.entity.Users;
 import com.financial.financialsystem.external.fund.Funds;
 import com.financial.financialsystem.external.fund.MessagesService;
 import com.financial.financialsystem.external.fund.Userfund;
 import com.financial.financialsystem.services.GoodsService;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 //链接基金程序调取其中的数据，存入本程序数据库
@@ -21,7 +25,7 @@ public class FundsController {
     private GoodsService goodsService;
 
     // 接口地址
-    String address = "http://129.211.129.219:9999/service/webservice?wsdl";
+    String address = "http://localhost:9999/service/webservice?wsdl";
     // 代理工厂
     JaxWsProxyFactoryBean jaxWsProxyFactoryBean = new JaxWsProxyFactoryBean ( );
 
@@ -47,8 +51,7 @@ public class FundsController {
     }
 
     @RequestMapping("/chaalljijin")
-    @ResponseBody
-    public String chaalljijin() {
+    public String chaalljijin(Model model) {
         try {
 
             // 设置代理地址
@@ -60,13 +63,13 @@ public class FundsController {
             // 数据准备
             // 调用代理接口的方法调用并返回结果
             List<Funds> fundsList = ms.queryalljijin ( );
-            for (Funds fs : fundsList) {
-                System.out.println (fs.getFname ( ));
-            }
+            for (Funds fs : fundsList) { System.out.println (fs.getFname ( )); }
+            model.addAttribute("fundsList",fundsList);
+            return "funds";
         } catch (Exception e) {
             e.printStackTrace ( );
         }
-        return "<h>好了</h>";
+        return "/";
     }
 
     @RequestMapping("/chamezongjijin")
@@ -95,10 +98,8 @@ public class FundsController {
     }
 
     @RequestMapping("/mairujijin")
-    @ResponseBody
-    public String mairujijin(Integer uid, Integer fid, Integer type,double money) {
+    public String mairujijin(Integer fid, Integer type, double money, HttpServletRequest request) {
         try {
-
             // 设置代理地址
             jaxWsProxyFactoryBean.setAddress (address);
             // 设置接口类型
@@ -107,21 +108,32 @@ public class FundsController {
             MessagesService ms = (MessagesService) jaxWsProxyFactoryBean.create ( );
             // 数据准备
             // 调用代理接口的方法调用并返回结果
-            /*if(type==9){
-                if(goodsService.zhifumoney(uid,gid,type,jine,capital,balance)){
-                    boolean result = ms.buyjijin (uid, fid, money);
-                    if (result) {
-                        System.out.println ("买入成功");
+            if(type==9){
+                HttpSession session=request.getSession();
+                Users user=(Users)session.getAttribute("user");
+                Integer uid = user.getUid();
+                double capital = user.getCapital();
+                double balance = user.getBalance();
+                System.out.println(balance);
+                System.out.println(capital);
+                System.out.println(money);
+
+                if(goodsService.zhifumoney(uid,fid,type,money,capital,balance)){
+                    if (ms.buyjijin (uid, fid, money)) {
+                        System.out.println("基金购买成功");
+                        request.getSession().setAttribute("user",goodsService.queryUSID(uid));
+                        return "redirect:/chaalljijin";
                     }
                 }else{
-                    return "<h>no</h>";
+                    System.out.println("基金购买失败");
+                    return "funds";
                 }
-            }*/
+            }
 
         } catch (Exception e) {
             e.printStackTrace ( );
         }
-        return "<h>好了</h>";
+        return "funds";
     }
 
     @RequestMapping("/maichujijin")
