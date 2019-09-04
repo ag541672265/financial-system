@@ -1,21 +1,9 @@
 package com.financial.financialsystem.entity;
 
-/**
- * gid` '自增商品编号',
- * gName varchar(255) DEFAULT NULL COMMENT '商品名称',
- * gPrice` double DEFAULT NULL COMMENT '商品价格',
- * gTitle` varchar(255) DEFAULT NULL COMMENT '商品详情',
- * gRisk` varchar(255) DEFAULT NULL COMMENT '商品风险',
- * termDate` int(11) DEFAULT NULL COMMENT '1为3个月，2为6个月，3为12个月，4为12个月以上',
- * pid` int(11) DEFAULT NULL COMMENT '公司编号，属于外键',
- * state` varchar(255) DEFAULT NULL COMMENT '商品状态1为正常，0为下架，2为缺货',
- */
-
-public class Goods {
+public class FundVO {
     private Integer gid, pid, state, termDate,gType;
-
-    private String gName, gTitle, gRisk,gImg;
-    private double gPrice;
+    private String gName, gTitle, gRisk,pName,gImg;
+    private double gPrice,rate;
 
     public Integer getGid() {
         return gid;
@@ -81,6 +69,14 @@ public class Goods {
         this.gRisk = gRisk;
     }
 
+    public String getpName() {
+        return pName;
+    }
+
+    public void setpName(String pName) {
+        this.pName = pName;
+    }
+
     public String getgImg() {
         return gImg;
     }
@@ -95,5 +91,13 @@ public class Goods {
 
     public void setgPrice(double gPrice) {
         this.gPrice = gPrice;
+    }
+
+    public double getRate() {
+        return rate;
+    }
+
+    public void setRate(double rate) {
+        this.rate = rate;
     }
 }

@@ -3,13 +3,16 @@ package com.financial.financialsystem.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.financial.financialsystem.entity.UserVO;
 import com.financial.financialsystem.entity.Users;
 import com.financial.financialsystem.services.UserService;
 import com.financial.financialsystem.util.CodeUtils;
 import com.financial.financialsystem.util.GenerateWord;
+import com.financial.financialsystem.util.MD5;
+import com.financial.financialsystem.util.TokenUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -24,6 +27,9 @@ public class UserController {
 
     @Resource
     private UserService userService;
+
+    @Resource
+    private TokenUtils tokenUtils;
 
 
     //异步查重用户名
@@ -70,17 +76,17 @@ public class UserController {
         String account=phone+ GenerateWord.generateWord();
         user.setAccount(account);
         user.setPhone(phone);
-        user.setPassword(password);
+        user.setPassword(MD5.getMd5(password,32));
         int n=userService.register(user,tuijianren);
         if(n==1){
-            return "userLogin";
+
+            return "redirect:/toLogin";
         }else{
             request.setAttribute("info","注册失败！");
             return "userRegister";
         }
 
     }
-
 
 
     //用户登录
@@ -92,7 +98,14 @@ public class UserController {
             request.setAttribute("info","用户不存在，请先注册！");
             return "userRegister";
         }else{
-            if(user.getPassword().equals(password)){
+            if(user.getPassword().equals(MD5.getMd5(password,32))){
+                UserVO userVo=new UserVO();
+                BeanUtils.copyProperties(user,userVo);
+                //更新信息(如有必要)
+
+                //生成用户token
+                String token= tokenUtils.generateToken(userVo);
+                tokenUtils.saveToken(token,userVo);
                 request.getSession().setAttribute("user",user);
                 return "index";
             }else{

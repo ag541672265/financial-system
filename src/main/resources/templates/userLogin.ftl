@@ -11,7 +11,11 @@
 <link href="css/iconfont/RjdaoIcon.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
     <script type="text/javascript">
-
+        $(function(){
+            if("${info}"!=null && "${info}"!=""){
+                alert("${info}");
+            }
+        })
         function check(){
             var phoneNum=$("[name='phone']").val();
             var password=$("[name='password']").val();

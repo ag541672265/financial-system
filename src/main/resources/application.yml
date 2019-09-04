@@ -1,8 +1,8 @@
 spring:
   datasource:
     username: root
-    password: root
-    url: jdbc:mysql://129.28.183.227/financial?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&serverTimezone=Asia/Shanghai
+    password: 123456
+    url: jdbc:mysql://localhost/financial2?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
   data:
     solr:

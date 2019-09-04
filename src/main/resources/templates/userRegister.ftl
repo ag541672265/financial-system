@@ -12,7 +12,10 @@
 <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
     <script type="text/javascript">
         $(function(){
-
+            if("${info}"!=null && "${info}"!=""){
+                alert("${info}");
+            }
+        }
             /*$("[name='nickName']").blur(function(){
                 var nickName=$("[name='nickName']").val();
                 $.post("/checkNickName",{"nickName":nickName},
@@ -46,6 +49,7 @@
                 $.post("/reception",{"phone":phoneNum},
                     function(n){
                         var m=parseInt(n);
+                        alert(m);
                         $("[name='code2']").val(m);
                     },"json"
                 );

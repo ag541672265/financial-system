@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.financial.financialsystem.dao.TradeDao"><!-- dao层地址 -->
+
+    <!--添加用户-->
+    <insert id="addTrade" parameterType="Trades">
+        insert into trades values(null,#{accFrom},#{goodsID},#{orderNumber},#{amount},#{type},SYSDATE(),#{comment},#{status})
+    </insert>
+</mapper>

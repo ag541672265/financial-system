@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @MapperScan(basePackages = "com.financial.financialsystem.dao")
 @EnableTransactionManagement //事务声明
-@EnableTransactionManagement
 @MapperScan("com.financial.financialsystem.dao")
 public class FinancialSystemApplication {
 
