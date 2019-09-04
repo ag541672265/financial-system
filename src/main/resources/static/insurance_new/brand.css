@@ -603,7 +603,7 @@ input[type=button].btn-block,input[type=reset].btn-block,input[type=submit].btn-
 .hz-foot-sprite.two{width:75px;height:75px;background-position:-270px -81px}
 .hz-foot-sprite.three{width:16px;height:16px;background-position:-127px -151px;vertical-align:sub}
 .hz-foot-sprite.four{width:16px;height:16px;background-position:-153px -152px;vertical-align:sub;margin-right:5px}
-.banner{height:473px;background:url(//img.huizecdn.com/hz/www/page/brand-banner.png) 50% 0 no-repeat}
+.banner{height:473px;background:url("../insurance_new/brand-banner.png") 50% 0 no-repeat}
 .brand-list{margin-right:-60px}
 .brand-item{position:relative;float:left;border:1px solid #f0f0f0;width:250px;height:198px;margin:0 60px 20px 0;text-align:center}
 .brand-item .tag{position:absolute;top:10px;right:10px;line-height:20px;border:1px solid #f6ab1a;padding:0 10px;color:#f6ab1a}

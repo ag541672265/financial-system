@@ -1,1 +1,0 @@
-Array.prototype.forEach||(Array.prototype.forEach=function(r){if("function"!=typeof r)return!1;for(var t=0,o=this.length;t<o;t++)r(this[t],t,this)});

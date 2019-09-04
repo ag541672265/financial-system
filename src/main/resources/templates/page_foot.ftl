@@ -162,7 +162,7 @@ $(document).ready(function(){
 });	
 </script>
 <!---客服代码 E--->
-<script type="text/javascript" src="js/script.js"></script>
+<#--<script type="text/javascript" src="js/script.js"></script>--><#--轮播图-直接复制到轮播图代码下面-->
 <link rel="stylesheet" href="css/style.css"/>
 <link rel="stylesheet" href="css/index.css"/>
 <link href="css/iconfont/RjdaoIcon.css" rel="stylesheet" type="text/css">

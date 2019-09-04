@@ -164,16 +164,11 @@
 
     <div class="layout">
         <div class="hz-breadcrumb">
-            <a href="https://www.huize.com/">慧择保险网</a>
+            <a href="/index">首页</a>
             <i class="arrow-right">&gt;</i>
-            <a href="https://www.huize.com/brand/list/">保险品牌</a>
+            <a href="/insurance_new">保险</a>
             <i class="arrow-right">&gt;</i>
-            <a href="https://www.huize.com/brand/detail/45">
-                太平洋产险</a>
-            <i class="arrow-right">&gt;</i>
-            <h1 class="hz-breadcrumb-active">
-                太平洋产险
-                保险产品在线购买</h1>
+            <h1 class="hz-breadcrumb-active" href="insurancePro_one">XX保险</h1>
         </div>
         <!--hz-breadcrumb end-->
 
