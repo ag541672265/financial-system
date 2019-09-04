@@ -2,6 +2,32 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.financial.financialsystem.dao.GoodsDao"><!-- dao层地址 -->
-
+    <insert id="addugcontact">
+        INSERT INTO `capital`(`uid`, `gid`, `money`, `createDate`, `states`) VALUES (#{uid},#{gid},#{money},now(),#{states})
+    </insert>
+    <update id="upugcontact">
+        UPDATE `capital` set  `money`=#{money}  WHERE `uid` = #{uid} and gid=#{gid} and `states`=#{states}
+    </update>
+    <select id="queryugcontact" resultType="com.financial.financialsystem.entity.Capital">
+        SELECT * from `capital`
+        <where>
+            <if test="uid!=0 and uid!=null">
+                uid=#{uid}
+            </if>
+            <if test="gid!=0 and gid!=null">
+               and gid=#{gid}
+            </if>
+            <if test="states!=0 and states!=null">
+                and states=#{states}
+            </if>
+        </where>
+    </select>
+    <update id="upUBCdata">
+        UPDATE `users` set `capital` = #{capital} , `balance` = #{balance} WHERE `uid` = #{uid}
+    </update>
+    <insert id="addTOC">
+        INSERT INTO `trades`(`accFrom`, `goodsID`, `orderNumber`, `amount`, `type`, `dealTime`, `comment`)
+        VALUES (#{accFrom},#{goodsID},#{orderNumber},#{amount},#{type},now() ,#{comment})
+    </insert>
 
 </mapper>

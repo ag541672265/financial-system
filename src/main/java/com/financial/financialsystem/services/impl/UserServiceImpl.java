@@ -15,6 +15,7 @@ public class UserServiceImpl implements UserService {
 
     @Resource
     private UserDao userDao;
+
     @Override
     public Users getUserByPhone(String phone) {
         return userDao.getUserByPhone(phone);
@@ -27,12 +28,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public int register(Users user,String tuijianren) {
-        int n1=userDao.addUser(user);
-        int n2=userDao.updateCapital(tuijianren);
-        if(n1==1 && n2==1){
+    public int register(Users user, String tuijianren) {
+        int n1 = userDao.addUser(user);
+        int n2 = userDao.updateCapital(tuijianren);
+        if (n1 == 1 && n2 == 1) {
             return 1;
-        }else{
+        } else {
             return 0;
         }
     }
@@ -43,8 +44,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int updBalanceByid(Double money,int uid) {
-        return userDao.updBalanceByid(money,uid);
+    public int updBalanceByid(Double money, int uid) {
+        return userDao.updBalanceByid(money, uid);
     }
 
     @Override
@@ -55,16 +56,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public int updTradesByid(int uid) {
         return userDao.updTradesByid(uid);
-
+    }
 
     @Override
-    public int UpdateUser(String phone, double balance,double balanc) {
+    public int UpdateUser(String phone, double balance, double balanc) {
         return userDao.UpdateUser(phone,balance,balanc);
     }
 
     @Override
     public int addtrades(String phone, double amount) {
         return userDao.addtrades(phone,amount);
-
     }
 }
