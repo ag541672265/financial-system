@@ -63,7 +63,7 @@
     <#list gList as g>
     <div class="item">
         <div class="mask"></div>
-        <input type="hidden" name="gId" value="${g.getgRisk()}">
+        <input type="hidden" name="gRisk" value="${g.getgRisk()}">
         <input type="hidden" name="gId" value="${g.getGid()}">
         <div class="nhl">年化盈利率：<span>${g.getgPrice()}</span></div>
         <div class="pic"><img src="images/pro-1.jpg"></div>
