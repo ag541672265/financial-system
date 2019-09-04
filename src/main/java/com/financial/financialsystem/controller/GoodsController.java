@@ -61,13 +61,16 @@ public class GoodsController {
 
     @RequestMapping(value = "/toBuy")
     @ResponseBody
-    public String quer(@RequestParam(value = "gId") Integer gid, Integer type, double money, HttpServletRequest request){
+    public String quer(@RequestParam(value = "gId") Integer gid, Integer type, double jine, HttpServletRequest request){
         HttpSession session=request.getSession();
         Users user=(Users)session.getAttribute("user");
         Integer uid = user.getUid();
         double capital = user.getCapital();
         double balance = user.getBalance();
-        if(service.zhifumoney(uid,gid,type,money,capital,balance)){
+        System.out.println(balance);
+        System.out.println(capital);
+        System.out.println(jine);
+        if(service.zhifumoney(uid,gid,type,jine,capital,balance)){
             System.out.println("xxxxxx");
             return "<h>ok</h>";
         }else{
