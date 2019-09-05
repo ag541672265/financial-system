@@ -96,7 +96,7 @@ public class GoodsServiceImpl implements GoodsService {
                 if(capitalone!=null){
                     if(upugcontact(uid,gid,type,capital+capitalone.getMoney())){
                         System.out.println("修改一条Capital表数据成功");
-                        if(upUBCdata(uid,qian,0)){
+                        if(upUBCdata(uid,balance-qian,0)){
                             System.out.println("user表更改capital成功");
                             return true;
                         }else {
@@ -110,7 +110,7 @@ public class GoodsServiceImpl implements GoodsService {
                 }else{
                     if(addugcontact(uid,gid,type,capital)){
                         System.out.println("添加一条Capital表数据成功");
-                        if(upUBCdata(uid,qian,0)){
+                        if(upUBCdata(uid,balance-qian,0)){
                             System.out.println("user表更改capital成功");
                             return true;
                         }else {
@@ -126,7 +126,7 @@ public class GoodsServiceImpl implements GoodsService {
             }
         }else {
             //这里写直接付钱的方法;不用管capital
-            if(upUBCdata(uid,money,0)){
+            if(upUBCdata(uid,balance-money,0)){
                 System.out.println("没有奖励金，user表更改capital成功");
                 return true;
             }else {

@@ -12,7 +12,9 @@ import com.financial.financialsystem.util.QiniuUtils;
 import com.google.gson.Gson;
 import com.qiniu.http.Response;
 import com.qiniu.storage.model.DefaultPutRet;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
@@ -125,17 +128,38 @@ public class UserController {
         Users user=(Users)session.getAttribute("user");
         double jijin=1000;
         double licai=1000;
-        double zongzichan = user.getBalance()+user.getCapital()+jijin+licai;
+
         if(user.getNickName ()==null){
             model.addAttribute ("nickName","尚未填写用户名");
         }else{
             model.addAttribute ("nickName",user.getNickName ());
         }
+        String phone =user.getPhone ();
+        System.out.println (phone );
+        session.removeAttribute ("user");
+        System.out.println (user );
+        double zongzichan = user.getBalance()+user.getCapital()+jijin+licai;
         model.addAttribute("zongzichan",zongzichan);
         model.addAttribute("jijin",jijin);
         model.addAttribute("licai",licai);
-        request.setAttribute("user",user);
+        session.setAttribute("user",userService.getUserByPhone (phone));
         return "assets";
+    }
+
+    @RequestMapping(value="/addMoney")
+    public String addMoney( double amount,String orderNumber, HttpServletRequest request){
+
+        HttpSession session=request.getSession ();
+        Users users= (Users) session.getAttribute ("user");
+        System.out.println ("进入"+ users.getAccount ());
+        System.out.println (amount );
+        System.out.println (amount );
+        String account =users.getPhone ();
+        int i=userService.addtrades(users.getUid (),orderNumber,amount);
+        int i1=userService.UpdateUser(account,users.getBalance(),amount);
+        System.out.println (i );
+        System.out.println (i1);
+        return "redirect:/toassets";
     }
 
     //修改头像

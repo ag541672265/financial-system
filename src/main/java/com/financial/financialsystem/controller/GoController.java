@@ -125,17 +125,30 @@ public class GoController {
 
 
         if(signVerified) {
-            System.out.println("支付成功");
-            System.out.println (amount );
-            //获取token
-            String tokenKey="token";
-            String tokenValue=(String)redisUtils.get(tokenKey);
-                JSONObject jsonObject=JSONObject.parseObject(tokenValue);
-                String account=jsonObject.getString("phone");
-                Users users=userService.getUserByPhone(account);
-                int i=userService.addtrades(account,amount);
-                int i1=userService.UpdateUser(account,users.getBalance(),amount);
-            return "assets";
+//            System.out.println("支付成功");
+//            System.out.println (amount );
+//            //获取token
+//            String tokenKey="token";
+//            String tokenValue=(String)redisUtils.get(tokenKey);
+//                JSONObject jsonObject=JSONObject.parseObject(tokenValue);
+//                String account=jsonObject.getString("phone");
+//                Users users=userService.getUserByPhone(account);
+//                int i=userService.addtrades(account,amount);
+//                int i1=userService.UpdateUser(account,users.getBalance(),amount);
+            //商户订单号
+            String out_trade_no = new String(request.getParameter("out_trade_no").getBytes("ISO-8859-1"),"UTF-8");
+            //支付宝交易号
+            String trade_no = new String(request.getParameter("trade_no").getBytes("ISO-8859-1"),"UTF-8");
+            //付款金额
+            String total_amount = new String(request.getParameter("total_amount").getBytes("ISO-8859-1"),"UTF-8");
+
+            System.out.println("total_amount====" + total_amount);
+            System.out.println("trade_no====" + trade_no);
+            System.out.println("out_trade_no====" + out_trade_no);
+//            result = "付款成功！";
+            System.out.println("付款成功！");
+
+            return "redirect:addMoney?amount=" + total_amount+"&orderNumber="+out_trade_no;
         }else{
             System.out.println("支付失败");
             return "adad";

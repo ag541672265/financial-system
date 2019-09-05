@@ -36,7 +36,7 @@ public interface UserDao {
     //修改用户金额
     int UpdateUser(String phone,double balance,double balanc);
     //添加充值记录
-    int addtrades(String accFrom,double amount);
+    int addtrades(int accFrom,String orderNumber,double amount);
 
     //查询当前用户余额
     double getBlanceByPhone(@Param("phone")String phone);

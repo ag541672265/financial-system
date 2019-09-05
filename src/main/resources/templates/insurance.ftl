@@ -45,11 +45,11 @@
         <a href="/login" class="topbut-cur">登录</a>
     </#if>
     <nav>
-        <a href="/index">首页</a>
+        <a href="/" class="cur">首页</a>
         <#--链接未完成部分'''-->
-        <a href="/jijin">基金</a>
+        <a href="/toShangCheng">基金</a>
         <a href="/licai">理财</a>
-        <a href="/insurance"  class="cur">保险</a>
+        <a href="/insurance">保险</a>
         <a href="/huijinhong">汇金红</a>
         <#--链接未完成部分...-->
     </nav>
