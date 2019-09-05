@@ -67,7 +67,7 @@
                 <dl>ID：</dl>
                 <span class="mr1">${user.account}</span>
                 <dl>用户名：</dl>
-                <span>${nickName}</span></div>
+                <span>${user.nickName}</span></div>
             <div class="it">
                 <dl>绑定手机号：</dl>
                 <span>${user.phone}</span>
@@ -103,7 +103,7 @@
 								</span>
                     <div class="box-bill-kyje-account fn-clear">
 									<span class="box-bill-foot-account eye-val">
-										${zongzichan}
+										${assets.money}
 									</span>
                         <a title="转入" class="jui-btn jui-btn-blue box-bill-zhuanruLink fn-ml20" href="/toZhiFu"
                            target="_blank"
@@ -154,15 +154,12 @@
         <ul class="box-bill-info   fn-left">
             <li class="box-bill-item">
                 <span class="box-bill-info-title">昨日收益(元)</span>
-
-                <div class="box-bill-info-account eye-val" data-account="0.02"> 0.02</div>
+                <div class="box-bill-info-account eye-val">${assets.yyingli}</div>
             </li>
 
             <li class="box-bill-item">
                 <span class="box-bill-info-title">累计收益(元)</span>
-                <div class="box-bill-info-account  eye-val" data-account="143.41">
-                    143.41
-                </div>
+                <div class="box-bill-info-account  eye-val">${assets.yingliprofit}</div>
             </li>
 
             <li>
@@ -170,7 +167,7 @@
 							基金(元)
 						</span>
                 <div class="box-bill-info-account">
-                    ${jijin}
+                    ${assets.jijin}
                 </div>
             </li>
 
@@ -179,7 +176,7 @@
 							理财(元)
 						</span>
                 <div class="box-bill-info-account">
-                    ${licai}
+                    ${assets.licai}
                 </div>
 
             </li>
