@@ -45,5 +45,7 @@
         INSERT INTO `trades`(`accFrom`, `goodsID`, `orderNumber`, `amount`, `type`, `dealTime`, `comment`)
         VALUES (#{accFrom},#{goodsID},#{orderNumber},#{amount},#{type},now() ,#{comment})
     </insert>
-
+    <select id="queryUSID" resultType="com.financial.financialsystem.entity.Users">
+        select * from users where uid=#{uid}
+    </select>
 </mapper>
