@@ -115,7 +115,7 @@
                             <div id="trialWrap">
                                 <div class="trial-area">
                                     <div class="detail-ensure-head pt10 mb15">
-                                        <a class="company-logo fr" 
+                                        <a class="company-logo fr"
                                            href="#">
                                             <img src="insurancePro_one/中国太平洋财产保险股份有限公司.png" title="中国太平洋财产保险股份有限公司"
                                                  alt="中国太平洋财产保险股份有限公司" height="45">
@@ -389,46 +389,45 @@
 
                                             <strong>
                                                 <a <#---->
-                                                   href="#"
-                                                   rel="nofollow">&nbsp;产品条款&nbsp;</a>
+                                                        href="#"
+                                                        rel="nofollow">&nbsp;产品条款&nbsp;</a>
                                             </strong>
 
 
                                             <strong>
                                                 <a <#---->
-                                                   href="#"
-                                                   rel="nofollow">&nbsp;保险金赔付比例&nbsp;</a>
+                                                        href="#"
+                                                        rel="nofollow">&nbsp;保险金赔付比例&nbsp;</a>
                                             </strong>
 
 
                                             <strong>
                                                 <a <#---->
-                                                   href="#"
-                                                   rel="nofollow">&nbsp;客户告知书&nbsp;</a>
+                                                        href="#"
+                                                        rel="nofollow">&nbsp;客户告知书&nbsp;</a>
                                             </strong>
 
 
                                             <strong>
                                                 <a <#---->
-                                                   href="#"
-                                                   rel="nofollow">&nbsp;保单样本&nbsp;</a>
+                                                        href="#"
+                                                        rel="nofollow">&nbsp;保单样本&nbsp;</a>
                                             </strong>
 
 
                                             <strong>
                                                 <a <#---->
-                                                   href="#"
-                                                   rel="nofollow">&nbsp;查看费率表&nbsp;</a>
+                                                        href="#"
+                                                        rel="nofollow">&nbsp;查看费率表&nbsp;</a>
                                             </strong>
 
 
                                             <strong>
 
                                                 <a <#---->
-                                                   href="#"
-                                                   rel="nofollow">&nbsp;特别约定&nbsp;</a>
+                                                        href="#"
+                                                        rel="nofollow">&nbsp;特别约定&nbsp;</a>
                                             </strong>
-
 
 
                                         </li>
@@ -448,7 +447,7 @@
 
                                         <li class="lh22 entry-notice-content">
                                             本产品<a href="#"
-                                                  <#---->><strong>住院医疗责任给付比例</strong></a>以保单约定为准。
+                                                    <#---->><strong>住院医疗责任给付比例</strong></a>以保单约定为准。
                                         </li>
 
 
@@ -1315,45 +1314,45 @@
                                     投保前请您仔细阅读：
 
                                     <strong>
-                                        <a 
-                                           href="https://www.huize.com/product/dialog/clause-1626-1905.html"
-                                           rel="nofollow">&nbsp;产品条款&nbsp;</a>
+                                        <a
+                                                href="https://www.huize.com/product/dialog/clause-1626-1905.html"
+                                                rel="nofollow">&nbsp;产品条款&nbsp;</a>
                                     </strong>
 
 
                                     <strong>
-                                        <a 
-                                           href="https://www.huize.com/product/dialog/scale-1626-1905.html"
-                                           rel="nofollow">&nbsp;保险金赔付比例&nbsp;</a>
+                                        <a
+                                                href="https://www.huize.com/product/dialog/scale-1626-1905.html"
+                                                rel="nofollow">&nbsp;保险金赔付比例&nbsp;</a>
                                     </strong>
 
 
                                     <strong>
-                                        <a 
-                                           href="https://images.hzins.com/web/%E5%AE%A2%E6%88%B7%E5%91%8A%E7%9F%A5%E4%B9%A6.pdf"
-                                           rel="nofollow">&nbsp;客户告知书&nbsp;</a>
+                                        <a
+                                                href="https://images.hzins.com/web/%E5%AE%A2%E6%88%B7%E5%91%8A%E7%9F%A5%E4%B9%A6.pdf"
+                                                rel="nofollow">&nbsp;客户告知书&nbsp;</a>
                                     </strong>
 
 
                                     <strong>
-                                        <a 
-                                           href="http://files.huizecdn.com/file1/M00/17/F7/CgUA3Fy1sbiAakk8AA-Z5EPV4XY260.pdf"
-                                           rel="nofollow">&nbsp;保单样本&nbsp;</a>
+                                        <a
+                                                href="http://files.huizecdn.com/file1/M00/17/F7/CgUA3Fy1sbiAakk8AA-Z5EPV4XY260.pdf"
+                                                rel="nofollow">&nbsp;保单样本&nbsp;</a>
                                     </strong>
 
 
                                     <strong>
-                                        <a 
-                                           href="http://files.huizecdn.com/file1/M00/17/6D/wKgls1ngFImAYnxtAADD361TJaQ452.pdf"
-                                           rel="nofollow">&nbsp;查看费率表&nbsp;</a>
+                                        <a
+                                                href="http://files.huizecdn.com/file1/M00/17/6D/wKgls1ngFImAYnxtAADD361TJaQ452.pdf"
+                                                rel="nofollow">&nbsp;查看费率表&nbsp;</a>
                                     </strong>
 
 
                                     <strong>
 
-                                        <a 
-                                           href="https://www.huize.com/product/dialog/memo-1626-1905.html"
-                                           rel="nofollow">&nbsp;特别约定&nbsp;</a>
+                                        <a
+                                                href="https://www.huize.com/product/dialog/memo-1626-1905.html"
+                                                rel="nofollow">&nbsp;特别约定&nbsp;</a>
                                     </strong>
                                     <!-- <strong>&lt;p&gt;
                         &lt;br /&gt;
@@ -1485,7 +1484,7 @@
 
                                 <li class="lh22 entry-notice-content">
                                     本产品<a href="http://www.huize.com/product/dialog/memo-1626-0.html"
-                                          ><strong>住院医疗责任给付比例</strong></a>以保单约定为准。
+                                    ><strong>住院医疗责任给付比例</strong></a>以保单约定为准。
                                 </li>
 
 
@@ -1636,11 +1635,11 @@
                     <div class="detail-product-faq pr30">
                         <div class="detail-product-faq-meta mb20 fc6">
                             <strong>有任何问题您都可立即</strong><a class="hz-button hz-button-primary ml5 fn-hide"
-                                                          href="javascript:;"  id="contactkefu"
+                                                          href="javascript:;" id="contactkefu"
                                                           rel="nofollow">联系在线客服</a>
                             <a class="hz-button bgf8"
                                href="javascript:;"
-                                id="onlinekefu" rel="nofollow">在线咨询</a>
+                               id="onlinekefu" rel="nofollow">在线咨询</a>
                         </div>
 
                         <dl class="detail-product-faq-list ml30">
@@ -1665,7 +1664,7 @@
                             <dd class="product-faq-reply">
                                 <i class="ico iconfont"></i>投保完成后,电子保单会直接发送至您邮箱,为保证您的合法权益,您可在投保成功后的次日拨打太平洋保险公司客服电话95500或通过访问<a
                                         href="http://service1.cpic.com.cn/policy/searchInit"
-                                        ><strong><span style="color:#000000;">官网</span></strong></a>对您所投保保单的相关信息进行查询。
+                                ><strong><span style="color:#000000;">官网</span></strong></a>对您所投保保单的相关信息进行查询。
                             </dd>
 
                         </dl>
@@ -1724,7 +1723,7 @@
                                 </div>
                             </div>
                             <div class="comment-tag-right tac">
-                                <a class="hz-button hz-button-primary hz-button-block" 
+                                <a class="hz-button hz-button-primary hz-button-block"
                                    href="https://i.huize.com/#orders/feedback/1" rel="nofollow">撰写评论</a>
                                 <!--?productId=data.security.productId-->
                             </div>
@@ -2300,7 +2299,7 @@
 
                                 </ul>
 
-                                <div class="tar"><a class="primary-link" 
+                                <div class="tar"><a class="primary-link"
                                                     href="https://www.huize.com/product/prodreview/showlist1626-1.html?type=0"
                                                     title="查看全部评论">查看全部评论</a></div>
 
@@ -2861,7 +2860,7 @@
 
                                 </ul>
 
-                                <div class="tar"><a class="primary-link" 
+                                <div class="tar"><a class="primary-link"
                                                     href="https://www.huize.com/product/prodreview/showlist1626-1.html?type=0"
                                                     title="查看全部评论">查看全部评论</a></div>
 
@@ -3433,7 +3432,7 @@
 
                                 </ul>
 
-                                <div class="tar"><a class="primary-link" 
+                                <div class="tar"><a class="primary-link"
                                                     href="https://www.huize.com/product/prodreview/showlist1626-1.html?type=0"
                                                     title="查看全部评论">查看全部评论</a></div>
 
@@ -3525,45 +3524,11 @@
                     <!--sidebar-service end-->
 
 
-                    <div class="sidebar-billing fn-hide">
-                        <img src="insurancePro_one/hzapp.png" width="120" alt="">
-                        <p class="mt10">扫一下，APP投保更优惠</p>
-                    </div>
+
                     <!--sidebar-billing end-->
                 </div>
                 <!--detail-sidebar-info end-->
-                <!--置顶显示-->
-                <div class="sidebar-product-info">
-                    <p><strong>保费</strong></p>
 
-                    <div class="mt15 mb15 f18" preminum=""><span class="product-price">¥<i class="preminum-result">264.00</i></span>
-                    </div>
-                    <div salepromotionlist="">
-
-
-                    </div>
-                    <!-- 2家保新页面 1家保老页面，各加了埋点-->
-
-                    <div class="mt20">
-
-                        <p class="tac"><a class="primary-link yuyue-kefu f16" href="javascript:;" rel="nofollow"
-                                          data-custom-track="PCXiangQingYuYueRa"
-                                          data-custom-yuyuetj="PCTiJiaoXiangQingYuYueRa">对产品有疑问？</a></p>
-                        <p class="mt10"><a
-                                    class="hz-button hz-button-primary yuyue-kefu hz-button-large hz-button-block"
-                                    href="javascript:;" rel="nofollow" data-custom-track="PCXiangQingYuYueRa"
-                                    data-custom-yuyuetj="PCTiJiaoXiangQingYuYueRa">预约咨询</a></p>
-
-                        <p class="mt20"><a class="hz-button hz-button-secondary hz-button-large hz-button-block "
-                                           href="javascript:;" insuredstart="" rel="nofollow"
-                                           data-custom-track="PCXiangQingLiJiTouBaoaR">立即投保</a></p>
-                    </div>
-
-
-                </div>
-                <!-- 右侧旅游险广告位 -->
-                <div id="rightAds" class="fn-hide">
-                </div>
                 <!--sidebar-product-info end-->
 
 
@@ -3582,162 +3547,6 @@
     window['__userStatus'] = {"leaderDetail": {}, "isLogin": false};
 </script>
 
-<script id="tpl-tickets-list" type="x-tmpl-underscore">
-<div class="coupon-dropbox">
-	<a href="javascript:;" class="close-button">关闭</a>
-	<ul class="hz-coupon-list clearfix">
-    <% _.each(data, function(coupon){ %>
-		<li class="hz-coupon-item <%if(coupon.isReceived){%>hz-coupon-item-off<%}%>">
-			<div class="left-part">
-				<p class="t1">￥<span><%=coupon.reduce/100%></span></p>
-				<p class="t2"><%= coupon.minAmount > 0 ? '满' + coupon.minAmount/100 + '可用' : '无门槛' %></p>
-			</div>
-			<div class="right-part">
-                <p class="coupon-msg"><%=coupon.describe %></p>
-            <% if(coupon.isReceived) {
-                    if(coupon.showProduct) { %>
-                <a href="javascript:;" class="hz-button action-button js-coupon" data-activity-id="<%=coupon.activityId%>">可用商品</a>
-            <%     }
-                } else { %>
-                <a href="javascript:;" class="hz-button action-button js-coupon" data-id="<%=coupon.id%>">点击领取</a>
-            <% } %>
-                <time><%=coupon.validTime.substr(0, 10).replace(/-/g, '.') + ' - ' + coupon.invalidTime.substr(0, 10).replace(/-/g, '.') %></time>
-			</div>
-		</li>
-    <% }) %>
-	</ul>
-</div>
-
-</script>
-
-<script id="tpl-hz-agreement" type="x-tmpl-underscore">
-	<div class="agreement-box">
-		<p>
-			<i>尊敬的会员：</i><br/>
-			欢迎注册慧择网，在使用前请您仔细阅读会员协议。注册即视为同意《慧择网会员协议》，则意味着您已接受并自愿遵守本协议。
-		</p>
-		<p>
-			<b>一、会员权利和义务</b><br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、会员在遵守会员协议的前提下，依法享有本网站提供的服务，有权对本网站的服务进行监督、批评和指导，网站欢迎会员提出服务改进建议，并会以勤勉态度为会员提供服务。会员对于本网站提供的服务有任何疑问，应及时通知本网站。
-		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、会员应当按照本协议和网站的有关管理规则提交注册信息，并保证注册信息的真实性和完整性。如发现会员账号中含有不雅文字或不恰当名称的，本系统保留取消其会员资格的权利。
-			<br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1)请勿以党和国家领导人或其他社会名人的真实姓名、字号、艺名、笔名注册；
-			<br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2)请勿以国家机构或其他机构的名称注册；
-			<br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (3)请勿注册不文明、不健康名字，或包含歧视、侮辱、猥亵类词语的账号；
-			<br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(4)请勿注册易产生歧义、引起他人误解或其它不符合法律规定的账号。
-		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3、会员有义务保证密码和账号的安全，不得以任何形式擅自转让或授权他人使用自己在本网站的会员账号，会员对其在本网站注册的会员名和密码、账户资金及其它保单资料的安全性负全部责任，并对以其会员名进行的所有活动和事件负全部责任。如会员发现账号遭到未授权的使用或发生其他任何安全问题，应立即修改账号密码并妥善保管，如有必要，请通知网站服务人员。
-		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4、会员通过本网站进行商务活动所引起的一切法律纠纷均与本网站无关。因会员违反有关法律、法规或本协议的有关规定而给本网站或者第三方造成损失的，会员同意赔偿因此而导致的全部损失，包括但不限于实际损失、可预期利益、因此发生的诉讼费、律师费、赔偿金等。
-		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5、会员在本网站实施了违法行为，导致第三方投诉（包括但不限于第三方以发函等形式指控本网站侵权，对本网站提起诉讼、仲裁，或使本网站面临相关主管机关的审查或质询)本网站有权先暂停会员对本网站的使用。会员应在收到本网站通知后，以自己名义出面与第三方协商、应诉或接受相关主管机关审查或质询，并承担所有费用，并赔偿因此给本网站造成的全部损失。
-		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6、会员不得通过任何方式攻击、干扰或试图攻击、干扰本网站的正常运作及有关活动，也不得帮助或教唆任何第三方从事上述活动。
-		</p>
-		<p>
-			<b>二、慧择网权利义务</b>
-		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、本网站在线投保系统已嵌入承保保险公司的核保规则，所有核保工作将由系统自动进行，会员提交的投保资料将自动转入保险公司核心业务系统，若无特殊情况，将不会与会员进行二次确认信息。
-		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、本网站不对外公开或向第三方提供会员的注册资料及会员在使用网络服务时存储在本系统的非公开内容，但下列情况除外：
-		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1)事先获得会员的明确授权；
-		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2)根据有关的法律法规要求；
-		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3)按照相关政府主管部门的要求；
-		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(4)为维护社会公众的利益。
-		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3、本网站含有与其他网站的链接。本网站与链接的网站有合作关系，但并不能控制这些网站及其所提供的资源，所以本网站对链接网站上的内容、广告、服务、产品信息的真实有效性不负责任，并且对因链接网站上的内容、广告、服务、产品信息的失实而造成的损失不负任何法律责任。
-		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4、对于系统发生故障影响到本网站的正常运行，本网站承诺及时处理进行修复。
-		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5、本网站拥有对本协议条款的解释权。会员对服务或本协议条款的任何部分之意见及建议可通过客户服务部门与本网站联系。
-		</p>
-		<p>
-			<b>三、版权声明</b>
-		</p>
-		<p>
-			本网站特有的标识、版面设计、编排方式等版权均属本网站享有，未经本网站许可，不得任意复制或转载。
-		</p>
-		<p>
-			<b>四、协议的变更、解除和终止</b>
-		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、变更
-		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本网站可以根据客观情况的变化随时进行业务性调整或产品性调整，并变更本会员协议，变更后的本会员协议将会在本网站上重新公布。会员可以选择继续使用调整后的业务或产品，但是如果会员对变更后的会员协议持有不同意见，可以选择退出本网站，但本网站对此不承担任何法律责任和费用补偿。如果会员继续选择享用本网站，则视为会员已经完全接受本协议及其修改。
-		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、解除和终止
-		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如发生下列任何一种情形，本网站有权随时中断或终止向会员提供服务而无需通知该会员：
-		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（1）会员提供的个人资料不真实；
-		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）会员违反法律或者本协议及其修改文本的规定。
-		</p>
-		<p>
-			<b>五、不可抗力</b>
-		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、本协议是指协议双方不能合理控制、不可预见或即使预见亦无法避免的事件，该事件使任何一方根据本协议履行其全部或部分义务已不可能。该事件包括但不限于政府行为、地震、台风、洪水、火灾或其它天灾、战争或任何其它类似事件。
-			鉴于互联网之特殊性质，不可抗力亦包括下列影响互联网正常运行之情形：1）黑客攻击；2）电信部门技术调整导致之重大影响；3）病毒侵袭等。
-		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、本网站如遭受不可抗力事件，有权暂停或终止服务，不视为违约。在不可抗力事件影响结束后，应当继续按本协议履行其义务。
-		</p>
-		<p>
-			<b>六、法律适用及争议解决</b>
-		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、本协议的订立、生效、解释、执行、管辖、争议的解决均适用中华人民共和国法律。
-		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、因本协议引起的或与本协议有关的任何争议，应尽最大诚意进行友好协商，如果不能协商一致，可向本网站所属公司所在地人民法院提起诉讼。
-		</p>
-		<p>
-			<b>七、附则</b>
-		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1、本网站未行使或执行本会员协议任何权利或规定，不构成对前述权利或权益之放弃。
-		</p>
-		<p>
-			&nbsp;&nbsp;&nbsp;&nbsp;2、如本会员协议中的任何条款无论因何种原因完全或部分无效或不具有执行力，本会员协议的其余条款仍应有效并且有约束力。
-		</p>
-		<p>
-		</p>
-		<p>
-			本协议解释权及修订权归深圳市慧择保险经纪有限公司所有。
-		</p>
-	</div>
-
-</script>
-
-
 <#include "./page_foot.ftl" />
 
 <script type="text/javascript">
@@ -3749,7 +3558,7 @@
             $("#detailTabs .active").removeClass("active");
             // detail-pane hidden
             $("#detialTabContent .detail-pane.hidden.show").removeClass("show");
-            $("#detialTabContent [data-tab='"+this.getAttribute("data-tab")+"']").addClass("show");
+            $("#detialTabContent [data-tab='" + this.getAttribute("data-tab") + "']").addClass("show");
 
             // alert(3)
             $(this).addClass("active");
@@ -3760,7 +3569,7 @@
             $("#reviewTable .active").removeClass("active");
             // detail-pane hidden
             $("#reviewTableContent .show").removeClass("show");
-            $("#reviewTableContent [data-tab='"+this.getAttribute("data-tab")+"']").addClass("show");
+            $("#reviewTableContent [data-tab='" + this.getAttribute("data-tab") + "']").addClass("show");
 
             // alert(3)
             $(this).addClass("active");
@@ -3768,5 +3577,85 @@
         })
     })
 </script>
+<#--幕布s-->
+<div class="layui-layer-shade hidden" id="layui-layer-shade1" times="1"
+     style="z-index:19891014; background-color:#000; opacity:0.3; filter:alpha(opacity=30);"></div>
+<#--幕布e-->
+<#--咨询框s-->
+<div class="layui-layer layer-anim layui-layer-page hidden" id="layui-layer1" type="page" times="1" showtime="0"
+     contype="string" style="z-index: 19891015; width: 530px; top: 150.0px; left: 409.5px;">
+    <div id="sp" class="layui-layer-content">
+        <div class="detail-yuyue-form pt45 tac"><p class="f18 fc3">对产品感兴趣？</p>
+            <p class="f14 fc6 mt15">您可以留下您的联系方式，预约我们的专家顾问为您讲解产品</p>
+            <div class="mt20 mb30 fc3"><input id="yuyueUserName" class="form-input mr20" placeholder="您的称呼"><input
+                        id="yuyueMobile" class="form-input" placeholder="您的手机"></div>
+        </div>
+        <span class="layui-layer-setwin"><a class="layui-layer-ico layui-layer-close layui-layer-close2"
+                                            href="javascript:;"></a></span>
+        <div class="layui-layer-btn"><a class="layui-layer-btn1">提交预约</a></div>
+    </div>
+    <div style="height: 50px;text-align: center;width: 400px;color: #999;margin: -20px auto 0;position: relative;     z-index: 1000;">
+        您的信息仅供预约咨询所用，不泄露至任何第三方或用于其他用途。
+    </div>
+</div>
+<#--咨询框e-->
+<#--上面两个的JavaScript-s-->
+<script type="text/javascript">
+    $(function () {
+        $("a.yuyue-kefu.hz-button.hz-button-primary.hz-button-large").click(function () {
+            $("#layui-layer1").removeClass("hidden");
+            $("#layui-layer-shade1").removeClass("hidden");
+        });
+        $("#sp span.layui-layer-setwin").click(function () {
+            $("#layui-layer1").addClass("hidden");
+            $("#layui-layer-shade1").addClass("hidden");
+            $("#sp input").val("");
+        });
+        $("#sp div.layui-layer-btn a").click(function () {
+            $("#layui-layer1").addClass("hidden");
+            $("#layui-layer-shade1").addClass("hidden");
+            $("#sp input").val("");
+        });
+    })
+</script>
+<#--上面两个的JavaScript-e-->
+<#--确认投保-s-->
+<#--确认投保框-s-->
+<div class="layui-layer layer-anim layui-layer-page hidden" id="layui-layer11" type="page" times="1" showtime="0"
+     contype="string" style="z-index: 19891015; width: 530px; top: 150.0px; left: 409.5px;">
+    <div id="sp1" class="layui-layer-content">
+        <div class="detail-yuyue-form pt45 tac"><p class="f18 fc3">请再次输入用户名密码确认购买</p>
+
+            <div class="mt20 mb30 fc3"><input id="yuyueUserName1" class="form-input mr20" placeholder="您的手机号"><input
+                        id="yuyueMobile1" class="form-input" placeholder="您的登陆密码"></div>
+        </div>
+        <span class="layui-layer-setwin"><a class="layui-layer-ico layui-layer-close layui-layer-close2"
+                                            href="javascript:;"></a></span>
+        <div class="layui-layer-btn"><a class="layui-layer-btn1" style="background-color: #3e6fc4;border-color: #3e6fc4">确认购买</a></div>
+    </div>
+
+</div>
+<#--确认投保框-e-->
+<#--投保的JavaScript-s-->
+<script type="text/javascript">
+    $(function () {
+        $("a.facebook-collection-click-toubao.hz-button.hz-button-secondary.hz-button-large").click(function () {
+            $("#layui-layer11").removeClass("hidden");
+            $("#layui-layer-shade1").removeClass("hidden");
+        });
+        $("#sp1 span.layui-layer-setwin").click(function () {
+            $("#layui-layer11").addClass("hidden");
+            $("#layui-layer-shade1").addClass("hidden");
+            $("#sp input").val("");
+        });
+        $("#sp1 div.layui-layer-btn a").click(function () {
+            $("#layui-layer11").addClass("hidden");
+            $("#layui-layer-shade1").addClass("hidden");
+            $("#sp input").val("");
+        });
+    })
+</script>
+<#--投保的JavaScript-e-->
+<#--确认投保-e-->
 </body>
 </html>
