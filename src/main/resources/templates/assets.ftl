@@ -78,6 +78,9 @@
         <div class="nav">
             <a href="/detail" class="l"><i class="icon-0423"></i><span>账户设置</span></a>
         </div>
+        <div>
+            <a href="/chamezongjijin">查看我自己的基金</a>
+        </div>
 
     </div>
 

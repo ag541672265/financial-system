@@ -30,7 +30,6 @@ public class FundsController {
     JaxWsProxyFactoryBean jaxWsProxyFactoryBean = new JaxWsProxyFactoryBean ( );
 
     @RequestMapping("/chajijin")
-    @ResponseBody
     public String chajijin(Integer fid) {
         try {
 
@@ -44,16 +43,16 @@ public class FundsController {
             // 调用代理接口的方法调用并返回结果
             Funds funds = ms.queryjijin (fid);
             System.out.println (funds.getFname ( ));
+            return "detailsfunds";
         } catch (Exception e) {
             e.printStackTrace ( );
         }
-        return "<h>好了</h>";
+        return "/";
     }
 
     @RequestMapping("/chaalljijin")
     public String chaalljijin(Model model) {
         try {
-
             // 设置代理地址
             jaxWsProxyFactoryBean.setAddress (address);
             // 设置接口类型
@@ -65,7 +64,7 @@ public class FundsController {
             List<Funds> fundsList = ms.queryalljijin ( );
             for (Funds fs : fundsList) { System.out.println (fs.getFname ( )); }
             model.addAttribute("fundsList",fundsList);
-            return "funds";
+            return "allfunds";
         } catch (Exception e) {
             e.printStackTrace ( );
         }
@@ -73,8 +72,7 @@ public class FundsController {
     }
 
     @RequestMapping("/chamezongjijin")
-    @ResponseBody
-    public String chamezongjijin(Integer uid) {
+    public String chamezongjijin(Model model,HttpServletRequest request) {
         try {
 
             // 设置代理地址
@@ -85,16 +83,25 @@ public class FundsController {
             MessagesService ms = (MessagesService) jaxWsProxyFactoryBean.create ( );
             // 数据准备
             // 调用代理接口的方法调用并返回结果
+
+            HttpSession session=request.getSession();
+            Users user=(Users)session.getAttribute("user");
+            Integer uid = user.getUid();
             List<Userfund> result = ms.querymejijin (uid);
+            model.addAttribute("fundsList",result);
+            return "privatefunds";
+            /*
+            //算我总共有多少钱的基金
             double money = 0;
             for (Userfund uf : result) {
                 money += uf.getMoney ( );
                 System.out.println (money);
             }
+            */
         } catch (Exception e) {
             e.printStackTrace ( );
         }
-        return "<h>好了</h>";
+        return "/";
     }
 
     @RequestMapping("/mairujijin")
@@ -137,8 +144,7 @@ public class FundsController {
     }
 
     @RequestMapping("/maichujijin")
-    @ResponseBody
-    public String maichujijin(Integer uid, Integer fid, double money) {
+    public String maichujijin(Integer fid, double money,HttpServletRequest request) {
         try {
 
             // 设置代理地址
@@ -149,14 +155,19 @@ public class FundsController {
             MessagesService ms = (MessagesService) jaxWsProxyFactoryBean.create ( );
             // 数据准备
             // 调用代理接口的方法调用并返回结果
+
+            HttpSession session=request.getSession();
+            Users user=(Users)session.getAttribute("user");
+            Integer uid = user.getUid();
             boolean result = ms.selljijin (uid, fid, money);
             if (result) {
                 System.out.println ("卖出成功");
+                return "/chamezongjijin";
             }
         } catch (Exception e) {
             e.printStackTrace ( );
         }
-        return "<h>好了</h>";
+        return "/";
     }
 
 
