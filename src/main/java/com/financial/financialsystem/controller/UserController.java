@@ -3,7 +3,10 @@ package com.financial.financialsystem.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.financial.financialsystem.entity.Assets;
 import com.financial.financialsystem.entity.Users;
+import com.financial.financialsystem.services.FundService;
+import com.financial.financialsystem.services.GoodsService;
 import com.financial.financialsystem.services.QiniuService;
 import com.financial.financialsystem.services.UserService;
 import com.financial.financialsystem.util.CodeUtils;
@@ -38,6 +41,10 @@ public class UserController {
     private QiniuUtils qiniuUtils;
     @Autowired
     private QiniuService qiniuService;
+    @Resource
+    private FundService fundService;
+    @Resource
+    private GoodsService goodsService;
 
 
     //异步查重用户名
@@ -116,27 +123,55 @@ public class UserController {
         }
     }
 
-
+    /*Assets表
+uid 用户编号
+balance  用户余额
+capital  用户的奖励金剩余
+jijin  用户的基金总数
+licai 用户的理财金总数
+yjijin  用户昨日基金总收益
+ylicai  用户昨日理财总收益
+jijinprofit  用户的基金总收益
+licaiprofit  用户的理财总收益
+     */
     //个人页面查看，可看自己的资产，交易记录等
     //进入资产界面
     @RequestMapping("/toassets")
     public String toassets(HttpServletRequest request,Model model){
         HttpSession session=request.getSession();
         Users user=(Users)session.getAttribute("user");
-        double jijin=1000;
+        Integer uid = user.getUid();
+        Assets assets = new Assets();
+        assets.setUid(user.getUid());
+        assets.setBalance(user.getBalance());
+        assets.setCapital(user.getCapital());
+        double jijin=fundService.zongjijin(user.getUid(),1);
+        System.out.println(jijin);
+        assets.setJijin(jijin);
         double licai=1000;
-        double zongzichan = user.getBalance()+user.getCapital()+jijin+licai;
+        assets.setLicai(licai);
+        double yjijin =fundService.yesterdayUTP(uid,7);
+        double ylicai=0;
+        assets.setYjijin(yjijin);
+        assets.setYlicai(ylicai);
+        assets.setYyingli(yjijin+ylicai);
+        double jijinprofit =fundService.zongjijin(user.getUid(),0);
+        double licaiprofit =0;
+        assets.setJijinprofit(jijinprofit);
+        assets.setLicaiprofit(licaiprofit);
+        assets.setYingliprofit(jijinprofit+licaiprofit);
+        assets.setMoney(user.getBalance()+user.getCapital()+jijin+licai);
+        user = goodsService.queryUSID(uid);
         if(user.getNickName ()==null){
-            model.addAttribute ("nickName","尚未填写用户名");
-        }else{
-            model.addAttribute ("nickName",user.getNickName ());
+            user.setNickName("尚未填写用户名");
         }
-        model.addAttribute("zongzichan",zongzichan);
-        model.addAttribute("jijin",jijin);
-        model.addAttribute("licai",licai);
-        request.setAttribute("user",user);
+        request.getSession().setAttribute("user",user);
+        request.getSession().setAttribute("assets",assets);
         return "assets";
     }
+
+
+
 
     //修改头像
     @PostMapping("/addContent")

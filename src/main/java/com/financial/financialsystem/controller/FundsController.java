@@ -23,7 +23,7 @@ public class FundsController {
     private GoodsService goodsService;
 
     // 接口地址
-    String address = "http://localhost:9999/service/webservice?wsdl";
+    String address = "http://129.211.129.219:9999/service/webservice?wsdl";
     // 代理工厂
     JaxWsProxyFactoryBean jaxWsProxyFactoryBean = new JaxWsProxyFactoryBean ();
 
@@ -130,7 +130,7 @@ public class FundsController {
                     if (ms.buyjijin (uid, fid, money)) {
                         System.out.println("基金购买成功");
                         request.getSession().setAttribute("user",goodsService.queryUSID(uid));
-                        return "redirect:/chaalljijin";
+                        return "redirect:/toassets";
                     }
                 }else{
                     System.out.println("基金购买失败");
@@ -163,7 +163,13 @@ public class FundsController {
             boolean result = ms.selljijin (uid, fid, money);
             if (result) {
                 System.out.println ("卖出成功");
-                return "/chamezongjijin";
+                if(goodsService.upUBCdata(uid,user.getBalance()+money,user.getCapital())){
+                    request.getSession().setAttribute("user",goodsService.queryUSID(uid));
+                    return "redirect:/toassets";
+                }else {
+                    return "/";
+                }
+
             }
         } catch (Exception e) {
             e.printStackTrace ( );

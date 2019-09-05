@@ -20,7 +20,7 @@
                 <input type="hidden" name="fid" value="${flist.getFid()}">
                 <input type="hidden" name="type" value="9">
                 <input type="text" name="money">
-                <input type="submit" value="提交">
+                <input type="submit" value="购买">
             </form>
         </td>
     </tr>

@@ -28,7 +28,7 @@
                     <form action="/maichujijin"  method="post">
                         <input type="hidden" name="fid" value="${flist.getFid()}">
                         <input type="text" name="money">
-                        <input type="submit" value="提交">
+                        <input type="submit" value="赎回">
                     </form>
                 </td>
             </tr>
