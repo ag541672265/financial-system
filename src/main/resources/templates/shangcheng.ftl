@@ -88,7 +88,7 @@
     </select>
     <div class="txt" style="margin-top:15px;">购买金额：</div>
     <input type="hidden" name="money" value="${money?c}">
-    <input type="hidden" name="type" value="1">
+    <input type="hidden" name="type" value="11">
     <input type="text" name="jine" required placeholder="请输入您的购买金额" autocomplete="off" class="input">
     <div class="txt" style="margin-top:15px;">投资意向情况说明：</div>
     <textarea name="comment"  placeholder="请输入投资意向情况说明" class="textarea"></textarea>

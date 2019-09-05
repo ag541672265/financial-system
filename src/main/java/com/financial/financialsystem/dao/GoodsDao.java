@@ -1,6 +1,7 @@
 package com.financial.financialsystem.dao;
 
 import com.financial.financialsystem.entity.Goods;
+import com.financial.financialsystem.entity.Users;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -22,8 +23,8 @@ public interface GoodsDao {
 
     int addGoods(Goods goods);
 
-
-
+    //查user表
+    Users queryUSID(Integer uid);
     //增加一条用户代金券商品关系
     int addugcontact(Integer uid,Integer gid,Integer states,double money);
     //修改一条用户代金券商品关系

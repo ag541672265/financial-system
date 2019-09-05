@@ -6,6 +6,7 @@ import com.financial.financialsystem.dao.GoodsDao;
 import com.financial.financialsystem.dao.UserDao;
 import com.financial.financialsystem.entity.Capital;
 import com.financial.financialsystem.entity.Trades;
+import com.financial.financialsystem.entity.Users;
 import com.financial.financialsystem.services.GoodsService;
 import org.apache.ibatis.annotations.Param;
 import com.financial.financialsystem.services.UserService;
@@ -22,33 +23,29 @@ import java.util.List;
 
 @Service
 public class GoodsServiceImpl implements GoodsService {
-
     @Resource
-    private GoodsDao dao;
+    private GoodsDao goodsDao;
 
     @Override
     public List<Goods> getAll() {
-        return dao.getAll();
+        return goodsDao.getAll();
     }
 
     @Override
     public Goods getById(Integer gid) {
-        return dao.getById(gid);
+        return goodsDao.getById(gid);
     }
 
     @Override
     public int delGoodsById(Integer gid) {
-        return dao.delGoodsById(gid);
+        return goodsDao.delGoodsById(gid);
     }
 
     @Override
     public int addGoods(Goods goods) {
-        return dao.addGoods(goods);
+        return goodsDao.addGoods(goods);
     }
-    @Resource
-    private GoodsDao goodsDao;
-    @Resource
-    private UserService userService;
+
     @Override
     @Transactional
     public boolean zhifumoney(Integer uid, Integer gid,Integer type,double money,double capital,double balance) {
@@ -58,20 +55,22 @@ public class GoodsServiceImpl implements GoodsService {
             System.out.println("订单添加失败");
             return false;
         }
-        //这里先没写，需要一个添加订单的方法。
         Capital capitalone=queryugcontact(uid,gid,type);//查看这个人以前有没有用代金券买这个商品
+
+        if(type==11){//理财
+
+        }if(type==9){//基金
+
+        }if(type==5){//保险
+
+        }
+
         if(capital!=0){
             if(capital>=money){//如果代金券比你要付的钱多或者一样，就只用代金券
                 if(capitalone!=null){
                     if(upugcontact(uid,gid,type,money+capitalone.getMoney())){
                         System.out.println("修改一条Capital表数据成功");
-                        if(upUBCdata(uid,balance,capital-money)){
-                            System.out.println("user表更改capital成功");
-                            return true;
-                        }else {
-                            System.out.println("user表更改capital失败");
-                            return false;
-                        }
+                        return upUBCdata(uid,balance,capital-money);
                     }else{
                         System.out.println("更改capital表失败");
                         return false;
@@ -79,13 +78,7 @@ public class GoodsServiceImpl implements GoodsService {
                 }else{
                     if(addugcontact(uid,gid,type,money)){
                         System.out.println("添加一条Capital表数据成功");
-                        if(upUBCdata(uid,balance,capital-money)){
-                            System.out.println("user表更改capital成功");
-                            return true;
-                        }else {
-                            System.out.println("user表更改capital失败");
-                            return false;
-                        }
+                        return upUBCdata(uid,balance,capital-money);
                     }else{
                         System.out.println("添加capital表失败");
                         return false;
@@ -96,13 +89,7 @@ public class GoodsServiceImpl implements GoodsService {
                 if(capitalone!=null){
                     if(upugcontact(uid,gid,type,capital+capitalone.getMoney())){
                         System.out.println("修改一条Capital表数据成功");
-                        if(upUBCdata(uid,qian,0)){
-                            System.out.println("user表更改capital成功");
-                            return true;
-                        }else {
-                            System.out.println("user表更改capital失败");
-                            return false;
-                        }
+                        return upUBCdata(uid,balance-qian,0);
                     }else{
                         System.out.println("更改capital表失败");
                         return false;
@@ -110,13 +97,7 @@ public class GoodsServiceImpl implements GoodsService {
                 }else{
                     if(addugcontact(uid,gid,type,capital)){
                         System.out.println("添加一条Capital表数据成功");
-                        if(upUBCdata(uid,qian,0)){
-                            System.out.println("user表更改capital成功");
-                            return true;
-                        }else {
-                            System.out.println("user表更改capital失败");
-                            return false;
-                        }
+                        return upUBCdata(uid,balance-qian,0);
                     }else{
                         System.out.println("添加capital表失败");
                         return false;
@@ -126,13 +107,8 @@ public class GoodsServiceImpl implements GoodsService {
             }
         }else {
             //这里写直接付钱的方法;不用管capital
-            if(upUBCdata(uid,money,0)){
-                System.out.println("没有奖励金，user表更改capital成功");
-                return true;
-            }else {
-                System.out.println("没有奖励金，user表更改capital失败");
-                return false;
-            }
+            System.out.println("没有奖励金");
+            return upUBCdata(uid,balance-money,0);
         }
     }
 
@@ -167,8 +143,10 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public boolean upUBCdata(Integer uid, double balance, double capital) {
         if(goodsDao.upUBCdata(uid,balance,capital)>0){
+            System.out.println("user表更改capital成功");
             return true;
         }else {
+            System.out.println("user表更改capital失败");
             return false;
         }
     }
@@ -191,16 +169,28 @@ public class GoodsServiceImpl implements GoodsService {
         trades.setType(type);
         trades.setComment(comment);
         if(addTOC(trades)){
+            System.out.println("订单添加成功");
             return true;
         }else {
+            System.out.println("订单添加失败");
             return false;
         }
+    }
+
+    @Override
+    public boolean licaibuy(Integer uid, Integer gid, Integer type, double money, double capital, double balance) {
+        return false;
     }
 
     @Override
     public boolean Redeemmoney(Integer uid, Integer gid, double money) {
 
         return false;
+    }
+
+    @Override
+    public Users queryUSID(Integer uid) {
+        return goodsDao.queryUSID(uid);
     }
 
 }

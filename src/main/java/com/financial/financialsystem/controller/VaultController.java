@@ -1,5 +1,6 @@
 package com.financial.financialsystem.controller;
 
+import com.financial.financialsystem.entity.Users;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -9,7 +10,7 @@ public class VaultController {
     @RequestMapping("/jijin")
     public String jijin(){
 
-        return "about";
+        return "redirect:/chaalljijin";
     }
 
     @RequestMapping("/licai")
