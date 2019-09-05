@@ -1,6 +1,5 @@
 package com.financial.financialsystem.controller;
 
-
 import com.financial.financialsystem.entity.Users;
 import com.financial.financialsystem.external.fund.Funds;
 import com.financial.financialsystem.external.fund.MessagesService;
@@ -10,7 +9,6 @@ import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -27,10 +25,10 @@ public class FundsController {
     // 接口地址
     String address = "http://localhost:9999/service/webservice?wsdl";
     // 代理工厂
-    JaxWsProxyFactoryBean jaxWsProxyFactoryBean = new JaxWsProxyFactoryBean ( );
+    JaxWsProxyFactoryBean jaxWsProxyFactoryBean = new JaxWsProxyFactoryBean ();
 
     @RequestMapping("/chajijin")
-    public String chajijin(Integer fid) {
+    public String chajijin(Integer fid,Model model) {
         try {
 
             // 设置代理地址
@@ -38,11 +36,12 @@ public class FundsController {
             // 设置接口类型
             jaxWsProxyFactoryBean.setServiceClass (MessagesService.class);
             // 创建一个代理接口实现
-            MessagesService ms = (MessagesService) jaxWsProxyFactoryBean.create ( );
+            MessagesService ms = (MessagesService) jaxWsProxyFactoryBean.create ();
             // 数据准备
             // 调用代理接口的方法调用并返回结果
             Funds funds = ms.queryjijin (fid);
-            System.out.println (funds.getFname ( ));
+            System.out.println (funds.getFname ());
+            model.addAttribute("funds",funds);
             return "detailsfunds";
         } catch (Exception e) {
             e.printStackTrace ( );
@@ -58,11 +57,11 @@ public class FundsController {
             // 设置接口类型
             jaxWsProxyFactoryBean.setServiceClass (MessagesService.class);
             // 创建一个代理接口实现
-            MessagesService ms = (MessagesService) jaxWsProxyFactoryBean.create ( );
+            MessagesService ms = (MessagesService) jaxWsProxyFactoryBean.create ();
             // 数据准备
             // 调用代理接口的方法调用并返回结果
-            List<Funds> fundsList = ms.queryalljijin ( );
-            for (Funds fs : fundsList) { System.out.println (fs.getFname ( )); }
+            List<Funds> fundsList = ms.queryalljijin ();
+            for (Funds fs : fundsList) { System.out.println (fs.getFname ()); }
             model.addAttribute("fundsList",fundsList);
             return "allfunds";
         } catch (Exception e) {
@@ -80,7 +79,7 @@ public class FundsController {
             // 设置接口类型
             jaxWsProxyFactoryBean.setServiceClass (MessagesService.class);
             // 创建一个代理接口实现
-            MessagesService ms = (MessagesService) jaxWsProxyFactoryBean.create ( );
+            MessagesService ms = (MessagesService) jaxWsProxyFactoryBean.create ();
             // 数据准备
             // 调用代理接口的方法调用并返回结果
 
@@ -88,6 +87,8 @@ public class FundsController {
             Users user=(Users)session.getAttribute("user");
             Integer uid = user.getUid();
             List<Userfund> result = ms.querymejijin (uid);
+            List<Funds> funds = ms.queryalljijin ();
+            model.addAttribute("funds",funds);
             model.addAttribute("fundsList",result);
             return "privatefunds";
             /*
@@ -112,7 +113,7 @@ public class FundsController {
             // 设置接口类型
             jaxWsProxyFactoryBean.setServiceClass (MessagesService.class);
             // 创建一个代理接口实现
-            MessagesService ms = (MessagesService) jaxWsProxyFactoryBean.create ( );
+            MessagesService ms = (MessagesService) jaxWsProxyFactoryBean.create ();
             // 数据准备
             // 调用代理接口的方法调用并返回结果
             if(type==9){
@@ -152,7 +153,7 @@ public class FundsController {
             // 设置接口类型
             jaxWsProxyFactoryBean.setServiceClass (MessagesService.class);
             // 创建一个代理接口实现
-            MessagesService ms = (MessagesService) jaxWsProxyFactoryBean.create ( );
+            MessagesService ms = (MessagesService) jaxWsProxyFactoryBean.create ();
             // 数据准备
             // 调用代理接口的方法调用并返回结果
 

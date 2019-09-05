@@ -78,9 +78,7 @@
         <div class="nav">
             <a href="/detail" class="l"><i class="icon-0423"></i><span>账户设置</span></a>
         </div>
-        <div>
-            <a href="/chamezongjijin">查看我自己的基金</a>
-        </div>
+
 
     </div>
 
@@ -114,6 +112,9 @@
                            seed="boxBillKyjeAccount-boxBillZhuanchuLink">
                             转&nbsp;出
                         </a>
+
+                        <a href="/chamezongjijin">查看我自己的基金</a>
+
                     </div>
 
                     <div class="ui-line fn-clear"></div>

@@ -8,14 +8,13 @@
 <table>
     <tr>
         <th>编号</th>
-        <th>名字</th>
+        <td>${funds.getFid()}</td>
+
     </tr>
-    <#list funds as f>
-        <tr>
-            <td>${f.getFid()}</td>
-            <td>${f.getFname()}</td>
-        </tr>
-    </#list>
+    <tr>
+        <th>名字</th>
+        <td>${funds.getFname()}</td>
+    </tr>
 </table>
 </body>
 </html>
