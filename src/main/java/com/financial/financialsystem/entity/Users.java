@@ -3,6 +3,7 @@ package com.financial.financialsystem.entity;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import java.util.Date;
+import java.util.StringJoiner;
 
 /**
  * uid '用户编号',
@@ -140,5 +141,23 @@ public class Users {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner (", ", Users.class.getSimpleName ( ) + "[", "]")
+                .add ("uid=" + uid)
+                .add ("cardstate=" + cardstate)
+                .add ("states=" + states)
+                .add ("account='" + account + "'")
+                .add ("password='" + password + "'")
+                .add ("phone='" + phone + "'")
+                .add ("headimg='" + headimg + "'")
+                .add ("nickName='" + nickName + "'")
+                .add ("email='" + email + "'")
+                .add ("createDate=" + createDate)
+                .add ("balance=" + balance)
+                .add ("capital=" + capital)
+                .toString ( );
     }
 }

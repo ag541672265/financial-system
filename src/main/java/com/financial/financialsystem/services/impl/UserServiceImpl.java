@@ -65,8 +65,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int addtrades(String phone, double amount) {
-        return userDao.addtrades (phone, amount);
+    public int addtrades(int accFrom,String orderNumber, double amount) {
+        return userDao.addtrades (accFrom,orderNumber, amount);
 
     }
 

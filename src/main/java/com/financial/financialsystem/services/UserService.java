@@ -36,7 +36,7 @@ public interface UserService {
     //修改用户金额
     int UpdateUser(@Param("phone") String phone,@Param("balance") double balance,@Param("balanc") double balanc);
     //添加充值记录
-    int addtrades(@Param("phone")String phone,@Param("amount")double amount);
+    int addtrades(int accFrom,String orderNumber,@Param("amount")double amount);
 
     //查询当前用户余额
     double getBlanceByPhone(@Param("phone")String phone);

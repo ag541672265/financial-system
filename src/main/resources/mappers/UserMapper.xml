@@ -50,7 +50,7 @@
         update users set balance=#{balance}+#{balanc} where phone=#{phone}
     </update>
     <insert id="addtrades">
-        insert into trades(accFrom,goodsID,amount,type,dealTime,comment) values(#{accFrom},0,#{amount},1,now(),'入金')
+        insert into trades(accFrom,goodsID,orderNumber,amount,type,dealTime,comment) values(#{accFrom},0,#{orderNumber},#{amount},1,now(),'入金')
     </insert>
 
 
