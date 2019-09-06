@@ -6,6 +6,7 @@ import com.financial.financialsystem.dao.GoodsDao;
 import com.financial.financialsystem.dao.UserDao;
 import com.financial.financialsystem.entity.Capital;
 import com.financial.financialsystem.entity.Trades;
+import com.financial.financialsystem.entity.Users;
 import com.financial.financialsystem.services.GoodsService;
 import org.apache.ibatis.annotations.Param;
 import com.financial.financialsystem.services.UserService;
@@ -93,10 +94,11 @@ public class GoodsServiceImpl implements GoodsService {
                 }
             }else{//如果代金券比你要付的钱少，就需要用到余额
                 double qian = money-capital;
+                System.out.println("需要扣余额的钱"+qian);
                 if(capitalone!=null){
                     if(upugcontact(uid,gid,type,capital+capitalone.getMoney())){
                         System.out.println("修改一条Capital表数据成功");
-                        if(upUBCdata(uid,qian,0)){
+                        if(upUBCdata(uid,balance-qian,0)){
                             System.out.println("user表更改capital成功");
                             return true;
                         }else {
@@ -110,7 +112,7 @@ public class GoodsServiceImpl implements GoodsService {
                 }else{
                     if(addugcontact(uid,gid,type,capital)){
                         System.out.println("添加一条Capital表数据成功");
-                        if(upUBCdata(uid,qian,0)){
+                        if(upUBCdata(uid,balance-qian,0)){
                             System.out.println("user表更改capital成功");
                             return true;
                         }else {
@@ -126,7 +128,7 @@ public class GoodsServiceImpl implements GoodsService {
             }
         }else {
             //这里写直接付钱的方法;不用管capital
-            if(upUBCdata(uid,money,0)){
+            if(upUBCdata(uid,balance-money,0)){
                 System.out.println("没有奖励金，user表更改capital成功");
                 return true;
             }else {
@@ -198,9 +200,24 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
+    public boolean licaibuy(Integer uid, Integer gid, Integer type, double money, double capital, double balance) {
+        return false;
+    }
+
+    //赎回基金的方法
+    @Override
     public boolean Redeemmoney(Integer uid, Integer gid, double money) {
 
         return false;
+    }
+
+    @Override
+    public Users queryUSID(Integer uid) {
+        Users users = goodsDao.queryUSID(uid);
+        if(users.getNickName()==null){
+            users.setNickName("未添加昵称");
+        }
+        return users;
     }
 
 }

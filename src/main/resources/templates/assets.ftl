@@ -61,7 +61,7 @@
             });
         </script>
         <a href="#" id="imgBtn" class="portrait" style="margin-top:10px;"><em>编辑头像</em>
-         <input type="file" name="file" id="pic" value="null"><img src="${user.headimg}" ></a>
+         <input type="file" name="file" id="pic" value="null"><img src=${user.headimg} alt="头像"></a>
         <div class="minfo" style="margin-top:30px;">
             <div class="it">
                 <dl>ID：</dl>
@@ -116,7 +116,7 @@
                             转&nbsp;出
                         </a>
 
-                        <a href="/chamezongjijin">查看我自己的基金</a>
+                        <a href="/chamezongjijin">查看我自己的基金</a> <a href="/chaalljijin">查看能购买的基金</a>
 
                     </div>
 

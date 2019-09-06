@@ -23,7 +23,7 @@ public class FundsController {
     private GoodsService goodsService;
 
     // 接口地址
-    String address = "http://129.211.129.219:9999/service/webservice?wsdl";
+    String address = "http://localhost:9999/service/webservice?wsdl";
     // 代理工厂
     JaxWsProxyFactoryBean jaxWsProxyFactoryBean = new JaxWsProxyFactoryBean ();
 

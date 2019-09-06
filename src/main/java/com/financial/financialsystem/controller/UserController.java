@@ -128,6 +128,7 @@ public class UserController {
 
     /*Assets表
 uid 用户编号
+money 用户的总资产
 balance  用户余额
 capital  用户的奖励金剩余
 jijin  用户的基金总数
@@ -144,12 +145,12 @@ licaiprofit  用户的理财总收益
         HttpSession session=request.getSession();
         Users user=(Users)session.getAttribute("user");
         Integer uid = user.getUid();
+        user = goodsService.queryUSID(uid);
         Assets assets = new Assets();
         assets.setUid(user.getUid());
         assets.setBalance(user.getBalance());
         assets.setCapital(user.getCapital());
         double jijin=fundService.zongjijin(user.getUid(),1);
-        System.out.println(jijin);
         assets.setJijin(jijin);
         double licai=1000;
         assets.setLicai(licai);
@@ -164,8 +165,7 @@ licaiprofit  用户的理财总收益
         assets.setLicaiprofit(licaiprofit);
         assets.setYingliprofit(jijinprofit+licaiprofit);
         assets.setMoney(user.getBalance()+user.getCapital()+jijin+licai);
-        user = goodsService.queryUSID(uid);
-        request.getSession().setAttribute("user",user);
+        request.getSession().setAttribute("user",goodsService.queryUSID(uid));
         request.getSession().setAttribute("assets",assets);
         return "assets";
     }
