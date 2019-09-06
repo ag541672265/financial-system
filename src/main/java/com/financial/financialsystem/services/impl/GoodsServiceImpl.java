@@ -7,6 +7,7 @@ import com.financial.financialsystem.dao.UserDao;
 import com.financial.financialsystem.entity.Capital;
 import com.financial.financialsystem.entity.Trades;
 import com.financial.financialsystem.entity.Users;
+import com.financial.financialsystem.services.FundService;
 import com.financial.financialsystem.services.GoodsService;
 import org.apache.ibatis.annotations.Param;
 import com.financial.financialsystem.services.UserService;
@@ -26,6 +27,8 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Resource
     private GoodsDao dao;
+    @Resource
+    private FundService fundService;
 
     @Override
     public List<Goods> getAll() {
@@ -204,12 +207,6 @@ public class GoodsServiceImpl implements GoodsService {
         return false;
     }
 
-    //赎回基金的方法
-    @Override
-    public boolean Redeemmoney(Integer uid, Integer gid, double money) {
-
-        return false;
-    }
 
     @Override
     public Users queryUSID(Integer uid) {

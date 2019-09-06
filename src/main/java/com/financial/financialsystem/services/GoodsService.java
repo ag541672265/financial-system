@@ -47,8 +47,6 @@ public interface GoodsService {
     //理财的计算方法
     boolean licaibuy(Integer uid, Integer gid,Integer type,double money,double capital,double balance);
 
-    //赎回基金的方法
-    boolean Redeemmoney(Integer uid, Integer gid, double money);
     //查user表
     Users queryUSID(Integer uid);
 }
