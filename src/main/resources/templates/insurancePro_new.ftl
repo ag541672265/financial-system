@@ -3,121 +3,22 @@
 <html lang="zh-cn">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Google Tag Manager -->
-    <script async="" src="insurancePro_new/analytics.js.下载"></script>
-    <script src="insurancePro_new/click.js.下载"></script>
-    <script src="insurancePro_new/pv.js.下载"></script>
-    <script async="" src="insurancePro_new/analytics.js.下载"></script>
-    <script src="insurancePro_new/push.js.下载"></script>
-    <script src="insurancePro_new/push.js.下载"></script>
-    <script src="insurancePro_new/push.js.下载"></script>
-    <script src="insurancePro_new/push.js.下载"></script>
-    <script src="insurancePro_new/push.js.下载"></script>
-    <script src="insurancePro_new/push.js.下载"></script>
-    <script src="insurancePro_new/push.js.下载"></script>
-    <script src="insurancePro_new/push.js.下载"></script>
-    <script src="insurancePro_new/push.js.下载"></script>
-    <script src="insurancePro_new/push.js.下载"></script>
-    <script src="insurancePro_new/hm.js.下载"></script>
-    <script async="" src="insurancePro_new/gtm.js.下载"></script>
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push(
-                {'gtm.start': new Date().getTime(), event: 'gtm.js'}
-            );
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src =
-                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-PZBZZ7Q');</script>
-    <!-- End Google Tag Manager -->
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <title>保险详情</title>
 
     <meta name="keywords" content="汇添金">
-
-
     <meta name="description" content="汇添金">
 
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
 
-    <link rel="dns-prefetch" href="https://hz.huizecdn.com/">
-    <link rel="dns-prefetch" href="https://img.huizecdn.com/">
-    <link rel="dns-prefetch" href="https://images.hzins.com/">
-    <link rel="dns-prefetch" href="https://files.hzins.com/">
-    <link rel="dns-prefetch" href="https://files.huizecdn.com/">
-
-    <link rel="canonical" href="https://www.huize.com/brand/detail/45">
-
-
-    <link rel="alternate" media="only screen and(max-width: 640px)" href="https://m.huize.com/brand/detail/45">
-
-
     <link rel="stylesheet" href="insurancePro_new/product-list.css">
-
     <link rel="shortcut icon" href="https://www.gitee.com/favicon.ico" type="image/x-icon">
-    <script async="" src="insurancePro_new/p.js.下载"></script>
-    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="main"
-            src="insurancePro_new/main.js.下载"></script>
-    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
-            data-requiremodule="brand-product-list" src="insurancePro_new/brand-product-list.js.下载"></script>
-    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="helper"
-            src="insurancePro_new/helper.js.下载"></script>
-    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="polyfill"
-            src="insurancePro_new/polyfill.js.下载"></script>
-    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery"
-            src="insurancePro_new/jquery.min.js.下载"></script>
-    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="require-css"
-            src="insurancePro_new/css.min.js.下载"></script>
-    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="animate-fly"
-            src="insurancePro_new/animate-fly.js.下载"></script>
-    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery-tab"
-            src="insurancePro_new/jquery-tab.js.下载"></script>
-    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="mustache"
-            src="insurancePro_new/mustache.min.js.下载"></script>
-    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="underscore"
-            src="insurancePro_new/underscore.min.js.下载"></script>
-    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
-            data-requiremodule="campaign-code-generate" src="insurancePro_new/generate-require.min.js.下载"></script>
-    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery-plugins"
-            src="insurancePro_new/jquery-plugins.js.下载"></script>
-    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
-            data-requiremodule="jquery-placeholder" src="insurancePro_new/jquery-placeholder.js.下载"></script>
-    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery-lazyload"
-            src="insurancePro_new/jquery-lazyload.min.js.下载"></script>
+
     <link type="text/css" rel="stylesheet" href="insurancePro_new/layer.css">
     <link type="text/css" rel="stylesheet" href="insurancePro_new/sidetool.css">
     <link type="text/css" rel="stylesheet" href="insurancePro_new/kkpager_blue.css">
-    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="layer"
-            src="insurancePro_new/layer.js.下载"></script>
-    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
-            data-requiremodule="fixed-tool-float" src="insurancePro_new/fixed-tool-float.js.下载"></script>
-    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="kkpager"
-            src="insurancePro_new/kkpager.min.js.下载"></script>
-    <style id="placeholder__">.placeholder-wrap {
-            position: relative;
-            display: inline-block;
-        }
 
-        .placeholder-text {
-            position: absolute;
-        }
-
-        .placeholder-input {
-            position: relative;
-            background-color: transparent;
-            z-index: 1;
-        }</style>
-    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="sub-menu"
-            src="insurancePro_new/sub-menu.js.下载"></script>
-    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="top-menu"
-            src="insurancePro_new/top-menu.js.下载"></script>
-    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="require-text"
-            src="insurancePro_new/text.min.js.下载"></script>
 </head>
 <body>
 
@@ -293,11 +194,10 @@
                         </div>
                         <p class="f14">销量：15391</p>
                         <p class="f14">评论：447</p>
-                        <div class="hz-check-item mt25 inline-block add-compare" productid="1626" planid="1905"><i
-                                    class="hz-check-icon"></i><span class="hz-check-text">加入对比</span></div>
+
                     </div>
                 </div>
-                <div class="hz-product-item">
+                <#--<div class="hz-product-item">
                     <div class="hz-product-info">
                         <div class="hz-product-head"><a class="company-logo fr" target="_blank"
                                                         href="https://www.huize.com/brand/detail/45"><img
@@ -500,7 +400,7 @@
                         <div class="hz-check-item mt25 inline-block add-compare" productid="1624" planid="1899"><i
                                     class="hz-check-icon"></i><span class="hz-check-text">加入对比</span></div>
                     </div>
-                </div>
+                </div>-->
             </div>
 
             <div class="hz-pagination mt15" id="kkpager">
