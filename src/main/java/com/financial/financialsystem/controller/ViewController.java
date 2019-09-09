@@ -1,9 +1,8 @@
 package com.financial.financialsystem.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -40,10 +39,21 @@ public class ViewController {
         return "insurance_new";
     }
 
-    @RequestMapping(value = "insurancePro_new",method = RequestMethod.GET)
-    public String insuranceProNew(){
-        return "insurancePro_new";
+    @RequestMapping(value = "/insurancePro_new",method = RequestMethod.GET)
+    public String insuranceProNew(Model model, @RequestParam(value = "page",required = false)String page)throws Exception{
+
+        if (page==null||page.equals("")){
+
+            model.addAttribute("page",1);
+        }else {
+            model.addAttribute("page",page);
+        }
+        model.addAttribute("pages",4);
+        return "insurancePro_new_p";
     }
+
+
+
     @RequestMapping(value = "insurancePro_one",method = RequestMethod.GET)
     public String insuranceProOne(){
         return "insurancePro_one";
