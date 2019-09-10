@@ -1,9 +1,11 @@
 package com.financial.financialsystem.controller;
 
+import com.financial.financialsystem.entity.Capital;
 import com.financial.financialsystem.entity.Users;
 import com.financial.financialsystem.external.fund.Funds;
 import com.financial.financialsystem.external.fund.MessagesService;
 import com.financial.financialsystem.external.fund.Userfund;
+import com.financial.financialsystem.services.FundService;
 import com.financial.financialsystem.services.GoodsService;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.springframework.stereotype.Controller;
@@ -21,9 +23,11 @@ public class FundsController {
 
     @Resource
     private GoodsService goodsService;
+    @Resource
+    private FundService fundService;
 
     // 接口地址
-    String address = "http://129.211.129.219:9999/service/webservice?wsdl";
+    String address = "http://localhost:9999/service/webservice?wsdl";
     // 代理工厂
     JaxWsProxyFactoryBean jaxWsProxyFactoryBean = new JaxWsProxyFactoryBean ();
 
@@ -163,12 +167,33 @@ public class FundsController {
             boolean result = ms.selljijin (uid, fid, money);
             if (result) {
                 System.out.println ("卖出成功");
-                if(goodsService.upUBCdata(uid,user.getBalance()+money,user.getCapital())){
-                    request.getSession().setAttribute("user",goodsService.queryUSID(uid));
-                    return "redirect:/toassets";
-                }else {
-                    return "/";
+                double shengyujijin = fundService.mequeryfunds(uid,fid);
+                Capital capital = goodsService.queryugcontact(uid,fid,9);
+                double jianglijijin = capital.getMoney();
+                if(shengyujijin>=jianglijijin){
+                    if(goodsService.upUBCdata(uid,user.getBalance()+money,user.getCapital())){
+                        request.getSession().setAttribute("user",goodsService.queryUSID(uid));
+                        return "redirect:/toassets";
+                    }else {
+                        return "/";
+                    }
+                }else{
+                    //给奖励金加钱
+                    if(goodsService.upUBCdata(uid,user.getBalance()+money,user.getCapital()+jianglijijin-shengyujijin)){
+                        //改商品和用户的奖励金关联表
+                        if(goodsService.upugcontact(uid,fid,9,shengyujijin)){
+                            request.getSession().setAttribute("user",goodsService.queryUSID(uid));
+                            return "redirect:/toassets";
+                        }else {
+                            return "/";
+                        }
+
+                    }else {
+                        return "/";
+                    }
+
                 }
+
 
             }
         } catch (Exception e) {
