@@ -44,10 +44,9 @@
 
             <a href="/">首页</a>
             <#--链接未完成部分'''-->
-            <a href="/jijin" class="cur">基金</a>
+            <a href="/chaalljijin" class="cur">基金</a>
             <a href="/licai" >理财</a>
             <a href="/insurance">保险</a>
-            <a href="/huijinhong">汇金红</a>
             <#--链接未完成部分...-->
         </nav>
     </div>

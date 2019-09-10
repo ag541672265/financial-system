@@ -169,31 +169,38 @@ public class FundsController {
                 System.out.println ("卖出成功");
                 double shengyujijin = fundService.mequeryfunds(uid,fid);
                 Capital capital = goodsService.queryugcontact(uid,fid,9);
-                double jianglijijin = capital.getMoney();
-                if(shengyujijin>=jianglijijin){
+                if(capital==null){
                     if(goodsService.upUBCdata(uid,user.getBalance()+money,user.getCapital())){
                         request.getSession().setAttribute("user",goodsService.queryUSID(uid));
                         return "redirect:/toassets";
                     }else {
                         return "/";
                     }
-                }else{
-                    //给奖励金加钱
-                    if(goodsService.upUBCdata(uid,user.getBalance()+money,user.getCapital()+jianglijijin-shengyujijin)){
-                        //改商品和用户的奖励金关联表
-                        if(goodsService.upugcontact(uid,fid,9,shengyujijin)){
-                            request.getSession().setAttribute("user",goodsService.queryUSID(uid));
+                }else {
+                    double jianglijijin = capital.getMoney();
+                    if (shengyujijin >= jianglijijin || capital == null) {
+                        if (goodsService.upUBCdata(uid, user.getBalance() + money, user.getCapital())) {
+                            request.getSession().setAttribute("user", goodsService.queryUSID(uid));
                             return "redirect:/toassets";
-                        }else {
+                        } else {
                             return "/";
                         }
+                    } else {
+                        //给奖励金加钱
+                        if (goodsService.upUBCdata(uid, user.getBalance() + money, user.getCapital() + jianglijijin - shengyujijin)) {
+                            //改商品和用户的奖励金关联表
+                            if (goodsService.upugcontact(uid, fid, 9, shengyujijin)) {
+                                request.getSession().setAttribute("user", goodsService.queryUSID(uid));
+                                return "redirect:/toassets";
+                            } else {
+                                return "/";
+                            }
 
-                    }else {
-                        return "/";
+                        } else {
+                            return "/";
+                        }
                     }
-
                 }
-
 
             }
         } catch (Exception e) {

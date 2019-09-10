@@ -63,7 +63,7 @@ public class FundServiceImpl implements FundService {
             for(Trades ts : trs){
                 meidingdan+=ts.getAmount();
             }
-
+            System.out.println("昨天的利息"+meidingdan);
             return meidingdan;
         } catch (Exception e) {
             e.printStackTrace ( );
