@@ -1,9 +1,9 @@
 package com.financial.financialsystem.services.impl;
 
 import com.financial.financialsystem.external.fund.MessagesService;
-import com.financial.financialsystem.external.fund.Trades;
 import com.financial.financialsystem.external.fund.Userfund;
 import com.financial.financialsystem.external.fund.Users;
+import com.financial.financialsystem.external.fund.Trades;
 import com.financial.financialsystem.services.FundService;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ import java.util.List;
 public class FundServiceImpl implements FundService {
 
     // 接口地址
-    String address = "http://localhost:9999/service/webservice?wsdl";
+    String address = "http://129.211.129.219:9999/service/webservice?wsdl";
     // 代理工厂
     JaxWsProxyFactoryBean jaxWsProxyFactoryBean = new JaxWsProxyFactoryBean ();
 
