@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="css/style.css"/>
 <link rel="stylesheet" href="css/index.css"/>
 <link href="css/iconfont/RjdaoIcon.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="https://www.taobao.com/favicon.ico" type="image/x-icon">
 <script type="text/javascript" src="js/jquery-1.9.0.js"></script>
 <#--<script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>-->
 </head>
@@ -24,8 +25,8 @@
    	  <span>手机端</span><i class="icon-0198"></i>
     	<div class="qrc"><img src="images/qrc.png"></div>
     </div>-->
-    <a href="kefu.html" class="dh">在线客服</a>
-    <a href="help.html" class="dh">帮助中心</a>
+    <a href="javascript:;" class="dh">在线客服</a>
+    <a href="javascript:;" class="dh">帮助中心</a>
     <#--<a href="xinshou.html" class="dh">新手指引</a>-->
     </div>
 </div>
