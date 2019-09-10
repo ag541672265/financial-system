@@ -42,7 +42,7 @@ public class GoController {
 
     @RequestMapping("/toUser")
     public String toUser(){
-        return "user_index";
+        return "redirect:/toassets";
     }
 
     @RequestMapping("/toZhiFu")
