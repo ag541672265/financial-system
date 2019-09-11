@@ -33,7 +33,7 @@
         <nav>
             <a href="/">首页</a>
             <#--链接未完成部分'''-->
-            <a href="//chaalljijin">基金</a>
+            <a href="/chaalljijin">基金</a>
             <a href="/licai">理财</a>
             <a href="/insurance">保险</a>
             <#--链接未完成部分...-->
@@ -75,13 +75,14 @@
                 <a class="ml1" title="微信"><i class="icon-0061"></i></a>
                 <a class="ml1" title="淘宝"><i class="icon-0064"></i></a>
                 <a href="user_account.html" class="ml1" title="设置"><i class="icon-0421"></i></a>
+                <a href="/detail" class="l"><i class="icon-0423"></i><span>账户设置</span></a>
             </div>
         </div>
-        <div class="nav">
-            <a href="/detail" class="l"><i class="icon-0423"></i><span>账户设置</span></a>
+        <div class="capital2">
+            <a href="/chamezongjijin" class="ti">我的基金</a>
+            <a href="" class="ti">我的理财</a>
+            <a href="" class="ti">我的保险</a>
         </div>
-
-
     </div>
 
 </div>
@@ -115,7 +116,7 @@
                             转&nbsp;出
                         </a>
 
-                        <a href="/chamezongjijin">查看我自己的基金</a> <a href="/chaalljijin">查看能购买的基金</a>
+                         <a href="/chaalljijin">查看能购买的基金</a>
 
                     </div>
 

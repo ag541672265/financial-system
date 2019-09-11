@@ -44,4 +44,7 @@ public interface UserService {
 
     //修改头像
     int updatehead(String headimg,String phone);
+
+    //余额算法
+    boolean balanceAlgorithm();
 }
