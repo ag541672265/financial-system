@@ -179,28 +179,6 @@
 .userinfo .portrait img{
 	width:100%;
 }
-.userinfo .capital{
-	height:60px;
-	position:absolute;
-	top:40px;
-	right:15px;
-}
-.userinfo .capital dl{
-	display:block;
-	float:left;
-	height:60px;
-	font:13px/60px 'microsoft yahei';
-	color:#CCC;
-	margin-right:10px;
-}
-.userinfo .capital em{
-	display:block;
-	float:left;
-	height:60px;
-	font:28px/58px 'microsoft yahei';
-	color:#FF0;
-	margin-right:15px;
-}
 .userinfo .capital2{
 	height:60px;
 	position:absolute;
@@ -217,17 +195,6 @@
 	background-color:#E7E7E7;
 	border-radius:3px;
 	margin:0px 15px 0 5px;
-}
-.userinfo .capital2 a.chong{
-	display:block;
-	float:left;
-	height:24px;
-	font:12px/24px 'microsoft yahei';
-	color:#fff;
-	padding:0 10px;
-	background-color:#F74D2F;
-	border-radius:3px;
-	margin:0px 5px 0 5px;
 }
 .userinfo .minfo{
 	width:400px;
