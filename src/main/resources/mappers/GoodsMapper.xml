@@ -48,4 +48,8 @@
     <select id="queryUSID" resultType="com.financial.financialsystem.entity.Users">
         select * from users where uid=#{uid}
     </select>
+    <select id="getATstream" resultType="com.financial.financialsystem.entity.Trades">
+        select * from `trades` where accFrom=#{accFrom} and status=1 ORDER BY dealTime
+    </select>
+
 </mapper>

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/user.css"/>
     <link rel="stylesheet" href="css/assets.css"/>
-    <link href="css/iconfont/RjdaoIcon.css" rel="stylesheet" type="text/css">
+    <link href="css/iconfont/RjdaoIcon.css"  rel="stylesheet" type="text/css">
     <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
     <script src="https://img.hcharts.cn/highcharts/highcharts.js"></script>
 
@@ -187,76 +187,19 @@
 <!---user---->
 
 <#--这里写的是查看流水，应该有分页-->
-<div class="fn-clear box-bill-content">
-    <div class="ui-bill-subtitle fn-right  fn-clear">
-        <form class="ui-bill-form-time fn-left" id="J-calendar-form" action="xxxxx这是选日期的" method="post"
-              autocomplete="off">
-            <input name="startDate" class="ui-bill-text" id="J_dateBegin" type="text" readonly="readonly"
-                   value="2019-07-29"
-                   smartracker="on" seed="JCalendarForm-J_dateBegin">
-            <span> - </span>
-            <input name="endDate" class="ui-bill-text" id="J_dateEnd" type="text" readonly="readonly" value="2019-08-28"
-                   smartracker="on" seed="JCalendarForm-J_dateEnd">
-            <input class="jui-btn jui-btn-sm" id="J_submit_time" type="submit" value="" smartracker="on"
-                   seed="JCalendarForm-J_submit_time">
-        </form>
 
-    </div>
+<table border="1" align="center" width="900">
+    <tr align="center">
+        <td>订单号</td><td>信息</td><td>金额</td><td>日期</td><td>操作</td></tr>
+    <#list tradesList as tl>
+        <tr align="center">
+            <td>${tl.orderNumber}</td><td>${tl.comment}</td><td>${tl.amount?string('0.00')}</td>
+            <td>${tl.dealTime?string('yyyy-MM-dd hh:mm:ss')}</td><td>详情</td>
+        </tr>
+    </#list>
+</table>
 
-    <div class="i-asset-tab fn-clear">
-        <ul class="i-asset-tab-items fn-clear" id="triggers">
-            <li class="i-asset-tab-item fn-left  i-asset-tab-item-current  "><a
-                        class="ui-tab-trigger-text ui-bill-tab-text"
-                        href="javascript:void(0);" smartracker="on" seed="iAssetTabItem-link">全部</a></li>
-            <li class="i-asset-tab-item fn-left  "><a class="ui-tab-trigger-text ui-bill-tab-text"
-                                                      href="xxxxx转出的所有记录在这里"
-                                                      smartracker="on" seed="iAssetTabItem-linkT1">支出</a></li>
-            <li class="i-asset-tab-item fn-left  "><a class="ui-tab-trigger-text ui-bill-tab-text"
-                                                      href="xxxxx收益的所有记录在这里"
-                                                      smartracker="on" seed="iAssetTabItem-linkT2">收入</a></li>
-        </ul>
-    </div>
-    <table class="ui-table fn-clear">
-        <thead>
-        <tr>
-            <th class="billTime">日期</th>
-            <th class="billAmount">金额(元)</th>
-            <th>信息</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td class="billTime">2019-08-04 21:44</td>
-            <td class="billAmount">1.49</td>
-            <td class="billInfo"><span class="emoji-li" style="visibility: visible;">单次转入</span></td>
-            <td class="billLink">
-                <a href="https://yebprod.alipay.com:443/yeb/purchaseDetail.htm?tradeNo=20190804009130100010380043444354"
-                   target="_blank"
-                   smartracker="on" seed="billLink-linkT7">&nbsp;查看</a>
-            </td>
-        </tr>
-        <tr>
-            <td id="page-main" colspan="4">
-                <div data-widget-cid="widget-11">
-                    <div class="ui-paging"><span class="ui-paging-prev ui-paging-disabled" data-page="0"><i title="左三角形"
-                                                                                                            class="iconfont"></i>
-										上一页</span><a class="ui-paging-item ui-paging-current ui-paging-disabled"
-                                                     href="#triggers" data-page="1">1</a><span
-                                class="ui-paging-next ui-paging-disabled" data-page="2">下一页 <i title="右三角形"
-                                                                                               class="iconfont"></i></span><span
-                                class="ui-paging-info"><span class="ui-paging-bold">1/1</span>页</span><span
-                                class="ui-paging-which"><input
-                                    type="text" value=""></span><a class="ui-paging-info ui-paging-goto"
-                                                                   href="#triggers" data-page="">跳转</a></div>
-                </div>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
 <!---user---->
-
 <#--最下边的，显示一些比如说公司信息，什么公安局备案号什么的-->
 <div class="ui-footer fn-clear" coor="footer">
     <div class="ui-footer-ctn">

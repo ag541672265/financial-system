@@ -49,4 +49,7 @@ public interface GoodsService {
 
     //查user表
     Users queryUSID(Integer uid);
+
+    //显示我的所有流水
+    List<Trades> getATstream(Integer accFrom);
 }

@@ -4,6 +4,7 @@ package com.financial.financialsystem.controller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.financial.financialsystem.entity.Assets;
+import com.financial.financialsystem.entity.Trades;
 import com.financial.financialsystem.entity.Users;
 import com.financial.financialsystem.services.FundService;
 import com.financial.financialsystem.services.GoodsService;
@@ -15,6 +16,7 @@ import com.financial.financialsystem.util.QiniuUtils;
 import com.google.gson.Gson;
 import com.qiniu.http.Response;
 import com.qiniu.storage.model.DefaultPutRet;
+import org.apache.catalina.LifecycleState;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -31,6 +33,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * 用户调取方法
@@ -165,8 +168,10 @@ licaiprofit  用户的理财总收益
         assets.setLicaiprofit(licaiprofit);
         assets.setYingliprofit(jijinprofit+licaiprofit);
         assets.setMoney(user.getBalance()+user.getCapital()+jijin+licai);
+        List<Trades> tradesList = goodsService.getATstream(uid);
         request.getSession().setAttribute("user",goodsService.queryUSID(uid));
         request.getSession().setAttribute("assets",assets);
+        model.addAttribute("tradesList",tradesList);
         return "assets";
     }
 
