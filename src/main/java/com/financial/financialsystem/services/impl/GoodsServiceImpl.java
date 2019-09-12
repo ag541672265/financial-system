@@ -217,4 +217,9 @@ public class GoodsServiceImpl implements GoodsService {
         return users;
     }
 
+    @Override
+    public List<Trades> getATstream(Integer accFrom) {
+        return goodsDao.getATstream(accFrom);
+    }
+
 }

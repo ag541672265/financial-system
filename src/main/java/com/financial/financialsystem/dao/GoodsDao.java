@@ -37,4 +37,6 @@ public interface GoodsDao {
     int upUBCdata(Integer uid,double balance,double capital);
     //添加订单
     int addTOC(Trades trades);
+    //显示我的所有流水
+    List<Trades> getATstream(Integer accFrom);
 }

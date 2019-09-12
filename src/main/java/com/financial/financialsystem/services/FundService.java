@@ -11,6 +11,6 @@ public interface FundService {
     double yesterdayUTP(Integer uid,Integer type);
     //查看自己某个基金的钱
     double mequeryfunds(Integer uid,Integer gid);
-    //查我在基金表的所有记录
-    List<Trades> getUSTD(Integer uid);
+    //查基金表的盈利的所有记录
+    boolean getUSTD();
 }

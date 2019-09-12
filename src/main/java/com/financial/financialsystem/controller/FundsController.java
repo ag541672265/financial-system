@@ -171,8 +171,14 @@ public class FundsController {
                 Capital capital = goodsService.queryugcontact(uid,fid,9);
                 if(capital==null){
                     if(goodsService.upUBCdata(uid,user.getBalance()+money,user.getCapital())){
-                        request.getSession().setAttribute("user",goodsService.queryUSID(uid));
-                        return "redirect:/toassets";
+                        if(goodsService.tianjiaTOC(uid,fid,money,10,"卖出基金")){
+                            System.out.println("订单添加成功");
+                            request.getSession().setAttribute("user",goodsService.queryUSID(uid));
+                            return "redirect:/toassets";
+                        }else{
+                            System.out.println("订单添加失败");
+                            return "/";
+                        }
                     }else {
                         return "/";
                     }
@@ -180,8 +186,14 @@ public class FundsController {
                     double jianglijijin = capital.getMoney();
                     if (shengyujijin >= jianglijijin || capital == null) {
                         if (goodsService.upUBCdata(uid, user.getBalance() + money, user.getCapital())) {
-                            request.getSession().setAttribute("user", goodsService.queryUSID(uid));
-                            return "redirect:/toassets";
+                            if(goodsService.tianjiaTOC(uid,fid,money,10,"卖出基金")){
+                                System.out.println("订单添加成功");
+                                request.getSession().setAttribute("user",goodsService.queryUSID(uid));
+                                return "redirect:/toassets";
+                            }else{
+                                System.out.println("订单添加失败");
+                                return "/";
+                            }
                         } else {
                             return "/";
                         }

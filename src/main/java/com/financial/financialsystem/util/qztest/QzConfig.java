@@ -18,6 +18,9 @@ public class QzConfig {
         JobDetail second = JobBuilder.newJob(SecondJob.class)
                 .withIdentity("job2","group2").build();
 
+        JobDetail third = JobBuilder.newJob(ThirdJob.class)
+                .withIdentity("job3","group3").build();
+
         TriggerBuilder<Trigger> newTrigger =  trigger();
 
         newTrigger.withIdentity("trigger1","gtoup1");
@@ -28,9 +31,14 @@ public class QzConfig {
         newTrigger.withSchedule(CronScheduleBuilder
                 .cronSchedule("10 30 * * * ? *"));
         Trigger two =  newTrigger.build();
+        newTrigger.withIdentity("trigger3","group3");
+        newTrigger.withSchedule(CronScheduleBuilder
+                .cronSchedule("0 30 1 * * ? *"));
+        Trigger three =  newTrigger.build();
 
         scheduler.scheduleJob(first,one);
         scheduler.scheduleJob(second,two);
+        scheduler.scheduleJob(third,three);
         scheduler.start();
         return  scheduler;
 

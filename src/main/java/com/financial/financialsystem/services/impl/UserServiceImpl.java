@@ -113,4 +113,6 @@ public class UserServiceImpl implements UserService {
         float r3 = getRandom(0, 100);
         return r3 < 99 ? r1 : r2;
     }
+
+
 }
