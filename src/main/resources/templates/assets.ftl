@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/user.css"/>
     <link rel="stylesheet" href="css/assets.css"/>
-    <link href="css/iconfont/RjdaoIcon.css"  rel="stylesheet" type="text/css">
+    <link href="css/iconfont/RjdaoIcon.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
     <script src="https://img.hcharts.cn/highcharts/highcharts.js"></script>
 
@@ -66,16 +66,15 @@
                 <dl>ID：</dl>
                 <span class="mr1">${user.account}</span>
                 <dl>用户名：</dl>
-                <span>${user.nickName}</span></div>
+                <span>${user.nickName}</span>
+            </div>
             <div class="it">
                 <dl>绑定手机号：</dl>
                 <span>${user.phone}</span>
-                <a class="ml1" title="手机"><i class="icon-0566"></i></a>
-                <a class="ml1" title="QQ"><i class="icon-0069"></i></a>
-                <a class="ml1" title="微信"><i class="icon-0061"></i></a>
-                <a class="ml1" title="淘宝"><i class="icon-0064"></i></a>
-                <a href="user_account.html" class="ml1" title="设置"><i class="icon-0421"></i></a>
-                <a href="/detail" class="l"><i class="icon-0423"></i><span>账户设置</span></a>
+            </div>
+            <div class="it">
+                <dl>账户设置：</dl>
+                <a href="/" class="ml1" title="设置"><i class="icon-0421"></i></a>
             </div>
         </div>
         <div class="capital2">
@@ -115,9 +114,6 @@
                            seed="boxBillKyjeAccount-boxBillZhuanchuLink">
                             转&nbsp;出
                         </a>
-
-                         <a href="/chaalljijin">查看能购买的基金</a>
-
                     </div>
 
                     <div class="ui-line fn-clear"></div>

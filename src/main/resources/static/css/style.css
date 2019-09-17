@@ -7,10 +7,9 @@
 @charset "utf-8";
 /* CSS Document */
 
-*{
+body{
 	margin:0;padding:0;
 	list-style: none;
-	text-align: none;
 	font-size: 12px;
 	color: #4d4d4d;
 	font-family:"微软雅黑";
@@ -496,7 +495,6 @@ footer .fmain .fm-bot dl{
 .suspension .d-service-item .text .number{font-size:16px;font-family:Arial,"Microsoft Yahei","HanHei SC",PingHei,"PingFang SC","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;}
 .suspension .d-service-intro{padding-top:10px;}
 .suspension .d-service-intro p{float:left;line-height:27px;font-size:12px;width:50%;white-space:nowrap;color:#888;}
-.suspension .d-service-intro i{background:url(../images/side_con_icon01.png) no-repeat center center;height:27px;width:14px;margin-right:5px;vertical-align:top;display:inline-block;}
 .suspension .d-qrcode{text-align:center;}
 .suspension .d-qrcode .inner-box{padding:20px 0;}
 .suspension .d-qrcode p{font-size:16px;color:#93959c;}

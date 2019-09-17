@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<!doctype html>
+<html>
 <head>
     <meta charset="utf-8">
     <title>汇添金</title>
@@ -8,109 +7,164 @@
     <meta name="description" content="汇添金" />
     <link rel="icon" href="/favicon.ico" mce_href="/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="css/style.css"/>
-    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/index2.css"/>
     <link href="css/iconfont/RjdaoIcon.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="js/jquery-1.9.0.js"></script>
-    <#--<script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>-->
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 </head>
 
-<body>
+<body style="background-color:#f0f0f0;">
 
 <!----header s---->
 <div class="topnav">
     <div class="mainw w">
         <div class="l-txt">欢迎致电：400-8800-379 &nbsp;&nbsp; 服务时间：08:30-18:30（工作日）</div>
-        <#--<div class="wapbut">
-             <span>手机端</span><i class="icon-0198"></i>
-            <div class="qrc"><img src="images/qrc.png"></div>
-        </div>-->
+        <#--<div class="wapbut">-->
+        <#--<span>手机端</span><i class="icon-0198"></i>-->
+        <#--<div class="qrc"><img src="images/qrc.png"></div>-->
+        <#--</div>-->
         <a href="kefu.html" class="dh">在线客服</a>
         <a href="help.html" class="dh">帮助中心</a>
         <#--<a href="xinshou.html" class="dh">新手指引</a>-->
     </div>
 </div>
 
-<header class="w">
-    <#--logo图片-->
-    <a href="/" class="logo"><img src="images/logo.png" <#--alt="汇添金logo图片"-->></a>
-    <#if user ??>
+<header>
+    <div class="hmain w">
+        <#--logo图片-->
+        <a href="/" class="logo"><img src="images/logo.png" <#--alt="汇添金logo图片"-->></a>
+        <#if user ??>
 
-        <a href="/index" class="ubut">退出</a>
-        <a href="/toassets" class="ubut" style="padding:0 15px;">个人中心<span><dl>我的资产：2830.00</dl></span></a>
+            <a href="/index" class="ubut">退出</a>
+            <a href="/toassets" class="ubut" style="padding:0 15px;">个人中心<span><dl>我的资产：2830.00</dl></span></a>
 
-    <#else>
-        <a href="/register" class="topbut">注册</a>
-        <a href="/login" class="topbut-cur">登录</a>
-    </#if>
-    <nav>
-        <a href="/" class="cur">首页</a>
-        <#--链接未完成部分'''-->
-        <a href="/chaalljijin">基金</a>
-        <a href="/licai">理财</a>
-        <a href="/insurance">保险</a>
-        <#--链接未完成部分...-->
-    </nav>
+        <#else>
+            <a href="/register" class="topbut">注册</a>
+            <a href="/login" class="topbut-cur">登录</a>
+        </#if>
+        <nav>
+            <a href="/" >首页</a>
+            <#--链接未完成部分'''-->
+            <a href="/chaalljijin" class="cur">基金</a>
+            <a href="/licai">理财</a>
+            <a href="/insurance">保险</a>
+            <#--链接未完成部分...-->
+        </nav>
+    </div>
 </header>
+<!----header e---->
 
-<table>
-    <tr>
-        <th>编号</th>
-        <th>名字</th>
-        <th>操作</th>
-    </tr>
-    <#list fundsList as flist>
-    <tr>
-        <td>${flist.getFid()}</td>
-        <td>${flist.getFname()}</td>
-        <td>
-            <form action="/mairujijin"  method="post">
-                <input type="hidden" name="fid" value="${flist.getFid()}">
-                <input type="hidden" name="type" value="9">
-                <input type="text" name="money">
-                <input type="submit" value="购买">
-            </form>
-        </td>
-    </tr>
-    </#list>
-</table>
+
+<div class="invest-banner txtcenter">
+    <img  src="images/invest-banner.jpg">
+</div>
+
+
+
+<!---invest-title s--->
+<div class="invest-title"><dl></dl><span class="tx">投资项目</span><dl></dl></div>
+<div>
+    <table>
+        <tr>
+            <th>编号</th>
+            <th>名字</th>
+            <th>操作</th>
+        </tr>
+        <#list fundsList as flist>
+            <tr>
+                <td>${flist.getFid()}</td>
+                <td>${flist.getFname()}</td>
+                <td>
+                    <form action="/mairujijin"  method="post">
+                        <input type="hidden" name="fid" value="${flist.getFid()}">
+                        <input type="hidden" name="type" value="9">
+                        <input type="text" name="money">
+                        <input type="submit" value="购买">
+                    </form>
+                </td>
+            </tr>
+        </#list>
+    </table>
+</div>
+<div class="invest-list w">
+
+    <div class="item">
+        <div class="mask"></div>
+        <div class="nhl">资金占比：<span>18 %</span></div>
+        <div class="pic"><img src="images/pro-1.jpg"></div>
+        <a onclick="shoenlistDiv(this)" pronum="1" class="joinbut">立即申请</a>
+        <div class="title">浙江省金华市某IT互联网公司</div>
+        <div class="con">
+            <span class="l">筹资金额：</span><em>60 </em> <span class="l"> 万元</span>
+            <dl>未完成</dl><span class="r">状态：</span>
+        </div>
+    </div>
+
+    <div class="item">
+        <div class="mask"></div>
+        <div class="nhl">资金方占股比例：<span>30%</span></div>
+        <div class="pic"><img src="images/pro-1.jpg"></div>
+        <a  onclick="shoenlistDiv(this)" pronum="2" class="joinbut">立即申请</a>
+        <div class="title">河北某精微内画文化产业项目股权融资</div>
+        <div class="con">
+            <span class="l">筹资金额：</span><em>2000</em> <span class="l"> 万元</span>
+            <dl>已完成</dl><span class="r">状态：</span>
+        </div>
+    </div>
+
+    <div class="item">
+        <div class="mask"></div>
+        <div class="nhl">资金方占股比例：<span>15-25%</span></div>
+        <div class="pic"><img src="images/pro-1.jpg"></div>
+        <a  onclick="shoenlistDiv(this)" pronum="3" class="joinbut">立即申请</a>
+        <div class="title">广东某人力资源项目股权融资</div>
+        <div class="con">
+            <span class="l">筹资金额：</span><em>200 </em> <span class="l"> 万元</span>
+            <dl>未完成</dl><span class="r">状态：</span>
+        </div>
+    </div>
+
+</div>
+<!---invest-title e--->
+
+
+
 
 
 <!---footer s--->
 <footer>
-    <div class="fmain w" ">
-    <div class="fm-top" >
-        <div class="left">
+    <div class="fmain w">
+        <div class="fm-top">
+            <div class="left">
 
-            <div class="ilist">
-                <h1>联系我们</h1>
-                <div class="t">客服电话</div>
-                <div class="tel">400-8800-379</div>
-                <div class="t">邮箱：1059193212@qq.com</div>
+                <div class="ilist">
+                    <h1>联系我们</h1>
+                    <div class="t">客服电话</div>
+                    <div class="tel">400-8800-379</div>
+                    <div class="t">邮箱：1059193212@qq.com</div>
+                </div>
+
+                <div class="ilist">
+                    <h1>关于我们</h1>
+                    <a href="">公司简介</a>
+                    <a href="">大事记</a>
+                    <a href="">加入我们</a>
+                </div>
+
+                <div class="ilist">
+                    <h1>帮助中心</h1>
+                    <a href="">客户指引</a>
+                </div>
+
             </div>
-
-            <div class="ilist">
-                <h1>关于我们</h1>
-                <a href="">公司简介</a>
-                <a href="">大事记</a>
-                <a href="">加入我们</a>
+            <div class="right">
+                <#--<div class="ewm"><img src="images/qrc.png"><span>添加我们的微信</span></div>-->
+                <#--<div class="ewm" style="margin-left:20px;"><img src="images/qrc.png"><span>关注公众号</span></div>-->
             </div>
-
-            <div class="ilist">
-                <h1>帮助中心</h1>
-                <a href="">客户指引</a>
-            </div>
-
-
         </div>
-        <#--<div class="right">
-            <div class="ewm"><img src="images/qrc.png"><span>添加我们的微信</span></div>
-            <div class="ewm" style="margin-left:20px;"><img src="images/qrc.png"><span>关注公众号</span></div>
-        </div>-->
-    </div>
-    <div class="fm-bot">
-        <span>&copy; 2018 &nbsp;北京汇添金科技有限公司 &nbsp;京ICP备：12054803号 </span>
-        <dl>市场有风险 投资需谨慎</dl>
-    </div>
+        <div class="fm-bot">
+            <span>&copy; 2018 &nbsp;北京汇创点投科技有限公司 &nbsp;京ICP备：12054803号 </span>
+            <dl>市场有风险 投资需谨慎</dl>
+        </div>
     </div>
 </footer>
 <!---footer e--->
@@ -191,7 +245,7 @@
         <div class="d d-qrcode">
             <i class="arrow"></i>
             <div class="inner-box">
-                <div class="qrcode-img"><img src="images/side_ewm.jpg" alt="" width="110"></div>
+                <div class="qrcode-img"><img src="images/side_ewm.jpg" alt=""></div>
                 <p>微信服务号</p>
             </div>
         </div>
@@ -238,6 +292,5 @@
     });
 </script>
 <!---客服代码 E--->
-<script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
