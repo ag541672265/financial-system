@@ -1,5 +1,5 @@
 body, html {
-    font-family: Microsoft Yahei, sans-serif !important;
+    font-family: Microsoft Yahei, sans-serif ;
     margin: 0
 }
 
@@ -39,7 +39,7 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
 }
 
 input, select {
-    font-family: Microsoft Yahei, sans-serif !important
+    font-family: Microsoft Yahei, sans-serif
 }
 
 h1, h2, h3, h4, h5, h6 {

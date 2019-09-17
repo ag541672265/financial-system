@@ -13,8 +13,8 @@ body{
 }
 
 i {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'Rjdaoico' !important;
+  /* use  to prevent issues with browser extensions that change fonts */
+  font-family: 'Rjdaoico' ;
   speak: none;
   font-style: normal;
   font-weight: normal;

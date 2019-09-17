@@ -19,10 +19,5 @@ public class VaultController {
         return "touzi_list";
     }
 
-    @RequestMapping("/huijinhong")
-    public String huijinhong(){
-
-        return "huijinhong";
-    }
 
 }

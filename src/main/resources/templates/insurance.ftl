@@ -38,18 +38,20 @@
     <#--logo图片-->
     <a href="/" class="logo"><img src="images/logo.png" <#--alt="汇添金logo图片"-->></a>
     <#if user ??>
+
         <a href="/login" class="ubut">退出</a>
-        <a href="/toUser" class="ubut" style="padding:0 15px;">个人中心<span><dl>我的资产：2830.00</dl></span></a>
+        <a href="/toassets" class="ubut" style="padding:0 15px;">个人中心<span><dl>我的资产：2830.00</dl></span></a>
+
     <#else>
         <a href="/register" class="topbut">注册</a>
         <a href="/login" class="topbut-cur">登录</a>
     </#if>
     <nav>
-        <a href="/">首页</a>
+        <a href="/" >首页</a>
         <#--链接未完成部分'''-->
         <a href="/chaalljijin">基金</a>
         <a href="/licai">理财</a>
-        <a href="/insurance"  class="cur">保险</a>
+        <a href="/insurance" class="cur">保险</a>
         <#--链接未完成部分...-->
     </nav>
 </header>
@@ -59,7 +61,7 @@
     <div class="insurace-nav">
         <ul>
             <li class="insurace-nav-item"><h4><a
-                            href="https://www.pingan.com/official/insurance?firstclass=a6cd7dbd9051778b"
+                            href="#jiankangxian"
                             otitle="保险专题页-banner左侧导航栏-位置1" otype="click" data-event-name="保险专题页-banner左侧导航栏-位置1"
                             data-event-param="保险专题页-banner左侧导航栏-位置1-健康险" data-event-type="click"><i
                                 style="background-image:url(//pa18-pweb.pingan.com/upload/chnapp/pc/uploads/img/category/2018/04/28/15249004307453.png);"> </i>健康险</a>
@@ -156,7 +158,7 @@
                 </div>
             </li>-->
             <li class="insurace-nav-item"><h4><a
-                            href="https://www.pingan.com/official/insurance?firstclass=753a80ca3d9db73d"
+                            href="#shouxian"
                             otitle="保险专题页-banner左侧导航栏-位置3" otype="click" data-event-name="保险专题页-banner左侧导航栏-位置3"
                             data-event-param="保险专题页-banner左侧导航栏-位置3-寿险" data-event-type="click"><i
                                 style="background-image:url(//pa18-pweb.pingan.com/upload/chnapp/pc/uploads/img/category/2018/04/28/15249004546853.png);"> </i>寿险</a>
@@ -331,7 +333,12 @@
 </div>
 <div class="insurance-group">
     <ul class="insurance-group-con">
-        <li><img src="insurance/images/15645672524114.jpg" alt="短期综合意外险">
+        <li>
+            <#if p1 ??>
+                <img src="${p1}" alt="一号商品">
+            <#else >
+                <img src="insurance/images/15645672524114.jpg" alt="一号商品">
+            </#if>
             <div class="insurance-group-item_con"><p class="insurance-group-item_title">短期综合意外险</p>
                 <p class="insurance-group-item_price">3.5元/起</p></div>
             <div class="insurance-group-item_mask">
@@ -414,7 +421,7 @@
         </ul>
     </div>-->
 </div>
-<div class="insurance-topic"><h1 style="color: #4d4d4d;font-size: 42px;font-weight: 600;font-family: 隶书">
+<div class="insurance-topic"><a name="jiankangxian"></a><h1 style="color: #4d4d4d;font-size: 42px;font-weight: 600;font-family: 隶书">
         健康险
         <a href="#">查看更多&gt;</a></h1>
     <div class="insurance-topic">
@@ -434,7 +441,12 @@
                         href="https://health.pingan.com/cshi-internet/chanpinlist/wangxiaochanpin/sourcecode_PAH/postid_PAB7/newpaejb.shtml"
                         otitle="保险专题页-保险首页健康险-位置2-平安e家保2018" otype="click" data-event-name="保险专题页-保险首页健康险-位置2-平安e家保2018"
                         data-event-param="保险专题页-保险首页健康险-位置2-平安e家保2018" data-event-type="click" target="_blank">
-                    <div class="topic-item-img"><img src="insurance/images/15550489075725.png" alt="平安e家保2018">
+                    <div class="topic-item-img">
+                        <#if jkp1 ??>
+                            <img src="${jkp1}" alt="一号商品">
+                        <#else >
+                            <img src="insurance/images/15550489075725.png" alt="平安e家保2018">
+                        </#if>
                     </div>
                     <div class="topic-item-cover"><h3>平安e家保2018</h3>
                         <p class="item-desc">小病有保障；支持线上问诊</p>
@@ -481,7 +493,7 @@
         </ul>
     </div>
 </div>
-<div class="insurance-topic"><h1 style="color: #4d4d4d;font-size: 42px;font-weight: 600;font-family: 隶书">寿&nbsp;&nbsp;险<a
+<div class="insurance-topic"><a name="shouxian"></a><h1 style="color: #4d4d4d;font-size: 42px;font-weight: 600;font-family: 隶书">寿&nbsp;&nbsp;险<a
                 href="#">查看更多&gt;</a></h1>
     <div class="insurance-topic">
         <ul>
