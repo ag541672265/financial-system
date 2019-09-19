@@ -38,7 +38,7 @@
             <a href="/toassets" class="ubut" style="padding:0 15px;">个人中心<span><dl>我的资产：2830.00</dl></span></a>
 
         <#else>
-            <a href="/register" class="topbut">注册</a>
+            <a href="/toRegister" class="topbut">注册</a>
             <a href="/login" class="topbut-cur">登录</a>
         </#if>
         <nav>
@@ -62,72 +62,23 @@
 
 <!---invest-title s--->
 <div class="invest-title"><dl></dl><span class="tx">投资项目</span><dl></dl></div>
-<div>
-    <table>
-        <tr>
-            <th>编号</th>
-            <th>名字</th>
-            <th>操作</th>
-        </tr>
-        <#list fundsList as flist>
-            <tr>
-                <td>${flist.getFid()}</td>
-                <td>${flist.getFname()}</td>
-                <td>
-                    <form action="/mairujijin"  method="post">
-                        <input type="hidden" name="fid" value="${flist.getFid()}">
-                        <input type="hidden" name="type" value="9">
-                        <input type="text" name="money">
-                        <input type="submit" value="购买">
-                    </form>
-                </td>
-            </tr>
-        </#list>
-    </table>
-</div>
 <div class="invest-list w">
-
-    <div class="item">
-        <div class="mask"></div>
-        <div class="nhl">资金占比：<span>18 %</span></div>
-        <div class="pic"><img src="images/pro-1.jpg"></div>
-        <a onclick="shoenlistDiv(this)" pronum="1" class="joinbut">立即申请</a>
-        <div class="title">浙江省金华市某IT互联网公司</div>
-        <div class="con">
-            <span class="l">筹资金额：</span><em>60 </em> <span class="l"> 万元</span>
-            <dl>未完成</dl><span class="r">状态：</span>
+    <#list fundsList as flist>
+        <div class="item">
+            <div class="mask"></div>
+            <div class="nhl">基金编号<span>${flist.getFid()}</span></div>
+            <div class="pic"><img src="images/pro-1.jpg"></div>
+            <a onclick="shoenlistDiv(this)" pronum="1" class="joinbut"  name="fid" value="${flist.getFid()}">立即申请</a>
+            <div class="title">${flist.getFname()}</div>
+            <div class="con">
+                <span class="l">筹资金额：</span><em>60 </em> <span class="l"> 万元</span>
+                <dl>未完成</dl><span class="r">状态：</span>
+            </div>
         </div>
-    </div>
 
-    <div class="item">
-        <div class="mask"></div>
-        <div class="nhl">资金方占股比例：<span>30%</span></div>
-        <div class="pic"><img src="images/pro-1.jpg"></div>
-        <a  onclick="shoenlistDiv(this)" pronum="2" class="joinbut">立即申请</a>
-        <div class="title">河北某精微内画文化产业项目股权融资</div>
-        <div class="con">
-            <span class="l">筹资金额：</span><em>2000</em> <span class="l"> 万元</span>
-            <dl>已完成</dl><span class="r">状态：</span>
-        </div>
-    </div>
-
-    <div class="item">
-        <div class="mask"></div>
-        <div class="nhl">资金方占股比例：<span>15-25%</span></div>
-        <div class="pic"><img src="images/pro-1.jpg"></div>
-        <a  onclick="shoenlistDiv(this)" pronum="3" class="joinbut">立即申请</a>
-        <div class="title">广东某人力资源项目股权融资</div>
-        <div class="con">
-            <span class="l">筹资金额：</span><em>200 </em> <span class="l"> 万元</span>
-            <dl>未完成</dl><span class="r">状态：</span>
-        </div>
-    </div>
-
+    </#list>
 </div>
 <!---invest-title e--->
-
-
-
 
 
 <!---footer s--->
@@ -173,13 +124,25 @@
 <!---申请窗口 S---->
 <div class="fullscreenMask" id="fullscreenMask" style="display:none;">
 </div>
-<div class="applyMain" id="applyMain" style="display:none;">
-    <div class="title"><span>请填写申请信息</span><i class="icon-0310" onclick="hideenlistDiv()"></i></div>
+<#--<div class="applyMain" id="applyMain" style="display:none;">
+    <form action="/mairujijin"  method="post">
+    <div class="title"><span>基金详情</span><i class="icon-0310" onclick="hideenlistDiv()"></i></div>
     <input id="pronum" type="hidden" name="pronum" value="">
-    <div class="txt" style="margin-top:30px;">您的姓名：</div>
-    <input type="text" name="name" required placeholder="请输入您的姓名" autocomplete="off" class="input">
-    <div class="txt" style="margin-top:15px;">联系电话：</div>
-    <input type="text" name="name" required placeholder="请输入您的联系电话" autocomplete="off" class="input">
+    <div class="txt" style="margin-top:30px;">基金名称：${flist.getFname()}</div>
+    <div class="txt" style="margin-top:15px;">近七天年收益率：10%</div>
+    <div class="txt" style="margin-top:15px;">购入金额：</div>
+    <input type="hidden" name="type" value="9">
+    <input type="text" name="money" required placeholder="填写金额" autocomplete="off" class="input">
+    <input type="submit" class="button" value="购   买">
+    </form>
+</div>-->
+<div class="applyMain" id="applyMain" style="display:none;">
+    <div class="title"><span>基金详情</span><i class="icon-0310" onclick="hideenlistDiv()"></i></div>
+    <div class="txt" style="margin-top:30px;">基金名称：xxx</div>
+    <div class="txt" style="margin-top:15px;">近七天年收益率：10%</div>
+    <div class="txt" style="margin-top:15px;">购入金额：</div>
+    <input type="hidden" name="type" value="9">
+    <input type="text" name="money" required placeholder="填写金额" autocomplete="off" class="input">
     <div class="txt" style="margin-top:15px;">投资意向情况说明：</div>
     <textarea name="textarea"  placeholder="请输入投资意向情况说明" class="textarea"></textarea>
     <input type="submit" class="button" value="提   交">
