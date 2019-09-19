@@ -38,7 +38,7 @@
             <a href="/toassets" class="ubut" style="padding:0 15px;">个人中心<span><dl>我的资产：2830.00</dl></span></a>
 
         <#else>
-            <a href="/register" class="topbut">注册</a>
+            <a href="/toRegister" class="topbut">注册</a>
             <a href="/login" class="topbut-cur">登录</a>
         </#if>
         <nav>
